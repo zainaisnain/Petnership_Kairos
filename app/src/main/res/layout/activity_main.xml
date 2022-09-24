@@ -4,15 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="@dimen/_12sdp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageBurgerMenu"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:src="@drawable/ic_burger_menu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toTopOf="parent"
+        app:tint="@color/black" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageAdd"
+        android:layout_width="@dimen/_24sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:src="@drawable/ic_burger_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toTopOf="parent"
+        app:tint="@color/black" />
+
+    <TextView
+        android:id="@+id/ASDashboardTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="@string/animal_shelter"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/imageBurgerMenu"
+
+        app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
+        app:layout_constraintStart_toTopOf="@id/imageBurgerMenu" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/profile"
+        app:layout_constraintEnd_toEndof="parent"
+        app:layout_constraintEnd_toStartof="parent"
+        app:layout_constraintEnd_toBottomof="@id/ASDashboardTitle"
+        app:riv_oval="true"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
