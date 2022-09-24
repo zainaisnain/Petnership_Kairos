@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Petnership</string>
     <string name="animal_shelter">Animal Shelter</string>
+    <string name="add_pets">Add Pets</string>
 </resources>
