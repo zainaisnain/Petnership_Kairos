@@ -7,7 +7,7 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:weightSum="5"
-    tools:context=".activity_petprofile">
+    tools:context=".activity_userprofile">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pet Profile"
+                android:text="@string/pet_profile"
                 android:fontFamily="@font/montserrat_reg"
                 android:layout_marginTop="8dp"
                 android:textSize="24sp"
@@ -32,7 +32,7 @@
            <TextView
                android:layout_width="match_parent"
                android:layout_height="match_parent"
-               android:text="DOGS"
+               android:text="@string/dogs"
                android:textStyle="bold"
                android:textAlignment="center"
                android:fontFamily="@font/montserrat_reg"
@@ -49,39 +49,137 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:background="@drawable/bg_profile"
-        android:columnCount="1"
+        android:columnCount="2"
         android:padding="10dp"
-        android:rowCount="2"
-        tools:ignore="Suspicious0dp">
+        android:rowCount="2" >
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_marginTop="10dp"
-            app:cardElevation="4dp">
+            app:cardElevation="4dp"
+            android:layout_columnWeight="1"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/petProfile"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/profile"
-                android:cardBackgroundColor="@colors/background_opaque"
-                android:alignParentRight="true"/>
+                android:src="@drawable/profile" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NAME"/>
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:text="NAME" />
 
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            app:cardElevation="4dp"
+            android:layout_columnWeight="1"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/petProfile1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="18sp"
+                    android:text="NAME" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            app:cardElevation="4dp"
+            android:layout_columnWeight="1"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/petProfile2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="18sp"
+                    android:text="NAME" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            app:cardElevation="4dp"
+            android:layout_columnWeight="1"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:id="@+id/petProfile3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textSize="18sp"
+                    android:text="NAME" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </GridLayout>
 
