@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setTheme(R.style.Theme_Petnership_Kairos);
         setContentView(R.layout.activity_main);
 
         card1 = (CardView) findViewById(R.id.dogs);
