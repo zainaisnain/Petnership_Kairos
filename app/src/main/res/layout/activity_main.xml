@@ -44,24 +44,24 @@
         app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
         app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />
 
-<!--    <com.makeramen.roundedimageview.RoundedImageView-->
-<!--        android:id="@+id/imageProfile"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_marginStart="140dp"-->
-<!--        android:src="@drawable/profile"-->
-<!--        app:layout_constraintEnd_toEndof="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomof="@id/ASDashboardTitle"-->
-<!--        app:riv_oval="true"-->
-<!--        tools:ignore="MissingClass,MissingConstraints"-->
-<!--        tools:layout_editor_absoluteY="52dp" />-->
-    
+    <!--    <com.makeramen.roundedimageview.RoundedImageView-->
+    <!--        android:id="@+id/imageProfile"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:layout_marginStart="140dp"-->
+    <!--        android:src="@drawable/profile"-->
+    <!--        app:layout_constraintEnd_toEndof="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomof="@id/ASDashboardTitle"-->
+    <!--        app:riv_oval="true"-->
+    <!--        tools:ignore="MissingClass,MissingConstraints"-->
+    <!--        tools:layout_editor_absoluteY="52dp" />-->
+
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/imageProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,20 +69,20 @@
         app:layout_constraintTop_toBottomOf="@id/ASDashboardTitle"
         app:riv_oval="true"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/username"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:fontFamily="@font/marmelad_regular"-->
-<!--        android:text="Welcome Animal Shelter!"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        app:layout_constraintEnd_toEndof="parent"-->
-<!--        app:layout_constraintStart_toStartof="parent"-->
-<!--        app:layout_constraintTop_toBottomof="@id/imageProfile"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/username"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fontFamily="@font/marmelad_regular"-->
+    <!--        android:text="Welcome Animal Shelter!"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        app:layout_constraintEnd_toEndof="parent"-->
+    <!--        app:layout_constraintStart_toStartof="parent"-->
+    <!--        app:layout_constraintTop_toBottomof="@id/imageProfile"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        app:constraint_referenced_ids="activeAdopters, toReview, registeredPets"
+        app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
         app:flow_horizontalGap="8dp"
         app:flow_maxElementsWrap="2"
         app:flow_verticalGap="8dp"
@@ -112,7 +112,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/registeredPets"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="16dp"
@@ -150,12 +150,69 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/dogs"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:cardBackgroundColor="@color/secondary_purple"
+        app:cardCornerRadius="16dp"
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="18 dogs"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_reg"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cats"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:cardBackgroundColor="@color/secondary_purple"
+        app:cardCornerRadius="16dp"
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="18 cats"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_reg"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:id="@+id/activeAdopters"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="16dp"
-        app:cardUseCompatPadding="true" >
+        app:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
