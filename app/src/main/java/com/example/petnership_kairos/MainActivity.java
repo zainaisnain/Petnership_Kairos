@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (view.getId()) {
             case R.id.dogs:
-                i = new Intent(this, PetProfile.class);
+                i = new Intent(this, activity_petprofile.class);
                 startActivity(i);
                 break;
 

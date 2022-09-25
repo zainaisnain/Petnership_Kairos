@@ -10,4 +10,6 @@
 
     <color name="background">#C8A4D4</color>
     <color name="secondary_purple">#371576</color>
+    <color name="tertiary_purple">#AC94F4</color>
+
 </resources>
