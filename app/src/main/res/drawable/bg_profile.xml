@@ -7,5 +7,5 @@
         android:bottomLeftRadius="0dp"
         />
 
-    <solid android:color="@color/secondary_purple"/>
+    <solid android:color="@color/white"/>
 </shape>
