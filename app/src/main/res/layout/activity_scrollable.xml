@@ -15,6 +15,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -47,6 +48,7 @@
                 android:rowCount="5">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/pet1"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_rowWeight="1"
@@ -63,7 +65,7 @@
                             android:id="@+id/petProfile"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:src="@drawable/profile" />
+                            android:src="@drawable/dog" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -71,7 +73,7 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginStart="20dp"
                             android:layout_marginBottom="20dp"
-                            android:text="NAME"
+                            android:text="PERCY"
                             android:textSize="18sp" />
 
                     </RelativeLayout>
