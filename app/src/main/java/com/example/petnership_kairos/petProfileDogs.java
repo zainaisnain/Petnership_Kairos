@@ -30,6 +30,7 @@ public class petProfileDogs extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Pet Profile Dogs");
+
     }
 
     @Override

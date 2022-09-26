@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_adopters:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new register()).commit();
+                        new petProfileDogs()).commit();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
