@@ -9,10 +9,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import android.content.Intent;
+
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
 
 
     /**
@@ -23,12 +30,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
-
-
     }
 
 
@@ -65,11 +71,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
         navigationView.setCheckedItem(R.id.nav_home);
-
-
     }
+
 
     @Override
     public void onBackPressed() {
@@ -98,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new home()).commit();
                 break;
 
-            case R.id.nav_register:
+            case R.id.nav_adopters:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new register()).commit();
         }
@@ -106,4 +110,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+//    @Override
+//    public void onClick(View view) {
+//        Intent i;
+//
+//        switch (view.getId()) {
+//            case R.id.dogs:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+//                        new register()).commit();
+//                break;
+//
+//            default:
+//                break;
+//        }
+//    }
 }

@@ -12,19 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class register extends Fragment {
+public class petProfileDogs extends Fragment {
 
-    private RegisterViewModel mViewModel;
+    private PetProfileDogsViewModel mViewModel;
 
-    public static register newInstance() {
-        return new register();
+    public static petProfileDogs newInstance() {
+        return new petProfileDogs();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_register, container, false);
-
+        return inflater.inflate(R.layout.fragment_pet_profile_dogs, container, false);
     }
 
     @Override
@@ -36,7 +35,7 @@ public class register extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(PetProfileDogsViewModel.class);
         // TODO: Use the ViewModel
     }
 
