@@ -25,10 +25,9 @@
 
     </group>
 
-    <group android:checkableBehavior="single">
         <item android:title="Social Media" >
             <menu>
-                <group>
+                <group android:checkableBehavior="single">
                     <item
                         android:title="Share"
                         android:icon="@drawable/ic_baseline_share_24"
@@ -38,12 +37,9 @@
             </menu>
         </item>
 
-    </group>
-
-    <group android:checkableBehavior="single">
         <item android:title="Authentication">
             <menu>
-                <group>
+                <group android:checkableBehavior="single">
                     <item
                         android:title="Logout"
                         android:icon="@drawable/ic_baseline_logout_24"
@@ -52,6 +48,5 @@
                 </group>
             </menu>
         </item>
-    </group>
 
 </menu>
