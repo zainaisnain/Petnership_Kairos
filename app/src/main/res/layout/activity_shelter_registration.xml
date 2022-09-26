@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C8A4D4"
-    tools:context=".AdopterRegistration">
+    tools:context=".ShelterRegistration">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -25,7 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pet Adopter Registration"
+                android:text="Animal Shelter Registration"
                 android:fontFamily="@font/montserrat_bold"
                 android:textSize="25sp"
                 android:textColor="#371576"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center"/>
 
             <EditText
-                android:id="@+id/txt_fname_adopter"
+                android:id="@+id/txt_biz_name_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -42,10 +42,10 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="First Name"/>
+                android:hint="Business Name"/>
 
             <EditText
-                android:id="@+id/txt_lname_adopter"
+                android:id="@+id/txt_biz_owner_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -54,10 +54,10 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Last Name" />
+                android:hint="Owner Name" />
 
             <EditText
-                android:id="@+id/txt_email_adopter"
+                android:id="@+id/txt_email_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -69,7 +69,7 @@
                 android:hint="Email" />
 
             <EditText
-                android:id="@+id/txt_username_adopter"
+                android:id="@+id/txt_username_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -81,7 +81,7 @@
                 android:paddingLeft="10dp" />
 
             <EditText
-                android:id="@+id/txt_password_adopter"
+                android:id="@+id/txt_password_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -94,7 +94,7 @@
                 android:paddingLeft="10dp" />
 
             <EditText
-                android:id="@+id/txt_confirmpassword_adopter"
+                android:id="@+id/txt_confirmpassword_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -107,7 +107,19 @@
                 android:paddingLeft="10dp" />
 
             <EditText
-                android:id="@+id/txt_contact_adopter"
+                android:id="@+id/txt_website_shelter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Website" />
+
+            <EditText
+                android:id="@+id/txt_contact_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -119,7 +131,7 @@
                 android:hint="Contact Number" />
 
             <EditText
-                android:id="@+id/txt_street_adopter"
+                android:id="@+id/txt_street_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -131,7 +143,7 @@
                 android:hint="Street Address" />
 
             <EditText
-                android:id="@+id/txt_city_adopter"
+                android:id="@+id/txt_city_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -143,7 +155,7 @@
                 android:hint="City" />
 
             <EditText
-                android:id="@+id/txt_province_adopter"
+                android:id="@+id/txt_province_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -156,7 +168,7 @@
 
 
             <EditText
-                android:id="@+id/txt_country_adopter"
+                android:id="@+id/txt_country_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -169,7 +181,7 @@
 
 
             <EditText
-                android:id="@+id/txt_gender_adopter"
+                android:id="@+id/txt_tin_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -178,21 +190,8 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Gender" />
+                android:hint="TIN Number" />
 
-
-            <EditText
-                android:id="@+id/txt_birthday_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Birthday (mm/dd/yyyy)"
-                android:inputType="date" />
 
             <ImageView
                 android:id="@+id/profile_pic_iv"
@@ -202,7 +201,7 @@
                 android:layout_marginTop="20dp"/>
 
             <Button
-                android:id="@+id/upload_image_btn"
+                android:id="@+id/upload_image_shelter_btn"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:backgroundTint="#C0C0C0"
@@ -211,13 +210,13 @@
                 android:text="Upload" />
 
             <Button
-                android:id="@+id/btn_submit_adopter"
+                android:id="@+id/btn_submit_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#371576"
-                android:text="Submit"/>
+                android:text="Submit" />
 
             <Button
                 android:layout_width="350dp"
@@ -230,5 +229,7 @@
 
         </LinearLayout>
     </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

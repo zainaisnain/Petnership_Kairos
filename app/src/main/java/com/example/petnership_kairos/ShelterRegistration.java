@@ -28,11 +28,11 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class AdopterRegistration extends AppCompatActivity implements View.OnClickListener {
+public class ShelterRegistration extends AppCompatActivity implements View.OnClickListener  {
 
-    private EditText editTextFname, editTextLname, editTextEmail, editTextUsername,
-            editTextPassword, editTextConfirmPassword, editTextContact, editTextStreet,
-            editTextCity, editTextProvince, editTextCountry, editTextGender, editTextBirthday;
+    private EditText editTextBizName, editTextOwner, editTextEmail, editTextUsername,
+            editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
+            editTextCity, editTextProvince, editTextCountry, editTextTin;
 
     private Button submit, uploadBtn;
     private FirebaseAuth mAuth;
@@ -53,35 +53,33 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     StorageReference storageReference;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adopter_registration);
+        setContentView(R.layout.activity_shelter_registration);
 
         mAuth = FirebaseAuth.getInstance();
 
-        editTextFname = findViewById(R.id.txt_fname_adopter);
-        editTextLname = findViewById(R.id.txt_lname_adopter);
-        editTextEmail = findViewById(R.id.txt_email_adopter);
-        editTextUsername = findViewById(R.id.txt_username_adopter);
-        editTextPassword = findViewById(R.id.txt_password_adopter);
-        editTextConfirmPassword = findViewById(R.id.txt_confirmpassword_adopter);
-        editTextContact = findViewById(R.id.txt_contact_adopter);
-        editTextStreet = findViewById(R.id.txt_street_adopter);
-        editTextCity = findViewById(R.id.txt_city_adopter);
-        editTextProvince = findViewById(R.id.txt_province_adopter);
-        editTextCountry = findViewById(R.id.txt_country_adopter);
-        editTextGender = findViewById(R.id.txt_gender_adopter);
-        editTextBirthday = findViewById(R.id.txt_birthday_adopter);
+        editTextBizName = findViewById(R.id.txt_biz_name_shelter);
+        editTextOwner = findViewById(R.id.txt_biz_owner_shelter);
+        editTextEmail = findViewById(R.id.txt_email_shelter);
+        editTextUsername = findViewById(R.id.txt_username_shelter);
+        editTextPassword = findViewById(R.id.txt_password_shelter);
+        editTextConfirmPassword = findViewById(R.id.txt_confirmpassword_shelter);
+        editTextWebsite = findViewById(R.id.txt_website_shelter);
+        editTextContact = findViewById(R.id.txt_contact_shelter);
+        editTextStreet = findViewById(R.id.txt_street_shelter);
+        editTextCity = findViewById(R.id.txt_city_shelter);
+        editTextProvince = findViewById(R.id.txt_province_shelter);
+        editTextCountry = findViewById(R.id.txt_country_shelter);
+        editTextTin = findViewById(R.id.txt_tin_shelter);
 
-        submit = findViewById(R.id.btn_submit_adopter);
+        submit = findViewById(R.id.btn_submit_shelter);
         submit.setOnClickListener(this);
 
         //UPLOAD IMAGE
         imageView = findViewById(R.id.profile_pic_iv);
-        uploadBtn = findViewById(R.id.upload_image_btn);
+        uploadBtn = findViewById(R.id.upload_image_shelter_btn);
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
@@ -103,7 +101,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                 uploadImage();
             }
         });
-
     }
 
     // Select Image method
@@ -166,7 +163,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     private void uploadImage()
     {
         imageName = UUID.randomUUID().toString();
-
         if (filePath != null) {
 
             // Code for showing progressDialog while uploading
@@ -179,7 +175,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             StorageReference ref
                     = storageReference
                     .child(
-                            "Adopters/"
+                            "Shelters/"
                                     + imageName);
 
             // adding listeners on upload
@@ -197,7 +193,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                     // Dismiss dialog
                                     progressDialog.dismiss();
                                     Toast
-                                            .makeText(AdopterRegistration.this,
+                                            .makeText(ShelterRegistration.this,
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
@@ -212,7 +208,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                             // Error, Image not uploaded
                             progressDialog.dismiss();
                             Toast
-                                    .makeText(AdopterRegistration.this,
+                                    .makeText(ShelterRegistration.this,
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
@@ -242,36 +238,37 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.btn_submit_adopter:
-                registerAdopter();
+            case R.id.btn_submit_shelter:
+                registerShelter();
                 break;
         }
     }
 
-    private void registerAdopter() {
-        String fname = editTextFname.getText().toString().trim();
-        String lname = editTextLname.getText().toString().trim();
+    private void registerShelter() {
+        String bizName = editTextBizName.getText().toString().trim();
+        String owner = editTextOwner.getText().toString().trim();
         String email = editTextEmail.getText().toString();
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
+        String website = editTextWebsite.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
         String province = editTextProvince.getText().toString().trim();
         String country = editTextCountry.getText().toString().trim();
-        String gender = editTextGender.getText().toString().trim();
-        String birthday = editTextBirthday.getText().toString().trim();
+        String tin = editTextTin.getText().toString().trim();
 
-        if(fname.isEmpty()){
-            editTextFname.setError("First Name Required.");
-            editTextFname.requestFocus();
+
+        if(bizName.isEmpty()){
+            editTextBizName.setError("Business Name Required.");
+            editTextOwner.requestFocus();
             return;
         }
 
-        if(lname.isEmpty()){
-            editTextLname.setError("Last Name Required.");
-            editTextLname.requestFocus();
+        if(owner.isEmpty()){
+            editTextOwner.setError("Owner Required.");
+            editTextOwner.requestFocus();
             return;
         }
 
@@ -317,6 +314,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        if(website.isEmpty()){
+            editTextWebsite.setError("Website Required.");
+            editTextWebsite.requestFocus();
+            return;
+        }
+
         if(contact.isEmpty()){
             editTextContact.setError("Contact Number Required.");
             editTextContact.requestFocus();
@@ -347,34 +350,32 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        //TODO: add alert dialog after destination screen is made
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
 
                     if(task.isSuccessful()){
-                        Adopter adopter = new Adopter(fname, lname, email, username, password,
-                                contact, street, city, province, country, gender, birthday, imageName);
+                        Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                website, contact, street, city, province, country, tin, imageName);
 
-
-                        FirebaseDatabase.getInstance().getReference("Adopters")
+                        FirebaseDatabase.getInstance().getReference("Shelters")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(adopter).addOnCompleteListener(task1 -> {
+                                .setValue(shelter).addOnCompleteListener(task1 -> {
 
                                     if(task1.isSuccessful()){
-                                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
                                     }else {
-                                        Toast.makeText(AdopterRegistration.this, "Failed to register adopter!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(ShelterRegistration.this, "Failed to register Animal Shelter!", Toast.LENGTH_LONG).show();
                                     }
 
                                 });
 
-                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
                     }else {
-                        System.out.println(task.getException().getMessage());
-//                        System.out.println(task.getException().getErrorCode());
-
-                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }
                 });
 
     }
+
 }
