@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/drawable/round_darkpurple.xml" value="0.179" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/drawable/round_lightpurple.xml" value="0.179" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/drawable/top_bg.xml" value="0.26" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/drawable/white_perpetprofile.xml" value="0.26" />
-        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_main.xml" value="0.2546875" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_main.xml" value="0.12" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_per_pet_profile.xml" value="0.12927631578947368" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_petprofile.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_petprofileq.xml" value="0.1" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_profile.xml" value="0.16" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_scrollable.xml" value="0.2" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/activity_start.xml" value="0.2546875" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/bottomnav.xml" value="0.16085526315789472" />
-        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/per_pet_profile.xml" value="0.20897435897435898" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/content_scrolling.xml" value="0.12894736842105264" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/layout/per_pet_profile.xml" value="0.14" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2546875" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23125" />
       </map>
