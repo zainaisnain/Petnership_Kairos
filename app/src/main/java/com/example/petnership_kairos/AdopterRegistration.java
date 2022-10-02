@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -51,6 +52,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -291,6 +293,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             editTextUsername.setError("Username Required.");
             editTextUsername.requestFocus();
             return;
+        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
+            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
+            editTextUsername.requestFocus();
+            return;
         }
 
         if(password.isEmpty()){
@@ -354,18 +360,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                         Adopter adopter = new Adopter(fname, lname, email, username, password,
                                 contact, street, city, province, country, gender, birthday, imageName);
 
-
-                        FirebaseDatabase.getInstance().getReference("Adopters")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(adopter).addOnCompleteListener(task1 -> {
-
-                                    if(task1.isSuccessful()){
-                                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
-                                    }else {
-                                        Toast.makeText(AdopterRegistration.this, "Failed to register adopter!", Toast.LENGTH_LONG).show();
-                                    }
-
-                                });
+                        databaseReference.child("Adopters").child(username).setValue(adopter);
 
                         Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
                     }else {
@@ -375,6 +370,5 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                         Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }
                 });
-
     }
 }
