@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -51,6 +52,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
@@ -288,6 +290,10 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             editTextUsername.setError("Username Required.");
             editTextUsername.requestFocus();
             return;
+        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
+            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
+            editTextUsername.requestFocus();
+            return;
         }
 
         if(password.isEmpty()){
@@ -358,18 +364,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                         Shelter shelter = new Shelter(bizName, owner, email, username, password,
                                 website, contact, street, city, province, country, tin, imageName);
 
-                        FirebaseDatabase.getInstance().getReference("Shelters")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(shelter).addOnCompleteListener(task1 -> {
-
-                                    if(task1.isSuccessful()){
-                                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
-                                    }else {
-                                        Toast.makeText(ShelterRegistration.this, "Failed to register Animal Shelter!", Toast.LENGTH_LONG).show();
-                                    }
-
-                                });
-
+                        databaseReference.child("Adopters").child(username).setValue(shelter);
                         Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
                     }else {
                         Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
