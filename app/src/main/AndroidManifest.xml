@@ -14,9 +14,6 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
-            android:name=".PerPetProfile"
-            android:exported="false" />
-        <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -25,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUserType"
+            android:exported="true" />
+        <activity android:name=".ShelterRegistration" android:exported="false" />
+        <activity android:name=".AdopterRegistration" android:exported="false" />
         <activity android:name=".MainActivity" />
     </application>
 

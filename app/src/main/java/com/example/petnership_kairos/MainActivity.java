@@ -15,12 +15,13 @@ import android.content.Intent;
 
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-
 
     /**
      * variables
@@ -30,18 +31,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser currUser = auth.getCurrentUser();
+
+        if(currUser == null)
+        {
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
 
         /**
          * Set home fragment as default page
@@ -105,10 +115,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_adopters:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new petProfileDogs()).commit();
+                break;
+
+            case R.id.nav_logout:
+                userLogout();
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void userLogout()
+    {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 //    @Override

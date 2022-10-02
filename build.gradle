@@ -1,9 +1,56 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.14'
+    }
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id 'com.android.application' version '7.2.2' apply false
-    id 'com.android.library' version '7.2.2' apply false
+    id 'com.android.application' version '7.3.0' apply true
+    id 'com.android.library' version '7.3.0' apply false
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "com.example.petnership_kairos"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/dashboard',
+                            'src/main/res/layouts/login',
+                            'src/main/res/layouts/main_menu',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
+    namespace 'com.example.petnership_kairos'
+    buildToolsVersion '33.0.0'
 }
+
+
+
+
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
+
+

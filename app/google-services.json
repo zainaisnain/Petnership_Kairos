@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "483113738690",
+    "project_id": "petnership-kairos-test",
+    "storage_bucket": "petnership-kairos-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483113738690:android:1fc4f8127fe3040297f65b",
+        "android_client_info": {
+          "package_name": "com.example.petnership_kairos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483113738690-3290qrduq1nkug1q8t8j6tfj3fd5ol0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7xQkBzol7haB7NwD9QAVST-trQQs__ms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483113738690-3290qrduq1nkug1q8t8j6tfj3fd5ol0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
