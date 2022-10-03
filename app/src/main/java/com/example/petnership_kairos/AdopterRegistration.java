@@ -362,10 +362,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
                         databaseReference.child("Adopters").child(username).setValue(adopter);
 
+                        Users user = new Users(username, password, "adopter");
+                        databaseReference.child("Users").child(username).setValue(user);
+
                         Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
                     }else {
                         System.out.println(task.getException().getMessage());
-//                        System.out.println(task.getException().getErrorCode());
 
                         Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }

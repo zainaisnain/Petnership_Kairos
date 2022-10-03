@@ -365,6 +365,10 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                                 website, contact, street, city, province, country, tin, imageName);
 
                         databaseReference.child("Shelters").child(username).setValue(shelter);
+
+                        Users user = new Users(username, password, "shelter");
+                        databaseReference.child("Users").child(username).setValue(user);
+
                         Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
                     }else {
                         Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
