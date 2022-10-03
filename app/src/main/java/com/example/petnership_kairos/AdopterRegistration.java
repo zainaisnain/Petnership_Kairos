@@ -16,8 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -279,6 +282,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String country = editTextCountry.getText().toString().trim();
         String gender = editTextGender.getText().toString().trim();
         String birthday = editTextBirthday.getText().toString().trim();
+        String user_type = "adopter";
 
         if(fname.isEmpty()){
             editTextFname.setError("First Name Required.");
@@ -364,34 +368,67 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+        mAuth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful())
+                                {
+                                    //success registration insert to firebase database
+                                    Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                            contact, street, city, province, country, gender, birthday, user_type);
+                                    FirebaseDatabase.getInstance().getReference("Adopters")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(adopter).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task1) {
+                                                    if(task1.isSuccessful())
+                                                    {
+                                                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                                                    }else
+                                                    {
+                                                        Toast.makeText(AdopterRegistration.this, "Failed to register adopter!", Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            });
+                                }
+                                else
+                                {
+                                    //failed login
+                                    Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
 
-                    if(task.isSuccessful()){
-                        Adopter adopter = new Adopter(fname, lname, email, username, password,
-                                contact, street, city, province, country, gender, birthday, imageName);
 
-
-                        FirebaseDatabase.getInstance().getReference("Adopters")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(adopter).addOnCompleteListener(task1 -> {
-
-                                    if(task1.isSuccessful()){
-                                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
-                                    }else {
-                                        Toast.makeText(AdopterRegistration.this, "Failed to register adopter!", Toast.LENGTH_LONG).show();
-                                    }
-
-                                });
-
-                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
-                    }else {
-                        System.out.println(task.getException().getMessage());
-//                        System.out.println(task.getException().getErrorCode());
-
-                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                    }
-                });
+//        mAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(task -> {
+//
+//                    if(task.isSuccessful()){
+//                        Adopter adopter = new Adopter(fname, lname, email, username, password,
+//                                contact, street, city, province, country, gender, birthday, imageName);
+//
+//
+//                        FirebaseDatabase.getInstance().getReference("Adopters")
+//                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                .setValue(adopter).addOnCompleteListener(task1 -> {
+//
+//                                    if(task1.isSuccessful()){
+//                                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+//                                    }else {
+//                                        Toast.makeText(AdopterRegistration.this, "Failed to register adopter!", Toast.LENGTH_LONG).show();
+//                                    }
+//
+//                                });
+//
+//                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+//                    }else {
+//                        System.out.println(task.getException().getMessage());
+////                        System.out.println(task.getException().getErrorCode());
+//
+//                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+//                    }
+//                });
 
     }
 }

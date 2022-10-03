@@ -16,8 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -274,6 +277,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         String province = editTextProvince.getText().toString().trim();
         String country = editTextCountry.getText().toString().trim();
         String tin = editTextTin.getText().toString().trim();
+        String user_type = "shelter";
 
 
         if(bizName.isEmpty()){
@@ -368,27 +372,31 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
         //TODO: add alert dialog after destination screen is made
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                    website, contact, street, city, province, country, tin, user_type);
 
-                    if(task.isSuccessful()){
-                        Shelter shelter = new Shelter(bizName, owner, email, username, password,
-                                website, contact, street, city, province, country, tin, imageName);
+                            FirebaseDatabase.getInstance().getReference("Shelters")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(shelter).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task1)
+                                        {
+                                            if (task1.isSuccessful()) {
+                                                Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
+                                            } else {
+                                                Toast.makeText(ShelterRegistration.this, "Failed to register Animal Shelter!", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
 
-                        FirebaseDatabase.getInstance().getReference("Shelters")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(shelter).addOnCompleteListener(task1 -> {
-
-                                    if(task1.isSuccessful()){
-                                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
-                                    }else {
-                                        Toast.makeText(ShelterRegistration.this, "Failed to register Animal Shelter!", Toast.LENGTH_LONG).show();
-                                    }
-
-                                });
-
-                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
-                    }else {
-                        Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                        }else {
+                            Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
 

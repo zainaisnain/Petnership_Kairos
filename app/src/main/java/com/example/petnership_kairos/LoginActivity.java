@@ -15,21 +15,26 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    EditText UserEmail =findViewById(R.id.loginusername);
+    EditText UserPassword =findViewById(R.id.loginpassword);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginv2);
 
+
+
         mAuth=FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null)
         {
-            finish();
+            showMainActivity();
             return;
         }
 
@@ -56,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         EditText etPassword = findViewById(R.id.authPassword);
 
         //fetch input values
-
         String useremail = etUserEmail.getText().toString();
         String password = etPassword.getText().toString();
 
@@ -83,6 +87,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+//    private void readData()
+//    {
+//        refrence = FirebaseDatabase.getInstance().getReference("User");
+//    }
+
     private void showMainActivity()
     {
         Intent intent = new Intent(this,MainActivity.class);
@@ -90,10 +99,18 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    public void switchToRegister()
+    private void switchToRegister()
     {
         Intent intent = new Intent(this,ActivityUserType.class);
         startActivity(intent);
         finish();
+    }
+
+    private void isUser()
+    {
+        String authEmail = UserEmail.getText().toString().trim();
+        String authPassword = UserPassword.getText().toString().trim();
+
+        DatabaseReference reference FirebaseDatabase.getInstance().getReference("")
     }
 }

@@ -1,7 +1,7 @@
 package com.example.petnership_kairos;
 public class Adopter {
     public String fname, lname, email, username, password,
-            contact, street, city, province, country, gender, birthday, imageName;
+            contact, street, city, province, country, gender, birthday, user_type;
 
     public Adopter(){
 
@@ -9,7 +9,7 @@ public class Adopter {
 
     public Adopter(String fname, String lname, String email, String username, String password,
                    String contact, String street, String city, String province, String country,
-                   String gender, String birthday, String imageName){
+                   String gender, String birthday, String user_type){
 
         this.fname = fname;
         this.lname = lname;
@@ -23,6 +23,6 @@ public class Adopter {
         this.country = country;
         this.gender = gender;
         this.birthday = birthday;
-        this.imageName = imageName;
+        this.user_type = user_type;
     }
 }
