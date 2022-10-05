@@ -1,5 +1,4 @@
 package com.example.petnership_kairos;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,8 +18,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -52,10 +54,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
+
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -353,24 +354,39 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+        //TODO: Add validation to make sure na the username does not already exist
 
-                    if(task.isSuccessful()){
-                        Adopter adopter = new Adopter(fname, lname, email, username, password,
-                                contact, street, city, province, country, gender, birthday, imageName);
+        databaseReference.child("Adopters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    Toast.makeText(AdopterRegistration.this, "Username already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                }else{
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(task -> {
 
-                        databaseReference.child("Adopters").child(username).setValue(adopter);
+                                if(task.isSuccessful()){
+                                    Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                            contact, street, city, province, country, gender, birthday, imageName);
 
-                        Users user = new Users(username, password, "adopter");
-                        databaseReference.child("Users").child(username).setValue(user);
+                                    databaseReference.child("Adopters").child(username).setValue(adopter);
 
-                        Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
-                    }else {
-                        System.out.println(task.getException().getMessage());
+                                    Users user = new Users(email, password, username, "adopter");
+                                    databaseReference.child("Users").child(username).setValue(user);
 
-                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                    }
-                });
+                                    Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                                }else {
+                                    System.out.println(task.getException().getMessage());
+                                    Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
