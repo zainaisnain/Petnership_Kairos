@@ -19,8 +19,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -356,25 +359,37 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        //TODO: add alert dialog after destination screen is made
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(task -> {
+        databaseReference.child("Shelters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Toast.makeText(ShelterRegistration.this, "Username already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                } else {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(task -> {
 
-                    if(task.isSuccessful()){
-                        Shelter shelter = new Shelter(bizName, owner, email, username, password,
-                                website, contact, street, city, province, country, tin, imageName);
+                                if(task.isSuccessful()){
+                                    Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                            website, contact, street, city, province, country, tin, imageName);
 
-                        databaseReference.child("Shelters").child(username).setValue(shelter);
+                                    databaseReference.child("Shelters").child(username).setValue(shelter);
 
-                        Users user = new Users(email, password, username, "shelter");
-                        databaseReference.child("Users").child(username).setValue(user);
+                                    Users user = new Users(email, password, username, "shelter");
+                                    databaseReference.child("Users").child(username).setValue(user);
 
-                        Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
-                    }else {
-                        Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                    }
-                });
+                                    Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
+                                }else {
+                                    Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
 
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }

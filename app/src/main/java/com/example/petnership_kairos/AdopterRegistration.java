@@ -354,8 +354,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        //TODO: Add validation to make sure na the username does not already exist
-
         databaseReference.child("Adopters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
