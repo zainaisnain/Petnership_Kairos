@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C8A4D4"
+    tools:context=".AdopterRegistration">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adoption Form"
+                android:fontFamily="@font/marmelad_regular"
+                android:textSize="25sp"
+                android:textColor="#371576"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txt_date"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Date"/>
+
+            <EditText
+                android:id="@+id/txt_lname_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/txt_email_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Name of the pet you wish to adopt" />
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Email"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_mobilenum"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Mobile Number"
+                android:inputType="textPassword"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"
+                android:textColor="#371576"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_street"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Street Address"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_street2"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Street Address Line 2"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_city"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="City/State/Province"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_zip"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Postal/ZIP Code"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_country"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Country"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do you own any pets?"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"
+                android:textColor="#371576"
+                android:layout_marginTop="30dp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"/>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"/>
+
+
+            <EditText
+                android:id="@+id/txt_contact_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Pet Names" />
+
+            <EditText
+                android:id="@+id/txt_street_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Street Address" />
+
+            <EditText
+                android:id="@+id/txt_city_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="City" />
+
+            <EditText
+                android:id="@+id/txt_province_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Province" />
+
+
+            <EditText
+                android:id="@+id/txt_country_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Country" />
+
+
+            <EditText
+                android:id="@+id/txt_gender_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Gender" />
+
+
+            <EditText
+                android:id="@+id/txt_birthday_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Birthday (mm/dd/yyyy)"
+                android:inputType="date" />
+
+            <ImageView
+                android:id="@+id/profile_pic_iv"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/upload_image_btn"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:backgroundTint="#C0C0C0"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Upload" />
+
+            <Button
+                android:id="@+id/btn_submit_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#371576"
+                android:text="Submit"/>
+
+            <Button
+                android:id="@+id/adopterRegisterCancel"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#AC94F4"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:text="Cancel" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

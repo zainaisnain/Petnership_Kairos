@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activity_petprofilequestionnaire"
+    tools:context=".activity_catprofilequestionnaire"
     tools:showIn="@layout/activity_petprofilequestionnaire">
 
     <androidx.core.widget.NestedScrollView

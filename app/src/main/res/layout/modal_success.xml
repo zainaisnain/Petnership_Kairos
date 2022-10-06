@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:background="@drawable/modal_success"
+    tools:context=".ModalSuccessDialog">
+
+    <ImageView
+        android:id="@+id/modal_success_petprofile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/check"/>
+    
+    <TextView
+        android:id="@+id/success_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet profile created!"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:layout_below="@id/modal_success_petprofile"
+        android:fontFamily="@font/montserrat_reg"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/cancel_petprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/success_message"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/round_darkpurple"
+        android:minHeight="50dp"
+        android:text="OK"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

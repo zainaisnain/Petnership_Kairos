@@ -1,0 +1,65 @@
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="409dp"
+    android:layout_height="43dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/bg_bottom_navbar"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        android:id="@+id/bar_icon2"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="52dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/window_icon" />
+
+    <ImageButton
+        android:id="@+id/bar_icon3"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="48dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/check_icon" />
+
+    <ImageButton
+        android:id="@+id/bar_icon4"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="48dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/mail_icon" />
+
+    <ImageButton
+        android:id="@+id/bar_icon1"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="44dp"
+        android:background="#0000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon2"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/account_icon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
