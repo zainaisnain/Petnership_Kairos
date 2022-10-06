@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "483113738690",
+    "firebase_url": "https://petnership-kairos-test-default-rtdb.firebaseio.com",
     "project_id": "petnership-kairos-test",
     "storage_bucket": "petnership-kairos-test.appspot.com"
   },

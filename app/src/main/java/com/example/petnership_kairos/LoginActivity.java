@@ -17,18 +17,25 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    EditText UserEmail =findViewById(R.id.loginusername);
-    EditText UserPassword =findViewById(R.id.loginpassword);
+    private EditText UserEmail, UserPassword;
+    private String username = "";
+
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginv2);
 
+        UserEmail =findViewById(R.id.loginusername);
+        UserPassword =findViewById(R.id.loginpassword);
 
 
         mAuth=FirebaseAuth.getInstance();
@@ -57,12 +64,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void authenticateUser()
     {
-        EditText etUserEmail = findViewById(R.id.authUserEmail);
-        EditText etPassword = findViewById(R.id.authPassword);
 
         //fetch input values
-        String useremail = etUserEmail.getText().toString();
-        String password = etPassword.getText().toString();
+        String useremail = UserEmail.getText().toString();
+        String password = UserPassword.getText().toString();
 
         if(useremail.isEmpty() || password.isEmpty())
         {
@@ -70,20 +75,71 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(useremail,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        databaseReference.orderByChild("email").equalTo(useremail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    //success redirect to dashboard
-                    showMainActivity();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                //first locate the parent (in this case, also the username) of the email
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    username = ds.getKey();
                 }
-                else
-                {
-                    //failed login
-                    Toast.makeText(LoginActivity.this,"Authentication Failed.",Toast.LENGTH_LONG).show();
-                }
+
+                //sign in
+                mAuth.signInWithEmailAndPassword(useremail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            databaseReference.child(username).child("userType")
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            String userType = snapshot.getValue(String.class);
+                                            System.out.println(userType);
+
+                                            if(userType.equals("adopter")){
+                                                System.out.println("is an adopter");
+                                                startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                            }else if(userType.equals("shelter")) {
+                                                System.out.println("is a shelter");
+                                                startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            System.out.println("on cancelled");
+                                        }
+                                    });
+                        }
+                        else
+                        {
+                            //failed login
+                            Toast.makeText(LoginActivity.this,"Authentication Failed.",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
             }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+//        mAuth.signInWithEmailAndPassword(useremail,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+//            @Override
+//            public void onComplete(@NonNull Task<AuthResult> task) {
+//                if(task.isSuccessful())
+//                {
+//                    showMainActivity();
+//                }
+//                else
+//                {
+//                    //failed login
+//                    Toast.makeText(LoginActivity.this,"Authentication Failed.",Toast.LENGTH_LONG).show();
+//                }
+//            }
         });
     }
 
@@ -111,6 +167,6 @@ public class LoginActivity extends AppCompatActivity {
         String authEmail = UserEmail.getText().toString().trim();
         String authPassword = UserPassword.getText().toString().trim();
 
-        DatabaseReference reference FirebaseDatabase.getInstance().getReference("")
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("");
     }
 }

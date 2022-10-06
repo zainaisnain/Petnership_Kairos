@@ -45,13 +45,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser currUser = auth.getCurrentUser();
 
-        if(currUser == null)
-        {
-            Intent intent = new Intent(this,LoginActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
+//        if(currUser == null)
+//        {
+//            Intent intent = new Intent(this,LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//            return;
+//        }
 
         /**
          * Set home fragment as default page

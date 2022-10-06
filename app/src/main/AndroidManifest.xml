@@ -30,6 +30,8 @@
             android:exported="true" />
         <activity android:name=".ShelterRegistration" android:exported="false" />
         <activity android:name=".AdopterRegistration" android:exported="false" />
+        <activity android:name=".AdopterDashboard" android:exported="false"/>
+        <activity android:name=".ShelterDashboard" android:exported="false"/>
         <activity android:name=".MainActivity" />
     </application>
 

@@ -16,13 +16,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -54,6 +55,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
 
     @Override
@@ -104,22 +106,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                 uploadImage();
             }
         });
-
-        //return user type selection
-        Button userType = findViewById(R.id.shelterRegisterCancel);
-        userType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectUserType();
-            }
-        });
-    }
-
-    private void selectUserType()
-    {
-        Intent intent = new Intent(this,ActivityUserType.class);
-        startActivity(intent);
-        finish();
     }
 
     // Select Image method
@@ -277,7 +263,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         String province = editTextProvince.getText().toString().trim();
         String country = editTextCountry.getText().toString().trim();
         String tin = editTextTin.getText().toString().trim();
-        String user_type = "shelter";
 
 
         if(bizName.isEmpty()){
@@ -306,6 +291,10 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
         if(username.isEmpty()){
             editTextUsername.setError("Username Required.");
+            editTextUsername.requestFocus();
+            return;
+        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
+            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
             editTextUsername.requestFocus();
             return;
         }
@@ -370,36 +359,37 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        //TODO: add alert dialog after destination screen is made
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
-                            Shelter shelter = new Shelter(bizName, owner, email, username, password,
-                                    website, contact, street, city, province, country, tin, user_type);
+        databaseReference.child("Shelters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Toast.makeText(ShelterRegistration.this, "Username already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                } else {
+                    mAuth.createUserWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(task -> {
 
-                            FirebaseDatabase.getInstance().getReference("Shelters")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(shelter).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task1)
-                                        {
-                                            if (task1.isSuccessful()) {
-                                                Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
-                                            } else {
-                                                Toast.makeText(ShelterRegistration.this, "Failed to register Animal Shelter!", Toast.LENGTH_LONG).show();
-                                            }
-                                        }
-                                    });
+                                if(task.isSuccessful()){
+                                    Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                            website, contact, street, city, province, country, tin, imageName);
 
-                        }else {
-                            Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                                    databaseReference.child("Shelters").child(username).setValue(shelter);
 
+                                    User user = new User(email, password, username, "shelter");
+                                    databaseReference.child("Users").child(username).setValue(user);
+
+                                    Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
+                                }else {
+                                    Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                                }
+                            });
+                }
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }

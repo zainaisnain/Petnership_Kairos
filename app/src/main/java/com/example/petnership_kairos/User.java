@@ -1,18 +1,16 @@
 package com.example.petnership_kairos;
 
 public class User {
-    public String userEmail;
-    public String userName;
+    public String email, password, username, userType;
 
-    //user constructor
-    public User()
-    {
+    public User(){
+
     }
 
-    public User (String userEmail,String userName)
-    {
-        this.userEmail = userEmail;
-        this.userName = userName;
+    public User(String email, String password,String username, String userType){
+        this.email = email;
+        this.password = password;
+        this.username = username;
+        this.userType = userType;
     }
-
 }
