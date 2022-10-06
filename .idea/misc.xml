@@ -8,6 +8,10 @@
         <entry key="app/src/main/res/layout/activity_adopter_edit.xml" value="0.2039333048311244" />
         <entry key="app/src/main/res/layout/activity_adopter_registration.xml" value="0.24925181701581872" />
         <entry key="app/src/main/res/layout/activity_animal_registration.xml" value="0.3476851851851852" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.3139278279761567" />
+        <entry key="app/src/main/res/layout/activity_forgot_password2.xml" value="0.2759609090308442" />
+        <entry key="app/src/main/res/layout/activity_forgot_password3.xml" value="0.2831447469214692" />
+        <entry key="app/src/main/res/layout/activity_forgot_password4.xml" value="0.2675853597144379" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2250643129701967" />
         <entry key="app/src/main/res/layout/activity_per_pet_profile.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/activity_petprofile.xml" value="0.1526293287729799" />
