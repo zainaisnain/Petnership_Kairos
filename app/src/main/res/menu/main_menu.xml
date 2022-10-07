@@ -9,33 +9,33 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/nav_pets"
+            android:id="@+id/nav_reg_pets"
             android:icon="@drawable/ic_baseline_pets_24"
-            android:title="Registered Pets" />
+            android:title="Register Pet" />
 
         <item
-            android:id="@+id/nav_adopters"
+            android:id="@+id/nav_reg_my_pets"
             android:icon="@drawable/ic_baseline_supervisor_account_24"
-            android:title="Registered Adopters" />
+            android:title="My Pets" />
 
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Settings" />
+<!--        <item-->
+<!--            android:id="@+id/nav_settings"-->
+<!--            android:icon="@drawable/ic_baseline_settings_24"-->
+<!--            android:title="Settings" />-->
 
     </group>
 
-        <item android:title="Social Media" >
-            <menu>
-                <group android:checkableBehavior="single">
-                    <item
-                        android:title="Share"
-                        android:icon="@drawable/ic_baseline_share_24"
-                        android:id="@+id/nav_share"
-                        />
-                </group>
-            </menu>
-        </item>
+<!--        <item android:title="Social Media" >-->
+<!--            <menu>-->
+<!--                <group android:checkableBehavior="single">-->
+<!--                    <item-->
+<!--                        android:title="Share"-->
+<!--                        android:icon="@drawable/ic_baseline_share_24"-->
+<!--                        android:id="@+id/nav_share"-->
+<!--                        />-->
+<!--                </group>-->
+<!--            </menu>-->
+<!--        </item>-->
 
         <item android:title="Authentication">
             <menu>

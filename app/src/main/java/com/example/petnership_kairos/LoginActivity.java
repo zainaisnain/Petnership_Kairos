@@ -39,11 +39,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
         mAuth=FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null)
-        {
-            showMainActivity();
-            return;
-        }
+//        if(mAuth.getCurrentUser() != null)
+//        {
+//            showMainActivity();
+//            return;
+//        }
 
         Button signBtn = findViewById(R.id.signupbutton);
         signBtn.setOnClickListener(new View.OnClickListener() {

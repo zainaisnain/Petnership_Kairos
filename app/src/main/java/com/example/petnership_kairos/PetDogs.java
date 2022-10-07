@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,47 +13,43 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.cardview.widget.CardView;
+import android.widget.ImageView;
 
-public class home extends Fragment {
+public class PetDogs extends Fragment {
 
-    CardView card1;
+    ImageView img1;
+    private PetDogsViewModel mViewModel;
 
-    private HomeViewModel mViewModel;
-
-    public static home newInstance() {
-        return new home();
+    public static PetDogs newInstance() {
+        return new PetDogs();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-
+        return inflater.inflate(R.layout.fragment_dogs, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Home");
-        card1 = view.findViewById(R.id.dogs);
-        card1.setOnClickListener(new View.OnClickListener() {
+        getActivity().setTitle("Dogs");
+        img1 = view.findViewById(R.id.petProfile);
+        img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                PetProfileDogs petProfileDogs = new PetProfileDogs();
-                transaction.replace(R.id.nav_host_fragment,petProfileDogs);
+                PerPetProfileDogs PerPetProfileDogs = new PerPetProfileDogs();
+                transaction.replace(R.id.nav_host_fragment, PerPetProfileDogs);
                 transaction.commit();
             }
         });
     }
 
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(PetDogsViewModel.class);
         // TODO: Use the ViewModel
     }
 

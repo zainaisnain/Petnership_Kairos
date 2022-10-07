@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageButton
+            android:id="@+id/imageBurgerMenu"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_burger_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#0000"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_back"
+            android:background="#0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/pet_profile"
+                android:fontFamily="@font/montserrat_reg"
+                android:layout_marginTop="20dp"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Cat Questionnaire"
+                android:fontFamily="@font/montserrat_reg"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <!--    Pet profile question 1-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How energetic, mischievous, and exuberant is the cat?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat has a strong affinity for playing and has an easily excited aura."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is fond of physical activity at times."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is sedentary."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 2-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How relaxed or brave is the cat?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat is relaxed. and does not appear agitated most of their time."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is often restless and gets scared moderately."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat exhibits extreme signs of fearful behavior (e.g. growls/hisses, escape/hiding, freezing)"
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 3-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What is the tendency of the cat to engage in aggressive behavior?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat is affectionate and rarely does rough physical contact."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is prone to be aggressive."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is habitually injurious and highly likely to scratch, bite, or hiss."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 4-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q4_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How friendly or affectionate is the cat towards humans, whether strangers or companions?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat connects and interacts well with humans."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat reacts and is somewhat friendly."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat does not show sociable behavior."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 5-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q5_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How friendly or affectionate is the cat towards other pets?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat enjoys and seeks being with other pets."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is fairly sociable with other pets but sometimes indifferent."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat has difficulty getting along with other pets."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 6-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q6_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How litter-trained is the cat?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat is potty-trained and/or adapts well to its litterbox."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat has excretory quirks and meticulous litterbox preferences."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat has potty training problems and refuses its litterbox."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 7-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q7_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What are the self-grooming habits of the cat?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat grooms regularly in a healthy manner"
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat does moderate grooming."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat does intensive, harmful and mutilating grooming."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 8-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q8_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How many more years of life is the cat expected to have?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans1_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The cat has a projected 14-16+ years left to live."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans2_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat has 6-13 years left to live."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans3_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The cat is a senior or geriatric (11-15+) or has 5 years or less left to live."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 9-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q9_catprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What is the breed of the animal?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="16dp"
+                                android:hint="Select"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                                <AutoCompleteTextView
+                                    android:id="@+id/cat_auto_complete"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--        CANCEL AND SUBMIT BUTTONS -->
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:columnCount="2"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancel_petprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/cancel_bg"
+                    android:layout_gravity="center"
+                    android:minHeight="50dp"
+                    android:text="CANCEL"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submit_petprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/round_darkpurple"
+                    android:layout_gravity="center"
+                    android:minHeight="50dp"
+                    android:text="SUBMIT"
+                    android:textColor="@color/white" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

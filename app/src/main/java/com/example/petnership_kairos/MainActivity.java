@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import android.content.Intent;
 
@@ -17,9 +15,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -114,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_adopters:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new petProfileDogs()).commit();
+                        new PetProfileDogs()).commit();
                 break;
 
             case R.id.nav_logout:

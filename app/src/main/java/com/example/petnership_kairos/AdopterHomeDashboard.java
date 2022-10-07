@@ -12,32 +12,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class petProfileDogs extends Fragment {
+public class AdopterHomeDashboard extends Fragment {
 
-    private PetProfileDogsViewModel mViewModel;
+    private AdopterHomeDashboardViewModel mViewModel;
 
-    public static petProfileDogs newInstance() {
-        return new petProfileDogs();
+    public static AdopterHomeDashboard newInstance() {
+        return new AdopterHomeDashboard();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pet_profile_dogs, container, false);
+        return inflater.inflate(R.layout.fragment_adopter_home_dashboard, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Pet Profile Dogs");
-
+        getActivity().setTitle("Adopter Home");
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(PetProfileDogsViewModel.class);
-        // TODO: Use the ViewModel
-    }
-
 }

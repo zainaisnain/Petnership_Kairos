@@ -15,6 +15,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures{
+        viewBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,7 +37,7 @@ android {
                             'src/main/res/layouts/login',
                             'src/main/res/layouts/main_menu',
                             'src/main/res/layouts',
-                            'src/main/res', 'src\\main\\res', 'src\\main\\res\\layouts\\register', 'src\\main\\res\\layouts\\loginMain', 'src\\main\\res\\layout\\lgo'
+                            'src/main/res', 'src\\main\\res', 'src\\main\\res\\layouts\\register', 'src\\main\\res\\layouts\\loginMain', 'src\\main\\res\\layout\\lgo', 'src\\main\\res\\layouts\\shelter'
                     ]
         }
     }

@@ -12,47 +12,44 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.cardview.widget.CardView;
+import android.widget.ImageView;
 
-public class home extends Fragment {
+public class PetCats extends Fragment {
 
-    CardView card1;
+    ImageView img1;
+    private PetCatsViewModel mViewModel;
 
-    private HomeViewModel mViewModel;
-
-    public static home newInstance() {
-        return new home();
+    public static PetCats newInstance() {
+        return new PetCats();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
-
+        return inflater.inflate(R.layout.fragment_pet_cats, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Home");
-        card1 = view.findViewById(R.id.dogs);
-        card1.setOnClickListener(new View.OnClickListener() {
+        getActivity().setTitle("Cats");
+        img1 = view.findViewById(R.id.petProfile);
+        img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                PetProfileDogs petProfileDogs = new PetProfileDogs();
-                transaction.replace(R.id.nav_host_fragment,petProfileDogs);
+                PerPetProfileCats PerPetProfileCats = new PerPetProfileCats();
+                transaction.replace(R.id.nav_host_fragment, PerPetProfileCats);
                 transaction.commit();
             }
         });
     }
 
 
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(PetCatsViewModel.class);
         // TODO: Use the ViewModel
     }
 
