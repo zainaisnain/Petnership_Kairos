@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="400dp"
+    android:layout_height="300dp"
+    android:background="@drawable/dialogs">
+
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INSTRUCTIONS"
+        android:fontFamily="@font/playfairdisplayblack"
+        android:textColor="#371576"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="374dp"
+        android:layout_height="98dp"
+        android:fontFamily="@font/montserrat_black"
+        android:text="Given option A and B, slide the button to the choice you value more. Sliding it more on the left-hand side state the importance over option A over option B, while sliding it more on the right-hand side state the importance of option B over option A.
+Putting the button in the middle indicates equal importance."
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.367"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="367dp"
+        android:layout_height="96dp"
+        android:fontFamily="@font/montserrat_black"
+        android:text="Note the changing indicators on top of each sliding bar: Extremely Important, Significantly Important, Moderately Important, Slightly Important, and Equally Important as you slide the button. Slide the button on which side matters more to you in accordance with the indicators."
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.921" />
+</androidx.constraintlayout.widget.ConstraintLayout>
