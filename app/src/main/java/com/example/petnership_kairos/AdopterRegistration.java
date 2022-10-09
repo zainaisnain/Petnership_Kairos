@@ -1,4 +1,5 @@
 package com.example.petnership_kairos;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,18 +16,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.OnProgressListener;
+
 
 import java.io.IOException;
 import java.util.UUID;
@@ -57,6 +65,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +115,24 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                 uploadImage();
             }
         });
+
+
+        //return user type selection
+        Button userType = findViewById(R.id.adopterRegisterCancel);
+        userType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectUserType();
+            }
+        });
+
+    }
+
+    private void selectUserType()
+    {
+        Intent intent = new Intent(this,ActivityUserType.class);
+        startActivity(intent);
+        finish();
 
     }
 
@@ -242,6 +269,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         }
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -265,6 +293,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String country = editTextCountry.getText().toString().trim();
         String gender = editTextGender.getText().toString().trim();
         String birthday = editTextBirthday.getText().toString().trim();
+        String user_type = "adopter";
+
 
         if(fname.isEmpty()){
             editTextFname.setError("First Name Required.");
@@ -369,7 +399,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
                                     databaseReference.child("Adopters").child(username).setValue(adopter);
 
+
                                     Users user = new Users(email, password, username, "adopter");
+
                                     databaseReference.child("Users").child(username).setValue(user);
 
                                     Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
@@ -386,5 +418,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
             }
         });
+
     }
 }

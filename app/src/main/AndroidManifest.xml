@@ -21,6 +21,7 @@
                 android:value="" />
         </activity>
         <activity
+
             android:name=".CatQuestionnaire4"
             android:exported="false">
             <meta-data
@@ -69,6 +70,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+            android:name=".UpdateEmail"
+            android:exported="false" />
+
         <activity
             android:name=".RegistrationSuccess"
             android:exported="false">
@@ -85,20 +90,6 @@
         </activity>
         <activity
             android:name=".ForgotPassword4"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ForgotPassword3"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".ForgotPassword2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -123,6 +114,7 @@
             android:name=".PerPetProfile"
             android:exported="false" />
         <activity
+
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
@@ -139,8 +131,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityUserType"
+            android:exported="true" />
+        <activity android:name=".ShelterRegistration" android:exported="false" />
+        <activity android:name=".AdopterRegistration" android:exported="false" />
+        <activity android:name=".AdopterDashboard" android:exported="false"/>
+        <activity android:name=".ShelterDashboard" android:exported="false"/>
+        <activity android:name=".MainActivity" />
+
         </activity> <!-- <activity android:name=".MainActivity" /> -->
         <activity android:name=".activity_userprofile" />
+
     </application>
 
 </manifest>
