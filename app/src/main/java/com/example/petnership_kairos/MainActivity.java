@@ -11,7 +11,6 @@ import android.view.MenuItem;
 
 import android.content.Intent;
 
-
 import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,14 +31,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    public CardView card1;
-    public FloatingActionButton b1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          */
         setSupportActionBar(toolbar);
 
-
         /**
          * Navigation Drawer Menu
          */
@@ -101,13 +91,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onBackPressed();
         }
 
-
-        card1 = (CardView) findViewById(R.id.dogs);
-        b1 = (FloatingActionButton) findViewById(R.id.fabAdd);
-
-        card1.setOnClickListener(this);
-        b1.setOnClickListener(this);
-
     }
 
     /**
@@ -129,16 +112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         new PetProfileDogs()).commit();
                 break;
 
-
             case R.id.nav_logout:
                 userLogout();
-            case R.id.fabAdd:
-                i = new Intent(this, activity_petprofilequestionnaire.class);
-                startActivity(i);
-                break;
-
-            default:
-
                 break;
         }
 
