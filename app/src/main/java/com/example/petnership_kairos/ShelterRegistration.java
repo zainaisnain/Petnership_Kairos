@@ -374,7 +374,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
                                     databaseReference.child("Shelters").child(username).setValue(shelter);
 
-                                    Users user = new Users(email, password, username, "shelter");
+                                    User user = new User(email, password, username, "shelter");
 
                                     databaseReference.child("Users").child(username).setValue(user);
 

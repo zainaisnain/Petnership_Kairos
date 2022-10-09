@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,18 +24,18 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText etUserEmail, etUserPassword;
+    private EditText UserEmail, UserPassword;
     private String username = "";
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginv2);
 
-        etUserEmail =findViewById(R.id.loginusername);
-        etUserPassword =findViewById(R.id.loginpassword);
+        UserEmail =findViewById(R.id.loginusername);
+        UserPassword =findViewById(R.id.loginpassword);
 
 
         mAuth=FirebaseAuth.getInstance();
@@ -44,14 +45,6 @@ public class LoginActivity extends AppCompatActivity {
 //            return;
 //        }
 
-        Button loginBtn = findViewById(R.id.loginbutton);
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                authenticateUser();
-            }
-        });
-
         Button signBtn = findViewById(R.id.signupbutton);
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,14 +53,21 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        Button loginBtn = findViewById(R.id.loginbutton);
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                authenticateUser();
+            }
+        });
     }
 
     private void authenticateUser()
     {
 
         //fetch input values
-        String useremail = etUserEmail.getText().toString();
-        String password = etUserPassword.getText().toString();
+        String useremail = UserEmail.getText().toString();
+        String password = UserPassword.getText().toString();
 
         if(useremail.isEmpty() || password.isEmpty())
         {
@@ -164,8 +164,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void isUser()
     {
-        String authEmail = etUserEmail.getText().toString().trim();
-        String authPassword = etUserPassword.getText().toString().trim();
+        String authEmail = UserEmail.getText().toString().trim();
+        String authPassword = UserPassword.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("");
     }

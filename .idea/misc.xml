@@ -5,37 +5,15 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/edit_text_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable-v24/scrollview_bg.xml" value="0.346" />
-        <entry key="app/src/main/res/drawable/bar.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/bg_profile.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/button1.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/button2.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/cancel_bg.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/card.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/dialogs.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/edit_text_bg.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2585" />
-        <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.2585" />
-        <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/ic_baseline_security_24.xml" value="0.2585" />
-        <entry key="app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/textfield.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/top_bg.xml" value="0.293" />
-        <entry key="app/src/main/res/drawable/white_perpetprofile.xml" value="0.293" />
-        <entry key="app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.4" />
-        <entry key="app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.2296875" />
-        <entry key="app/src/main/res/layout/activity_adopter_dashboard.xml" value="0.25138948268490807" />
         <entry key="app/src/main/res/layout/activity_adopter_edit.xml" value="0.2039333048311244" />
         <entry key="app/src/main/res/layout/activity_adopter_registration.xml" value="0.24925181701581872" />
         <entry key="app/src/main/res/layout/activity_animal_registration.xml" value="0.3476851851851852" />
-        <entry key="app/src/main/res/layout/activity_cat_questionnaire4.xml" value="0.3526763916015625" />
-        <entry key="app/src/main/res/layout/activity_dog_questionnaire2.xml" value="0.17229585292860197" />
+        <entry key="app/src/main/res/layout/activity_cat_questionnaire4.xml" value="0.24754168448054725" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.3139278279761567" />
         <entry key="app/src/main/res/layout/activity_forgot_password2.xml" value="0.2759609090308442" />
         <entry key="app/src/main/res/layout/activity_forgot_password3.xml" value="0.2831447469214692" />
         <entry key="app/src/main/res/layout/activity_forgot_password4.xml" value="0.2675853597144379" />
-        <entry key="app/src/main/res/layout/activity_loginv2.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2250643129701967" />
         <entry key="app/src/main/res/layout/activity_per_pet_profile.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/activity_petprofile.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/activity_petprofileq.xml" value="0.1526293287729799" />
@@ -44,18 +22,14 @@
         <entry key="app/src/main/res/layout/activity_registration_confirmation.xml" value="0.50028076171875" />
         <entry key="app/src/main/res/layout/activity_registration_success.xml" value="0.2436938862761864" />
         <entry key="app/src/main/res/layout/activity_scrollable.xml" value="0.30867892261650276" />
-        <entry key="app/src/main/res/layout/activity_shelter_info.xml" value="0.24583155194527576" />
         <entry key="app/src/main/res/layout/activity_shelter_registration.xml" value="0.3431594848632813" />
         <entry key="app/src/main/res/layout/activity_start.xml" value="0.27577843765969867" />
         <entry key="app/src/main/res/layout/activity_update_email.xml" value="0.2441214194100043" />
         <entry key="app/src/main/res/layout/bottomnav.xml" value="0.1526293287729799" />
-        <entry key="app/src/main/res/layout/content_scrolling.xml" value="0.2304403591278324" />
-        <entry key="app/src/main/res/layout/fragment_dogs.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/layout/register_user_type.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/menu/adopter_menu.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/menu/main_menu.xml" value="0.25138948268490807" />
-        <entry key="app/src/main/res/menu/menu_activity_petprofilequestionnaire.xml" value="0.25138948268490807" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2304403591278324" />
+        <entry key="app/src/main/res/layout/layout.xml" value="0.2304403591278324" />
+        <entry key="app/src/main/res/layout/per_pet_profile.xml" value="0.2304403591278324" />
+        <entry key="app/src/main/res/menu/menu_activity_petprofilequestionnaire.xml" value="0.2304403591278324" />
       </map>
     </option>
   </component>
