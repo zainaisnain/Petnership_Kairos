@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15.60dp"
+    android:background="#C3B1E1"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageButton
+            android:id="@+id/imageBurgerMenu"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_burger_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#0000"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_back"
+            android:background="#0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/ASChoosePetTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="@string/animal_shelter"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:fontFamily="@font/marmelad_regular"
+            app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
+            app:layout_constraintEnd_toStartOf="@id/btnBack"
+            app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
+            app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />
+
+
+        <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent" >-->
+
+        <!--            <com.google.android.material.button.MaterialButton-->
+        <!--                android:id="@+id/btnBack"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:backgroundTint="@color/black"-->
+        <!--                android:layout_marginStart="24dp"-->
+        <!--                android:layout_marginBottom="32dp"-->
+        <!--                app:icon="@drawable/ic_back"-->
+        <!--                tools:ignore="MissingConstraints"-->
+
+        <!--                app:cornerRadius="10dp"-->
+        <!--                android:text="BACK"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"/>-->
+
+        <!--        <com.google.android.material.button.MaterialButton-->
+        <!--            android:id="@+id/btnBack"-->
+        <!--            android:layout_width="@dimen/_24sdp"-->
+        <!--            android:layout_height="@dimen/_24sdp"-->
+        <!--            android:layout_marginTop="@dimen/_4sdp"-->
+        <!--            android:src="@drawable/ic_back"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"/>-->
+
+        <!--        <androidx.appcompat.widget.AppCompatImageView-->
+        <!--            android:id="@+id/imageAdd"-->
+        <!--            android:layout_width="@dimen/_24sdp"-->
+        <!--            android:layout_height="@dimen/_24sdp"-->
+        <!--            android:layout_marginTop="@dimen/_4sdp"-->
+        <!--            android:src="@drawable/window_icon"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:tint="@color/black" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/ASDashboardTitle"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="10dp"-->
+        <!--            android:layout_marginEnd="10dp"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="@string/animal_shelter"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="25sp"-->
+        <!--            android:fontFamily="@font/marmelad_regular"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/btnBack"-->
+        <!--            app:layout_constraintEnd_toStartOf="@id/imageAdd"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/btnBack"-->
+        <!--            app:layout_constraintTop_toTopOf="@id/btnBack"-->
+        <!--            />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="343dp"
+        android:layout_height="471dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78">
+
+        <TextView
+            android:id="@+id/logintitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/marmelad_regular"
+            android:text="Which pet?"
+            android:textColor="#371576"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.071" />
+
+        <ImageButton
+            android:id="@+id/catButton"
+            android:layout_width="200dp"
+            android:layout_height="180dp"
+            android:contentDescription="cat"
+            android:scaleType="fitCenter"
+            android:background="#0000"
+            android:src="@drawable/cat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.945"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/dogButton"
+            android:layout_width="174dp"
+            android:layout_height="160dp"
+            android:background="#0000"
+            android:contentDescription="dog"
+            android:scaleType="fitCenter"
+            android:src="@drawable/dog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.308"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <ImageView
+        android:id="@+id/petnershiplogo2"
+        android:layout_width="156dp"
+        android:layout_height="134dp"
+        android:contentDescription="petnership logo"
+        android:src="@drawable/petnership_logo_colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.078"
+        tools:ignore="ImageContrastCheck" />
+
+    <!--    <com.google.android.material.button.MaterialButton-->
+    <!--        android:id="@+id/btnBack"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:backgroundTint="@color/black"-->
+    <!--        android:layout_marginStart="24dp"-->
+    <!--        android:layout_marginBottom="32dp"-->
+    <!--        app:icon="@drawable/ic_back"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        app:cornerRadius="10dp"-->
+    <!--        android:text="BACK"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
