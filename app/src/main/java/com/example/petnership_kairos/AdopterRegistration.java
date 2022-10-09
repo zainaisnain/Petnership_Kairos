@@ -25,13 +25,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.OnProgressListener;
+
 
 import java.io.IOException;
 import java.util.UUID;
@@ -113,6 +116,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
+
         //return user type selection
         Button userType = findViewById(R.id.adopterRegisterCancel);
         userType.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +133,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         Intent intent = new Intent(this,ActivityUserType.class);
         startActivity(intent);
         finish();
+
     }
 
     // Select Image method
@@ -290,6 +295,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String birthday = editTextBirthday.getText().toString().trim();
         String user_type = "adopter";
 
+
         if(fname.isEmpty()){
             editTextFname.setError("First Name Required.");
             editTextFname.requestFocus();
@@ -316,6 +322,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
         if(username.isEmpty()){
             editTextUsername.setError("Username Required.");
+            editTextUsername.requestFocus();
+            return;
+        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
+            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
             editTextUsername.requestFocus();
             return;
         }
@@ -374,7 +384,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-
         databaseReference.child("Adopters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -390,7 +399,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
                                     databaseReference.child("Adopters").child(username).setValue(adopter);
 
-                                    User user = new User(email, password, username, "adopter");
+
+                                    Users user = new Users(email, password, username, "adopter");
+
                                     databaseReference.child("Users").child(username).setValue(user);
 
                                     Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();

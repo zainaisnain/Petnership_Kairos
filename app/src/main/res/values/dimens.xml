@@ -4,5 +4,8 @@
     <dimen name="_20sdp">20dp</dimen>
     <dimen name="_24sdp">24dp</dimen>
     <dimen name="_4sdp">4dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>

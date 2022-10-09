@@ -6,7 +6,9 @@
     <string name="dogs">DOGS</string>
     <string name="pet_profile">Pet Profile</string>
 
+
     <!--    menu strings-->
     <string name="menu_open">Open</string>
     <string name="menu_close">Close</string>
+
 </resources>

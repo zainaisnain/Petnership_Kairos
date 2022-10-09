@@ -14,13 +14,66 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateEmail"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationSuccess"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RegistrationConfirmation"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ForgotPassword4"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AdopterEdit"
+            android:exported="false" />
+        <activity
+            android:name=".activity_petprofilequestionnaire"
+            android:exported="false"
+            android:label="@string/title_activity_petprofilequestionnaire"
+            android:theme="@style/splashScreenTheme.NoActionBar" />
+        <activity
+            android:name=".PerPetProfile"
+            android:exported="false" />
+        <activity
+
             android:name=".SplashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShelterRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".AdopterRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -33,6 +86,10 @@
         <activity android:name=".AdopterDashboard" android:exported="false"/>
         <activity android:name=".ShelterDashboard" android:exported="false"/>
         <activity android:name=".MainActivity" />
+
+        </activity> <!-- <activity android:name=".MainActivity" /> -->
+        <activity android:name=".activity_userprofile" />
+
     </application>
 
 </manifest>

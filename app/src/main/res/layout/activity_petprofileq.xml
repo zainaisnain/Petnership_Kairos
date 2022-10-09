@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".activity_petprofilequestionnaire">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/pet_profile"
+        android:fontFamily="@font/montserrat_reg"
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Questionnaire"
+            android:fontFamily="@font/montserrat_reg"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+<!--    Pet profile question 1-->
+    <TextView
+        android:id="@+id/q1_petprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are additional expenses required \nfor this pet’s health?"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_lightpurple"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_reg"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:minHeight="100dp"/>
+
+    <GridLayout
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yes1_petprofile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/round_darkpurple"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="YES"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/no1_petprofile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/round_darkpurple"
+            android:text="NO"
+            android:textColor="@color/white" />
+
+    </GridLayout>
+
+<!--    Pet profile question 2 -->
+    <TextView
+        android:id="@+id/q2_petprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are additional expenses required for this pet’s training or behavioral refinement?"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_lightpurple"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_reg"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:minHeight="100dp"/>
+
+    <GridLayout
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="2">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/yes2_petprofile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/round_darkpurple"
+            android:gravity="center"
+            android:minHeight="50dp"
+            android:text="YES"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/no2_petprofile"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/round_darkpurple"
+            android:text="NO"
+            android:textColor="@color/white" />
+
+    </GridLayout>
+
+<!--    Pet profile question 3 -->
+    <TextView
+            android:id="@+id/q3_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is additional time required for this pet’s  training or working on specific behaviors?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes3_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no3_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 4 -->
+    <TextView
+            android:id="@+id/q4_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is access to a fenced area more beneficial for this pet?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes4_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no4_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 5 -->
+    <TextView
+            android:id="@+id/q5_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is this pet more active or more relaxed?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes5_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no5_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 6 -->
+    <TextView
+            android:id="@+id/q6_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is leashed walks or runs outside enjoyable for this pet?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes6_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="ACTIVE"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no6_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="RELAXED"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 7 -->
+    <TextView
+            android:id="@+id/q7_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is an outdoor adventure or lounging around preferable for this pet?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes7_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="ADVENTURE"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no7_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="LOUNGING"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 8 -->
+    <TextView
+            android:id="@+id/q8_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet like to stay on furniture?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes8_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no8_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 9 -->
+    <TextView
+            android:id="@+id/q9_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is this pet trainable and respects a person’s authority?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes9_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no9_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 10 -->
+    <TextView
+            android:id="@+id/q10_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet like to sleep next to people?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes10_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no10_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 11 -->
+    <TextView
+            android:id="@+id/q11_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Can this pet be left alone in the room or house?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes11_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no11_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 12 -->
+    <TextView
+            android:id="@+id/q12_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is this pet excited to see its adopter/adopters?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes12_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no12_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 13 -->
+    <TextView
+            android:id="@+id/q13_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet like to give kisses?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+    <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes13_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no13_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 14 -->
+        <TextView
+            android:id="@+id/q14_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Are belly rubs and head scratches enjoyable for this pet?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes14_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no14_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 15 -->
+        <TextView
+            android:id="@+id/q15_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Is cuddling or snuggling up next to you enjoyable for this pet?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes15_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no15_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 16 -->
+        <TextView
+            android:id="@+id/q16_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet like to follow you around or be next to you?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes16_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no16_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 17 -->
+        <TextView
+            android:id="@+id/q17_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet weigh less than 40 lbs or more than 40 lbs?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes17_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="LESS THAN 40 LBS"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no17_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="MORE THAN 40 LBS"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 18 -->
+        <TextView
+            android:id="@+id/q18_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="How much shedding does this pet cause?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes18_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="MORE SHEDDING"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no18_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="LESS SHEDDING"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 19 -->
+        <TextView
+            android:id="@+id/q19_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet possess a short or long coat?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes19_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="SHORT"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no19_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="LONG"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 20 -->
+        <TextView
+            android:id="@+id/q20_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet usually socialize well around other people?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes20_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no20_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 21 -->
+        <TextView
+            android:id="@+id/q21_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet usually socialize well with other dogs?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes21_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no21_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 22 -->
+        <TextView
+            android:id="@+id/q22_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet usually socialize well around other people?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes22_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="SHORT"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no22_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="LONG"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+<!--    Pet profile question 23 -->
+        <TextView
+            android:id="@+id/q23_petprofile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Does this pet usually socialize well with other dogs?"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_lightpurple"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_reg"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:minHeight="100dp"/>
+
+        <GridLayout
+            android:layout_width="354dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yes23_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:gravity="center"
+                android:minHeight="50dp"
+                android:text="YES"
+                android:textColor="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/no23_petprofile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/round_darkpurple"
+                android:text="NO"
+                android:textColor="@color/white" />
+
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>
