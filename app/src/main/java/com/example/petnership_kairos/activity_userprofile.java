@@ -28,7 +28,7 @@ public class activity_userprofile extends AppCompatActivity implements View.OnCl
 
         switch (view.getId()) {
             case R.id.pet1:
-                i = new Intent(this, PerPetProfile.class);
+                i = new Intent(this, PerPetProfileDogs.class);
                 startActivity(i);
                 break;
 

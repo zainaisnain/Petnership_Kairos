@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/background"
+   >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageButton
+            android:id="@+id/imageBurgerMenu"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_burger_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#0000"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/btnBackDog"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:src="@drawable/ic_back"
+            android:background="#0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+        <!--    <TextView-->
+        <!--        android:id="@+id/ASChoosePetTitle"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginStart="10dp"-->
+        <!--        android:layout_marginEnd="10dp"-->
+        <!--        android:gravity="center"-->
+        <!--        android:text="Animal Shelter"-->
+        <!--        android:textColor="@color/black"-->
+        <!--        android:textSize="25sp"-->
+        <!--        android:fontFamily="@font/marmelad_regular"-->
+        <!--        app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"-->
+        <!--        app:layout_constraintEnd_toStartOf="@id/btnBack"-->
+        <!--        app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"-->
+        <!--        app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/pet_profile"
+                android:fontFamily="@font/montserrat_reg"
+                android:layout_marginTop="35dp"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Dog Questionnaire"
+                android:fontFamily="@font/montserrat_reg"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <!--    Pet profile question 1-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How well does the dog follow commands by its adopter or handler at a given time?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog can obey 70 % or more of the commands given every time."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can obey 30 % or more of the commands given every time."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q1ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can obey less than 30% of the commands given every time."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 2-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How well can the dog learn commands through repetition?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog can understand new commands with training frequency of less than 16 reps."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can understand new commands with training frequency of 16 to 40 reps."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q2ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can understand new commands with training frequency of more than 40 reps."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 3-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How often does the dog shed its fur?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog rarely loses fur."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog loses fur periodically/seasonally naturally."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q3ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog loses fur naturally majority of the time."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 4-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q4_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How much does the dog drool?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog’s drooling never or rarely happens."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog’s drooling sometimes occurs seasonally or in certain conditions."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q4ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog’s drooling occurs frequently."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 5-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q5_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How much is the additional care outside of its routine care is required for the dog  such as specific nail care, advanced grooming or any other specialized treatment?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog requires extra care once a month"
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog requires extra care twice a month"
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q5ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog requires extra care more than twice a month"
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 6-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q6_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What is the level of friendliness displayed by the dog towards humans and other animals?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog is friendly and generally does not bark if there is no provocative action from the subject."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog might bark at any unfamiliar subject."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q6ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog is very reactive to unfamiliar subjects."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 7-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q7_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How well does the dog adapt to new encounters with humans?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog can adapt well and easily makes new connections with humans."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can still adapt well but needs time to make a new relationship with a human."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q7ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog needs much time to adapt and build new relationships with humans, and sometimes the dog may seem uncomfortable until then."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 8-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q8_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How well does the dog adapt to new encounters with other pets?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog is highly adaptable and can live along with other pets without problems."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can adapt well with certain pets or  the same species but can behave differently towards others."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q8ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="prefers"
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 9-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q9_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How well does the dog adapt to environmental conditions and changes?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q9ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog is highly adaptable to various environmental conditions and has a high tolerance for weather changes."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q9ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog can still adapt well to certain environmental conditions but sometimes need humans to help the adaptation process"
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q9ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog needs a certain environmental condition to live well and is very dependent on humans to help the adaptation process"
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 10-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q10_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="What is the breed of the animal?"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="16dp"
+                                android:hint="Select"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                                <AutoCompleteTextView
+                                    android:id="@+id/auto_complete"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--    Pet profile question 11-->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_white"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:minHeight="100dp">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:columnCount="1">
+
+                        <TextView
+                            android:id="@+id/q11_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="How many more years of life is the dog expected to have? "
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="20dp"
+                            android:padding="10dp"
+                            android:background="@drawable/round_white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:minHeight="100dp"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q11ans1_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:gravity="center"
+                            android:minHeight="50dp"
+                            android:text="The dog's lifespan is long or is a young pup."
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q11ans2_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_lightpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog's lifespan is below-average or is mature"
+                            android:textColor="@color/white" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/q11ans3_petprofile"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="40dp"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:background="@drawable/round_darkpurple"
+                            android:textAllCaps="false"
+                            android:text="The dog is senior or geriatric."
+                            android:textColor="@color/white" />
+                    </GridLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </GridLayout>
+
+            <!--        CANCEL AND SUBMIT BUTTONS -->
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:columnCount="2"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cancel_petprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/cancel_bg"
+                    android:layout_gravity="center"
+                    android:minHeight="50dp"
+                    android:text="CANCEL"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submit_petprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:background="@drawable/round_darkpurple"
+                    android:layout_gravity="center"
+                    android:minHeight="50dp"
+                    android:text="SUBMIT"
+                    android:textColor="@color/white" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
