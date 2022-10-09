@@ -56,18 +56,6 @@
                 android:paddingLeft="10dp"
                 android:hint="Last Name" />
 
-            <EditText
-                android:id="@+id/txt_email_adopter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Email" />
-
             <TextView
                 android:id="@+id/txt_username_adopter_edit"
                 android:layout_width="350dp"
@@ -80,31 +68,6 @@
                 android:hint="Username"
                 android:paddingLeft="10dp" />
 
-            <EditText
-                android:id="@+id/txt_password_adopter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingLeft="10dp" />
-
-            <EditText
-                android:id="@+id/txt_confirmpassword_adopter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
-                android:paddingLeft="10dp" />
 
             <EditText
                 android:id="@+id/txt_contact_adopter_edit"
