@@ -45,7 +45,7 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
     // variable for Text view.
     private TextView tvFname, tvLname, tvUsername, tvBirthday;
 
-    private EditText etEmail, etPassword, etConfirmPassword, etContact,
+    private EditText etContact,
             etSteet, etCity, etProvince, etCountry, etGender;
 
     private Button submitAdopterEditBtn, uploadEditBtn;
@@ -72,10 +72,7 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
         // initializing our object class variables.
         tvFname = findViewById(R.id.txt_fname_adopter_edit);
         tvLname = findViewById(R.id.txt_lname_adopter_edit);
-        etEmail = findViewById(R.id.txt_email_adopter_edit);
         tvUsername = findViewById(R.id.txt_username_adopter_edit);
-        etPassword = findViewById(R.id.txt_password_adopter_edit);
-        etConfirmPassword = findViewById(R.id.txt_confirmpassword_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etSteet = findViewById(R.id.txt_street_adopter_edit);
         etCity = findViewById(R.id.txt_city_adopter_edit);
@@ -263,11 +260,7 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
 
     private void editAdopterInfo() {
 
-        String email = etEmail.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("email").setValue(email);
-
-        String password = etPassword.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("password").setValue(password);
+        //TODO: hindi dapat hardcoded ung .child("Adopters").child("zainaisnain")
 
         String contact = etContact.getText().toString();
         databaseReference.child("Adopters").child("zainaisnain").child("contact").setValue(contact);
@@ -313,28 +306,5 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
 
             }
         });
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                // this method is call to get the realtime
-//                // updates in the data.
-//                // this method is called when the data is
-//                // changed in our Firebase console.
-//                // below line is for getting the data from
-//                // snapshot of our database.
-//                String value = snapshot.getValue(String.class);
-//
-//                // after getting the value we are setting
-//                // our value to our text view in below line.
-//                retrieveTV.setText(value);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // calling on cancelled method when we receive
-//                // any error or we are not able to get the data.
-//                Toast.makeText(AdopterEdit.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 }

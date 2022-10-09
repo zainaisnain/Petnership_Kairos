@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
+        app:constraint_referenced_ids="registeredPets, dogss, cats, activeAdopters, toReview"
         app:flow_horizontalGap="8dp"
         app:flow_maxElementsWrap="2"
         app:flow_verticalGap="8dp"
@@ -288,4 +288,4 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
