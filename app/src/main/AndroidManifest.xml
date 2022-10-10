@@ -27,13 +27,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".AddPet"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
 
             android:name=".CatQuestionnaire4"
@@ -123,7 +117,13 @@
             android:exported="false" />
         <activity
             android:name=".ShelterRegistration"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AdopterRegistration"
             android:exported="true" >
@@ -159,7 +159,15 @@
             android:exported="true" />
 
         <activity android:name=".AdopterDashboard" android:exported="false"/>
-        <activity android:name=".ShelterDashboard" android:exported="false"/>
+        <activity
+            android:name=".ShelterDashboard"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity_userprofile" />
 
     </application>

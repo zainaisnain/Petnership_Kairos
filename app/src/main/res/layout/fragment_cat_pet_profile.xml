@@ -69,6 +69,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -115,7 +116,8 @@
                             android:gravity="center"
                             android:minHeight="50dp"
                             android:text="The cat has a strong affinity for playing and has an easily excited aura."
-                            android:textColor="@color/white" />
+                            android:textColor="@color/white"
+                            />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q1ans2_catprofile"
@@ -214,7 +216,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat is often restless and gets scared moderately."
                             android:textColor="@color/white" />
@@ -302,7 +304,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat is prone to be aggressive."
                             android:textColor="@color/white" />
@@ -390,7 +392,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat reacts and is somewhat friendly."
                             android:textColor="@color/white" />
@@ -470,7 +472,7 @@
                             android:textColor="@color/white" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/q5ans2_petprofile"
+                            android:id="@+id/q5ans2_catprofile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
@@ -478,7 +480,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat is fairly sociable with other pets but sometimes indifferent."
                             android:textColor="@color/white" />
@@ -566,7 +568,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat has excretory quirks and meticulous litterbox preferences."
                             android:textColor="@color/white" />
@@ -654,7 +656,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat does moderate grooming."
                             android:textColor="@color/white" />
@@ -742,7 +744,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The cat has 6-13 years left to live."
                             android:textColor="@color/white" />
@@ -809,18 +811,28 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                            <com.google.android.material.textfield.TextInputLayout
+                            <EditText
+                                android:id="@+id/q9ans_catprofile"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="16dp"
-                                android:hint="Select"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-                                <AutoCompleteTextView
-                                    android:id="@+id/cat_auto_complete"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="none"/>
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:hint="Breed"
+
+                                android:background="@drawable/round_white"
+                                android:padding="10dp"
+                                android:gravity="center"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:minHeight="50dp">
+<!--                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
+<!--                                <AutoCompleteTextView-->
+<!--                                    android:id="@+id/cat_auto_complete"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:inputType="none"/>-->
+                            </EditText>
+
 
                         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -840,7 +852,7 @@
                 android:layout_marginBottom="20dp">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/cancel_petprofile"
+                    android:id="@+id/cancel_catprofile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -853,7 +865,7 @@
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/submit_petprofile"
+                    android:id="@+id/submit_catprofile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
