@@ -131,14 +131,15 @@
                 android:padding="16dp" >
 
                 <TextView
+                    android:id="@+id/num_reg_pets_shelter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_reg"
                     android:text="36"
+                    android:textAlignment="center"
                     android:textColor="@color/secondary_purple"
                     android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -170,6 +171,7 @@
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/num_reg_dogs_shelter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_reg"
@@ -199,6 +201,7 @@
                 android:padding="5dp" >
 
                 <TextView
+                    android:id="@+id/num_reg_cats_shelter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="18 cats"

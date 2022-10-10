@@ -39,10 +39,12 @@
         <entry key="app/src/main/res/layout/fragment_adopter_home_dashboard.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/fragment_cat_pet_profile.xml" value="0.23286540049545829" />
         <entry key="app/src/main/res/layout/fragment_dog_pet_profile.xml" value="0.32107738349722104" />
+        <entry key="app/src/main/res/layout/fragment_dogs.xml" value="0.22402736212056434" />
         <entry key="app/src/main/res/layout/fragment_per_pet_profile_cats.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/fragment_per_pet_profile_dogs.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/fragment_pet_cats.xml" value="0.32107738349722104" />
-        <entry key="app/src/main/res/layout/fragment_shelter_home_dashboard.xml" value="0.2176143651132963" />
+        <entry key="app/src/main/res/layout/fragment_pet_dogs.xml" value="0.22402736212056434" />
+        <entry key="app/src/main/res/layout/fragment_shelter_home_dashboard.xml" value="0.3242095947265625" />
         <entry key="app/src/main/res/layout/fragment_shelter_register_pets.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/per_pet_profile.xml" value="0.2304403591278324" />
