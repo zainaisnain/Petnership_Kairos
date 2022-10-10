@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C3B1E1"
-    tools:context=".MainActivity">
+    tools:context=".AddCat">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -107,7 +107,7 @@
             app:layout_constraintVertical_bias="0.535" />
 
         <ImageView
-            android:id="@+id/profile_pic_iv"
+            android:id="@+id/pet_info_profile_pic_iv"
             android:layout_width="151dp"
             android:layout_height="144dp"
             android:layout_gravity="center"
@@ -121,7 +121,7 @@
             app:layout_constraintVertical_bias="0.777" />
 
         <Button
-            android:id="@+id/upload_image_btn2"
+            android:id="@+id/upload_image_pet_info"
             android:layout_width="173dp"
             android:layout_height="42dp"
             android:layout_gravity="center"
@@ -145,10 +145,10 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.17"
+            app:layout_constraintHorizontal_bias="0.841"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.954"
+            app:layout_constraintVertical_bias="0.95"
             tools:ignore="TouchTargetSizeCheck" />
 
         <Button
@@ -162,10 +162,10 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.834"
+            app:layout_constraintHorizontal_bias="0.158"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.954"
+            app:layout_constraintVertical_bias="0.95"
             tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
 

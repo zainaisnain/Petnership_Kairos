@@ -41,8 +41,10 @@ public class ShelterRegisterPets extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                DogPetProfile DogPetProfile = new DogPetProfile();
-                transaction.replace(R.id.nav_host_fragment,DogPetProfile);
+//                DogPetProfile DogPetProfile = new DogPetProfile();
+//                transaction.replace(R.id.nav_host_fragment,DogPetProfile);
+                AddDog addDog = new AddDog();
+                transaction.replace(R.id.nav_host_fragment,addDog);
                 transaction.commit();
             }
         });
@@ -51,8 +53,8 @@ public class ShelterRegisterPets extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                CatPetProfile CatPetProfile = new CatPetProfile();
-                transaction.replace(R.id.nav_host_fragment,CatPetProfile);
+                AddCat AddCatInfo = new AddCat();
+                transaction.replace(R.id.nav_host_fragment,AddCatInfo);
                 transaction.commit();
             }
         });

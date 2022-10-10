@@ -34,7 +34,7 @@ public class UpdateEmail extends AppCompatActivity {
     private TextView authenticateInfoTV;
     private String username = "";
 
-    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("User");
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
 
