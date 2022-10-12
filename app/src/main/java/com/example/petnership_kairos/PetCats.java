@@ -26,7 +26,8 @@ public class PetCats extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pet_cats, container, false);
+        //TO-DO: edit fragment_pet_dog to fragment_pet_cat; need to run the app
+        return inflater.inflate(R.layout.fragment_cat_pet_profile, container, false);
     }
 
     @Override
