@@ -102,13 +102,10 @@ public class LoginActivity extends AppCompatActivity {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             String userType = snapshot.getValue(String.class);
-                                            System.out.println(userType);
 
                                             if(userType.equals("adopter")){
-                                                System.out.println("is an adopter");
                                                 startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
                                             }else if(userType.equals("shelter")) {
-                                                System.out.println("is a shelter");
                                                 startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
                                             }
                                         }

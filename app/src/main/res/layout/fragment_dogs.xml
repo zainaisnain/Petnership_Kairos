@@ -1,312 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/background"
     android:orientation="vertical"
-    android:weightSum="5"
-    android:scrollbars="vertical"
-    tools:context=".activity_userprofile">
+    android:layout_height="wrap_content"
+    >
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        app:cardElevation="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="#FFFFFF"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/pet_profile"
-            android:fontFamily="@font/montserrat_reg"
-            android:layout_marginTop="20dp"
-            android:textSize="24sp"
-            android:textAlignment="center"
-            android:textColor="@color/white" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/dog_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/dog"/>
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/dogs"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:fontFamily="@font/montserrat_reg"
-            android:layout_marginTop="8dp"
-            android:textSize="40sp"
-            android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/dog_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="Name"
+                    android:textSize="15sp" />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="781dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="3"
-            android:background="@drawable/bg_profile"
-            android:columnCount="2"
-            android:padding="10dp"
-            android:rowCount="5">
+                <TextView
+                    android:id="@+id/dog_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="age"
+                    android:textSize="15sp"/>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/pet1"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
+                <TextView
+                    android:id="@+id/dog_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="sex"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/dog_breed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="breed"
+                    android:textSize="15sp"/>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/petProfile"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/dog" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="PERCY"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile1"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile3"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile4"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile5"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile6"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/petProfile7"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/profile" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:text="NAME"
-                        android:textSize="18sp" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </GridLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

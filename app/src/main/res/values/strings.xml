@@ -4,7 +4,9 @@
     <string name="add_pets">Add Pets</string>
     <string name="name">NAME</string>
     <string name="dogs">DOGS</string>
+    <string name="pets">PETS</string>
     <string name="pet_profile">Pet Profile</string>
+    <string name="registered_pets">Registered</string>
 
 
     <!--    menu strings-->
