@@ -61,6 +61,8 @@ public class AddDog extends Fragment {
     StorageReference storageReference;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+    private boolean imageUploaded = false;
+
     public AddDog() {}
 
     public static AddDog newInstance() {return new AddDog();}
@@ -117,7 +119,39 @@ public class AddDog extends Fragment {
             @Override
             public void onClick(View v)
             {
-                addPet();
+                petName = etPetName.getText().toString().trim();
+                petAge = etPetAge.getText().toString().trim();
+                petSex = etPetSex.getText().toString().trim();
+                petDesc = etPetDescription.getText().toString().trim();
+                petImage = imageName;
+
+                petID = databaseReference.child("Pets").push().getKey();
+                System.out.println("PET ID == " + petID);
+                //TODO: not proceed if no uploaded picture
+
+                if(petName.isEmpty()){
+                    etPetName.setError("Pet Name is Required.");
+                    etPetName.requestFocus();
+                    return;
+                }else if(petAge.isEmpty()){
+                    etPetAge.setError("Pet Age Required.");
+                    etPetAge.requestFocus();
+                    return;
+                }else if(petSex.isEmpty()){
+                    etPetSex.setError("Sex of Pet Required.");
+                    etPetSex.requestFocus();
+                    return;
+                }else if(petDesc.isEmpty()){
+                    etPetDescription.setError("Pet Description Required.");
+                    etPetDescription.requestFocus();
+                    return;
+                }else if(filePath==null){
+                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
+                }else if(!imageUploaded){
+                    Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
+                }else{
+                    addPet();
+                }
             }
         });
     }
@@ -207,7 +241,7 @@ public class AddDog extends Fragment {
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
-
+                                    imageUploaded = true;
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
@@ -255,44 +289,21 @@ public class AddDog extends Fragment {
     }
 
     private void addPet(){
-        petName = etPetName.getText().toString().trim();
-        petAge = etPetAge.getText().toString().trim();
-        petSex = etPetSex.getText().toString().trim();
-        petDesc = etPetDescription.getText().toString().trim();
-        petImage = imageName;
+        databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {    @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
-        if(petImage.isEmpty()){
-            Toast.makeText(getContext(), "Please upload picture. Try Again!", Toast.LENGTH_LONG).show();
-        }else{
-            petID = databaseReference.child("Pets").push().getKey();
-            System.out.println("PET ID == " + petID);
-
-            System.out.println(firebaseUser);
-            databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
-
-                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                        DogPetProfile DogPetProfile = new DogPetProfile();
-                        transaction.replace(R.id.nav_host_fragment, DogPetProfile);
-                        transaction.commit();
-                    }
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    DogPetProfile DogPetProfile = new DogPetProfile();
+                    transaction.replace(R.id.nav_host_fragment, DogPetProfile);
+                    transaction.commit();
                 }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-
-        //TODO: add if empty to check fields
-        //TODO: get current user to store in DB too
-
-
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
     }
 }
