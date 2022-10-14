@@ -7,7 +7,7 @@
     >
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvDog"
+        android:id="@+id/cvCat"
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="5dp"
@@ -20,10 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/dog_image"
+                android:id="@+id/cat_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/dog"/>
+                android:src="@drawable/cat"/>
             <LinearLayout
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -31,7 +31,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/dog_name"
+                    android:id="@+id/cat_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -39,7 +39,7 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/dog_age"
+                    android:id="@+id/cat_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -47,14 +47,14 @@
                     android:textSize="15sp"/>
 
                 <TextView
-                    android:id="@+id/dog_sex"
+                    android:id="@+id/cat_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:text="sex"
                     android:textSize="15sp"/>
                 <TextView
-                    android:id="@+id/dog_breed"
+                    android:id="@+id/cat_breed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -63,7 +63,7 @@
 
             </LinearLayout>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
 </LinearLayout>

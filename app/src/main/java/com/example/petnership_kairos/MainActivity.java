@@ -115,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_logout:
                 userLogout();
                 break;
+
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

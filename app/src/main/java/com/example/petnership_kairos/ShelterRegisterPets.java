@@ -53,6 +53,8 @@ public class ShelterRegisterPets extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                CatPetProfile catPetProfile = new CatPetProfile();
+//                transaction.replace(R.id.nav_host_fragment,catPetProfile);
                 AddCat AddCatInfo = new AddCat();
                 transaction.replace(R.id.nav_host_fragment,AddCatInfo);
                 transaction.commit();

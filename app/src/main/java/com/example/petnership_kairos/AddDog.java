@@ -84,7 +84,7 @@ public class AddDog extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        etPetName = view.findViewById(R.id.pet_name);
+        etPetName = view.findViewById(R.id.per_cat_name_title);
         etPetAge = view.findViewById(R.id.pet_age);
         etPetSex = view.findViewById(R.id.pet_sex);
         etPetDescription = view.findViewById(R.id.pet_desc);
@@ -261,32 +261,38 @@ public class AddDog extends Fragment {
         petDesc = etPetDescription.getText().toString().trim();
         petImage = imageName;
 
+        if(petImage.isEmpty()){
+            Toast.makeText(getContext(), "Please upload picture. Try Again!", Toast.LENGTH_LONG).show();
+        }else{
+            petID = databaseReference.child("Pets").push().getKey();
+            System.out.println("PET ID == " + petID);
+
+            System.out.println(firebaseUser);
+            databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
+
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        DogPetProfile DogPetProfile = new DogPetProfile();
+                        transaction.replace(R.id.nav_host_fragment, DogPetProfile);
+                        transaction.commit();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
         //TODO: add if empty to check fields
         //TODO: get current user to store in DB too
 
-        petID = databaseReference.child("Pets").push().getKey();
-        System.out.println("PET ID == " + petID);
 
-        System.out.println(firebaseUser);
-        databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
-
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    DogPetProfile DogPetProfile = new DogPetProfile();
-                    transaction.replace(R.id.nav_host_fragment, DogPetProfile);
-                    transaction.commit();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 }

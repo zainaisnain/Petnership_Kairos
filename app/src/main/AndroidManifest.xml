@@ -97,6 +97,20 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+            android:name=".PerDogProfile"
+            android:exported="false" />
+        <activity
+            android:name=".PerCatProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ShelterListOfPets"
+            android:exported="false" />
+        <activity
+            android:name=".ShelterListOfDogs"
+            android:exported="false" />
+        <activity
+            android:name=".ShelterListOfCats"
+            android:exported="false" />
         <activity
             android:name=".ShelterInfo"
             android:exported="false">

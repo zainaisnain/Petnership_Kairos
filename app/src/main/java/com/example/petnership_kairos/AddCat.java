@@ -82,7 +82,7 @@ public class AddCat extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        etPetName = view.findViewById(R.id.pet_name);
+        etPetName = view.findViewById(R.id.per_cat_name_title);
         etPetAge = view.findViewById(R.id.pet_age);
         etPetSex = view.findViewById(R.id.pet_sex);
         etPetDescription = view.findViewById(R.id.pet_desc);

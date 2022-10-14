@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/pet_profile"
+            android:text="Application History"
             android:fontFamily="@font/montserrat_reg"
             android:layout_marginTop="20dp"
             android:textSize="24sp"
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="CATS"
+            android:text="PETS"
             android:textStyle="bold"
             android:textAlignment="center"
             android:fontFamily="@font/montserrat_reg"
@@ -310,3 +310,4 @@
     </LinearLayout>
 
 </ScrollView>
+

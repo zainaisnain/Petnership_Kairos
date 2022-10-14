@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
-    tools:context=".PerPetProfileDogs">
+    tools:context=".PerDogProfile">
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +40,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
-                        android:id="@+id/per_cat_image"
+                        android:id="@+id/per_dog_image"
                         android:layout_width="198dp"
                         android:layout_height="188dp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +50,7 @@
                         tools:layout_editor_absoluteY="34dp" />
 
                     <TextView
-                        android:id="@+id/per_cat_name_title"
+                        android:id="@+id/per_dog_name_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -57,9 +59,9 @@
                         android:textColor="@color/white"
                         android:textSize="32dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/per_cat_image"
-                        app:layout_constraintStart_toStartOf="@+id/per_cat_image"
-                        app:layout_constraintTop_toBottomOf="@+id/per_cat_image" />
+                        app:layout_constraintEnd_toEndOf="@+id/per_dog_image"
+                        app:layout_constraintStart_toStartOf="@+id/per_dog_image"
+                        app:layout_constraintTop_toBottomOf="@+id/per_dog_image" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -72,7 +74,7 @@
                         android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/per_cat_name_title">
+                        app:layout_constraintTop_toBottomOf="@+id/per_dog_name_title">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -96,7 +98,7 @@
                                 android:textSize="20sp"/>
 
                             <TextView
-                                android:id="@+id/per_cat_name"
+                                android:id="@+id/per_dog_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -119,19 +121,69 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/label_cat_breed"
+                                android:id="@+id/label_dog_breed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Type:"
+                                android:text="Breed:"
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_cat_breed"
+                                android:id="@+id/per_dog_breed"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="SIAMESE CAT"
+                                android:text="SIAMESE dog"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/label_dog_age"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Age:"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/per_dog_age"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="age"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/label_dog_sex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Sex:"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/per_dog_sex"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="sex"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -148,11 +200,11 @@
                                 android:layout_width="62dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Details:"
+                                android:text="Description:"
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_cat_description"
+                                android:id="@+id/per_dog_description"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

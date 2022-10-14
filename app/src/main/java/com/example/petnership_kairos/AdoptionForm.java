@@ -2,7 +2,6 @@ package com.example.petnership_kairos;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,33 +12,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class PerPetProfileCats extends Fragment {
+public class AdoptionForm extends Fragment {
 
+    private AdoptionFormViewModel mViewModel;
 
-
-    private PerPetProfileCatsViewModel mViewModel;
-
-    public static PerPetProfileCats newInstance() {
-        return new PerPetProfileCats();
+    public static AdoptionForm newInstance() {
+        return new AdoptionForm();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_per_pet_profile_cats, container, false);
+        return inflater.inflate(R.layout.fragment_adoption_form, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("petProfile Cats");
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(PerPetProfileCatsViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(AdoptionFormViewModel.class);
         // TODO: Use the ViewModel
     }
 
