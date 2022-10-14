@@ -7,71 +7,76 @@
     android:background="#C3B1E1"
     >
 
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_reg"
+        android:text="With respect to Hygiene"
+        android:textColor="#371576"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.286" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="380dp"
-        android:layout_height="580dp"
+        android:layout_width="378dp"
+        android:layout_height="605dp"
         android:background="@drawable/card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/crating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <SeekBar
+            android:id="@+id/cseekBar54"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="228dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.511"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.094" />
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar50" />
 
-        <TextView
-            android:id="@+id/crating2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <SeekBar
+            android:id="@+id/cseekBar55"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="220dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.217" />
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar51" />
 
-        <TextView
-            android:id="@+id/crating3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <SeekBar
+            android:id="@+id/cseekBar53"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="328dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.332" />
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/crating4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.446" />
-
-        <TextView
-            android:id="@+id/crating5"
+            android:id="@+id/crating50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_black"
@@ -81,10 +86,10 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.551" />
+            app:layout_constraintVertical_bias="0.18" />
 
         <TextView
-            android:id="@+id/crating6"
+            android:id="@+id/crating53"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_black"
@@ -94,10 +99,10 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.676" />
+            app:layout_constraintVertical_bias="0.58" />
 
         <TextView
-            android:id="@+id/crating7"
+            android:id="@+id/crating54"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_black"
@@ -107,10 +112,49 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.781" />
+            app:layout_constraintVertical_bias="0.671" />
+
+        <TextView
+            android:id="@+id/crating55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.792" />
+
+        <TextView
+            android:id="@+id/crating51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.31" />
+
+        <TextView
+            android:id="@+id/crating52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.415" />
 
         <ImageButton
-            android:id="@+id/instructionsBTNc1"
+            android:id="@+id/instructionscBTN9"
             android:layout_width="43dp"
             android:layout_height="45dp"
             android:background="#0000"
@@ -125,22 +169,6 @@
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/textView27"
-            android:layout_width="73dp"
-            android:layout_height="38dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Popularity"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.859" />
-
-        <TextView
             android:id="@+id/textView7"
             android:layout_width="297dp"
             android:layout_height="30dp"
@@ -151,338 +179,299 @@
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
+            app:layout_constraintHorizontal_bias="0.289"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.029" />
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="77dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.139" />
-
-        <TextView
-            android:id="@+id/textView16"
-            android:layout_width="79dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.252" />
-
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="79dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.381" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="77dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="0.846"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.484" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="77dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.606" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="78dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.716" />
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="79dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Activity / Playfulness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/seekBar"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.851" />
-
-        <SeekBar
-            android:id="@+id/cseekBar"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <SeekBar
-            android:id="@+id/cseekBar2"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar" />
-
-        <SeekBar
-            android:id="@+id/cseekBar3"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar2" />
-
-        <SeekBar
-            android:id="@+id/cseekBar4"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar3" />
-
-        <SeekBar
-            android:id="@+id/cseekBar5"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar4" />
-
-        <SeekBar
-            android:id="@+id/cseekBar6"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar5" />
-
-        <SeekBar
-            android:id="@+id/cseekBar7"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:max="16"
-            android:progress="8"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar6" />
-
-        <Button
-            android:id="@+id/proceed_quesc1"
-            android:layout_width="242dp"
-            android:layout_height="45dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/button1"
-            app:backgroundTint="@null"
-            android:fontFamily="@font/montserrat_reg"
-            android:text="PROCEED"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar7"
-            app:layout_constraintVertical_bias="1.0"
-            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="68dp"
-            android:layout_height="27dp"
-            android:layout_marginEnd="20dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Calmness"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.146" />
-
-        <TextView
-            android:id="@+id/textView22"
-            android:layout_width="77dp"
-            android:layout_height="48dp"
+            android:id="@+id/textView8"
+            android:layout_width="76dp"
+            android:layout_height="83dp"
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Non - Aggression"
+            android:text="Has 6-13 years left to live"
             android:textColor="#371576"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar2"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar50"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.25" />
+            app:layout_constraintVertical_bias="0.231" />
 
         <TextView
-            android:id="@+id/textView23"
-            android:layout_width="72dp"
-            android:layout_height="34dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Sociability"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
-
-        <TextView
-            android:id="@+id/textView24"
-            android:layout_width="83dp"
-            android:layout_height="69dp"
+            android:id="@+id/textView9"
+            android:layout_width="80dp"
+            android:layout_height="105dp"
             android:layout_marginEnd="4dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Litterbox Comfortability + Adjustment"
+            android:text="Senior or geriartic (11-15+) or has 5 years or less left to live"
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar51"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="81dp"
+            android:layout_height="98dp"
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Senior or geriartic (11-15+) or has 5 years or less left to live"
             android:textColor="#371576"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar4"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar52"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.52" />
+            app:layout_constraintVertical_bias="0.491" />
 
         <TextView
-            android:id="@+id/textView25"
-            android:layout_width="77dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="12dp"
+            android:id="@+id/textView17"
+            android:layout_width="73dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Healthy Grooming"
+            android:text="Projected 14-16+ years left to live"
             android:textColor="#371576"
-            android:textSize="12sp"
+            android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar4"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar51"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.629" />
+            app:layout_constraintVertical_bias="0.38" />
 
         <TextView
-            android:id="@+id/textView26"
-            android:layout_width="80dp"
-            android:layout_height="46dp"
-            android:layout_marginEnd="8dp"
+            android:id="@+id/textView16"
+            android:layout_width="83dp"
+            android:layout_height="94dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Age / Life Expectancy"
+            android:text="Projected 14-16+ years left to live"
             android:textColor="#371576"
-            android:textSize="12sp"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar50"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.262" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="75dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Has 6-13 years left to live"
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar52"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483" />
+
+        <SeekBar
+            android:id="@+id/cseekBar50"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="104dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.556"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+        <SeekBar
+            android:id="@+id/cseekBar51"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar50" />
+
+        <SeekBar
+            android:id="@+id/cseekBar52"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar51" />
+
+        <Button
+            android:id="@+id/submit_ques"
+            android:layout_width="239dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="28dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/button"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="SUBMIT"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/seekBar4"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar53"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="With respect to Sociability"
+            android:textColor="#371576"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.734" />
+            app:layout_constraintVertical_bias="0.114" />
+
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="With respect to Popularity"
+            android:textColor="#371576"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.534" />
+
+        <TextView
+            android:id="@+id/textView58"
+            android:layout_width="76dp"
+            android:layout_height="86dp"
+            android:layout_marginTop="344dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is among Top 10 most popular."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar55"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView61"
+            android:layout_width="83dp"
+            android:layout_height="94dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is among the Top 11-25 most popular."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar53"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.647" />
+
+        <TextView
+            android:id="@+id/textView62"
+            android:layout_width="86dp"
+            android:layout_height="81dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is not that popular and is not on the list of the
+most popular breeds."
+            android:textColor="#371576"
+            android:textSize="9.5sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar54"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.74" />
+
+        <TextView
+            android:id="@+id/textView63"
+            android:layout_width="83dp"
+            android:layout_height="94dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is not that popular and is not on the list of the
+most popular breeds."
+            android:textColor="#371576"
+            android:textSize="9.5sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar53"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.917" />
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="76dp"
+            android:layout_height="53dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is among Top 10 most popular."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar54"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.733" />
+
+        <TextView
+            android:id="@+id/textView60"
+            android:layout_width="75dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Breed is among the Top 11-25 most popular."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar53"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.867" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
         android:layout_height="43dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/bar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageButton
             android:id="@+id/bar_icon2"
