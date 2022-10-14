@@ -201,7 +201,7 @@ public class CatQuestionnaire9 extends AppCompatActivity {
 
 
 
-            popupc9 = findViewById(R.id.instructionsBTNc9);
+            popupc9 = findViewById(R.id.instructionsBTN9);
             helpDialogc9 = new Dialog(this);
             popupc9.setOnClickListener(new View.OnClickListener() {
                 @Override

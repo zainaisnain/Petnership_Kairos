@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -61,6 +62,8 @@ public class AddCat extends Fragment {
     StorageReference storageReference;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+    private boolean imageUploaded=false;
+
     public AddCat() {
         // Required empty public constructor
     }
@@ -86,6 +89,7 @@ public class AddCat extends Fragment {
         etPetAge = view.findViewById(R.id.pet_age);
         etPetSex = view.findViewById(R.id.pet_sex);
         etPetDescription = view.findViewById(R.id.pet_desc);
+        proceedBtn = view.findViewById(R.id.petinfo_proceed);
 
 
         //UPLOAD IMAGE
@@ -100,10 +104,7 @@ public class AddCat extends Fragment {
         uploadBtn = view.findViewById(R.id.upload_image_pet_info);
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
+            public void onClick(View v) {uploadImage();}
         });
 
         // get the Firebase  storage reference
@@ -115,7 +116,39 @@ public class AddCat extends Fragment {
             @Override
             public void onClick(View v)
             {
+                petName = etPetName.getText().toString().trim();
+                petAge = etPetAge.getText().toString().trim();
+                petSex = etPetSex.getText().toString().trim();
+                petDesc = etPetDescription.getText().toString().trim();
+                petImage = imageName;
+
+                petID = databaseReference.child("Pets").push().getKey();
+                System.out.println("PET ID == " + petID);
+                //TODO: not proceed if no uploaded picture
+
+                if(petName.isEmpty()){
+                    etPetName.setError("Pet Name is Required.");
+                    etPetName.requestFocus();
+                    return;
+                }else if(petAge.isEmpty()){
+                    etPetAge.setError("Pet Age Required.");
+                    etPetAge.requestFocus();
+                    return;
+                }else if(petSex.isEmpty()){
+                    etPetSex.setError("Sex of Pet Required.");
+                    etPetSex.requestFocus();
+                    return;
+                }else if(petDesc.isEmpty()){
+                    etPetDescription.setError("Pet Description Required.");
+                    etPetDescription.requestFocus();
+                    return;
+                }else if(filePath==null){
+                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
+                }else if(!imageUploaded){
+                    Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
+                }else{
                 addPet();
+                }
             }
         });
     }
@@ -205,7 +238,7 @@ public class AddCat extends Fragment {
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
-
+                                    imageUploaded=true;
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
@@ -253,41 +286,28 @@ public class AddCat extends Fragment {
     }
 
     private void addPet(){
-         petName = etPetName.getText().toString().trim();
-         petAge = etPetAge.getText().toString().trim();
-         petSex = etPetSex.getText().toString().trim();
-         petDesc = etPetDescription.getText().toString().trim();
-         petImage = imageName;
-
-        //TODO: add if empty to check fields
-        //TODO: get current user to store in DB too
-
-        petID = databaseReference.child("Pets").push().getKey();
-        System.out.println("PET ID == " + petID);
-
-        System.out.println(firebaseUser);
-        databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                } else {
+            databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
+                    } else {
 //                    Pet pet = new Pet(petName, petAge, petSex, petDesc, imageName, petID);
 //                    databaseReference.child("Pets").child("Cats").child(petID).setValue(pet);
-                    Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    CatPetProfile CatPetProfile = new CatPetProfile();
-                    transaction.replace(R.id.nav_host_fragment,CatPetProfile);
-                    transaction.commit();
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        CatPetProfile CatPetProfile = new CatPetProfile();
+                        transaction.replace(R.id.nav_host_fragment,CatPetProfile);
+                        transaction.commit();
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                }
+            });
     }
 
     @Override
