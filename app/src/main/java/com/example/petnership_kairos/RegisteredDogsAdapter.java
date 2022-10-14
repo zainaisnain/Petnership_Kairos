@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -64,38 +66,36 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredDogData registeredDogDataList = dogsData[position];
 
-//        holder.ivPetImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PerPetProfileDogs yourfragmentobject = new PerPetProfileDogs();
-//                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-//                activity.getSupportFragmentManager().beginTransaction().
-//                        replace(R.id.per_dog_profile_frag, yourfragmentobject)
-//                        .addToBackStack(null).commit();
-//
-//            }
-//        });
-
-        storageReference.child("Pets/").child(registeredDogDataList.getDogImageName()).getDownloadUrl()
+        System.out.println("registeredDogDataList.getImageName()) TOP STORAGEREF" + registeredDogDataList.getImageName());
+        storageReference.child("Pets/").child(registeredDogDataList.getImageName()).getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        System.out.println("registeredDogDataList.getImageName()) ONSUCCES" + registeredDogDataList.getImageName());
                         Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.dog_image));
                     }
                 });
 
         System.out.println("petImageName OUTSIDE" + petImageName);
 
-//        holder.ivPetImage.setImageResource(registeredDogDataList.getImageName());
-        holder.tvPetName.setText("Name : " + registeredDogDataList.getDogName());
-        holder.tvPetAge.setText("Age : " + registeredDogDataList.getDogAge());
-        holder.tvPetSex.setText("Sex : " + registeredDogDataList.getDogSex());
-        holder.tvPetBreed.setText("Breed : " + registeredDogDataList.getDogBreed());
+        holder.cvDog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PerDogProfile.class);
+                intent.putExtra("petID", registeredDogDataList.getPetID());
+                view.getContext().startActivity(intent);
+            }
+        });
+
+        holder.tvPetName.setText("Name : " + registeredDogDataList.getPetName());
+        holder.tvPetAge.setText("Age : " + registeredDogDataList.getPetAge());
+        holder.tvPetSex.setText("Sex : " + registeredDogDataList.getPetSex());
+        holder.tvPetBreed.setText("Breed : " + registeredDogDataList.getPetBreed());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, registeredDogDataList.getDogName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, registeredDogDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -109,9 +109,11 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
 
         ImageView ivPetImage;
         TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed;
+        CardView cvDog;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            cvDog = itemView.findViewById(R.id.cvDog);
             ivPetImage = itemView.findViewById(R.id.dog_image);
             tvPetName = itemView.findViewById(R.id.dog_name);
             tvPetAge = itemView.findViewById(R.id.dog_age);

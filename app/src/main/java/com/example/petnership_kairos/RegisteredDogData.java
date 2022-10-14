@@ -1,53 +1,62 @@
 package com.example.petnership_kairos;
 
 public class RegisteredDogData {
-    String dogImageName, dogName, dogAge, dogSex, dogBreed;
+    String petID, imageName, petName, petAge, petSex, petBreed;
 
-    public RegisteredDogData(String dogImageName, String dogName, String dogAge, String dogSex, String dogBreed) {
-        this.dogImageName = dogImageName;
-        this.dogName = dogName;
-        this.dogAge = dogAge;
-        this.dogSex = dogSex;
-        this.dogBreed = dogBreed;
+    public RegisteredDogData(String petID, String imageName, String petName, String petAge, String petSex, String petBreed) {
+        this.petID = petID;
+        this.imageName = imageName;
+        this.petName = petName;
+        this.petAge = petAge;
+        this.petSex = petSex;
+        this.petBreed = petBreed;
     }
 
-    public String getDogImageName() {
-        return dogImageName;
+    public String getPetID() {
+        return petID;
     }
 
-    public void setDogImageName(String dogImageName) {
-        this.dogImageName = dogImageName;
+    public void setPetID(String petID) {
+        this.petID = petID;
     }
 
-    public String getDogName() {
-        return dogName;
+    public String getImageName() {
+        return imageName;
     }
 
-    public void setDogName(String dogName) {
-        this.dogName = dogName;
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
-    public String getDogAge() {
-        return dogAge;
+    public String getPetName() {
+        return petName;
     }
 
-    public void setDogAge(String dogAge) {
-        this.dogAge = dogAge;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
-    public String getDogSex() {
-        return dogSex;
+    public String getPetAge() {
+        return petAge;
     }
 
-    public void setDogSex(String dogSex) {
-        this.dogSex = dogSex;
+    public void setPetAge(String petAge) {
+        this.petAge = petAge;
     }
 
-    public String getDogBreed() {
-        return dogBreed;
+    public String getPetSex() {
+        return petSex;
     }
 
-    public void setDogBreed(String dogBreed) {
-        this.dogBreed = dogBreed;
+    public void setPetSex(String petSex) {
+        this.petSex = petSex;
+    }
+
+    public String getPetBreed() {
+        return petBreed;
+    }
+
+    public void setPetBreed(String petBreed) {
+        this.petBreed = petBreed;
     }
 }

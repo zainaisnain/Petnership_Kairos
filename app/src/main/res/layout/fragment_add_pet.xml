@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.056" />
 
         <EditText
-            android:id="@+id/pet_name"
+            android:id="@+id/per_cat_name_title"
             android:layout_width="280dp"
             android:layout_height="48dp"
             android:autofillHints=""
