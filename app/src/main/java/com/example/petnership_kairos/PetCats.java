@@ -104,7 +104,8 @@ public class PetCats extends Fragment {
                             System.out.println("petID inside " + petID);
                             petIDs.add(petID);
 
-                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
+                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
+                            System.out.println("petImageName INSIDE" + petImageName);
                         }
 
                         storageReference.child("Pets/").child(petImageName).getDownloadUrl()

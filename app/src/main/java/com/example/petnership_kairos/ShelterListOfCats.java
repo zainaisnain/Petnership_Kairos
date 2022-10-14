@@ -61,12 +61,12 @@ public class ShelterListOfCats extends AppCompatActivity {
                             petID = ds.getKey();
                             petIDs.add(petID);
 
-                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
+                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                             petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
                             petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
                             petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
                             petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
-                            ALregisteredCatData.add( new RegisteredCatData(petImageName, petName, petAge, petSex, petBreed));
+                            ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredCatData = ALregisteredCatData.toArray(new RegisteredCatData[ALregisteredCatData.size()]);
                         System.out.println("size nya: " + registeredCatData.length);
