@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class DogQuestionnaire7 extends AppCompatActivity {
     ImageButton popup7;
-    Dialog helpDialog7;
     SeekBar seekBar39, seekBar40, seekBar41, seekBar42, seekBar43, seekBar44;
     TextView rate39, rate40, rate41, rate42, rate43, rate44;
     @Override
@@ -201,15 +200,28 @@ public class DogQuestionnaire7 extends AppCompatActivity {
 
 
             popup7 = findViewById(R.id.instructionsBTN7);
-            helpDialog7 = new Dialog(this);
             popup7.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    helpDialog7.setContentView(R.layout.help_popup);
-                    helpDialog7.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                    helpDialog7.show();
+                    showDialog();
                 }
             });
 
-        }
     }
+
+    private void showDialog() {
+        final Dialog helpDialog7 = new Dialog(this);
+        helpDialog7.setContentView(R.layout.help_popup);
+        helpDialog7.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialog7.show();
+        ImageButton closeBTN = (ImageButton) helpDialog7.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialog7.dismiss();
+
+            }
+        });
+    }
+
+}

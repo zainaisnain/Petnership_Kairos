@@ -154,7 +154,7 @@
             app:layout_constraintVertical_bias="0.415" />
 
         <ImageButton
-            android:id="@+id/instructionscBTN9"
+            android:id="@+id/instructionsBTNc9"
             android:layout_width="43dp"
             android:layout_height="45dp"
             android:background="#0000"
@@ -326,12 +326,12 @@
             android:layout_width="239dp"
             android:layout_height="37dp"
             android:layout_marginBottom="28dp"
-            app:backgroundTint="@null"
             android:background="@drawable/button"
             android:fontFamily="@font/montserrat_reg"
             android:text="SUBMIT"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
@@ -403,29 +403,29 @@
             android:layout_width="86dp"
             android:layout_height="81dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Breed is not that popular and is not on the list of the
+            android:text="Breed isn't that popular and is not on the list of the
 most popular breeds."
             android:textColor="#371576"
             android:textSize="9.5sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/cseekBar54"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.74" />
+            app:layout_constraintVertical_bias="0.748" />
 
         <TextView
             android:id="@+id/textView63"
             android:layout_width="83dp"
             android:layout_height="94dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Breed is not that popular and is not on the list of the
+            android:text="Breed isn't that popular and is not on the list of the
 most popular breeds."
             android:textColor="#371576"
             android:textSize="9.5sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/cseekBar53"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.917" />

@@ -29,7 +29,7 @@
         android:layout_width="374dp"
         android:layout_height="98dp"
         android:fontFamily="@font/montserrat_black"
-        android:text="Given option A and B, slide the button to the choice you value more. Sliding it more on the left-hand side state the importance over option A over option B, while sliding it more on the right-hand side state the importance of option B over option A.
+        android:text="Given option A and B, slide the button to the choice you value more. Sliding it more on the left-hand side states the importance of option A over option B, while sliding it more on the right-hand side states the importance of option B over option A.
 Putting the button in the middle indicates equal importance."
         android:textSize="12sp"
         android:textStyle="bold"
@@ -55,4 +55,18 @@ Putting the button in the middle indicates equal importance."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.921" />
+
+    <ImageButton
+        android:id="@+id/closeBTN"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        android:background="#0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.971"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.034"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
