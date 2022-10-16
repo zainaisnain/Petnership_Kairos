@@ -23,7 +23,7 @@
             android:id="@+id/logintitle2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/marmelad_regular"
+            android:fontFamily="@font/playfairdisplayblack"
             android:text="Who are you?"
             android:textColor="#371576"
             android:textSize="40sp"
