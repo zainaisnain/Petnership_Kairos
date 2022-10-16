@@ -5,14 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C3B1E1"
-    tools:context=".AddCat">
+   >
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="348dp"
-        android:layout_height="607dp"
+        android:layout_width="347dp"
+        android:layout_height="664dp"
         android:background="@drawable/card"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -24,6 +26,7 @@
             android:id="@+id/petinfo_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/montserrat_reg"
             android:text="Pet Information"
             android:textColor="#371576"
@@ -39,6 +42,7 @@
             android:id="@+id/per_cat_name_title"
             android:layout_width="280dp"
             android:layout_height="48dp"
+            android:layout_marginTop="10dp"
             android:autofillHints=""
             android:background="@drawable/textfield"
             android:ems="10"
@@ -57,6 +61,7 @@
             android:id="@+id/pet_age"
             android:layout_width="280dp"
             android:layout_height="48dp"
+            android:layout_marginTop="10dp"
             android:autofillHints=""
             android:background="@drawable/textfield"
             android:ems="10"
@@ -75,6 +80,7 @@
             android:id="@+id/pet_sex"
             android:layout_width="280dp"
             android:layout_height="48dp"
+            android:layout_marginTop="10dp"
             android:autofillHints=""
             android:background="@drawable/textfield"
             android:ems="10"
@@ -88,6 +94,46 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.376" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_reg"
+            android:gravity="center"
+            android:text=" Status"
+            android:textSize="20sp"
+
+            />
+
+        <Spinner
+            android:id="@+id/pet_status"
+            android:layout_width="188dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:autofillHints=""
+            android:background="@drawable/textfield"
+            android:ems="10"
+            android:fontFamily="@font/montserrat_reg"
+            android:gravity="center"
+            android:hint=" Status"
+            android:inputType="textPersonName"
+            android:spinnerMode="dropdown"
+            android:textColorHint="#757575"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.376" />
+
+    </LinearLayout>
         <EditText
             android:id="@+id/pet_desc"
             android:layout_width="279dp"
@@ -104,7 +150,8 @@
             app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.535" />
+            app:layout_constraintVertical_bias="0.535"
+            android:layout_marginTop="10dp"/>
 
         <ImageView
             android:id="@+id/pet_info_profile_pic_iv"
@@ -132,44 +179,52 @@
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.853" />
+            app:layout_constraintVertical_bias="0.853"
+            android:layout_marginTop="10dp"/>
 
-        <Button
-            android:id="@+id/petinfo_proceed"
-            android:layout_width="133dp"
-            android:layout_height="40dp"
-            android:background="@drawable/button1"
-            android:fontFamily="@font/montserrat_reg"
-            android:text="Proceed"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.841"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95"
-            tools:ignore="TouchTargetSizeCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/petinfo_back"
+                android:layout_width="133dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button2"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Back"
+                android:textColor="#6D4C41"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.158"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            <Button
+                android:id="@+id/petinfo_proceed"
+                android:layout_width="133dp"
+                android:layout_height="40dp"
+                android:background="@drawable/button1"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Proceed"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.841"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.95"
+                tools:ignore="TouchTargetSizeCheck"
+                android:layout_marginLeft="10dp"
+                />
 
-        <Button
-            android:id="@+id/petinfo_back"
-            android:layout_width="133dp"
-            android:layout_height="40dp"
-            android:background="@drawable/button2"
-            android:fontFamily="@font/montserrat_reg"
-            android:text="Back"
-            android:textColor="#6D4C41"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.158"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.95"
-            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
