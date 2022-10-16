@@ -33,6 +33,8 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
             q4a1Btn, q4a2Btn, q4a3Btn, q5a1Btn, q5a2Btn, q5a3Btn, q6a1Btn, q6a2Btn, q6a3Btn,
             q7a1Btn, q7a2Btn, q7a3Btn, q8a1Btn, q8a2Btn, q8a3Btn;
 
+    private Boolean []booleanBtns;
+
     private int q1,q2,q3,q4,q5,q6,q7, q8;
     private String q9, shelter;
     private EditText etQ9;
@@ -76,6 +78,27 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         petDesc = addCatInfo.petDesc;
         petID = addCatInfo.petID;
         imageName = addCatInfo.petImage;
+
+        booleanBtns =  new Boolean[3];
+        booleanBtns[0] = false;
+        booleanBtns[1] = false;
+        booleanBtns[2] = false;
+
+        q1a1Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                q1 = 1;
+                booleanBtns[0] = true;
+                booleanBtns[1] = false;
+                booleanBtns[2] = false;
+            }
+        });
+
+
+        //if a1 is pressed a2 and a3 must not be pressed
+
+
+
 
         //Q1
         q1a1Btn = view.findViewById(R.id.q1ans1_catprofile);
@@ -143,6 +166,17 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
 
         //Q9
         etQ9 = view.findViewById(R.id.q9ans_catprofile);
+
+        for (Boolean bool:booleanBtns) {
+            System.out.println(bool);
+        }
+
+        q1a1Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                q1a1BtnIsClicked = true;
+            }
+        });
 
         submitBtn = view.findViewById(R.id.submit_catprofile);
         submitBtn.setOnClickListener(new View.OnClickListener() {
