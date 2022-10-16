@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 public class DogQuestionnaire1 extends AppCompatActivity {
     ImageButton popup;
-    Dialog helpDialog;
     SeekBar seekBar1, seekBar2, seekBar3, seekBar4, seekBar5, seekBar6, seekBar7;
     TextView rate1, rate2, rate3, rate4, rate5, rate6, rate7;
     @SuppressLint("MissingInflatedId")
@@ -24,7 +23,6 @@ public class DogQuestionnaire1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_questionnaire1);
-
         seekBar1 = (SeekBar)findViewById(R.id.seekBar);
         seekBar2 = (SeekBar) findViewById(R.id.seekBar2);
         seekBar3 = (SeekBar)findViewById(R.id.seekBar3);
@@ -254,16 +252,26 @@ public class DogQuestionnaire1 extends AppCompatActivity {
         });
 
         popup = findViewById(R.id.instructionsBTN);
-        helpDialog = new Dialog(this);
         popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helpDialog.setContentView(R.layout.help_popup);
-                helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                helpDialog.show();
+                showDialog();
             }
         });
-
-
     }
+    private void showDialog() {
+        final Dialog helpDialog = new Dialog(this);
+        helpDialog.setContentView(R.layout.help_popup);
+        helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialog.show();
+        ImageButton closeBTN = (ImageButton) helpDialog.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialog.dismiss();
+
+            }
+        });
+    }
+
 }

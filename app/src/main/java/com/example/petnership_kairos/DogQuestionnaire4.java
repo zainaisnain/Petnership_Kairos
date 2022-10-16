@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 public class DogQuestionnaire4 extends AppCompatActivity {
     ImageButton popup4;
-    Dialog helpDialog4;
     SeekBar seekBar22, seekBar23, seekBar24, seekBar25, seekBar26;
     TextView rate22, rate23, rate24, rate25, rate26;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class DogQuestionnaire4 extends AppCompatActivity {
         rate24 = (TextView) findViewById(R.id.rating24);
         rate25 = (TextView) findViewById(R.id.rating25);
         rate26 = (TextView) findViewById(R.id.rating26);
-        
+
         seekBar22.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -168,19 +168,31 @@ public class DogQuestionnaire4 extends AppCompatActivity {
 
             }
         });
-        
-        
+
 
         popup4 = findViewById(R.id.instructionsBTN4);
-        helpDialog4 = new Dialog(this);
         popup4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helpDialog4.setContentView(R.layout.help_popup);
-                helpDialog4.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                helpDialog4.show();
+                showDialog();
             }
         });
 
     }
+
+    private void showDialog() {
+        final Dialog helpDialog4 = new Dialog(this);
+        helpDialog4.setContentView(R.layout.help_popup);
+        helpDialog4.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialog4.show();
+        ImageButton closeBTN = (ImageButton) helpDialog4.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialog4.dismiss();
+
+            }
+        });
+    }
+
 }

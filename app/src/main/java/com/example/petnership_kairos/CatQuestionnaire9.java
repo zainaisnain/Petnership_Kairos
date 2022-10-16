@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class CatQuestionnaire9 extends AppCompatActivity {
     ImageButton popupc9;
-    Dialog helpDialogc9;
     SeekBar cseekBar50, cseekBar51, cseekBar52, cseekBar53, cseekBar54, cseekBar55;
     TextView crate50, crate51, crate52, crate53, crate54, crate55;
     @Override
@@ -28,12 +27,12 @@ public class CatQuestionnaire9 extends AppCompatActivity {
             cseekBar53 = (SeekBar) findViewById(R.id.cseekBar53);
             cseekBar54= (SeekBar) findViewById(R.id.cseekBar54);
             cseekBar55 = (SeekBar) findViewById(R.id.cseekBar55);
-            crate50 = (TextView) findViewById(R.id.crating44);
-            crate51 = (TextView) findViewById(R.id.crating45);
-            crate52 = (TextView) findViewById(R.id.crating46);
-            crate53 = (TextView) findViewById(R.id.crating47);
-            crate54 = (TextView) findViewById(R.id.crating48);
-            crate55 = (TextView) findViewById(R.id.crating49);
+            crate50 = (TextView) findViewById(R.id.crating50);
+            crate51 = (TextView) findViewById(R.id.crating51);
+            crate52 = (TextView) findViewById(R.id.crating52);
+            crate53 = (TextView) findViewById(R.id.crating53);
+            crate54 = (TextView) findViewById(R.id.crating54);
+            crate55 = (TextView) findViewById(R.id.crating55);
 
 
             cseekBar50.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -202,14 +201,28 @@ public class CatQuestionnaire9 extends AppCompatActivity {
 
 
             popupc9 = findViewById(R.id.instructionsBTNc9);
-            helpDialogc9 = new Dialog(this);
             popupc9.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    helpDialogc9.setContentView(R.layout.help_popup);
-                    helpDialogc9.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                    helpDialogc9.show();
+                    showDialog();
                 }
             });
-        }
+
     }
+
+    private void showDialog() {
+        final Dialog helpDialogc9 = new Dialog(this);
+        helpDialogc9.setContentView(R.layout.help_popup);
+        helpDialogc9.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialogc9.show();
+        ImageButton closeBTN = (ImageButton) helpDialogc9.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialogc9.dismiss();
+
+            }
+        });
+    }
+
+}
