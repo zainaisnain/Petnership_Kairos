@@ -1,10 +1,12 @@
 package com.example.petnership_kairos;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -39,6 +41,7 @@ public class AdopterHomeDashboard extends Fragment {
     private TextView tvAdopterName, tvAdopterContact, tvAdopterAddress;
     private String adopterEmail, adopterUsername, adopterImageName, adopterName, adopterContact, adopterAddress;
     private ImageView ivAdopterImage, ivCvAdopterImage;
+    private CardView cvAdopterInfo;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -70,8 +73,19 @@ public class AdopterHomeDashboard extends Fragment {
         tvAdopterAddress = view.findViewById(R.id.adopterAddress);
         ivAdopterImage = view.findViewById(R.id.adopterImage);
         ivCvAdopterImage = view.findViewById(R.id.cvAdopterImage);
+        cvAdopterInfo = view.findViewById(R.id.adopter_info_cv);
+
+        cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                startActivity(intent);
+            }
+        });
 
         setUpProfilePic();
+
+
     }
 
     private void setUpProfilePic() {

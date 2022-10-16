@@ -3,7 +3,6 @@ package com.example.petnership_kairos;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,7 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class CatPetProfile extends Fragment implements View.OnClickListener {
+public class ShelterCatQuestionnaire extends Fragment implements View.OnClickListener {
 
     private CatPetProfileViewModel mViewModel;
 
@@ -47,17 +46,17 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
 
     private String shelterUsername;
 
-    private String petName, petAge, petSex, petDesc, petID, imageName;
+    private String petName, petAge, petSex, petStatus, petDesc, petID, imageName;
 
-    public static CatPetProfile newInstance() {
-        return new CatPetProfile();
+    public static ShelterCatQuestionnaire newInstance() {
+        return new ShelterCatQuestionnaire();
     }
 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cat_pet_profile, container, false);
+        return inflater.inflate(R.layout.fragment_shelter_cat_questionnaire, container, false);
     }
 
     @Override
@@ -73,6 +72,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
         petName = addCatInfo.petName;
         petAge = addCatInfo.petAge;
         petSex = addCatInfo.petSex;
+        petStatus = addCatInfo.petStatus;
         petDesc = addCatInfo.petDesc;
         petID = addCatInfo.petID;
         imageName = addCatInfo.petImage;
@@ -149,7 +149,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 q9 = etQ9.getText().toString().trim();
-                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
                         q6,q7,q8,q9);
                 petsCatsDBRef.child(petID).setValue(catAnswers);
                 addToShelterDB();
@@ -261,7 +261,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petDesc, imageName, petID);
+                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, imageName, petID);
                                     snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

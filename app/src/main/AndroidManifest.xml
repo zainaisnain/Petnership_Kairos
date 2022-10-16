@@ -105,6 +105,9 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".PerDogProfile"
+            android:exported="false" />
+        <activity
             android:name=".PerCatProfile"
             android:exported="false" />
         <activity
