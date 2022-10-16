@@ -2,9 +2,12 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,9 +23,9 @@ import com.google.firebase.storage.StorageReference;
 
 public class PerDogProfile extends AppCompatActivity {
 
-    private String petID, petImageName, petName, petBreed, petAge, petSex, petDescription;
+    protected static String petID, petImageName, petName, petBreed, petAge, petSex, petDescription;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
-    private ImageView ivPetImage;
+    private ImageView ivPetImage, editDogInfoBtn;
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     @Override
@@ -38,8 +41,21 @@ public class PerDogProfile extends AppCompatActivity {
         tvPetAge = findViewById(R.id.per_dog_age);
         tvPetSex = findViewById(R.id.per_dog_sex);
         tvPetDescription = findViewById(R.id.per_dog_description);
+        editDogInfoBtn = findViewById(R.id.edit_dog_info_btn);
 
         System.out.println("petID inside PerdogProfile : " + petID);
+
+        editDogInfoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                getSupportFragmentManager().
+//                        beginTransaction().replace(R.id.nav_host_fragment,new ShelterEditCat()).commit();
+
+                Fragment fragment = new ShelterEditDog();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.per_dog_profile_container, fragment).addToBackStack(null).commit();
+            }
+        });
 
         setUpPetImage();
     }
