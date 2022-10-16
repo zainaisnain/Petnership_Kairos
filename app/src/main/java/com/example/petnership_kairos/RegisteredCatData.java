@@ -1,14 +1,23 @@
 package com.example.petnership_kairos;
 
 public class RegisteredCatData {
-    String imageName, petName, petAge, petSex, petBreed;
+    String petID, imageName, petName, petAge, petSex, petBreed;
 
-    public RegisteredCatData(String imageName, String petName, String petAge, String petSex, String petBreed) {
+    public RegisteredCatData(String petID, String imageName, String petName, String petAge, String petSex, String petBreed) {
+        this.petID = petID;
         this.imageName = imageName;
         this.petName = petName;
         this.petAge = petAge;
         this.petSex = petSex;
         this.petBreed = petBreed;
+    }
+
+    public String getPetID() {
+        return petID;
+    }
+
+    public void setPetID(String petID) {
+        this.petID = petID;
     }
 
     public String getImageName() {

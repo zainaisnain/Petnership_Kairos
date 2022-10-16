@@ -364,6 +364,7 @@
             android:layout_height="45dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/button1"
+            app:backgroundTint="@null"
             android:fontFamily="@font/montserrat_reg"
             android:text="PROCEED"
             android:textColor="#FFFFFF"

@@ -13,233 +13,228 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class CatQuestionnaire4 extends AppCompatActivity {
-
+    ImageButton popupc4;
+    Dialog helpDialogc4;
+    SeekBar cseekBar22, cseekBar23, cseekBar24, cseekBar25, cseekBar26, cseekBar27, cseekBar28;
+    TextView crate22, crate23, crate24, crate25, crate26, crate27, crate28;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cat_questionnaire4);
-        ImageButton popup3;
-        Dialog helpDialog3;
-        SeekBar seekBar15, seekBar16, seekBar17, seekBar18, seekBar19, seekBar20,seekBar21;
-        TextView rate15, rate16, rate17, rate18, rate19, rate20, rate21;
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dog_questionnaire3);
+        cseekBar22 = (SeekBar) findViewById(R.id.cseekBar22);
+        cseekBar23 = (SeekBar) findViewById(R.id.cseekBar23);
+        cseekBar24 = (SeekBar) findViewById(R.id.cseekBar24);
+        cseekBar25 = (SeekBar) findViewById(R.id.cseekBar25);
+        cseekBar26= (SeekBar) findViewById(R.id.cseekBar26);
+        cseekBar27 = (SeekBar) findViewById(R.id.cseekBar27);
+        cseekBar28 = (SeekBar) findViewById(R.id.cseekBar28);
+        crate22 = (TextView) findViewById(R.id.crating22);
+        crate23 = (TextView) findViewById(R.id.crating23);
+        crate24 = (TextView) findViewById(R.id.crating24);
+        crate25 = (TextView) findViewById(R.id.crating25);
+        crate26 = (TextView) findViewById(R.id.crating26);
+        crate27 = (TextView) findViewById(R.id.crating27);
+        crate28 = (TextView) findViewById(R.id.crating28);
 
 
-        seekBar15 = (SeekBar) findViewById(R.id.seekBar15);
-        seekBar16 = (SeekBar) findViewById(R.id.seekBar16);
-        seekBar17 = (SeekBar) findViewById(R.id.seekBar17);
-        seekBar18 = (SeekBar) findViewById(R.id.seekBar18);
-        seekBar19 = (SeekBar) findViewById(R.id.seekBar19);
-        seekBar20 = (SeekBar) findViewById(R.id.seekBar20);
-        seekBar21 = (SeekBar) findViewById(R.id.seekBar21);
-        rate15 = (TextView) findViewById(R.id.rating15);
-        rate16 = (TextView) findViewById(R.id.rating16);
-        rate17 = (TextView) findViewById(R.id.rating17);
-        rate18 = (TextView) findViewById(R.id.rating18);
-        rate19 = (TextView) findViewById(R.id.rating19);
-        rate20 = (TextView) findViewById(R.id.rating20);
-        rate21 = (TextView) findViewById(R.id.rating21);
-
-
-        seekBar15.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar22.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onProgressChanged(SeekBar seekBar15, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar22, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate15.setText("Extremely Important");
+                    crate22.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate15.setText("Significantly Important");
+                    crate22.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate15.setText("Moderately Important");
+                    crate22.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate15.setText("Slightly Important");
+                    crate22.setText("Slightly Important");
                 } else {
-                    rate15.setText("Equally Important");
+                    crate22.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar15) {
+            public void onStartTrackingTouch(SeekBar cseekBar22) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar15) {
+            public void onStopTrackingTouch(SeekBar cseekBar22) {
 
             }
         });
 
-        seekBar16.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar23.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar16, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar23, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate16.setText("Extremely Important");
+                    crate23.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate16.setText("Significantly Important");
+                    crate23.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate16.setText("Moderately Important");
+                    crate23.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate16.setText("Slightly Important");
+                    crate23.setText("Slightly Important");
                 } else {
-                    rate16.setText("Equally Important");
+                    crate23.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar16) {
+            public void onStartTrackingTouch(SeekBar cseekBar23) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar16) {
+            public void onStopTrackingTouch(SeekBar cseekBar23) {
 
             }
         });
 
-        seekBar17.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar24.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar17, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar24, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate17.setText("Extremely Important");
+                    crate24.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate17.setText("Significantly Important");
+                    crate24.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate17.setText("Moderately Important");
+                    crate24.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate17.setText("Slightly Important");
+                    crate24.setText("Slightly Important");
                 } else {
-                    rate17.setText("Equally Important");
+                    crate24.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar17) {
+            public void onStartTrackingTouch(SeekBar cseekBar24) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar17) {
+            public void onStopTrackingTouch(SeekBar cseekBar24) {
 
             }
         });
 
-        seekBar18.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar25.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar18, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar25, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate18.setText("Extremely Important");
+                    crate25.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate18.setText("Significantly Important");
+                    crate25.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate18.setText("Moderately Important");
+                    crate25.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate18.setText("Slightly Important");
+                    crate25.setText("Slightly Important");
                 } else {
-                    rate18.setText("Equally Important");
+                    crate25.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar18) {
+            public void onStartTrackingTouch(SeekBar cseekBar25) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar18) {
+            public void onStopTrackingTouch(SeekBar cseekBar25) {
 
             }
         });
 
-        seekBar19.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar26.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar19, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar26, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate19.setText("Extremely Important");
+                    crate26.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate19.setText("Significantly Important");
+                    crate26.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate19.setText("Moderately Important");
+                    crate26.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate19.setText("Slightly Important");
+                    crate26.setText("Slightly Important");
                 } else {
-                    rate19.setText("Equally Important");
+                    crate26.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar19) {
+            public void onStartTrackingTouch(SeekBar cseekBar26) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar19) {
+            public void onStopTrackingTouch(SeekBar cseekBar26) {
 
             }
         });
 
-        seekBar20.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar27.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar20, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar27, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate20.setText("Extremely Important");
+                    crate27.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate20.setText("Significantly Important");
+                    crate27.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate20.setText("Moderately Important");
+                    crate27.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate20.setText("Slightly Important");
+                    crate27.setText("Slightly Important");
                 } else {
-                    rate20.setText("Equally Important");
+                    crate27.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar20) {
+            public void onStartTrackingTouch(SeekBar cseekBar27) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar20) {
+            public void onStopTrackingTouch(SeekBar cseekBar27) {
 
             }
         });
 
-        seekBar21.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar28.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar21, int i, boolean b) {
+            public void onProgressChanged(SeekBar cseekBar28, int i, boolean b) {
                 if (i == 0 || i == 16 || i == 1 || i == 15) {
-                    rate21.setText("Extremely Important");
+                    crate28.setText("Extremely Important");
                 } else if (i == 2 || i == 14 || i == 3 || i == 13) {
-                    rate21.setText("Significantly Important");
+                    crate28.setText("Significantly Important");
                 } else if (i == 4 || i == 12 || i == 5 || i == 11) {
-                    rate21.setText("Moderately Important");
+                    crate28.setText("Moderately Important");
                 } else if (i == 7 || i == 9 || i == 6 || i == 10) {
-                    rate21.setText("Slightly Important");
+                    crate28.setText("Slightly Important");
                 } else {
-                    rate21.setText("Equally Important");
+                    crate28.setText("Equally Important");
                 }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar21) {
+            public void onStartTrackingTouch(SeekBar cseekBar28) {
 
             }
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar21) {
+            public void onStopTrackingTouch(SeekBar cseekBar28) {
 
             }
         });
 
-        popup3 = findViewById(R.id.instructionsBTN3);
-        helpDialog3 = new Dialog(this);
-        popup3.setOnClickListener(new View.OnClickListener() {
+        popupc4 = findViewById(R.id.instructionsBTNc4);
+        helpDialogc4 = new Dialog(this);
+        popupc4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helpDialog3.setContentView(R.layout.help_popup);
-                helpDialog3.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                helpDialog3.show();
+                helpDialogc4.setContentView(R.layout.help_popup);
+                helpDialogc4.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                helpDialogc4.show();
             }
         });
     }

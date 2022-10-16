@@ -122,7 +122,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.014"
             app:srcCompat="@drawable/info_icon"
-            tools:ignore="TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView7"
@@ -459,6 +459,7 @@
             android:layout_height="42dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/button1"
+            app:backgroundTint="@null"
             android:fontFamily="@font/montserrat_reg"
             android:text="SUBMIT"
             android:textColor="#FFFFFF"

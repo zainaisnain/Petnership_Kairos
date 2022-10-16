@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -27,8 +33,6 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
 
     RegisteredCatData[] petsData;
     Context context;
-
-    ImageView img1;
 
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -55,7 +59,6 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
 
-
         return viewHolder;
     }
 
@@ -64,27 +67,25 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredCatData registeredCatDataList = petsData[position];
 
-//        holder.ivPetImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PerPetProfileCats yourfragmentobject = new PerPetProfileCats();
-//                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-//                activity.getSupportFragmentManager().beginTransaction().
-//                        replace(R.id.per_cat_profile_frag, yourfragmentobject)
-//                        .addToBackStack(null).commit();
-//
-//            }
-//        });
-
         storageReference.child("Pets/").child(registeredCatDataList.getImageName()).getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        System.out.println("registeredCatDataList.getImageName() ::: " + registeredCatDataList.getImageName());
                         Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.cat_image));
                     }
                 });
 
-        System.out.println("petImageName OUTSIDE" + petImageName);
+        System.out.println("registeredCatDataList.getImageName() OUTSIDE ::: " + registeredCatDataList.getImageName());
+
+        holder.cvCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, PerCatProfile.class);
+                intent.putExtra("petID", registeredCatDataList.getPetID());
+                view.getContext().startActivity(intent);
+            }
+        });
 
 //        holder.ivPetImage.setImageResource(registeredCatDataList.getImageName());
         holder.tvPetName.setText("Name : " + registeredCatDataList.getPetName());
@@ -109,9 +110,11 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
 
         ImageView ivPetImage;
         TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed;
+        CardView cvCat;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            cvCat = itemView.findViewById(R.id.cvCat);
             ivPetImage = itemView.findViewById(R.id.cat_image);
             tvPetName = itemView.findViewById(R.id.cat_name);
             tvPetAge = itemView.findViewById(R.id.cat_age);

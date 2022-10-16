@@ -7,6 +7,7 @@
     >
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvDog"
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="5dp"

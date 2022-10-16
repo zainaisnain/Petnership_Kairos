@@ -60,12 +60,12 @@ public class ShelterListOfDogs extends AppCompatActivity {
                             petID = ds.getKey();
                             petIDs.add(petID);
 
-                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
+                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                             petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
                             petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
                             petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
                             petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
-                            ALregisteredDogData.add( new RegisteredDogData(petImageName, petName, petAge, petSex, petBreed));
+                            ALregisteredDogData.add( new RegisteredDogData(petID, petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredDogData = ALregisteredDogData.toArray(new RegisteredDogData[ALregisteredDogData.size()]);
 //                        for (RegisteredDogData element: registeredDogData) {

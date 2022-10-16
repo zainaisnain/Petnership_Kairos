@@ -74,7 +74,7 @@ public class ShelterHomeDashboard extends Fragment {
         tvNumOfPets = view.findViewById(R.id.num_reg_pets_shelter);
         tvNumOfDogs = view.findViewById(R.id.num_reg_dogs_shelter);
         tvNumOfCats = view.findViewById(R.id.num_reg_cats_shelter);
-        ivShelterImage = view.findViewById(R.id.imageProfile);
+        ivShelterImage = view.findViewById(R.id.adopterImage);
 
         card1 = view.findViewById(R.id.registeredPets);
         card1.setOnClickListener(new View.OnClickListener() {

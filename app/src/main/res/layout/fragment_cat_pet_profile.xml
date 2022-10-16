@@ -18,22 +18,24 @@
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_marginTop="@dimen/_4sdp"
+            android:background="#0000"
             android:src="@drawable/ic_burger_menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="#0000"
-            app:tint="@color/black" />
+            app:tint="@color/black"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_back"
             android:background="#0000"
+            android:src="@drawable/ic_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
+            app:tint="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
 
 
         <LinearLayout
@@ -111,7 +113,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_darkpurple"
+                            android:background="@drawable/button"
                             android:textAllCaps="false"
                             android:gravity="center"
                             android:minHeight="50dp"
@@ -128,7 +130,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_darkpurple"
+                            android:background="@drawable/button"
                             android:textAllCaps="false"
                             android:text="The cat is fond of physical activity at times."
                             android:textColor="@color/white" />
@@ -142,7 +144,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_darkpurple"
+                            android:background="@drawable/button"
                             android:textAllCaps="false"
                             android:text="The cat is sedentary."
                             android:textColor="@color/white" />

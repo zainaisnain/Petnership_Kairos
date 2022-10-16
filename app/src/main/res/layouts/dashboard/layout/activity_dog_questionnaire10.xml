@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C3B1E1"
+    >
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_reg"
+        android:text="With respect to Hygiene"
+        android:textColor="#371576"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.286" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="378dp"
+        android:layout_height="605dp"
+        android:background="@drawable/card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="92dp"
+            android:layout_height="86dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Moderately popular dog breed,  that
+ranks between 26 to 100 in the AKC Annual
+List."
+            android:textColor="#371576"
+            android:textSize="9.5sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar59"
+            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.907" />
+
+        <TextView
+            android:id="@+id/rating54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.151" />
+
+        <TextView
+            android:id="@+id/rating55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.26" />
+
+        <TextView
+            android:id="@+id/rating56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.366" />
+
+        <TextView
+            android:id="@+id/rating57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.54" />
+
+        <TextView
+            android:id="@+id/rating58"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/rating59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.802" />
+
+        <ImageButton
+            android:id="@+id/instructionsBTN10"
+            android:layout_width="43dp"
+            android:layout_height="45dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.952"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.014"
+            app:srcCompat="@drawable/info_icon"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="297dp"
+            android:layout_height="30dp"
+            android:fontFamily="@font/playfairdisplayblack"
+            android:text="Pet Adopter Questionnaire"
+            android:textAlignment="center"
+            android:textColor="#371576"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.289"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.029" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="81dp"
+            android:layout_height="63dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Lifespan is below average or is mature"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar54"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.186" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="87dp"
+            android:layout_height="66dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Senior or geriatric"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar55"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.326" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="88dp"
+            android:layout_height="64dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Senior or geriatric"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar56"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.447" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="76dp"
+            android:layout_height="78dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Moderately popular dog breed,  that
+ranks between 26 to 100 in the AKC Annual
+List."
+            android:textColor="#371576"
+            android:textSize="9.5sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar57"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.582" />
+
+        <TextView
+            android:id="@+id/textView53"
+            android:layout_width="80dp"
+            android:layout_height="73dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Less popular dog breed that ranks
+below 100 in the AKC Annual List."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar58"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.744" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="72dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Very popular breed that ranks
+between 1 to 25 in the AKC Annual List."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar58"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.736" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="83dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Lifespan is long or is a young pup"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar54"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.179" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="81dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Lifespace is below average or is mature"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar56"
+            app:layout_constraintHorizontal_bias="0.631"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.407" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="87dp"
+            android:layout_height="71dp"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Lifespan is long or is a young pup"
+            android:textColor="#371576"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar55"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.297" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="83dp"
+            android:layout_height="79dp"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Very popular breed that ranks
+between 1 to 25 in the AKC Annual List."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar57"
+            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.581" />
+
+        <SeekBar
+            android:id="@+id/seekBar54"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="52dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <SeekBar
+            android:id="@+id/seekBar55"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar54" />
+
+        <SeekBar
+            android:id="@+id/seekBar56"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar55" />
+
+        <SeekBar
+            android:id="@+id/seekBar57"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="36dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar56" />
+
+        <SeekBar
+            android:id="@+id/seekBar58"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar57" />
+
+        <SeekBar
+            android:id="@+id/seekBar59"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:max="16"
+            android:progress="8"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar58" />
+
+        <Button
+            android:id="@+id/submit_ques"
+            android:layout_width="239dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/button"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="PROCEED"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar59"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="With respect to Longevity"
+            android:textColor="#371576"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.103" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="With respect to Popularity"
+            android:textColor="#371576"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="78dp"
+            android:layout_height="63dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Less popular dog breed that ranks
+below 100 in the AKC Annual List."
+            android:textColor="#371576"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar59"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.887" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="409dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/bar_icon2"
+            android:layout_width="39dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="52dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bar_icon3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/window_icon"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/bar_icon3"
+            android:layout_width="39dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="48dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bar_icon4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/check_icon"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/bar_icon4"
+            android:layout_width="39dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="48dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/ic_message"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/bar_icon1"
+            android:layout_width="39dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="44dp"
+            android:background="#0000"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bar_icon2"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.428"
+            app:srcCompat="@drawable/account_icon"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_burger_menu"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

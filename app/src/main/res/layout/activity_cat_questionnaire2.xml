@@ -340,9 +340,10 @@
 
         <Button
             android:id="@+id/proceed_quesc2"
-            android:layout_width="239dp"
-            android:layout_height="37dp"
+            android:layout_width="241dp"
+            android:layout_height="54dp"
             android:background="@drawable/button1"
+            app:backgroundTint="@null"
             android:fontFamily="@font/montserrat_reg"
             android:text="PROCEED"
             android:textColor="#FFFFFF"

@@ -9,8 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="378dp"
-        android:layout_height="595dp"
+        android:layout_width="380dp"
+        android:layout_height="580dp"
         android:background="@drawable/card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,6 +18,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.495">
 
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="89dp"
+            android:layout_height="41dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Age / Life Expectancy"
+            android:textColor="#371576"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/seekBar4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.38" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="77dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Popularity"
+            android:textColor="#371576"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar22"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.161" />
 
         <TextView
             android:id="@+id/textView7"
@@ -48,8 +78,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.014"
             app:srcCompat="@drawable/info_icon"
-            tools:ignore="TouchTargetSizeCheck" />
-
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/textView2"
@@ -61,54 +90,11 @@
             android:textColor="#371576"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar21"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.168" />
-
-        <TextView
-            android:id="@+id/crating22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.117" />
-
-        <SeekBar
-            android:id="@+id/cseekBar21"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
-            android:id="@+id/textView31"
-            android:layout_width="77dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Popularity"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cseekBar21"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.161" />
 
         <TextView
             android:id="@+id/textView16"
@@ -120,53 +106,11 @@
             android:textColor="#371576"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar22"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.268" />
-
-        <TextView
-            android:id="@+id/crating23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.224" />
-
-        <SeekBar
-            android:id="@+id/cseekBar22"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar21" />
-
-        <TextView
-            android:id="@+id/textView26"
-            android:layout_width="80dp"
-            android:layout_height="46dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Healthy Grooming"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cseekBar22"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.279" />
 
         <TextView
             android:id="@+id/textView17"
@@ -178,52 +122,11 @@
             android:textColor="#371576"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar23"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.381" />
-
-        <TextView
-            android:id="@+id/crating24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.332" />
-
-        <SeekBar
-            android:id="@+id/cseekBar23"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar22" />
-
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="89dp"
-            android:layout_height="41dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Age / Life Expectancy"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cseekBar23"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.38" />
 
         <TextView
             android:id="@+id/textView33"
@@ -235,53 +138,10 @@
             android:textColor="#371576"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar24"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar25"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/crating25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.453" />
-
-        <SeekBar
-            android:id="@+id/cseekBar24"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar23" />
-
-        <TextView
-            android:id="@+id/textView25"
-            android:layout_width="77dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="12dp"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Popularity"
-            android:textColor="#371576"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/cseekBar24"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.514" />
-
 
         <TextView
             android:id="@+id/textView19"
@@ -300,17 +160,75 @@
             app:layout_constraintVertical_bias="0.615" />
 
         <TextView
-            android:id="@+id/crating26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/textView20"
+            android:layout_width="67dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="4dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
+            android:text="Healthy Grooming"
+            android:textColor="#371576"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar26"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.56" />
+            app:layout_constraintVertical_bias="0.716" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="79dp"
+            android:layout_height="43dp"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Age / Life Expectancy"
+            android:textColor="#371576"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cseekBar27"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.85" />
+
+        <SeekBar
+            android:id="@+id/cseekBar22"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <SeekBar
+            android:id="@+id/cseekBar23"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar22" />
+
+        <SeekBar
+            android:id="@+id/cseekBar24"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar23" />
 
         <SeekBar
             android:id="@+id/cseekBar25"
@@ -324,6 +242,62 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cseekBar24" />
+
+        <SeekBar
+            android:id="@+id/cseekBar26"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar25" />
+
+        <SeekBar
+            android:id="@+id/cseekBar27"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar26" />
+
+        <SeekBar
+            android:id="@+id/cseekBar28"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:max="17"
+            android:progress="9"
+            android:progressDrawable="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar27" />
+
+        <Button
+            android:id="@+id/submit_quesc"
+            android:layout_width="243dp"
+            android:layout_height="46dp"
+            app:backgroundTint="@null"
+            android:background="@drawable/button"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="PROCEED"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cseekBar27"
+            app:layout_constraintVertical_bias="0.627"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textView30"
@@ -342,46 +316,20 @@
             app:layout_constraintVertical_bias="0.651" />
 
         <TextView
-            android:id="@+id/textView20"
-            android:layout_width="67dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="4dp"
+            android:id="@+id/textView25"
+            android:layout_width="77dp"
+            android:layout_height="42dp"
+            android:layout_marginEnd="12dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Healthy Grooming"
+            android:text="Popularity"
             android:textColor="#371576"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar26"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.716" />
-
-        <TextView
-            android:id="@+id/crating27"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar24"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.665" />
-
-        <SeekBar
-            android:id="@+id/cseekBar26"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="4dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar25" />
+            app:layout_constraintVertical_bias="0.514" />
 
         <TextView
             android:id="@+id/textView29"
@@ -399,45 +347,20 @@
             app:layout_constraintVertical_bias="0.768" />
 
         <TextView
-            android:id="@+id/textView21"
-            android:layout_width="79dp"
-            android:layout_height="43dp"
+            android:id="@+id/textView26"
+            android:layout_width="80dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/montserrat_black"
-            android:text="Age / Life Expectancy"
+            android:text="Healthy Grooming"
             android:textColor="#371576"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cseekBar27"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
-
-        <TextView
-            android:id="@+id/crating28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_black"
-            android:text="Equally Important"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/cseekBar22"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.781" />
-
-        <SeekBar
-            android:id="@+id/cseekBar27"
-            style="@style/Widget.AppCompat.SeekBar.Discrete"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:max="17"
-            android:progress="9"
-            android:progressDrawable="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar26" />
-
+            app:layout_constraintVertical_bias="0.279" />
 
         <TextView
             android:id="@+id/textView28"
@@ -454,22 +377,96 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.867" />
 
-        <Button
-            android:id="@+id/submit_quesc"
-            android:layout_width="239dp"
-            android:layout_height="37dp"
-            android:background="@drawable/button1"
-            android:fontFamily="@font/montserrat_reg"
-            android:text="SUBMIT"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
+        <TextView
+            android:id="@+id/crating22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cseekBar27"
-            app:layout_constraintVertical_bias="0.627"
-            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.117" />
+
+        <TextView
+            android:id="@+id/crating23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.224" />
+
+        <TextView
+            android:id="@+id/crating24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.332" />
+
+        <TextView
+            android:id="@+id/crating25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.453" />
+
+        <TextView
+            android:id="@+id/crating26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.56" />
+
+        <TextView
+            android:id="@+id/crating27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.665" />
+
+        <TextView
+            android:id="@+id/crating28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_black"
+            android:text="Equally Important"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.781" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -553,5 +550,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
