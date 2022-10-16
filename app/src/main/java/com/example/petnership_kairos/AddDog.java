@@ -93,7 +93,7 @@ public class AddDog extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        etPetName = view.findViewById(R.id.per_cat_name_title);
+        etPetName = view.findViewById(R.id.per_pet_name_title);
         etPetAge = view.findViewById(R.id.pet_age);
         etPetSex = view.findViewById(R.id.pet_sex);
         ddStatus = view.findViewById(R.id.pet_status);
@@ -318,8 +318,8 @@ public class AddDog extends Fragment {
                     Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    DogPetProfile DogPetProfile = new DogPetProfile();
-                    transaction.replace(R.id.nav_host_fragment, DogPetProfile);
+                    ShelterDogQuestionnaire ShelterDogQuestionnaire = new ShelterDogQuestionnaire();
+                    transaction.replace(R.id.nav_host_fragment, ShelterDogQuestionnaire);
                     transaction.commit();
                 }
             }

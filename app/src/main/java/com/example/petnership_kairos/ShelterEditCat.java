@@ -5,12 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,7 +40,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class AddCat extends Fragment {
+public class ShelterEditCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
     private Button proceedBtn, uploadBtn;
@@ -62,19 +62,19 @@ public class AddCat extends Fragment {
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
 
-    private boolean imageUploaded=false;
+    private boolean imageUploaded=true;
 
     //DROPDOWN STATUS
     Spinner ddStatus;
     String[] ddStatusValues = {"Available", "Not Available"};
 
-    public AddCat() {
+    public ShelterEditCat() {
         // Required empty public constructor
     }
 
-    public static AddCat newInstance() { return new AddCat(); }
+    public static ShelterEditCat newInstance() { return new ShelterEditCat(); }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -86,7 +86,7 @@ public class AddCat extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Cat Information");
+        getActivity().setTitle("Edit Cat Information");
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -98,8 +98,10 @@ public class AddCat extends Fragment {
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
         ddStatus.setAdapter(statusAdapter);
 
+        PerCatProfile pcp = new PerCatProfile();
+        petID = pcp.petID;
+
         etPetDescription = view.findViewById(R.id.pet_desc);
-        proceedBtn = view.findViewById(R.id.petinfo_proceed);
 
         ddStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -120,6 +122,7 @@ public class AddCat extends Fragment {
         ivPetInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imageUploaded=false;
                 SelectImage();
             }
         });
@@ -134,6 +137,8 @@ public class AddCat extends Fragment {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        getdata();
+
         proceedBtn = view.findViewById(R.id.petinfo_proceed);
         proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,9 +150,7 @@ public class AddCat extends Fragment {
                 petDesc = etPetDescription.getText().toString().trim();
                 petImage = imageName;
 
-                petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
-                //TODO: not proceed if no uploaded picture
 
                 if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
@@ -165,12 +168,10 @@ public class AddCat extends Fragment {
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
                     return;
-                }else if(filePath==null){
-                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else if(!imageUploaded){
                     Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
-                addPet();
+                    editPetInfo();
                 }
             }
         });
@@ -308,29 +309,57 @@ public class AddCat extends Fragment {
         }
     }
 
-    private void addPet(){
-            databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if (snapshot.exists()) {
-                        Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                    } else {
-//                    Pet pet = new Pet(petName, petAge, petSex, petDesc, imageName, petID);
-//                    databaseReference.child("Pets").child("Cats").child(petID).setValue(pet);
-                        Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
+    private void getdata() {
 
-                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                        ShelterCatQuestionnaire ShelterCatQuestionnaire = new ShelterCatQuestionnaire();
-                        transaction.replace(R.id.nav_host_fragment, ShelterCatQuestionnaire);
-                        transaction.commit();
-                    }
-                }
+        //FirebaseDatabase.getInstance().getReference().child("Adopters");
+        // calling add value event listener method
+        // for getting the values from database.
+        System.out.println("petID getData()" + petID);
+        petsCatsDBRef.child(petID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                petName = String.valueOf(snapshot.child("petName").getValue());
+                System.out.println("petName (ShelterEditCat getData)" + petName);
+                etPetName.setText(petName);
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                petAge = String.valueOf(snapshot.child("petAge").getValue());
+                etPetAge.setText(petAge);
 
-                }
-            });
+                petSex = String.valueOf(snapshot.child("petSex").getValue());
+                etPetSex.setText(petSex);
+
+//                petStatus = String.valueOf(snapshot.child("petStatus").getValue());
+//
+//                ddStatus.setSelection(petStatus);
+
+                petDesc = String.valueOf(snapshot.child("petDesc").getValue());
+                etPetDescription.setText(petDesc);
+
+                imageName = String.valueOf(snapshot.child("imageName").getValue());
+                storageReference.child("Pets/").child(imageName).getDownloadUrl()
+                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
+                            }
+                        });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void editPetInfo(){
+
+        Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
+
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        ShelterEditCatQuestionnaire shelterEditCatQuestionnaire = new ShelterEditCatQuestionnaire();
+        transaction.replace(R.id.add_pet_frag, shelterEditCatQuestionnaire);
+        transaction.commit();
     }
 
     @Override
