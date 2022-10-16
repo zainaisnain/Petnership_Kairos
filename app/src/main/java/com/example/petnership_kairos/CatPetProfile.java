@@ -47,7 +47,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
 
     private String shelterUsername;
 
-    private String petName, petAge, petSex, petDesc, petID, imageName;
+    private String petName, petAge, petSex, petStatus, petDesc, petID, imageName;
 
     public static CatPetProfile newInstance() {
         return new CatPetProfile();
@@ -73,6 +73,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
         petName = addCatInfo.petName;
         petAge = addCatInfo.petAge;
         petSex = addCatInfo.petSex;
+        petStatus = addCatInfo.petStatus;
         petDesc = addCatInfo.petDesc;
         petID = addCatInfo.petID;
         imageName = addCatInfo.petImage;
@@ -149,7 +150,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
             @Override
             public void onClick(View view) {
                 q9 = etQ9.getText().toString().trim();
-                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
                         q6,q7,q8,q9);
                 petsCatsDBRef.child(petID).setValue(catAnswers);
                 addToShelterDB();
@@ -261,7 +262,7 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petDesc, imageName, petID);
+                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, imageName, petID);
                                     snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

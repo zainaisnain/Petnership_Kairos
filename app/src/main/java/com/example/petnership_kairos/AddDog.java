@@ -15,9 +15,12 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -41,7 +44,7 @@ public class AddDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
     private Button proceedBtn, uploadBtn;
-    protected static String petName, petAge, petSex, petDesc, petID, petImage;
+    protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -62,6 +65,10 @@ public class AddDog extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     private boolean imageUploaded = false;
+
+    //DROPDOWN STATUS
+    Spinner ddStatus;
+    String[] ddStatusValues = {"Available", "Not Available"};
 
     public AddDog() {}
 
@@ -89,8 +96,22 @@ public class AddDog extends Fragment {
         etPetName = view.findViewById(R.id.per_cat_name_title);
         etPetAge = view.findViewById(R.id.pet_age);
         etPetSex = view.findViewById(R.id.pet_sex);
+        ddStatus = view.findViewById(R.id.pet_status);
+        ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
+        ddStatus.setAdapter(statusAdapter);
         etPetDescription = view.findViewById(R.id.pet_desc);
 
+        ddStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petStatus = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);
