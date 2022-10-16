@@ -199,14 +199,14 @@
                     android:src="@drawable/shelter_nolabel" />
 
                 <TextView
-                    android:id="@+id/adopterIntShelter"
+                    android:id="@+id/adopterIntAdoptAPet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/adopterIntBrowseS"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Browse Shelter"
+                    android:text="Adopt a Pet"
                     android:textSize="20sp" />
 
             </RelativeLayout>
@@ -242,7 +242,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/adopterIntBrowseAnimals"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Browse Animal"
+                    android:text="Browse Animals"
                     android:textSize="20sp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

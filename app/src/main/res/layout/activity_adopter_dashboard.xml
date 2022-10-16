@@ -249,7 +249,7 @@
                     android:src="@drawable/shelter_nolabel" />
 
                 <TextView
-                    android:id="@+id/adopterIntShelter"
+                    android:id="@+id/adopterIntAdoptAPet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
