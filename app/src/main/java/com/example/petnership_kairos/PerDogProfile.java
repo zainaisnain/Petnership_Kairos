@@ -30,7 +30,7 @@ public class PerDogProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_per_dog_profile);
 
-        petID = getIntent().getStringExtra("petID");
+        petID = getIntent().getStringExtra("dogPetID");
         ivPetImage = findViewById(R.id.per_dog_image);
         tvPetTitle = findViewById(R.id.per_dog_name_title);
         tvPetName = findViewById(R.id.per_dog_name);

@@ -6,6 +6,7 @@
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/edit_text_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable-v24/scrollview_bg.xml" value="0.346" />
+        <entry key="app/src/main/res/drawable/button.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_darkpurple.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_lightpurple.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_pet.xml" value="0.26701164294532753" />
@@ -41,7 +42,7 @@
         <entry key="app/src/main/res/layout/activity_update_email.xml" value="0.2441214194100043" />
         <entry key="app/src/main/res/layout/bottomnav.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2304403591278324" />
-        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.23428815733219324" />
+        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.45774647887323944" />
         <entry key="app/src/main/res/layout/fragment_adopter_home_dashboard.xml" value="0.25615428779409605" />
         <entry key="app/src/main/res/layout/fragment_cat_pet_profile.xml" value="0.23286540049545829" />
         <entry key="app/src/main/res/layout/fragment_cats.xml" value="0.37719879150390623" />
@@ -59,6 +60,8 @@
         <entry key="app/src/main/res/layout/layout.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/per_pet_profile.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/register_user_type.xml" value="0.2496793501496366" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_cat_questionnaire7.xml" value="0.1292656293838847" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_cat_questionnaire9.xml" value="0.18554938007695596" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_list_of_cats.xml" value="0.25138948268490807" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_cat_profile.xml" value="0.27337143055237784" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_dog_profile.xml" value="0.1" />
