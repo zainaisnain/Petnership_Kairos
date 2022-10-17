@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#C3B1E1"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ApplicationHistory">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -53,7 +54,7 @@
         app:layout_constraintVertical_bias="0.595">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerViewApplications"
             android:layout_width="373dp"
             android:layout_height="529dp"
             android:layout_margin="2dp" />
