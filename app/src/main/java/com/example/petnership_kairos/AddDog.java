@@ -40,7 +40,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class AddDog extends Fragment {
+public class  AddDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
     private Button proceedBtn, uploadBtn;

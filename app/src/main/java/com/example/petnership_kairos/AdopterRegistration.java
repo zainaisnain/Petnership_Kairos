@@ -13,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     private Button submit, uploadBtn;
     private FirebaseAuth mAuth;
-
+    private ImageButton backBtn;
 
     // view for image view
     private ImageView imageView;
@@ -119,6 +120,16 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 selectUserType();
+            }
+        });
+
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdopterRegistration.this,ActivityUserType.class);
+                startActivity(intent);
+
             }
         });
 

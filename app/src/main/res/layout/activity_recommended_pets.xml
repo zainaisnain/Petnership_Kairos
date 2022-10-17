@@ -180,7 +180,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage1"
@@ -278,7 +278,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage2"
@@ -375,7 +375,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage3"
@@ -400,16 +400,16 @@
         android:id="@+id/recforyou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/playfairdisplayblack"
         android:text="Recommended for You"
         android:textColor="#371576"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:fontFamily="@font/playfairdisplayblack"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.797" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
