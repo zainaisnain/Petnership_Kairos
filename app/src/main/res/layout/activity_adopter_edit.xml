@@ -7,6 +7,21 @@
     android:background="@color/background"
     tools:context=".AdopterEdit">
 
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:background="#0000"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:tint="@color/black"
+        tools:ignore="SpeakableTextPresentCheck" />
+
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="400dp"

@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +38,7 @@ public class ShelterListOfDogs extends AppCompatActivity {
 
     RegisteredDogData[] registeredDogData;
 
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +48,16 @@ public class ShelterListOfDogs extends AppCompatActivity {
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
         withFirebase();
+
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShelterListOfDogs.this,ShelterHomeDashboard.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void withFirebase() {

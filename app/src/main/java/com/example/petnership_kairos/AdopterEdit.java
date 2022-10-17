@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,7 +59,7 @@ public class AdopterEdit extends AppCompatActivity {
             street, city, province, country, gender, birthday;
 
     private Button submitAdopterEditBtn, uploadEditBtn;
-
+    private ImageButton backBtn;
     private ImageView imageView;
 
     // Uri indicates, where the image will be picked from
@@ -110,6 +111,15 @@ public class AdopterEdit extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdopterEdit.this,AdopterHomeDashboard.class);
+                startActivity(intent);
+
+            }
+        });
         // on pressing btnSelect SelectImage() is called
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
