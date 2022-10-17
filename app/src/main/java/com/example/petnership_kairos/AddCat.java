@@ -43,7 +43,7 @@ import java.util.UUID;
 public class AddCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetDescription;
-    private Button proceedBtn, uploadBtn;
+    private Button proceedBtn, uploadBtn, backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -157,6 +157,18 @@ public class AddCat extends Fragment {
         });
 
         System.out.println("petStatus outside: " + petStatus);
+
+        backBtn = view.findViewById(R.id.petinfo_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FRAGMENT to FRAGMENT
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterRegisterPets  shelterRegisterPets = new ShelterRegisterPets();
+                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
+                transaction.commit();
+            }
+        });
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);
         ivPetInfo.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +201,6 @@ public class AddCat extends Fragment {
 
                 petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
-                //TODO: not proceed if no uploaded picture
 
                 if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
@@ -209,7 +220,7 @@ public class AddCat extends Fragment {
                     Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
                     addPet();
-                    Toast.makeText(getActivity(), "TEST", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Proceed to Questionnaire", Toast.LENGTH_LONG).show();
                 }
             }
         });

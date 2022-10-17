@@ -43,7 +43,7 @@ import java.util.UUID;
 public class  AddDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetDescription;
-    private Button proceedBtn, uploadBtn;
+    private Button proceedBtn, uploadBtn, backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -161,6 +161,18 @@ public class  AddDog extends Fragment {
             @Override
             public void onClick(View v) {
                 SelectImage();
+            }
+        });
+
+        backBtn = view.findViewById(R.id.petinfo_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FRAGMENT to FRAGMENT
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterRegisterPets  shelterRegisterPets = new ShelterRegisterPets();
+                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
+                transaction.commit();
             }
         });
 
