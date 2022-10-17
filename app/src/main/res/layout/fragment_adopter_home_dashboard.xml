@@ -55,7 +55,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="50dp"
-            android:src="@drawable/profile"
+            android:src="@drawable/adopter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -232,7 +232,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/catdog" />
+                    android:src="@drawable/cat_dog" />
 
                 <TextView
                     android:id="@+id/adopterIntBrowseA"

@@ -32,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class ShelterHomeDashboard extends Fragment {
 
-    CardView card1, card2,card3;
+    CardView card1, card2,card3, card4, card5;
     FloatingActionButton fabAddBtn;
 
     private ShelterHomeDashboardViewModel mViewModel;
@@ -111,6 +111,22 @@ public class ShelterHomeDashboard extends Fragment {
 //                transaction.replace(R.id.nav_host_fragment,PetCats);
 //                transaction.commit();
                 startActivity(new Intent(getActivity(), ShelterListOfCats.class));
+            }
+        });
+
+        card4 = view.findViewById(R.id.activeAdopters);
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ShelterListOfCats.class));
+            }
+        });
+
+        card5 = view.findViewById(R.id.toReview);
+        card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ApplicantsReview.class));
             }
         });
 
