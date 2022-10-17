@@ -1,5 +1,7 @@
 package com.example.petnership_kairos;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -16,6 +18,8 @@ public class adopters extends Fragment {
 
     private AdoptersViewModel mViewModel;
 
+    CardView forReviewadopter1;
+
     public static adopters newInstance() {
         return new adopters();
     }
@@ -23,8 +27,23 @@ public class adopters extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_adopters, container, false);
+        View view = inflater.inflate(R.layout.fragment_adopters, container, false);
+
+        forReviewadopter1 = view.findViewById(R.id.adopter1);
+        forReviewadopter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterToReviewApplications ShelterToReviewApplications = new ShelterToReviewApplications();
+                transaction.replace(R.id.nav_host_fragment, ShelterToReviewApplications);
+                transaction.commit();
+            }
+        });
+
+        return view;
     }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

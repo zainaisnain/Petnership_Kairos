@@ -2,10 +2,12 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatRadioButton;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -36,6 +38,8 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class AdopterRegistration extends AppCompatActivity implements View.OnClickListener {
+
+    AppCompatRadioButton rbDog, rbCat;
 
     private EditText editTextFname, editTextLname, editTextEmail, editTextUsername,
             editTextPassword, editTextConfirmPassword, editTextContact, editTextStreet,
@@ -122,6 +126,21 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
+        rbDog = findViewById(R.id.dogClicked);
+        rbCat = findViewById(R.id.catClicked);
+    }
+
+    public void onRadioButtonClicked (View view) {
+        boolean isSelected = ((AppCompatRadioButton) view).isChecked();
+        switch (view.getId()) {
+            case R.id.dogClicked:
+                if (isSelected) {
+                    rbDog.setBackgroundColor(Color.MAGENTA);
+            }
+                break;
+            case R.id.catClicked:
+                break;
+        }
     }
 
     private void selectUserType()

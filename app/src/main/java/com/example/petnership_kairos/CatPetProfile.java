@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,7 +31,8 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
     private CatPetProfileViewModel mViewModel;
 
     private Button submitBtn, cancelBtn;
-    private AppCompatButton q1a1Btn, q1a2Btn, q1a3Btn, q2a1Btn, q2a2Btn, q2a3Btn, q3a1Btn, q3a2Btn, q3a3Btn,
+    private RadioButton q1a1Btn, q1a2Btn, q1a3Btn;
+    private AppCompatButton q2a1Btn, q2a2Btn, q2a3Btn, q3a1Btn, q3a2Btn, q3a3Btn,
             q4a1Btn, q4a2Btn, q4a3Btn, q5a1Btn, q5a2Btn, q5a3Btn, q6a1Btn, q6a2Btn, q6a3Btn,
             q7a1Btn, q7a2Btn, q7a3Btn, q8a1Btn, q8a2Btn, q8a3Btn;
 
@@ -57,7 +59,16 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cat_pet_profile, container, false);
+        View view =  inflater.inflate(R.layout.fragment_cat_pet_profile, container, false);
+
+//        q1a1Btn = view.findViewById(R.id.q1ans1_catprofile);
+//        q1a1Btn.setOnClickListener((View.OnClickListener) this);
+//        q1a2Btn = view.findViewById(R.id.q1ans2_catprofile);
+//        q1a2Btn.setOnClickListener((View.OnClickListener) this);
+//        q1a3Btn = view.findViewById(R.id.q1ans3_catprofile);
+//        q1a3Btn.setOnClickListener((View.OnClickListener) this);
+
+        return view;
     }
 
     @Override
@@ -172,6 +183,9 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.q1ans1_catprofile:
+                q1a1Btn.setTextColor(Color.BLACK);
+                q1a2Btn.setTextColor(Color.WHITE);
+                q1a3Btn.setTextColor(Color.WHITE);
                 q1 = 1;
                 break;
             case R.id.q1ans2_catprofile:
