@@ -62,6 +62,8 @@
         <entry key="app/src/main/res/layout/layout.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/per_pet_profile.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/register_user_type.xml" value="0.2496793501496366" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_applicants_review.xml" value="0.21504916631038906" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_application_history.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_cat_questionnaire7.xml" value="0.1292656293838847" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_cat_questionnaire9.xml" value="0.18554938007695596" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_list_of_cats.xml" value="0.25138948268490807" />
@@ -73,10 +75,13 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.19794784095767423" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.37602703133957177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_edited_pet.xml" value="0.2783240701154339" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.21504916631038906" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/application_forreview_card.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_add_dog.xml" value="0.29884566053869177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_blank.xml" value="0.32107738349722104" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/menu/menu_activity_petprofilequestionnaire.xml" value="0.2304403591278324" />
       </map>
