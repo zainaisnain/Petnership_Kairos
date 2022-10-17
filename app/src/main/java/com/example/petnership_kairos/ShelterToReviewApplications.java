@@ -20,15 +20,20 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class ShelterToReviewApplications extends Fragment {
 
     String[] statusApp = {"In progress", "Rejected", "Approved"};
 
-    AutoCompleteTextView statusAppTxt;
+    Spinner statusAppTxt;
 
-    ArrayAdapter<String> adapterItems;
+    ArrayAdapter<String> statusAdapter;
+    protected static String petStatus;
 
     private EditText mEditTextTo, mEditTextSubject, mEditTextMessage;
 
@@ -55,18 +60,30 @@ public class ShelterToReviewApplications extends Fragment {
             }
         });
 
-        statusAppTxt = view.findViewById(R.id.auto_complete);
-//        adapterItems = new ArrayAdapter<String>(MainActivity, R.layout.list_item, statusApp);
+        return view;
+    }
 
-        statusAppTxt.setAdapter(adapterItems);
-        statusAppTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Adoption Form Summary");
+
+        statusAppTxt = view.findViewById(R.id.pet_status);
+        ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, statusApp);
+        statusAppTxt.setAdapter(statusAdapter);
+
+        statusAppTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String item = parent.getItemAtPosition();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petStatus = adapterView.getItemAtPosition(i).toString();
+                System.out.println("petStatus inside: " + petStatus);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
-
-        return view;
     }
 
     private void sendMail() {

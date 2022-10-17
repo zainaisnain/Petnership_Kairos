@@ -38,22 +38,11 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adoption_form, container, false);
 
-//        rgPetType = view.findViewById(R.id.radioGroup_petType);
         rbDog = view.findViewById(R.id.dogClicked);
         rbCat = view.findViewById(R.id.catClicked);
 
-//        rbSmall = view.findViewById(R.id.smallClicked);
-//        rbMedium = view.findViewById(R.id.mediumClicked);
-//        rbLarge = view.findViewById(R.id.largeClicked);
-//        rbXLarge = view.findViewById(R.id.xLargeClicked);
-
         rbDog.setOnClickListener(this);
         rbCat.setOnClickListener(this);
-
-//        rbSmall.setOnClickListener(this);
-//        rbMedium.setOnClickListener(this);
-//        rbLarge.setOnClickListener(this);
-//        rbXLarge.setOnClickListener(this);
 
         return view;
         }
@@ -75,30 +64,6 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                 rbCat.setTextColor(Color.BLACK);
                 rbDog.setTextColor(Color.WHITE);
                 break;
-//            case R.id.smallClicked:
-//                rbSmall.setTextColor(Color.BLACK);
-//                rbMedium.setTextColor(Color.WHITE);
-//                rbLarge.setTextColor(Color.WHITE);
-//                rbXLarge.setTextColor(Color.WHITE);
-//                break;
-//            case R.id.mediumClicked:
-//                rbSmall.setTextColor(Color.WHITE);
-//                rbMedium.setTextColor(Color.BLACK);
-//                rbLarge.setTextColor(Color.WHITE);
-//                rbXLarge.setTextColor(Color.WHITE);
-//                break;
-//            case R.id.largeClicked:
-//                rbSmall.setTextColor(Color.WHITE);
-//                rbMedium.setTextColor(Color.WHITE);
-//                rbLarge.setTextColor(Color.BLACK);
-//                rbXLarge.setTextColor(Color.WHITE);
-//                break;
-//            case R.id.xLargeClicked:
-//                rbSmall.setTextColor(Color.WHITE);
-//                rbMedium.setTextColor(Color.WHITE);
-//                rbLarge.setTextColor(Color.WHITE);
-//                rbXLarge.setTextColor(Color.BLACK);
-//                break;
         }
     }
 
