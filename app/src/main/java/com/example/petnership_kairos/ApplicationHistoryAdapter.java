@@ -12,11 +12,11 @@ package com.example.petnership_kairos;
 
 public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationHistoryAdapter.ViewHolder> {
 
-    ApplicationHistoryData[] ApplicationHistoryData;
+    ApplicationHistoryData[] applicationHistoryData;
     Context context;
 
-    public ApplicationHistoryAdapter(ApplicationHistoryData[] ApplicationHistoryData, ApplicationHistory activity){
-        this.ApplicationHistoryData = ApplicationHistoryData;
+    public ApplicationHistoryAdapter(ApplicationHistoryData[] applicationHistoryData, ApplicationHistory activity){
+        this.applicationHistoryData = applicationHistoryData;
         this.context = activity;
     }
     @Override
@@ -29,7 +29,7 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
 
     @Override
     public void onBindViewHolder (ViewHolder holder,int position){
-        final ApplicationHistoryData ApplicationHistoryDataList = ApplicationHistoryData[position];
+        final ApplicationHistoryData ApplicationHistoryDataList = applicationHistoryData[position];
         holder.apphistoName.setText(ApplicationHistoryDataList.getapphistoName());
         holder.apphistoStatus.setText(ApplicationHistoryDataList.getapphistoStatus());
         holder.apphistoImage.setImageResource(ApplicationHistoryDataList.getapphistoImage());
@@ -44,7 +44,7 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
 
     @Override
     public int getItemCount() {
-        return ApplicationHistoryData.length;
+        return applicationHistoryData.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

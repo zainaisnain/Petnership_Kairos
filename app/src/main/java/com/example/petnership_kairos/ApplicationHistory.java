@@ -23,8 +23,8 @@ public class ApplicationHistory extends AppCompatActivity {
 
         };
 
-        ApplicationHistoryAdapter ApplicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData,ApplicationHistory.this);
-        recyclerView.setAdapter(ApplicationHistoryAdapter);
+        ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData,ApplicationHistory.this);
+        recyclerView.setAdapter(applicationHistoryAdapter);
 
     }
 }

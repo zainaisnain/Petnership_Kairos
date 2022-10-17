@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+android:background="#C3B1E1"
+android:layout_height="match_parent">
+
+<ImageButton
+    android:id="@+id/imageButton"
+    android:layout_width="37dp"
+    android:layout_height="34dp"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/ic_burger_menu"
+    android:contentDescription="Burger"
+    android:scaleType="fitCenter"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.04"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+<TextView
+    android:id="@+id/textView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="@font/playfairdisplayblack"
+    android:text="Applicants for Review"
+    android:textColor="@color/secondary_purple"
+    android:textSize="30sp"
+    android:textStyle="bold"
+    app:layout_constraintBottom_toTopOf="@+id/cardView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.825"
+    tools:ignore="TextContrastCheck" />
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardView"
+    android:layout_width="373dp"
+    android:layout_height="529dp"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="#C3B1E1"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.481"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.595">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="373dp"
+        android:layout_height="529dp"
+        android:layout_margin="2dp" />
+
+</androidx.cardview.widget.CardView>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="409dp"
+    android:layout_height="43dp"
+    android:background="@drawable/bar"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.615"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/cardView"
+    app:layout_constraintVertical_bias="1.0">
+
+    <ImageButton
+        android:id="@+id/bar_icon2"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="52dp"
+        android:background="#0000"
+        android:contentDescription="Window"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/window_icon"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/bar_icon3"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="48dp"
+        android:background="#0000"
+        android:contentDescription="Check"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/check_icon"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/bar_icon4"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="48dp"
+        android:background="#0000"
+        android:contentDescription="Mail"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/ic_message"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/bar_icon1"
+        android:layout_width="39dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="44dp"
+        android:background="#0000"
+        android:contentDescription="Account"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bar_icon2"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.428"
+        app:srcCompat="@drawable/account_icon"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
