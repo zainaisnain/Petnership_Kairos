@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Animal Shelter Registration"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/playfairdisplayblack"
                 android:textSize="25sp"
                 android:textColor="#371576"
                 android:layout_marginTop="30dp"
@@ -202,11 +202,12 @@
 
             <Button
                 android:id="@+id/upload_image_shelter_btn"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:backgroundTint="#C0C0C0"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:backgroundTint="#C0C0C0"
+                android:fontFamily="@font/montserrat_reg"
                 android:text="Upload" />
 
             <Button
@@ -216,6 +217,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#371576"
+                android:fontFamily="@font/montserrat_reg"
                 android:text="Submit" />
 
             <Button
@@ -225,6 +227,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reg"
                 android:text="Cancel" />
 
         </LinearLayout>

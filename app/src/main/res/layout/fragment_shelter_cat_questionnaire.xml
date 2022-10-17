@@ -53,7 +53,8 @@
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
-                    android:id ="@+id/cat_q1"
+                    android:id ="@+id/cat_q1_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -103,7 +104,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q1ans1_catprofile"
@@ -162,6 +165,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q2_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -192,7 +196,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q2ans1_catprofile"
@@ -250,6 +256,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q3_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -280,7 +287,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q3ans1_catprofile"
@@ -338,6 +347,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q4_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -368,7 +378,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q4ans1_catprofile"
@@ -426,6 +438,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q5_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -456,7 +469,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q5ans1_catprofile"
@@ -514,6 +529,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q6_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -544,7 +560,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q6ans1_catprofile"
@@ -602,6 +620,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q7_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -632,7 +651,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q7ans1_catprofile"
@@ -690,6 +711,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q8_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -720,7 +742,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q8ans1_catprofile"
@@ -778,6 +802,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q9_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -810,34 +835,26 @@
                             android:textSize="15sp"
                             android:minHeight="100dp"/>
 
-                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        <Spinner
+                            android:id="@+id/catType"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <EditText
-                                android:id="@+id/q9ans_catprofile"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="16dp"
-                                android:hint="Breed"
-
-                                android:background="@drawable/round_white"
-                                android:padding="10dp"
-                                android:gravity="center"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textStyle="bold"
-                                android:textSize="15sp"
-                                android:minHeight="50dp">
-<!--                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
-<!--                                <AutoCompleteTextView-->
-<!--                                    android:id="@+id/cat_auto_complete"-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:inputType="none"/>-->
-                            </EditText>
-
-
-                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
 
                     </GridLayout>
 

@@ -42,7 +42,7 @@
         <entry key="app/src/main/res/layout/activity_update_email.xml" value="0.2441214194100043" />
         <entry key="app/src/main/res/layout/bottomnav.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2304403591278324" />
-        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.3158676147460937" />
         <entry key="app/src/main/res/layout/fragment_adopter_home_dashboard.xml" value="0.24596509945201994" />
         <entry key="app/src/main/res/layout/fragment_cat_pet_profile.xml" value="0.23286540049545829" />
         <entry key="app/src/main/res/layout/fragment_cats.xml" value="0.37719879150390623" />
@@ -53,8 +53,8 @@
         <entry key="app/src/main/res/layout/fragment_per_pet_profile_dogs.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/fragment_pet_cats.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/fragment_pet_dogs.xml" value="0.2636223938588456" />
-        <entry key="app/src/main/res/layout/fragment_shelter_cat_questionnaire.xml" value="0.18725951261222745" />
-        <entry key="app/src/main/res/layout/fragment_shelter_dog_questionnaire.xml" value="0.22445489525438223" />
+        <entry key="app/src/main/res/layout/fragment_shelter_cat_questionnaire.xml" value="0.1793766578249337" />
+        <entry key="app/src/main/res/layout/fragment_shelter_dog_questionnaire.xml" value="0.22977905273437502" />
         <entry key="app/src/main/res/layout/fragment_shelter_home_dashboard.xml" value="0.3242095947265625" />
         <entry key="app/src/main/res/layout/fragment_shelter_my_pets.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_shelter_register_pets.xml" value="0.36410675048828123" />
@@ -71,6 +71,8 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_cats.xml" value="0.21077383497221033" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_dogs.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.19794784095767423" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.37602703133957177" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_edited_pet.xml" value="0.2783240701154339" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_add_dog.xml" value="0.29884566053869177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />

@@ -42,9 +42,10 @@ import java.util.UUID;
 
 public class AddDog extends Fragment {
 
-    private EditText etPetName, etPetAge, etPetSex, etPetDescription;
+    private EditText etPetName, etPetAge, etPetDescription;
     private Button proceedBtn, uploadBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String petAgeNum, petAgeDD;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -66,9 +67,18 @@ public class AddDog extends Fragment {
 
     private boolean imageUploaded = false;
 
+    //DROPDOWN AGE
+    Spinner ddAge;
+    String[] ddAgeValues = {" Week(s)", " Month(s)", " Year(s)"};
+
+    //DROPDOWN SEX
+    Spinner ddSex;
+    String[] ddSexValues = {"Female", "Male"};
+
     //DROPDOWN STATUS
     Spinner ddStatus;
     String[] ddStatusValues = {"Available", "Not Available"};
+
 
     public AddDog() {}
 
@@ -93,24 +103,56 @@ public class AddDog extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
+        //NAME
         etPetName = view.findViewById(R.id.per_pet_name_title);
-        etPetAge = view.findViewById(R.id.pet_age);
-        etPetSex = view.findViewById(R.id.pet_sex);
+
+        //AGE
+        etPetAge = view.findViewById(R.id.pet_age_et);
+        ddAge = view.findViewById(R.id.pet_age_dd);
+        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
+        ddAge.setAdapter(ageAdapter);
+
+        //SEX
+        ddSex = view.findViewById(R.id.pet_sex_dd);
+        ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
+        ddSex.setAdapter(sexAdapter);
+
+        //STATUS
         ddStatus = view.findViewById(R.id.pet_status);
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
         ddStatus.setAdapter(statusAdapter);
+
+        //DESCRIPTION
         etPetDescription = view.findViewById(R.id.pet_desc);
 
+        //Set value for Dropdown Age
+        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petAgeDD = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        //Set value for Dropdown Sex
+        ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petSex = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        //Set value for Dropdown Status
         ddStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 petStatus = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) {}
         });
 
         //UPLOAD IMAGE
@@ -140,27 +182,23 @@ public class AddDog extends Fragment {
             @Override
             public void onClick(View v)
             {
+
                 petName = etPetName.getText().toString().trim();
-                petAge = etPetAge.getText().toString().trim();
-                petSex = etPetSex.getText().toString().trim();
+                petAgeNum = etPetAge.getText().toString().trim();
+                petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
                 petImage = imageName;
 
                 petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
-                //TODO: not proceed if no uploaded picture
 
                 if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
-                }else if(petAge.isEmpty()){
+                }else if(petAgeNum.isEmpty()){
                     etPetAge.setError("Pet Age Required.");
                     etPetAge.requestFocus();
-                    return;
-                }else if(petSex.isEmpty()){
-                    etPetSex.setError("Sex of Pet Required.");
-                    etPetSex.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
@@ -172,6 +210,7 @@ public class AddDog extends Fragment {
                     Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
                     addPet();
+                    Toast.makeText(getActivity(), "TEST", Toast.LENGTH_LONG).show();
                 }
             }
         });

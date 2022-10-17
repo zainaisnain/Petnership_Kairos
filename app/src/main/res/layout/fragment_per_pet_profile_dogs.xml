@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_reg"
+                        android:fontFamily="@font/playfairdisplayblack"
                         android:text="PERCY'S PROFILE"
                         android:textColor="@color/white"
                         android:textSize="32dp"
@@ -93,6 +93,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Name: "
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"/>
 
                             <TextView
@@ -124,6 +125,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Type:"
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -149,6 +151,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Details:"
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp" />
 
                             <TextView
