@@ -4,6 +4,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -47,6 +51,23 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
     private String shelterUsername, petName, petAge, petSex, petStatus, petDesc, petID, petImage;
+
+    //JANNEL
+    String[] dogBreed =
+            {"Other", "Airedale Terriers", "Akitas", "Alaskan Malamutes", "American Staffordshire Terriers", "Anatolian Shepherd Dogs", "Australian Cattle Dogs", "Australian Shepherds", "Basenjis", "Basset Hounds", "Beagles",
+                    "Belgian Malinois", "Bernese Mountain Dogs", "Bichons Frises", "Biewer Terriers", "Bloodhounds", "Border Collies", "Border Terriers", "Boston Terriers", "Boxers", "Brittanys", "Brussels Griffons", "Bulldogs",
+                    "Bullmastiffs", "Bull Terriers", "Cairn Terriers", "Cane Corso", "Cardigan Welsh Corgi", "Cavalier King Charles Spaniels", "Chihuahuas", "Chinese Crested", "Chinese Shar-Pei", "Chow Chows","Collies", "Coton de Tulear",
+                    "Dachshunds", "Dalmatians", "Doberman Pinschers", "Dogo Argentinos", "Dogues de Bordeaux", "Fox Terriers (Wire)", "French Bulldogs", "German Shepherd", "Giant Schnauzers", "Great Danes", "Great Pyrenees",
+                    "Greater Swiss Mountain Dogs", "Havanese", "Irish Wolfhounds", "Italian Greyhounds", "Keeshonden", "Lagotti Romagnoli", "Lhasa Apsos", "Miniature American Shepherds", "Maltese", "Mastiffs",
+                    "Miniature Pinschers", "Miniature Schnauzers", "Newfoundlands", "Norwegian Elkhounds", "Old English Sheepdogs", "Papillons", "Pekingese", "Pembroke Welsh Corgis", "Pointers (German Shorthaired)", "Pointers (German Wirehaired)", "Poodles",
+                    "Pomeranians", "Portuguese Water Dogs", "Pugs", "Retrievers (Chesapeake Bay)", "Rat Terriers", "Retrievers (Flat-Coated)", "Retrievers (Golden)", "Retrievers (Labrador)", "Retrievers (Nova Scotia Duck Tolling)", "Rhodesian Ridgebacks", "Rottweilers",
+                    "Russell Terriers", "Samoyeds", "Scottish Terriers", "Setters (English)", "Setters (Irish)", "Shetland Sheepdogs", "Shiba Inu", "Shih Tzu", "Siberian Huskies", "Soft Coated Wheaten Terriers", "Spaniels (Boykin)", "Spaniels (Cocker)"," Spaniels (English Cocker)",
+                    "Spaniels (English Springer)", "Staffordshire Bull Terriers", "Standard Schnauzers", "St. Bernards", "Vizslas", "Weimaraners", "West Highland White Terriers", "Whippets", "Wirehaired Pointing Griffons", "Yorkshire Terriers"};
+
+    Spinner dogBreedTxt;
+
+    ArrayAdapter<String> dogBreedAdapter;
+    protected static String dogTypeBreed;
 
     public static ShelterEditDogQuestionnaire newInstance() {
         return new ShelterEditDogQuestionnaire();
@@ -151,7 +172,22 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         q9a3Btn.setOnClickListener((View.OnClickListener) this);
 
         //Q10
-        etQ10 = view.findViewById(R.id.q10ans_petprofile);
+        dogBreedTxt = view.findViewById(R.id.dogType);
+        //What dog breed
+        ArrayAdapter<String> dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
+        dogBreedTxt.setAdapter(dogBreedAdapter);
+
+        dogBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                q10 = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //Q11
         q11a1Btn = view.findViewById(R.id.q11ans1_petprofile);
@@ -167,18 +203,11 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                q10 = etQ10.getText().toString().trim();
-                System.out.println("q10 ==== " + q10);
                 DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
                         q6,q7,q8,q9,q10,q11);
                 petsDogsDBRef.child(petID).setValue(dogAnswers);
                 addToShelterDB();
-                Toast.makeText(getActivity(), "Added pet successfully!", Toast.LENGTH_LONG).show();
-
-                //FRAGMENT TO ACTIVITY
-                //TODO: execute below 2 lines of code after couple seconds
-                Intent intent = new Intent(getActivity(),ShelterDashboard.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
             }
         });
 
@@ -196,17 +225,157 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 q1 = (int) snapshot.child("q1").getValue(Integer.class);
+                if(q1==1){
+                    q1a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q1a2Btn.setBackgroundColor(Color.GRAY);
+                    q1a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q1a1Btn.setBackgroundColor(Color.GRAY);
+                    q1a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q1a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q1a1Btn.setBackgroundColor(Color.GRAY);
+                    q1a2Btn.setBackgroundColor(Color.GRAY);
+                    q1a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q2 = (int) snapshot.child("q2").getValue(Integer.class);
+                if(q2==1){
+                    q2a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q2a2Btn.setBackgroundColor(Color.GRAY);
+                    q2a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q2==2){
+                    q2a1Btn.setBackgroundColor(Color.GRAY);
+                    q2a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q2a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q2a1Btn.setBackgroundColor(Color.GRAY);
+                    q2a2Btn.setBackgroundColor(Color.GRAY);
+                    q2a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q3 = (int) snapshot.child("q3").getValue(Integer.class);
+                if(q3==1){
+                    q3a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q3a2Btn.setBackgroundColor(Color.GRAY);
+                    q3a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q3==2){
+                    q3a1Btn.setBackgroundColor(Color.GRAY);
+                    q3a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q3a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q3a1Btn.setBackgroundColor(Color.GRAY);
+                    q3a2Btn.setBackgroundColor(Color.GRAY);
+                    q3a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q4 = (int) snapshot.child("q4").getValue(Integer.class);
+                if(q4==1){
+                    q4a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q4a2Btn.setBackgroundColor(Color.GRAY);
+                    q4a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q4==2){
+                    q4a1Btn.setBackgroundColor(Color.GRAY);
+                    q4a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q4a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q4a1Btn.setBackgroundColor(Color.GRAY);
+                    q4a2Btn.setBackgroundColor(Color.GRAY);
+                    q4a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q5 = (int) snapshot.child("q5").getValue(Integer.class);
+                if(q5==1){
+                    q5a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q5a2Btn.setBackgroundColor(Color.GRAY);
+                    q5a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q5a1Btn.setBackgroundColor(Color.GRAY);
+                    q5a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q5a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q5a1Btn.setBackgroundColor(Color.GRAY);
+                    q5a2Btn.setBackgroundColor(Color.GRAY);
+                    q5a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q6 = (int) snapshot.child("q6").getValue(Integer.class);
+                if(q6==1){
+                    q6a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q6a2Btn.setBackgroundColor(Color.GRAY);
+                    q6a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q6a1Btn.setBackgroundColor(Color.GRAY);
+                    q6a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q6a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q6a1Btn.setBackgroundColor(Color.GRAY);
+                    q6a2Btn.setBackgroundColor(Color.GRAY);
+                    q6a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q7 = (int) snapshot.child("q7").getValue(Integer.class);
+                if(q7==1){
+                    q7a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q7a2Btn.setBackgroundColor(Color.GRAY);
+                    q7a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q7a1Btn.setBackgroundColor(Color.GRAY);
+                    q7a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q7a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q7a1Btn.setBackgroundColor(Color.GRAY);
+                    q7a2Btn.setBackgroundColor(Color.GRAY);
+                    q7a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q8 = (int) snapshot.child("q8").getValue(Integer.class);
+                if(q8==1){
+                    q8a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q8a2Btn.setBackgroundColor(Color.GRAY);
+                    q8a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q8a1Btn.setBackgroundColor(Color.GRAY);
+                    q8a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q8a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q8a1Btn.setBackgroundColor(Color.GRAY);
+                    q8a2Btn.setBackgroundColor(Color.GRAY);
+                    q8a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q9 = (int) snapshot.child("q9").getValue(Integer.class);
+                if(q9==1){
+                    q9a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q9a2Btn.setBackgroundColor(Color.GRAY);
+                    q9a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q9a1Btn.setBackgroundColor(Color.GRAY);
+                    q9a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q9a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q9a1Btn.setBackgroundColor(Color.GRAY);
+                    q9a2Btn.setBackgroundColor(Color.GRAY);
+                    q9a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
                 q10 = (String) snapshot.child("q10").getValue();
+
                 q11 = (int) snapshot.child("q11").getValue(Integer.class);
-                etQ10.setText(q10);
+                if(q11==1){
+                    q11a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q11a2Btn.setBackgroundColor(Color.GRAY);
+                    q11a3Btn.setBackgroundColor(Color.GRAY);
+                }else if(q1==2){
+                    q11a1Btn.setBackgroundColor(Color.GRAY);
+                    q11a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                    q11a3Btn.setBackgroundColor(Color.GRAY);
+                }else{
+                    q11a1Btn.setBackgroundColor(Color.GRAY);
+                    q11a2Btn.setBackgroundColor(Color.GRAY);
+                    q11a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                }
+
             }
 
             @Override
@@ -219,94 +388,203 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //Q1
             case R.id.q1ans1_petprofile:
+                q1a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q1a2Btn.setBackgroundColor(Color.GRAY);
+                q1a3Btn.setBackgroundColor(Color.GRAY);
                 q1 = 1;
                 break;
             case R.id.q1ans2_petprofile:
+                q1a1Btn.setBackgroundColor(Color.GRAY);
+                q1a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q1a3Btn.setBackgroundColor(Color.GRAY);
                 q1 = 2;
                 break;
             case R.id.q1ans3_petprofile:
+                q1a1Btn.setBackgroundColor(Color.GRAY);
+                q1a2Btn.setBackgroundColor(Color.GRAY);
+                q1a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q1 = 3;
                 break;
+
+            //Q2
             case R.id.q2ans1_petprofile:
+                q2a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q2a2Btn.setBackgroundColor(Color.GRAY);
+                q2a3Btn.setBackgroundColor(Color.GRAY);
                 q2 =1;
                 break;
             case R.id.q2ans2_petprofile:
+                q2a1Btn.setBackgroundColor(Color.GRAY);
+                q2a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q2a3Btn.setBackgroundColor(Color.GRAY);
                 q2 = 2;
                 break;
             case R.id.q2ans3_petprofile:
+                q2a1Btn.setBackgroundColor(Color.GRAY);
+                q2a2Btn.setBackgroundColor(Color.GRAY);
+                q2a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q2=3;
                 break;
+
+            //Q3
             case R.id.q3ans1_petprofile:
+                q3a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q3a2Btn.setBackgroundColor(Color.GRAY);
+                q3a3Btn.setBackgroundColor(Color.GRAY);
                 q3 = 1;
                 break;
             case R.id.q3ans2_petprofile:
+                q3a1Btn.setBackgroundColor(Color.GRAY);
+                q3a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q3a3Btn.setBackgroundColor(Color.GRAY);
                 q3 = 2;
                 break;
             case R.id.q3ans3_petprofile:
+                q3a1Btn.setBackgroundColor(Color.GRAY);
+                q3a2Btn.setBackgroundColor(Color.GRAY);
+                q3a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q3 = 3;
                 break;
+
+            //Q4
             case R.id.q4ans1_petprofile:
+                q4a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q4a2Btn.setBackgroundColor(Color.GRAY);
+                q4a3Btn.setBackgroundColor(Color.GRAY);
                 q4 =1;
                 break;
             case R.id.q4ans2_petprofile:
+                q4a1Btn.setBackgroundColor(Color.GRAY);
+                q4a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q4a3Btn.setBackgroundColor(Color.GRAY);
                 q4 = 2;
                 break;
             case R.id.q4ans3_petprofile:
+                q4a1Btn.setBackgroundColor(Color.GRAY);
+                q4a2Btn.setBackgroundColor(Color.GRAY);
+                q4a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q4=3;
                 break;
+
+            //Q5
             case R.id.q5ans1_petprofile:
+                q5a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q5a2Btn.setBackgroundColor(Color.GRAY);
+                q5a3Btn.setBackgroundColor(Color.GRAY);
                 q5 = 1;
                 break;
             case R.id.q5ans2_petprofile:
+                q5a1Btn.setBackgroundColor(Color.GRAY);
+                q5a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q5a3Btn.setBackgroundColor(Color.GRAY);
                 q5 = 2;
                 break;
             case R.id.q5ans3_petprofile:
+                q5a1Btn.setBackgroundColor(Color.GRAY);
+                q5a2Btn.setBackgroundColor(Color.GRAY);
+                q5a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q5 = 3;
                 break;
+
+            //Q6
             case R.id.q6ans1_petprofile:
+                q6a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q6a2Btn.setBackgroundColor(Color.GRAY);
+                q6a3Btn.setBackgroundColor(Color.GRAY);
                 q6 =1;
                 break;
             case R.id.q6ans2_petprofile:
+                q6a1Btn.setBackgroundColor(Color.GRAY);
+                q6a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q6a3Btn.setBackgroundColor(Color.GRAY);
                 q6 = 2;
                 break;
             case R.id.q6ans3_petprofile:
+                q6a1Btn.setBackgroundColor(Color.GRAY);
+                q6a2Btn.setBackgroundColor(Color.GRAY);
+                q6a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q6=3;
                 break;
+
+            //Q7
             case R.id.q7ans1_petprofile:
+                q7a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q7a2Btn.setBackgroundColor(Color.GRAY);
+                q7a3Btn.setBackgroundColor(Color.GRAY);
                 q7 = 1;
                 break;
             case R.id.q7ans2_petprofile:
+                q7a1Btn.setBackgroundColor(Color.GRAY);
+                q7a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q7a3Btn.setBackgroundColor(Color.GRAY);
                 q7 = 2;
                 break;
             case R.id.q7ans3_petprofile:
+                q7a1Btn.setBackgroundColor(Color.GRAY);
+                q7a2Btn.setBackgroundColor(Color.GRAY);
+                q7a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q7 = 3;
                 break;
+
+            //Q8
             case R.id.q8ans1_petprofile:
+                q8a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q8a2Btn.setBackgroundColor(Color.GRAY);
+                q8a3Btn.setBackgroundColor(Color.GRAY);
                 q8 =1;
                 break;
             case R.id.q8ans2_petprofile:
+                q8a1Btn.setBackgroundColor(Color.GRAY);
+                q8a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q8a3Btn.setBackgroundColor(Color.GRAY);
                 q8 = 2;
                 break;
             case R.id.q8ans3_petprofile:
+                q8a1Btn.setBackgroundColor(Color.GRAY);
+                q8a2Btn.setBackgroundColor(Color.GRAY);
+                q8a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q8=3;
                 break;
+
+            //Q9
             case R.id.q9ans1_petprofile:
+                q9a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q9a2Btn.setBackgroundColor(Color.GRAY);
+                q9a3Btn.setBackgroundColor(Color.GRAY);
                 q9 = 1;
                 break;
             case R.id.q9ans2_petprofile:
+                q9a1Btn.setBackgroundColor(Color.GRAY);
+                q9a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q9a3Btn.setBackgroundColor(Color.GRAY);
                 q9 = 2;
                 break;
             case R.id.q9ans3_petprofile:
+                q9a1Btn.setBackgroundColor(Color.GRAY);
+                q9a2Btn.setBackgroundColor(Color.GRAY);
+                q9a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q9 = 3;
                 break;
+
+            //Q11
             case R.id.q11ans1_petprofile:
+                q11a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q11a2Btn.setBackgroundColor(Color.GRAY);
+                q11a3Btn.setBackgroundColor(Color.GRAY);
                 q11 =1;
                 break;
             case R.id.q11ans2_petprofile:
+                q11a1Btn.setBackgroundColor(Color.GRAY);
+                q11a2Btn.setBackgroundColor(R.drawable.round_lightpurple);
+                q11a3Btn.setBackgroundColor(Color.GRAY);
                 q11 = 2;
                 break;
             case R.id.q11ans3_petprofile:
+                q11a1Btn.setBackgroundColor(Color.GRAY);
+                q11a2Btn.setBackgroundColor(Color.GRAY);
+                q11a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q11=3;
                 break;
         }
