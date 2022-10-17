@@ -13,9 +13,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +30,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class CatPetProfile extends Fragment implements View.OnClickListener {
+
+    String[] catBreed =
+            {"Other", "Abyssinian", "American Curl", "American Shorthair", "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese", "Burmilla", "Chartreux",
+                    "Exotic Shorthair", "Himalayan", "Maine Coon", "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin", "Ragdoll", "Russian Blue", "Scottish Fold",
+                    "Siamese", "Siberian", "Snowshoe", "Sphynx", "Tonkinese", "Turkish Angora", "Turkish Van"};
+
+    Spinner catBreedTxt;
+
+    ArrayAdapter<String> catBreedAdapter;
+    protected static String catTypeBreed;
 
     private CatPetProfileViewModel mViewModel;
 
@@ -154,7 +167,22 @@ public class CatPetProfile extends Fragment implements View.OnClickListener {
         q8a3Btn.setOnClickListener((View.OnClickListener) this);
 
         //Q9
-        etQ9 = view.findViewById(R.id.q9ans_catprofile);
+        catBreedTxt = view.findViewById(R.id.catType);
+        //What dog breed
+        ArrayAdapter<String> catBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, catBreed);
+        catBreedTxt.setAdapter(catBreedAdapter);
+
+        catBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                catTypeBreed = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         submitBtn = view.findViewById(R.id.submit_catprofile);
         submitBtn.setOnClickListener(new View.OnClickListener() {

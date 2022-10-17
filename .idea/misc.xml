@@ -29,7 +29,7 @@
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_adopters.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_cat_pet_profile.xml" value="0.18032786885245902" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_cats.xml" value="0.1" />
-        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_dog_pet_profile.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_dog_pet_profile.xml" value="0.25" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_dogs.xml" value="0.3138586956521739" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_per_pet_profile_cats.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layout/fragment_per_pet_profile_dogs.xml" value="0.20380434782608695" />
@@ -53,7 +53,7 @@
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/fragment_application_history_indiv.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/fragment_recommended_pet_indiv.xml" value="0.25" />
-        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.2911290322580645" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.2802197802197802" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/layouts/dashboard/layout/list_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/menu/adopter_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosv84/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />

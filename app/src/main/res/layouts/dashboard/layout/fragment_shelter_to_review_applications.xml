@@ -109,17 +109,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        >
+                        android:layout_margin="10dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/label_adoptionForm_statusApp"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
-                            android:text="Status"
-                            android:fontFamily="@font/marmelad_regular"
-                            android:textSize="20sp"
-                            android:layout_marginStart="10dp"
-                            android:textColor="#371576"
-                            android:layout_gravity="center"/>
+                            android:layout_weight="1"
+                            android:text="Status: "
+                            android:textSize="20sp" />
 
                         <Spinner
                             android:id="@+id/pet_status"
@@ -164,6 +162,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
                                     android:text="Basic Information"
                                     android:fontFamily="@font/marmelad_regular"
                                     android:textSize="20sp"
@@ -312,6 +311,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
                                     android:text="Pet Preference"
                                     android:fontFamily="@font/marmelad_regular"
                                     android:textSize="20sp"
@@ -488,12 +488,14 @@
                                     android:fontFamily="@font/marmelad_regular"
                                     android:textSize="20sp"
                                     android:textColor="#371576"
+                                    android:layout_marginTop="10dp"
                                     android:layout_gravity="center"/>
 
                                 <TextView
-                                    android:layout_width="50dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:layout_margin="10dp"
                                     android:text="To: "
                                     android:textSize="20sp" />
 
@@ -503,7 +505,7 @@
                                     android:layout_marginTop="20dp"
                                     android:width="200dp"
                                     android:height="40dp"
-                                    android:paddingLeft="10dp"
+                                    android:layout_margin="10dp"
                                     android:hint="Email Address"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -512,42 +514,38 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Subject:"
-                                    android:fontFamily="@font/marmelad_regular"
-                                    android:textSize="20sp"
-                                    android:textColor="#371576"
-                                    android:layout_gravity="center"/>
+                                    android:layout_weight="1"
+                                    android:layout_margin="10dp"
+                                    android:text="Subject: "
+                                    android:textSize="20sp"/>
 
                                 <EditText
                                     android:id="@+id/shelter_subjectEmailToAdopter"
-                                    android:layout_width="350dp"
-                                    android:layout_height="48dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_marginTop="20dp"
                                     android:width="200dp"
                                     android:height="40dp"
-                                    android:paddingLeft="10dp"
+                                    android:layout_margin="10dp"
                                     android:hint="Subject Email" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Body:"
-                                    android:fontFamily="@font/marmelad_regular"
-                                    android:textSize="20sp"
-                                    android:textColor="#371576"
-                                    android:layout_gravity="center"/>
+                                    android:layout_weight="1"
+                                    android:layout_margin="10dp"
+                                    android:text="Body: "
+                                    android:textSize="20sp"/>
 
                                 <EditText
                                     android:id="@+id/shelter_bodyEmailToAdopter"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:lines="10"
-                                    android:layout_gravity="start|top"
-                                    android:layout_marginTop="20dp"
+                                    android:layout_gravity="center"
                                     android:width="200dp"
                                     android:height="40dp"
-                                    android:paddingLeft="10dp"
+                                    android:layout_margin="10dp"
+                                    app:lines="10"
                                     android:hint="Leave a Message" />
 
                                 <Button
@@ -557,7 +555,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginTop="2dp"
                                     android:layout_marginBottom="5dp"
-                                    android:backgroundTint="#C8A4D4"
+                                    app:backgroundTint="#C8A4D4"
                                     android:text="Send Email"/>
 
                             </LinearLayout>

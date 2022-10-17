@@ -824,34 +824,26 @@
                             android:textSize="15sp"
                             android:minHeight="100dp"/>
 
-                        <androidx.coordinatorlayout.widget.CoordinatorLayout
+                        <Spinner
+                            android:id="@+id/catType"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <EditText
-                                android:id="@+id/q9ans_catprofile"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="16dp"
-                                android:hint="Breed"
-
-                                android:background="@drawable/round_white"
-                                android:padding="10dp"
-                                android:gravity="center"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textStyle="bold"
-                                android:textSize="15sp"
-                                android:minHeight="50dp">
-<!--                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">-->
-<!--                                <AutoCompleteTextView-->
-<!--                                    android:id="@+id/cat_auto_complete"-->
-<!--                                    android:layout_width="match_parent"-->
-<!--                                    android:layout_height="wrap_content"-->
-<!--                                    android:inputType="none"/>-->
-                            </EditText>
-
-
-                        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
 
                     </GridLayout>
 

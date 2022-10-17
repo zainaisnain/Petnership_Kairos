@@ -13,8 +13,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +29,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DogPetProfile extends Fragment implements View.OnClickListener{
+
+    String[] dogBreed =
+            {"Other", "Airedale Terriers", "Akitas", "Alaskan Malamutes", "American Staffordshire Terriers", "Anatolian Shepherd Dogs", "Australian Cattle Dogs", "Australian Shepherds", "Basenjis", "Basset Hounds", "Beagles",
+            "Belgian Malinois", "Bernese Mountain Dogs", "Bichons Frises", "Biewer Terriers", "Bloodhounds", "Border Collies", "Border Terriers", "Boston Terriers", "Boxers", "Brittanys", "Brussels Griffons", "Bulldogs",
+            "Bullmastiffs", "Bull Terriers", "Cairn Terriers", "Cane Corso", "Cardigan Welsh Corgi", "Cavalier King Charles Spaniels", "Chihuahuas", "Chinese Crested", "Chinese Shar-Pei", "Chow Chows","Collies", "Coton de Tulear",
+            "Dachshunds", "Dalmatians", "Doberman Pinschers", "Dogo Argentinos", "Dogues de Bordeaux", "Fox Terriers (Wire)", "French Bulldogs", "German Shepherd", "Giant Schnauzers", "Great Danes", "Great Pyrenees",
+            "Greater Swiss Mountain Dogs", "Havanese", "Irish Wolfhounds", "Italian Greyhounds", "Keeshonden", "Lagotti Romagnoli", "Lhasa Apsos", "Miniature American Shepherds", "Maltese", "Mastiffs",
+            "Miniature Pinschers", "Miniature Schnauzers", "Newfoundlands", "Norwegian Elkhounds", "Old English Sheepdogs", "Papillons", "Pekingese", "Pembroke Welsh Corgis", "Pointers (German Shorthaired)", "Pointers (German Wirehaired)", "Poodles",
+            "Pomeranians", "Portuguese Water Dogs", "Pugs", "Retrievers (Chesapeake Bay)", "Rat Terriers", "Retrievers (Flat-Coated)", "Retrievers (Golden)", "Retrievers (Labrador)", "Retrievers (Nova Scotia Duck Tolling)", "Rhodesian Ridgebacks", "Rottweilers",
+            "Russell Terriers", "Samoyeds", "Scottish Terriers", "Setters (English)", "Setters (Irish)", "Shetland Sheepdogs", "Shiba Inu", "Shih Tzu", "Siberian Huskies", "Soft Coated Wheaten Terriers", "Spaniels (Boykin)", "Spaniels (Cocker)"," Spaniels (English Cocker)",
+            "Spaniels (English Springer)", "Staffordshire Bull Terriers", "Standard Schnauzers", "St. Bernards", "Vizslas", "Weimaraners", "West Highland White Terriers", "Whippets", "Wirehaired Pointing Griffons", "Yorkshire Terriers"};
+
+    Spinner dogBreedTxt;
+
+    ArrayAdapter<String> dogBreedAdapter;
+    protected static String dogTypeBreed;
 
     private DogPetProfileViewModel mViewModel;
 
@@ -149,7 +168,22 @@ public class DogPetProfile extends Fragment implements View.OnClickListener{
         q9a3Btn.setOnClickListener((View.OnClickListener) this);
 
         //Q10
-        etQ10 = view.findViewById(R.id.q10ans_petprofile);
+        dogBreedTxt = view.findViewById(R.id.dogType);
+        //What dog breed
+        ArrayAdapter<String> dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
+        dogBreedTxt.setAdapter(dogBreedAdapter);
+
+        dogBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                dogTypeBreed = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //Q11
         q11a1Btn = view.findViewById(R.id.q11ans1_petprofile);
