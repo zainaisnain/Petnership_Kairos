@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable-v24/edit_text_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable-v24/scrollview_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/radio_button_dog.xml" value="0.1955" />
         <entry key="app/src/main/res/drawable/round_darkpurple.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_lightpurple.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_pet.xml" value="0.26701164294532753" />
@@ -78,7 +79,7 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/application_forreview_card.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_add_dog.xml" value="0.29884566053869177" />
-        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.19010416666666666" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_blank.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.21504916631038906" />
