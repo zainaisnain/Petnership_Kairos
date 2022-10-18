@@ -43,7 +43,11 @@ public class adopters extends Fragment {
         return view;
     }
 
-
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Applications for Review");
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

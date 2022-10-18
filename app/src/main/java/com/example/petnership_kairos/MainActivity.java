@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /**
          * Tool bar
          */
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
