@@ -82,6 +82,7 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_blank.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.21504916631038906" />
+        <entry key="app/src/main/res/layouts/shelter/drawable/ic_round_phone_24.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/menu/menu_activity_petprofilequestionnaire.xml" value="0.2304403591278324" />
       </map>
