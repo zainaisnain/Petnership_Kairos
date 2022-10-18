@@ -21,6 +21,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ApplicantsReview"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DogQuestionnaire10"
             android:exported="false">
             <meta-data

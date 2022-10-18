@@ -8,19 +8,19 @@
     android:layout_height="match_parent"
     tools:context=".ApplicantsReview">
 
-<ImageButton
-    android:id="@+id/imageButton"
-    android:layout_width="37dp"
-    android:layout_height="34dp"
-    android:layout_marginTop="32dp"
-    android:background="@drawable/ic_burger_menu"
-    android:contentDescription="Burger"
-    android:scaleType="fitCenter"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.04"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_burger_menu"
+        android:contentDescription="Burger"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/btnBack"
