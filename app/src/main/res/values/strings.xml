@@ -14,5 +14,14 @@
     <string name="menu_close">Close</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">Settings</string>
+    
+    <string name="activity_playfulness">Activity / Playfulness</string>
+    <string name="calmness">Calmness</string>
+    <string name="non_aggression">Non- Aggression</string>
+    <string name="sociability">Sociability</string>
+    <string name="litterbox_comfortability_adjustment">Litterbox Comfortability + Adjustment</string>
+    <string name="healthy_grooming">Healthy Grooming</string>
+    <string name="age_life_expectancy">Age / Life Expectancy</string>
+    <string name="popularity">Popularity</string>
 
 </resources>
