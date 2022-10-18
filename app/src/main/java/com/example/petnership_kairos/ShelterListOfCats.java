@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -35,10 +39,21 @@ public class ShelterListOfCats extends AppCompatActivity {
 
     RegisteredCatData[] registeredCatData;
 
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_list_of_cats);
+
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShelterListOfCats.this,ShelterHomeDashboard.class);
+                startActivity(intent);
+
+            }
+        });
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -84,91 +99,4 @@ public class ShelterListOfCats extends AppCompatActivity {
                     }
                 });
     }
-
-
-//
-//    private void setUpPetPic() {
-//        //retrieve imageName
-//        petsCatsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        for(DataSnapshot ds : snapshot.getChildren()) {
-//                            petID = ds.getKey();
-//                            System.out.println("petID inside " + petID);
-//                            petIDs.add(petID);
-//
-//                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
-//
-//
-//                        }
-//
-//                        storageReference.child("Pets/").child(petImageName).getDownloadUrl()
-//                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                                    @Override
-//                                    public void onSuccess(Uri uri) {
-//                                        Glide.with(ShelterListOfCats.this).load(uri.toString()).into(img1);
-//                                    }
-//                                });
-//
-//                        System.out.println("petImageName OUTSIDE" + petImageName);
-//
-////                        for (String id : petIDs) {
-////                            System.out.println(id);
-////                        }
-//
-////                        petsDBRef.child(shelterUsername).child("imageName").
-////                                addListenerForSingleValueEvent(new ValueEventListener() {
-////                                    @Override
-////                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-////                                        shelterImageName = String.valueOf(snapshot.getValue());
-////                                        System.out.println("shelterImageName1 == " + shelterImageName);
-////
-////                                        //DISPLAY IMAGE TO IMAGE VIEW
-////                                        storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-////                                            @Override
-////                                            public void onSuccess(Uri uri) {
-////                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-////                                            }
-////                                        });
-////
-////                                    }
-////
-////                                    @Override
-////                                    public void onCancelled(@NonNull DatabaseError error) {
-////
-////                                    }
-////                                });
-//
-//
-////                        petsDBRef.child(petID).child("imageName").
-////                                addListenerForSingleValueEvent(new ValueEventListener() {
-////                                    @Override
-////                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-////                                        shelterImageName = String.valueOf(snapshot.getValue());
-////                                        System.out.println("shelterImageName1 == " + shelterImageName);
-////
-////                                        //DISPLAY IMAGE TO IMAGE VIEW
-////                                        storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-////                                            @Override
-////                                            public void onSuccess(Uri uri) {
-////                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-////                                            }
-////                                        });
-////
-////                                    }
-////
-////                                    @Override
-////                                    public void onCancelled(@NonNull DatabaseError error) {
-////
-////                                    }
-////                                });
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//    }
 }

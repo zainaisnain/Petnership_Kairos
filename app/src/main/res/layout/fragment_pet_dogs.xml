@@ -59,11 +59,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pet_profile"
-                android:fontFamily="@font/montserrat_reg"
+                android:fontFamily="@font/playfairdisplayblack"
                 android:layout_marginTop="35dp"
                 android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/secondary_purple"
                 android:textStyle="bold"/>
 
             <TextView

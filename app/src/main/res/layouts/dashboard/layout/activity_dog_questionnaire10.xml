@@ -35,8 +35,8 @@
 
         <TextView
             android:id="@+id/textView54"
-            android:layout_width="92dp"
-            android:layout_height="86dp"
+            android:layout_width="87dp"
+            android:layout_height="78dp"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Moderately popular dog breed,  that
@@ -46,10 +46,10 @@ List."
             android:textSize="9.5sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/seekBar59"
-            app:layout_constraintHorizontal_bias="0.187"
+            app:layout_constraintHorizontal_bias="0.545"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.907" />
+            app:layout_constraintVertical_bias="0.893" />
 
         <TextView
             android:id="@+id/rating54"
@@ -210,8 +210,8 @@ List."
 
         <TextView
             android:id="@+id/textView13"
-            android:layout_width="76dp"
-            android:layout_height="78dp"
+            android:layout_width="91dp"
+            android:layout_height="77dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Moderately popular dog breed,  that
 ranks between 26 to 100 in the AKC Annual
@@ -220,15 +220,15 @@ List."
             android:textSize="9.5sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/seekBar57"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.582" />
+            app:layout_constraintVertical_bias="0.594" />
 
         <TextView
             android:id="@+id/textView53"
-            android:layout_width="80dp"
-            android:layout_height="73dp"
+            android:layout_width="89dp"
+            android:layout_height="74dp"
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Less popular dog breed that ranks
@@ -237,15 +237,15 @@ below 100 in the AKC Annual List."
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.153"
             app:layout_constraintStart_toEndOf="@+id/seekBar58"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.744" />
+            app:layout_constraintVertical_bias="0.764" />
 
         <TextView
             android:id="@+id/textView19"
-            android:layout_width="72dp"
-            android:layout_height="74dp"
+            android:layout_width="88dp"
+            android:layout_height="71dp"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Very popular breed that ranks
@@ -254,10 +254,10 @@ between 1 to 25 in the AKC Annual List."
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/seekBar58"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.736" />
+            app:layout_constraintVertical_bias="0.745" />
 
         <TextView
             android:id="@+id/textView2"
@@ -309,8 +309,8 @@ between 1 to 25 in the AKC Annual List."
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="83dp"
-            android:layout_height="79dp"
+            android:layout_width="89dp"
+            android:layout_height="62dp"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Very popular breed that ranks
@@ -319,10 +319,10 @@ between 1 to 25 in the AKC Annual List."
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/seekBar57"
-            app:layout_constraintHorizontal_bias="0.222"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.581" />
+            app:layout_constraintVertical_bias="0.596" />
 
         <SeekBar
             android:id="@+id/seekBar54"
@@ -457,8 +457,8 @@ between 1 to 25 in the AKC Annual List."
 
         <TextView
             android:id="@+id/textView55"
-            android:layout_width="78dp"
-            android:layout_height="63dp"
+            android:layout_width="88dp"
+            android:layout_height="64dp"
             android:fontFamily="@font/montserrat_black"
             android:text="Less popular dog breed that ranks
 below 100 in the AKC Annual List."
@@ -466,7 +466,7 @@ below 100 in the AKC Annual List."
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/seekBar59"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.887" />

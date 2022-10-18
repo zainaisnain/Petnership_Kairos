@@ -8,9 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+<<<<<<< HEAD
     <color name="background">#C8A4D4</color>
     <color name="dark_purple">#371576</color>
     <color name="mid_light_purple">#AC94F4</color>
+=======
+    <color name="background">#C3B1E1</color>
+    <color name="secondary_purple">#371576</color>
+    <color name="tertiary_purple">#AC94F4</color>
+>>>>>>> main
     <color name="background_opaque">#c9a5d5</color>
 
 

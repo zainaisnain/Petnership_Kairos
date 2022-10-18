@@ -13,12 +13,16 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,24 +36,30 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class AdopterEdit extends AppCompatActivity implements View.OnClickListener {
+public class AdopterEdit extends AppCompatActivity {
 
+    private FirebaseAuth authProfile;
+    private FirebaseUser firebaseUser;
     // creating a variable for
     // our Firebase Database.
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();;
 
     // creating a variable for our
     // Database Reference for Firebase.
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
     // variable for Text view.
-    private TextView tvFname, tvLname, tvUsername, tvBirthday;
+    private TextView tvFname, tvLname, tvUsername;
 
     private EditText etContact,
-            etSteet, etCity, etProvince, etCountry, etGender;
+            etStreet, etCity, etProvince, etCountry, etGender,  etBirthday;
+
+    private String contact,
+            street, city, province, country, gender, birthday;
 
     private Button submitAdopterEditBtn, uploadEditBtn;
-
+    private ImageButton backBtn;
     private ImageView imageView;
 
     // Uri indicates, where the image will be picked from
@@ -59,9 +69,13 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
 
+    private boolean imageUploaded=true;
+
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
+
+    private String adopterEmail, adopterUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,21 +83,25 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_adopter_edit);
 
 
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        adopterEmail = firebaseUser.getEmail();
+
         // initializing our object class variables.
         tvFname = findViewById(R.id.txt_fname_adopter_edit);
         tvLname = findViewById(R.id.txt_lname_adopter_edit);
         tvUsername = findViewById(R.id.txt_username_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
-        etSteet = findViewById(R.id.txt_street_adopter_edit);
+        etStreet = findViewById(R.id.txt_street_adopter_edit);
         etCity = findViewById(R.id.txt_city_adopter_edit);
         etProvince = findViewById(R.id.txt_province_adopter_edit);
         etCountry = findViewById(R.id.txt_country_adopter_edit);
         etGender = findViewById(R.id.txt_gender_adopter_edit);
+        etBirthday = findViewById(R.id.txt_birthday_adopter_edit);
 
         // calling method
         // for getting data.
         submitAdopterEditBtn = findViewById(R.id.btn_submit_adopter_edit);
-        submitAdopterEditBtn.setOnClickListener(this);
 
         //UPLOAD IMAGE
         imageView = findViewById(R.id.iv_image_adopter_edit);
@@ -93,11 +111,21 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdopterEdit.this,AdopterHomeDashboard.class);
+                startActivity(intent);
+
+            }
+        });
         // on pressing btnSelect SelectImage() is called
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                imageUploaded = false;
                 SelectImage();
             }
         });
@@ -110,7 +138,54 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-        getdata();
+        submitAdopterEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                contact=etContact.getText().toString().trim();
+                street=etStreet.getText().toString().trim();
+                city=etCity.getText().toString().trim();
+                province=etProvince.getText().toString().trim();
+                country=etCountry.getText().toString().trim();
+                gender=etGender.getText().toString().trim();
+                birthday=etBirthday.getText().toString().trim();
+
+                if(contact.isEmpty()){
+                    etContact.setError("Contact is Required.");
+                    etContact.requestFocus();
+                    return;
+                }else if(street.isEmpty()) {
+                    etStreet.setError("Street is Required.");
+                    etStreet.requestFocus();
+                    return;
+                }else if(city.isEmpty()){
+                    etCity.setError("City is Required.");
+                    etCity.requestFocus();
+                    return;
+                }else if(province.isEmpty()){
+                    etProvince.setError("Province is Required.");
+                    etProvince.requestFocus();
+                    return;
+                }else if(country.isEmpty()){
+                    etCountry.setError("Country is Required.");
+                    etCountry.requestFocus();
+                    return;
+                }else if(gender.isEmpty()){
+                    etGender.setError("Gender is Required.");
+                    etGender.requestFocus();
+                    return;
+                }else if(birthday.isEmpty()){
+                    etBirthday.setError("Birthday is Required.");
+                    etBirthday.requestFocus();
+                    return;
+                }else if(!imageUploaded){
+                    Toast.makeText(AdopterEdit.this, "Please upload picture", Toast.LENGTH_LONG).show();
+                }else{
+                    editAdopterInfo();
+                }
+            }
+        });
+
+        getData();
     }
 
     // Select Image method
@@ -199,7 +274,7 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
-
+                                    imageUploaded=true;
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
@@ -247,58 +322,103 @@ public class AdopterEdit extends AppCompatActivity implements View.OnClickListen
     }
 
 
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_submit_adopter_edit:
-                editAdopterInfo();
-                break;
-        }
-    }
-
-
     private void editAdopterInfo() {
+        usersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        //TODO: hindi dapat hardcoded ung .child("Adopters").child("zainaisnain")
+                        adoptersDBRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.hasChild(adopterUsername)){
+                                    String contact = etContact.getText().toString();
+                                    snapshot.child(adopterUsername).getRef().child("contact").setValue(contact);
 
-        String contact = etContact.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("contact").setValue(contact);
+                                    String city = etCity.getText().toString();
+                                    snapshot.child(adopterUsername).getRef().child("city").setValue(city);
 
-        String city = etCity.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("city").setValue(city);
+                                    String province = etProvince.getText().toString();
+                                    snapshot.child(adopterUsername).getRef().child("province").setValue(province);
 
-        String province = etProvince.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("province").setValue(province);
+                                    String country = etCountry.getText().toString();
+                                    snapshot.child(adopterUsername).getRef().child("country").setValue(country);
 
-        String country = etCountry.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("country").setValue(country);
+                                    String gender = etGender.getText().toString();
+                                    snapshot.child(adopterUsername).getRef().child("gender").setValue(gender);
 
-        String gender = etGender.getText().toString();
-        databaseReference.child("Adopters").child("zainaisnain").child("gender").setValue(gender);
+                                    snapshot.child(adopterUsername).getRef().child("imageName").setValue(imageName);
+                                }
+                            }
 
-        databaseReference.child("Adopters").child("zainaisnain").child("imageName").setValue(imageName);
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
 
-    private void getdata() {
+    private void getData() {
 
         //FirebaseDatabase.getInstance().getReference().child("Adopters");
         // calling add value event listener method
         // for getting the values from database.
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        usersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String fname = String.valueOf(snapshot.child("Adopters").child("zainaisnain").child("fname").getValue());
-                System.out.println(fname);
-                tvFname.setText(fname);
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    adopterUsername = ds.getKey();
+                }
+                adoptersDBRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        String fname = String.valueOf(snapshot.child(adopterUsername).child("fname").getValue());
+                        System.out.println(fname);
+                        tvFname.setText(fname);
 
-                String lname = String.valueOf(snapshot.child("Adopters").child("zainaisnain").child("lname").getValue());
-                System.out.println(lname);
-                tvLname.setText(lname);
+                        String lname = String.valueOf(snapshot.child(adopterUsername).child("lname").getValue());
+                        System.out.println(lname);
+                        tvLname.setText(lname);
 
-                String username = String.valueOf(snapshot.child("Adopters").child("zainaisnain").child("username").getValue());
-                tvUsername.setText(username);
+                        String username = String.valueOf(snapshot.child(adopterUsername).child("username").getValue());
+                        tvUsername.setText(username);
+
+                        etContact.setText(String.valueOf(snapshot.child(adopterUsername).child("contact").getValue()));
+                        etStreet.setText(String.valueOf(snapshot.child(adopterUsername).child("street").getValue()));
+                        etCity.setText(String.valueOf(snapshot.child(adopterUsername).child("city").getValue()));
+                        etProvince.setText(String.valueOf(snapshot.child(adopterUsername).child("province").getValue()));
+                        etCountry.setText(String.valueOf(snapshot.child(adopterUsername).child("country").getValue()));
+                        etGender.setText(String.valueOf(snapshot.child(adopterUsername).child("gender").getValue()));
+                        etBirthday.setText(String.valueOf(snapshot.child(adopterUsername).child("birthday").getValue()));
+
+
+                        imageName = String.valueOf(snapshot.child(adopterUsername).child("imageName").getValue());
+                        System.out.println("imageName AdopterEdit" + imageName);
+                        storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Glide.with(AdopterEdit.this).load(uri.toString()).into(imageView);
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
 
             @Override

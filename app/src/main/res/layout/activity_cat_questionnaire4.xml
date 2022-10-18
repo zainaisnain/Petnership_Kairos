@@ -285,18 +285,18 @@
             android:id="@+id/submit_quesc"
             android:layout_width="243dp"
             android:layout_height="46dp"
-            app:backgroundTint="@null"
             android:background="@drawable/button"
             android:fontFamily="@font/montserrat_reg"
             android:text="PROCEED"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
+            app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cseekBar27"
-            app:layout_constraintVertical_bias="0.627"
+            app:layout_constraintVertical_bias="0.813"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView

@@ -13,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             editTextCity, editTextProvince, editTextCountry, editTextTin;
 
     private Button submit, uploadBtn;
+    private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
 
@@ -104,6 +106,16 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             public void onClick(View v)
             {
                 uploadImage();
+            }
+        });
+
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ShelterRegistration.this,ActivityUserType.class);
+                startActivity(intent);
+
             }
         });
     }

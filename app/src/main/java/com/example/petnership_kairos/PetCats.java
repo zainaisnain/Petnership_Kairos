@@ -10,8 +10,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +29,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.*;
+
 public class PetCats extends Fragment {
 
     ImageView img1;
@@ -56,7 +54,7 @@ public class PetCats extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         //TO-DO: edit fragment_pet_dog to fragment_pet_cat; need to run the app
-        return inflater.inflate(R.layout.fragment_cat_pet_profile, container, false);
+        return inflater.inflate(R.layout.fragment_shelter_cat_questionnaire, container, false);
 
     }
 

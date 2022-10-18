@@ -17,7 +17,6 @@ public class DogQuestionnaire3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ImageButton popup3;
-        Dialog helpDialog3;
         SeekBar seekBar15, seekBar16, seekBar17, seekBar18, seekBar19, seekBar20,seekBar21;
         TextView rate15, rate16, rate17, rate18, rate19, rate20, rate21;
         super.onCreate(savedInstanceState);
@@ -231,15 +230,26 @@ public class DogQuestionnaire3 extends AppCompatActivity {
             });
 
             popup3 = findViewById(R.id.instructionsBTN3);
-            helpDialog3 = new Dialog(this);
             popup3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    helpDialog3.setContentView(R.layout.help_popup);
-                    helpDialog3.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                    helpDialog3.show();
+                    showDialog();
                 }
             });
 
-        }
+    }
+    private void showDialog() {
+        final Dialog helpDialog3 = new Dialog(this);
+        helpDialog3.setContentView(R.layout.help_popup);
+        helpDialog3.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialog3.show();
+        ImageButton closeBTN = (ImageButton) helpDialog3.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialog3.dismiss();
+
+            }
+        });
+    }
 }

@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Petnership"
         android:textColor="@color/white"
+        android:fontFamily="@font/playfairdisplayblack"
         android:textSize="25sp"
         android:textStyle="bold"
         />

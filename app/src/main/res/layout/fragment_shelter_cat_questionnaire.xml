@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/shelter_edit_cat_frag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -52,7 +53,8 @@
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -71,7 +73,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
-                    android:id ="@+id/cat_q1"
+                    android:id ="@+id/cat_q1_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -102,7 +104,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <RadioButton
                             android:id="@+id/q1ans1_catprofile"
@@ -176,6 +180,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q2_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -206,7 +211,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q2ans1_catprofile"
@@ -264,6 +271,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q3_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -294,7 +302,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q3ans1_catprofile"
@@ -352,6 +362,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q4_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -382,7 +393,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q4ans1_catprofile"
@@ -440,6 +453,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q5_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -470,7 +484,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q5ans1_catprofile"
@@ -528,6 +544,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q6_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -558,7 +575,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q6ans1_catprofile"
@@ -616,6 +635,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q7_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -646,7 +666,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q7ans1_catprofile"
@@ -704,6 +726,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q8_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"
@@ -734,7 +757,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q8ans1_catprofile"
@@ -792,6 +817,7 @@
                 android:layout_gravity="center">
 
                 <androidx.cardview.widget.CardView
+                    android:id ="@+id/cat_q9_cv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/round_white"

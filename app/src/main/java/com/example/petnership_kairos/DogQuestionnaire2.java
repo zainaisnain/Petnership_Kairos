@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class DogQuestionnaire2 extends AppCompatActivity {
     ImageButton popup2;
-    Dialog helpDialog2;
     SeekBar seekBar8, seekBar9, seekBar10, seekBar11, seekBar12, seekBar13,seekBar14;
     TextView rate8, rate9, rate10, rate11, rate12, rate13, rate14;
     @SuppressLint("MissingInflatedId")
@@ -230,15 +229,26 @@ public class DogQuestionnaire2 extends AppCompatActivity {
         });
 
         popup2 = findViewById(R.id.instructionsBTN2);
-        helpDialog2 = new Dialog(this);
         popup2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helpDialog2.setContentView(R.layout.help_popup);
-                helpDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                helpDialog2.show();
+                showDialog();
             }
         });
 
+    }
+    private void showDialog() {
+        final Dialog helpDialog2 = new Dialog(this);
+        helpDialog2.setContentView(R.layout.help_popup);
+        helpDialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialog2.show();
+        ImageButton closeBTN = (ImageButton) helpDialog2.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialog2.dismiss();
+
+            }
+        });
     }
     }

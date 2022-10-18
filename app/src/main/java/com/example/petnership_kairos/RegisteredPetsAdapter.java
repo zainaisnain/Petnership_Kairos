@@ -113,7 +113,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPetImage = itemView.findViewById(R.id.pet_image);
-            tvPetName = itemView.findViewById(R.id.per_cat_name_title);
+            tvPetName = itemView.findViewById(R.id.per_pet_name_title);
             tvPetAge = itemView.findViewById(R.id.pet_age);
             tvPetSex = itemView.findViewById(R.id.pet_sex);
             tvPetBreed = itemView.findViewById(R.id.pet_breed);

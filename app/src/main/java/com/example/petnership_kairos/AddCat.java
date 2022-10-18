@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -43,9 +42,10 @@ import java.util.UUID;
 
 public class AddCat extends Fragment {
 
-    private EditText etPetName, etPetAge, etPetSex, etPetDescription;
-    private Button proceedBtn, uploadBtn;
+    private EditText etPetName, etPetAge, etPetDescription;
+    private Button proceedBtn, uploadBtn, backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String petAgeNum, petAgeDD;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -66,6 +66,14 @@ public class AddCat extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     private boolean imageUploaded=false;
+
+    //DROPDOWN AGE
+    Spinner ddAge;
+    String[] ddAgeValues = {" Week(s)", " Month(s)", " Year(s)"};
+
+    //DROPDOWN SEX
+    Spinner ddSex;
+    String[] ddSexValues = {"Female", "Male"};
 
     //DROPDOWN STATUS
     Spinner ddStatus;
@@ -92,16 +100,49 @@ public class AddCat extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        etPetName = view.findViewById(R.id.per_cat_name_title);
-        etPetAge = view.findViewById(R.id.pet_age);
-        etPetSex = view.findViewById(R.id.pet_sex);
+        //NAME
+        etPetName = view.findViewById(R.id.per_pet_name_title);
+
+        //AGE
+        etPetAge = view.findViewById(R.id.pet_age_et);
+        ddAge = view.findViewById(R.id.pet_age_dd);
+        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
+        ddAge.setAdapter(ageAdapter);
+
+        //SEX
+        ddSex = view.findViewById(R.id.pet_sex_dd);
+        ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
+        ddSex.setAdapter(sexAdapter);
+
+        //STATUS
         ddStatus = view.findViewById(R.id.pet_status);
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
         ddStatus.setAdapter(statusAdapter);
 
+        //DESCRIPTION
         etPetDescription = view.findViewById(R.id.pet_desc);
-        proceedBtn = view.findViewById(R.id.petinfo_proceed);
 
+        //Set value for Dropdown Age
+        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petAgeDD = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        //Set value for Dropdown Sex
+        ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                petSex = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        //Set value for Dropdown Status
         ddStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -116,6 +157,18 @@ public class AddCat extends Fragment {
         });
 
         System.out.println("petStatus outside: " + petStatus);
+
+        backBtn = view.findViewById(R.id.petinfo_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FRAGMENT to FRAGMENT
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterRegisterPets  shelterRegisterPets = new ShelterRegisterPets();
+                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
+                transaction.commit();
+            }
+        });
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);
         ivPetInfo.setOnClickListener(new View.OnClickListener() {
@@ -141,26 +194,21 @@ public class AddCat extends Fragment {
             public void onClick(View v)
             {
                 petName = etPetName.getText().toString().trim();
-                petAge = etPetAge.getText().toString().trim();
-                petSex = etPetSex.getText().toString().trim();
+                petAgeNum = etPetAge.getText().toString().trim();
+                petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
                 petImage = imageName;
 
                 petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
-                //TODO: not proceed if no uploaded picture
 
                 if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
-                }else if(petAge.isEmpty()){
+                }else if(petAgeNum.isEmpty()){
                     etPetAge.setError("Pet Age Required.");
                     etPetAge.requestFocus();
-                    return;
-                }else if(petSex.isEmpty()){
-                    etPetSex.setError("Sex of Pet Required.");
-                    etPetSex.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
@@ -171,7 +219,8 @@ public class AddCat extends Fragment {
                 }else if(!imageUploaded){
                     Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
-                addPet();
+                    addPet();
+                    Toast.makeText(getActivity(), "Proceed to Questionnaire", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -321,8 +370,8 @@ public class AddCat extends Fragment {
                         Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                        CatPetProfile CatPetProfile = new CatPetProfile();
-                        transaction.replace(R.id.nav_host_fragment,CatPetProfile);
+                        ShelterCatQuestionnaire ShelterCatQuestionnaire = new ShelterCatQuestionnaire();
+                        transaction.replace(R.id.nav_host_fragment, ShelterCatQuestionnaire);
                         transaction.commit();
                     }
                 }
