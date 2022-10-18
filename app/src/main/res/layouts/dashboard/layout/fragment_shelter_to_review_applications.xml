@@ -545,7 +545,6 @@
                                     android:width="200dp"
                                     android:height="40dp"
                                     android:layout_margin="10dp"
-                                    app:lines="10"
                                     android:hint="Leave a Message" />
 
                                 <Button
