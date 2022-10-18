@@ -924,28 +924,6 @@
                             android:textSize="15sp"
                             android:minHeight="100dp"/>
 
-<<<<<<< HEAD:app/src/main/res/layout/fragment_dog_pet_profile.xml
-                            <Spinner
-                                android:id="@+id/dogType"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:autofillHints=""
-                                android:background="@drawable/textfield"
-                                android:ems="10"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:hint=" Status"
-                                android:inputType="textPersonName"
-                                android:spinnerMode="dropdown"
-                                android:textColorHint="#757575"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.376" />
-=======
                         <Spinner
                             android:id="@+id/dogType"
                             android:layout_width="match_parent"
@@ -966,7 +944,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.376" />
->>>>>>> main:app/src/main/res/layout/fragment_shelter_dog_questionnaire.xml
 
                     </GridLayout>
 
