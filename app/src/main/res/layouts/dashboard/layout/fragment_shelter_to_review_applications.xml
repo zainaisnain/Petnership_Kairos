@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
+=======
+>>>>>>> main
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
+<<<<<<< HEAD
     tools:context=".ShelterToReviewApplications"
+=======
+    tools:context=".PerPetProfileCats"
+>>>>>>> main
     >
 
     <ScrollView
@@ -106,6 +113,7 @@
 
                         </LinearLayout>
 
+<<<<<<< HEAD
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -143,12 +151,55 @@
                             <!--                        </com.google.android.material.textfield.TextInputLayout>-->
 
                         </LinearLayout>
+=======
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="10dp">
+
+                        <TextView
+                            android:id="@+id/label_adoptionForm_statusApp"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Status: "
+                            android:textSize="20sp" />
+
+                        <Spinner
+                            android:id="@+id/pet_status"
+                            android:layout_width="188dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
+
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+                    </LinearLayout>
+>>>>>>> main
 
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
+<<<<<<< HEAD
                             android:background="@color/secondary_purple"/>
+=======
+                            android:background="@color/dark_purple"/>
+>>>>>>> main
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -297,7 +348,11 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
+<<<<<<< HEAD
                             android:background="@color/secondary_purple"/>
+=======
+                            android:background="@color/dark_purple"/>
+>>>>>>> main
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -354,6 +409,33 @@
                             android:layout_margin="10dp">
 
                             <TextView
+<<<<<<< HEAD
+=======
+                                android:id="@+id/label_adoptionForm_petSize"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Size:"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/adoptionForm_petSize"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="placeholder"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_margin="10dp">
+
+                            <TextView
+>>>>>>> main
                                 android:id="@+id/label_adoptionForm_petBreed"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
@@ -446,7 +528,11 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
+<<<<<<< HEAD
                             android:background="@color/secondary_purple"/>
+=======
+                            android:background="@color/dark_purple"/>
+>>>>>>> main
 
                         <LinearLayout
                             android:layout_width="match_parent"
