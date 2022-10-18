@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/adoptionFormFrag"
     android:background="#C8A4D4"
-    tools:context=".AdopterRegistration">
+    tools:context=".AdoptionForm">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -58,6 +59,8 @@
                 android:paddingLeft="10dp" />
 
             <EditText
+<<<<<<< HEAD
+=======
                 android:id="@+id/txt_email_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -70,6 +73,7 @@
                 android:paddingLeft="10dp" />
 
             <EditText
+>>>>>>> main
                 android:id="@+id/txt_email"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -216,6 +220,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+                android:text="Pet Preferences"
+=======
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:fontFamily="@font/montserrat_reg"
@@ -227,11 +234,188 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+>>>>>>> main
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_reg"
                 android:text="Dog"
                 android:textSize="14sp" />
 
+<<<<<<< HEAD
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you interested in a"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"
+                android:textColor="#371576"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <RadioGroup
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioGroup_petType"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/dogClicked"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="DOG"
+                    android:textColor="@color/white"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_button_dog"
+                    android:onClick="onRadioButtonClicked"
+                    android:fontFamily="@font/montserrat_reg" />
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/catClicked"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="CAT"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:textColor="@color/white"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_button_dog"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
+            <!--            <RadioButton-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_gravity="center"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="Dog"-->
+            <!--            android:fontFamily="@font/montserrat_reg"-->
+            <!--            android:textSize="14sp"/>-->
+
+            <!--            <RadioButton-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_gravity="center"-->
+            <!--            android:text="Cat"-->
+            <!--            android:fontFamily="@font/montserrat_reg"-->
+            <!--            android:textSize="14sp"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Size"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:fontFamily="@font/montserrat_reg"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="#371576"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:padding="15dp"/>-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingBottom="15dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal">-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingBottom="15dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal">-->
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:id="@+id/smallClicked"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:checked="false"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="SMALL"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:fontFamily="@font/montserrat_reg"-->
+<!--                    android:background="@drawable/radio_button_dog"-->
+<!--                    android:onClick="onRadioButtonClicked"-->
+<!--                    tools:ignore="OnClick" />-->
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:id="@+id/mediumClicked"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:checked="false"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="MEDIUM"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:fontFamily="@font/montserrat_reg"-->
+<!--                    android:background="@drawable/radio_button_dog"/>-->
+<!--            </RadioGroup>-->
+<!--            <RadioGroup-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:orientation="horizontal">-->
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:id="@+id/largeClicked"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:checked="false"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="LARGE"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:fontFamily="@font/montserrat_reg"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:background="@drawable/radio_button_dog"/>-->
+<!--                <androidx.appcompat.widget.AppCompatRadioButton-->
+<!--                    android:id="@+id/xLargeClicked"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:checked="false"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="EXTRA LARGE"-->
+<!--                    android:fontFamily="@font/montserrat_reg"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:button="@android:color/transparent"-->
+<!--                    android:background="@drawable/radio_button_dog"/>-->
+<!--            </RadioGroup>-->
+
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Small"-->
+            <!--                android:fontFamily="@font/montserrat_reg"-->
+            <!--                android:textSize="14sp"/>-->
+
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:text="Medium"-->
+            <!--                android:fontFamily="@font/montserrat_reg"-->
+            <!--                android:textSize="14sp"/>-->
+
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:text="Large"-->
+            <!--                android:fontFamily="@font/montserrat_reg"-->
+            <!--                android:textSize="14sp"/>-->
+
+            <!--            <RadioButton-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:text="Extra Large"-->
+            <!--                android:fontFamily="@font/montserrat_reg"-->
+            <!--                android:textSize="14sp"/>-->
+=======
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -239,9 +423,10 @@
                 android:fontFamily="@font/montserrat_reg"
                 android:text="Cat"
                 android:textSize="14sp" />
+>>>>>>> main
 
             <EditText
-                android:id="@+id/txt_province_adopter"
+                android:id="@+id/txt_email_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -249,6 +434,10 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+<<<<<<< HEAD
+                android:paddingLeft="10dp"
+                android:hint="Name of the pet you wish to adopt" />
+=======
                 android:hint="Breed/Mix"
                 android:paddingLeft="10dp" />
 
@@ -294,6 +483,7 @@
                 android:fontFamily="@font/montserrat_reg"
                 android:text="Extra Large"
                 android:textSize="14sp" />
+>>>>>>> main
 
             <EditText
                 android:id="@+id/pref_pet_age"
@@ -307,6 +497,18 @@
 
                 android:hint="Age"
                 android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_province_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Breed/Mix" />
 
             <EditText
                 android:id="@+id/pref_pet_description"

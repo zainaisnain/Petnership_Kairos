@@ -108,7 +108,7 @@
                             android:focusable="true"
                             android:focusableInTouchMode="true"/>
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <RadioButton
                             android:id="@+id/q1ans1_catprofile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -116,16 +116,19 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/button"
                             android:textAllCaps="false"
-                            android:gravity="center"
                             android:minHeight="50dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_dog"
+                            android:button="@android:color/transparent"
+                            android:checked="false"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
                             android:text="The cat has a strong affinity for playing and has an easily excited aura."
-                            android:textColor="@color/white"
-                            />
+                            android:textColor="@color/white" />
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <RadioButton
                             android:id="@+id/q1ans2_catprofile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -133,13 +136,19 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/button"
                             android:textAllCaps="false"
+                            android:minHeight="50dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_dog"
+                            android:button="@android:color/transparent"
+                            android:checked="false"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
                             android:text="The cat is fond of physical activity at times."
                             android:textColor="@color/white" />
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <RadioButton
                             android:id="@+id/q1ans3_catprofile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -147,9 +156,15 @@
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/button"
                             android:textAllCaps="false"
+                            android:minHeight="50dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/radio_button_dog"
+                            android:button="@android:color/transparent"
+                            android:checked="false"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:onClick="onRadioButtonClicked"
                             android:text="The cat is sedentary."
                             android:textColor="@color/white" />
                     </GridLayout>

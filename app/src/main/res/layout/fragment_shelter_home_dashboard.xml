@@ -96,7 +96,7 @@
             android:layout_marginBottom="4dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_add"
-            app:backgroundTint="@color/secondary_purple"
+            app:backgroundTint="@color/dark_purple"
             app:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -137,7 +137,7 @@
                     android:fontFamily="@font/montserrat_reg"
                     android:text="36"
                     android:textAlignment="center"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="40sp"
                     android:textStyle="bold" />
 
@@ -146,7 +146,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="registered pets"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="15sp"
                     android:fontFamily="@font/montserrat_reg"
                     android:textAlignment="center"/>
@@ -159,7 +159,7 @@
             android:id="@+id/dogs"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            app:cardBackgroundColor="@color/secondary_purple"
+            app:cardBackgroundColor="@color/dark_purple"
             app:cardCornerRadius="16dp"
             app:cardUseCompatPadding="true"
             tools:ignore="MissingConstraints">
@@ -189,7 +189,7 @@
             android:id="@+id/cats"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            app:cardBackgroundColor="@color/secondary_purple"
+            app:cardBackgroundColor="@color/dark_purple"
             app:cardCornerRadius="16dp"
             app:cardUseCompatPadding="true"
             tools:ignore="MissingConstraints">
@@ -233,7 +233,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="40sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/montserrat_reg"
@@ -244,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="active adopters"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="15sp"
                     android:fontFamily="@font/montserrat_reg"
                     android:textAlignment="center"/>
@@ -269,10 +269,11 @@
                 android:padding="16dp" >
 
                 <TextView
+                    android:id="@+id/forReviewApplicants"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="12"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="40sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/montserrat_reg"
@@ -283,7 +284,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="for review applicants"
-                    android:textColor="@color/secondary_purple"
+                    android:textColor="@color/dark_purple"
                     android:textSize="15sp"
                     android:fontFamily="@font/montserrat_reg"
                     android:textAlignment="center"/>

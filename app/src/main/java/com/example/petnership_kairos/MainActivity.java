@@ -116,7 +116,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 userLogout();
                 break;
 
-
+            case R.id.nav_adoptionForm:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new AdoptionForm()).commit();
+                break;
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
