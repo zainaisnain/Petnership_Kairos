@@ -32,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class ShelterHomeDashboard extends Fragment {
 
-    CardView card1, card2,card3, toReviewApplicants;
+    CardView card1, card2,card3;
     FloatingActionButton fabAddBtn;
 
     private ShelterHomeDashboardViewModel mViewModel;
@@ -114,30 +114,14 @@ public class ShelterHomeDashboard extends Fragment {
             }
         });
 
-        toReviewApplicants = view.findViewById(R.id.toReview);
-        toReviewApplicants.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                adopters adopters = new adopters();
-                transaction.replace(R.id.nav_host_fragment, adopters);
-                transaction.commit();
-//                startActivity(new Intent(getActivity(), ShelterToReviewApplications.class));
-            }
-        });
-
         fabAddBtn = view.findViewById(R.id.fabAdd);
         fabAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterRegisterPets ShelterRegisterPets = new ShelterRegisterPets();
-                transaction.replace(R.id.nav_host_fragment, ShelterRegisterPets);
+                transaction.replace(R.id.nav_host_fragment,ShelterRegisterPets);
                 transaction.commit();
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                AdoptionForm AdoptionForm = new AdoptionForm();
-//                transaction.replace(R.id.nav_host_fragment,AdoptionForm);
-//                transaction.commit();
             }
         });
 
