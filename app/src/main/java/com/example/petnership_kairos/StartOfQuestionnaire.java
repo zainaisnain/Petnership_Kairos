@@ -3,20 +3,20 @@ package com.example.petnership_kairos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.content.Intent;
-
-import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class StartOfQuestionnaire extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /**
      * variables
@@ -32,15 +32,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-
-        // TODO: Check if not signed in
-        FirebaseUser currUser = auth.getCurrentUser();
 
 //        if(currUser == null)
 //        {
@@ -51,11 +48,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
 
         /**
-         * Set home fragment as default page
+         * Set Questionnaire Welcoem page fragment as default page
          */
         if(savedInstanceState == null) {
-            getSupportFragmentManager().
-                    beginTransaction().replace(R.id.nav_host_fragment,new home()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                    new FragmentQuestionnaireWelcome()).addToBackStack("questionnaireHomeFragment").commit();
+
         }
 
         /**
@@ -82,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+
     @Override
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen((GravityCompat.START)))
@@ -90,7 +89,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else
         {
-            super.onBackPressed();
+            //TODO: FIX ON BACKPRESSED
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count <= 1) {
+                super.onBackPressed();
+            } else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
 
     }
@@ -125,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    // TODO: Confirmation Dialog
     private void userLogout()
     {
         FirebaseAuth.getInstance().signOut();
@@ -134,18 +138,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         finish();
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        Intent i;
-//
-//        switch (view.getId()) {
-//            case R.id.dogs:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-//                        new register()).commit();
-//                break;
-//
-//            default:
-//                break;
-//        }
-//    }
 }
