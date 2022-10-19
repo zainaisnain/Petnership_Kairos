@@ -21,6 +21,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,6 +37,13 @@ public class ShelterToReviewApplications extends Fragment {
     protected static String petStatus;
 
     private EditText mEditTextTo, mEditTextSubject, mEditTextMessage;
+    private TextView tvAdoptionFormDate, tvAdopterName, tvAdopterEmail,
+    tvAdopterMobile, tvAdopterAddress, tvPetType, tvBreed,
+    tvPetName, tvPetAge, tvPetDesc;
+    //DB REF
+
+    //FirebaseAuth
+
 
     public static ShelterToReviewApplications newInstance() {
         return new ShelterToReviewApplications();
@@ -49,6 +57,16 @@ public class ShelterToReviewApplications extends Fragment {
         mEditTextTo = view.findViewById(R.id.shelter_emailAddressOfAdopter);
         mEditTextSubject = view.findViewById(R.id.shelter_subjectEmailToAdopter);
         mEditTextMessage = view.findViewById(R.id.shelter_bodyEmailToAdopter);
+        tvAdoptionFormDate = view.findViewById(R.id.adoptionForm_petDate);
+        tvAdopterName = view.findViewById(R.id.adoptionForm_adopterName);
+        tvAdopterEmail = view.findViewById(R.id.adoptionForm_email);
+        tvAdopterMobile = view.findViewById(R.id.adoptionForm_mobile);
+        tvAdopterAddress = view.findViewById(R.id.adoptionForm_address);
+        tvPetType = view.findViewById(R.id.adoptionForm_petType);
+        tvBreed = view.findViewById(R.id.adoptionForm_petBreed);
+        tvPetName = view.findViewById(R.id.adoptionForm_petName);
+        tvPetAge = view.findViewById(R.id.adoptionForm_petAge);
+        tvPetDesc = view.findViewById(R.id.adoptionForm_petDescription);
 
         Button sendBtn = view.findViewById(R.id.shelter_sendEmail);
         sendBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +83,8 @@ public class ShelterToReviewApplications extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Adoption Form Summary");
+
+
 
         statusAppTxt = view.findViewById(R.id.pet_status);
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, statusApp);

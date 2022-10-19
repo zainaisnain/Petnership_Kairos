@@ -85,7 +85,7 @@ public class ShelterHomeDashboard extends Fragment {
 //                transaction.replace(R.id.nav_host_fragment,shelterRegisteredPets);
 //                transaction.commit();
 
-//                startActivity(new Intent(getActivity(), ShelterListOfPets.class));
+                startActivity(new Intent(getActivity(), ShelterListOfPets.class));
             }
         });
 

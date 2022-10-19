@@ -82,12 +82,8 @@ public class ShelterListOfDogs extends AppCompatActivity {
                             ALregisteredDogData.add( new RegisteredDogData(petID, petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredDogData = ALregisteredDogData.toArray(new RegisteredDogData[ALregisteredDogData.size()]);
-//                        for (RegisteredDogData element: registeredDogData) {
-//                            System.out.println("zaina: "+element.getImageName());
-//                        }
-
-                       RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogs.this);
-                       recyclerView.setAdapter(registeredDogsAdapter);
+                        RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogs.this);
+                        recyclerView.setAdapter(registeredDogsAdapter);
 
                     }
 
