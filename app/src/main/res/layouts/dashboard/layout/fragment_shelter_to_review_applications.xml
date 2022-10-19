@@ -353,30 +353,6 @@
                             android:layout_margin="10dp">
 
                             <TextView
-                                android:id="@+id/label_adoptionForm_petSize"
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Size:"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/adoptionForm_petSize"
-                                android:layout_width="50dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="placeholder"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_margin="10dp">
-
-                            <TextView
                                 android:id="@+id/label_adoptionForm_petBreed"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
