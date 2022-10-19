@@ -95,7 +95,6 @@ public class ShelterListOfCats extends AppCompatActivity {
                             ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredCatData = ALregisteredCatData.toArray(new RegisteredCatData[ALregisteredCatData.size()]);
-                        System.out.println("size nya: " + registeredCatData.length);
                         for (RegisteredCatData element: registeredCatData) {
                             System.out.println("zaina: "+element.getImageName());
                         }

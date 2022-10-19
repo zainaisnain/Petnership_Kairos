@@ -77,7 +77,7 @@ public class ShelterListOfPets extends AppCompatActivity {
                             petID = ds.getKey();
                             petIDs.add(petID);
 
-                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
+                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                             petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
                             petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
                             petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
@@ -86,11 +86,8 @@ public class ShelterListOfPets extends AppCompatActivity {
                             ALregisteredPetData.add( new RegisteredPetData(petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredCatData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-//                        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredPetData, ShelterListOfPets.this);
-//                        recyclerView.setAdapter(registeredPetsAdapter);
-//                        for (RegisteredPetData element: registeredCatData) {
-//                            System.out.println("zaina: "+element.getPetImageName());
-//                        }
+                        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredCatData, ShelterListOfPets.this);
+                        recyclerView.setAdapter(registeredPetsAdapter);
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -98,35 +95,32 @@ public class ShelterListOfPets extends AppCompatActivity {
                     }
                 });
 
-//        petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                        for(DataSnapshot ds : snapshot.getChildren()) {
-//                            petID = ds.getKey();
-//                            petIDs.add(petID);
-//
-//                            petImageName = String.valueOf(snapshot.child(petID).child("petImage").getValue());
-//                            petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-//                            petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
-//                            petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
-//                            petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
-//                            ALregisteredPetData.add( new RegisteredPetData(petImageName, petName, petAge, petSex, petBreed));
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+        petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-//        registeredPetData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-//        for (RegisteredPetData element: registeredPetData) {
-//            System.out.println("zaina: "+element.getPetImageName());
-//        }
-//        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredPetData, ShelterListOfPets.this);
-//        recyclerView.setAdapter(registeredPetsAdapter);
+                        for(DataSnapshot ds : snapshot.getChildren()) {
+                            petID = ds.getKey();
+                            petIDs.add(petID);
+
+                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
+                            petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
+                            petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                            petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
+                            petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
+                            ALregisteredPetData.add( new RegisteredPetData(petImageName, petName, petAge, petSex, petBreed));
+                        }
+                        registeredDogData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
+                        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredDogData, ShelterListOfPets.this);
+                        recyclerView.setAdapter(registeredPetsAdapter);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 }
