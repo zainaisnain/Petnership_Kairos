@@ -162,7 +162,10 @@ public class ShelterEditDog extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ShelterListOfDogs.class));
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfDogsFragment shelterRegisteredDogs = new ShelterListOfDogsFragment();
+                transaction.replace(R.id.nav_host_fragment,shelterRegisteredDogs);
+                transaction.commit();
             }
         });
 

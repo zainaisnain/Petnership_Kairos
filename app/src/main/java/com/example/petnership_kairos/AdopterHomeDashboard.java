@@ -107,8 +107,8 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvBrowseAnimals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), RecommendedPets.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), RecommendedPets.class);
+          //      startActivity(intent);
             }
         });
 
