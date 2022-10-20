@@ -263,7 +263,7 @@
             android:exported="true" />
         <activity
             android:name=".AdopterDashboard"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ShelterDashboard"
             android:exported="true">

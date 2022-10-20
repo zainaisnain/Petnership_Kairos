@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          */
         if(savedInstanceState == null) {
             getSupportFragmentManager().
-                    beginTransaction().replace(R.id.nav_host_fragment,new home()).commit();
+                    beginTransaction().replace(R.id.nav_host_fragment,new ShelterHomeDashboard()).commit();
         }
 
         /**
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new home()).commit();
+                        new ShelterHomeDashboard()).commit();
                 break;
 
             case R.id.nav_adopters:

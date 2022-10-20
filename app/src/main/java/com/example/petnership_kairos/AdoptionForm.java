@@ -1,12 +1,11 @@
 package com.example.petnership_kairos;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatRadioButton;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
+import android.app.Dialog;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,15 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioGroup;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.storage.FirebaseStorage;
+public class AdoptionForm extends Fragment {
 
-public class AdoptionForm extends Fragment implements View.OnClickListener{
-
-    AppCompatRadioButton rbDog, rbCat, rbSmall, rbMedium, rbLarge, rbXLarge;
-    RadioGroup rgPetType;
+    Button submit, cancel;
+    Dialog dialog;
 
     private AdoptionFormViewModel mViewModel;
 
@@ -38,49 +33,39 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adoption_form, container, false);
 
-        rbDog = view.findViewById(R.id.dogClicked);
-        rbCat = view.findViewById(R.id.catClicked);
+        submit = view.findViewById(R.id.adopterAdoptSubmit);
+        dialog = new Dialog(getActivity());
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.setContentView(R.layout.submit_dialog);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
 
-        rbDog.setOnClickListener(this);
-        rbCat.setOnClickListener(this);
+        cancel = view.findViewById(R.id.adopterAdoptCancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                openCancelDialog();
+            }
+        });
+
 
         return view;
-        }
+    }
+
+//    private void openSubmitDialog() {
+//        dialog.setContentView(R.layout.submit_dialog);
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//
+//    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Adoption Form");
-    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.dogClicked:
-                rbDog.setTextColor(Color.BLACK);
-                rbCat.setTextColor(Color.WHITE);
-                break;
-            case R.id.catClicked:
-                rbCat.setTextColor(Color.BLACK);
-                rbDog.setTextColor(Color.WHITE);
-                break;
-        }
-    }
-
-    public void onRadioButtonClicked (View view) {
-        boolean isSelected = ((AppCompatRadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.dogClicked:
-                if (isSelected) {
-                    rbDog.setTextColor(Color.BLACK);
-                }
-                break;
-            case R.id.catClicked:
-                if (isSelected) {
-                    rbCat.setTextColor(Color.BLACK);
-                }
-                break;
-        }
     }
 
     @Override
@@ -89,6 +74,5 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
         mViewModel = new ViewModelProvider(this).get(AdoptionFormViewModel.class);
         // TODO: Use the ViewModel
     }
-
 
 }

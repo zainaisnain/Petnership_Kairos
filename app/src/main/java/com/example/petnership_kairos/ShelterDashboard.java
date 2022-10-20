@@ -75,7 +75,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         /**
          * Tool bar
          */
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
