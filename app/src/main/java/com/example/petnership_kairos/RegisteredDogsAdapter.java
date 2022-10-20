@@ -28,22 +28,20 @@ import java.util.ArrayList;
 public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAdapter.ViewHolder> {
 
     RegisteredDogData[] dogsData;
-    Context context;
-
+    ShelterListOfDogsFragment context;
     ImageView img1;
 
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-
     private String shelterEmail, petID, petImageName;
 
     private ArrayList<String> petIDs = new ArrayList<>();
 
-    public RegisteredDogsAdapter(RegisteredDogData[] dogsData, ShelterListOfDogs activity){
+    public RegisteredDogsAdapter(RegisteredDogData[] dogsData, ShelterListOfDogsFragment context){
         this.dogsData = dogsData;
-        this.context = activity;
+        this.context = context;
     }
 
     @NonNull
@@ -81,7 +79,7 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
         holder.cvDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, PerDogProfile.class);
+                Intent intent = new Intent(view.getContext(), PerDogProfile.class);
                 intent.putExtra("dogPetID", registeredDogDataList.getPetID());
                 view.getContext().startActivity(intent);
             }
@@ -95,7 +93,7 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, registeredDogDataList.getPetName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), registeredDogDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
     }

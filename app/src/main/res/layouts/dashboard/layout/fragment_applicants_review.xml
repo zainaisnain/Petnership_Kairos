@@ -6,21 +6,7 @@
     android:orientation="vertical"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
-    tools:context=".ApplicantsReview">
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="37dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/ic_burger_menu"
-        android:contentDescription="Burger"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+    tools:context=".ApplicantsReviewFragment">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -44,14 +30,13 @@
         android:fontFamily="@font/playfairdisplayblack"
         android:text="Applicants for Review"
         android:textColor="@color/secondary_purple"
-        android:textSize="25sp"
+        android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.757"
+        app:layout_constraintVertical_bias="0.791"
         tools:ignore="TextContrastCheck" />
 
     <androidx.cardview.widget.CardView

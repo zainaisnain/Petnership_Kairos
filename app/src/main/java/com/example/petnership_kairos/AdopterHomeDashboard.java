@@ -91,7 +91,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvApplicationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ApplicationHistory.class);
+                Intent intent = new Intent(getActivity(), ApplicationHistoryFragment.class);
                 startActivity(intent);
             }
         });
@@ -155,7 +155,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
                                             @Override
                                             public void onSuccess(Uri uri) {
                                                 Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
-                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                            //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
                                             }
                                         });
 

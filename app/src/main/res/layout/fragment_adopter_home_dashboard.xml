@@ -33,29 +33,31 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />
 
+
         <TextView
             android:id="@+id/ASDashboardTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:fontFamily="@font/playfairdisplayblack"
             android:gravity="center"
             android:text="Adopter"
             android:textColor="@color/secondary_purple"
             android:textSize="25sp"
-            android:fontFamily="@font/playfairdisplayblack"
             app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
             app:layout_constraintEnd_toStartOf="@id/imageEdit"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
-            app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />
-
+            app:layout_constraintTop_toTopOf="@id/imageBurgerMenu"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/adopterImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="50dp"
-            android:src="@drawable/adopter"
+            android:src="@drawable/petnership_logo_colored"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -160,7 +162,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/sched" />
+                    android:src="@drawable/schedule" />
 
                 <TextView
                     android:id="@+id/adopterIntAppHis"

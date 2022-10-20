@@ -13,9 +13,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 public class PerPetProfileDogs extends Fragment {
     CardView card1;
+    private ImageButton backBtn;
     private PerPetProfileDogsViewModel mViewModel;
 
     public static PerPetProfileDogs newInstance() {
@@ -25,7 +27,18 @@ public class PerPetProfileDogs extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_per_pet_profile_dogs, container, false);
+        View view = inflater.inflate(R.layout.fragment_per_pet_profile_dogs, container, false);
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfDogsFragment shelterListOfDogs = new ShelterListOfDogsFragment();
+                transaction.replace(R.id.nav_host_fragment, shelterListOfDogs);
+                transaction.commit();
+            }
+        });
+        return view;
     }
 
     @Override

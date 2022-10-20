@@ -48,6 +48,21 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:tint="@color/black" />
+
+                        <ImageButton
+                            android:id="@+id/btnBack"
+                            android:layout_width="57dp"
+                            android:layout_height="45dp"
+                            android:background="#0000"
+                            android:src="@drawable/ic_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.045"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.05"
+                            app:tint="@color/black"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
