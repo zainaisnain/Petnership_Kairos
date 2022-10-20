@@ -166,7 +166,10 @@ public class ShelterEditCat extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ShelterListOfCats.class));
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfCatsFragment shelterRegisteredCats = new ShelterListOfCatsFragment();
+                transaction.replace(R.id.nav_host_fragment,shelterRegisteredCats);
+                transaction.commit();
             }
         });
 
