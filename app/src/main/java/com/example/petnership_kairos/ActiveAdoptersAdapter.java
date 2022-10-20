@@ -10,14 +10,14 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsReviewAdapter.ViewHolder> {
+public class ActiveAdoptersAdapter extends RecyclerView.Adapter<ActiveAdoptersAdapter.ViewHolder> {
 
-    private ApplicantsReviewFragment contextA;
+    private ActiveAdopters contextA;
     Context context;
-    ApplicantsReviewData[] applicantsReviewData;
+    ActiveAdoptersData[] ActiveAdoptersData;
 
-    public ApplicantsReviewAdapter(ApplicantsReviewData[] applicantsReviewData, ApplicantsReviewFragment activity){
-        this.applicantsReviewData = applicantsReviewData;
+    public ActiveAdoptersAdapter(ActiveAdoptersData[] ActiveAdoptersData, ActiveAdopters activity){
+        this.ActiveAdoptersData = ActiveAdoptersData;
         this.contextA = activity;
     }
     @Override
@@ -30,34 +30,31 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
 
     @Override
     public void onBindViewHolder (ViewHolder holder,int position){
-        final ApplicantsReviewData ApplicantsReviewDataList = applicantsReviewData[position];
-        holder.applicantName.setText(ApplicantsReviewDataList.getapplicantName());
-        holder.applicantPet.setText(ApplicantsReviewDataList.getapplicantPet());
-        holder.applicantImage.setImageResource(ApplicantsReviewDataList.getapplicantImage());
+        final ActiveAdoptersData ActiveAdoptersDataList = ActiveAdoptersData[position];
+        holder.applicantName.setText(ActiveAdoptersDataList.getapplicantName());
+        holder.applicantImage.setImageResource(ActiveAdoptersDataList.getapplicantImage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ApplicantsReviewDataList.getapplicantName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, ActiveAdoptersDataList.getapplicantName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return applicantsReviewData.length;
+        return ActiveAdoptersData.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView applicantImage;
         TextView applicantName;
-        TextView applicantPet;
 
         public ViewHolder(View itemView) {
             super(itemView);
             applicantImage = itemView.findViewById(R.id.applicant_image);
             applicantName = itemView.findViewById(R.id.applicant_name);
-            applicantPet = itemView.findViewById(R.id.applicant_pet);
 
         }
     }

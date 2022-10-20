@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAdapter.ViewHolder> {
 
     RegisteredPetData[] PetsData;
-    Context context;
+    ShelterListOfPetsFragment context;
 
     ImageView img1;
 
@@ -39,7 +39,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
 
     private ArrayList<String> petIDs = new ArrayList<>();
 
-    public RegisteredPetsAdapter(RegisteredPetData[] PetsData, ShelterListOfPets activity){
+    public RegisteredPetsAdapter(RegisteredPetData[] PetsData, ShelterListOfPetsFragment activity){
         this.PetsData = PetsData;
         this.context = activity;
     }
@@ -95,7 +95,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, registeredPetDataList.getPetName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), registeredPetDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
     }

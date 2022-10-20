@@ -1,13 +1,21 @@
 package com.example.petnership_kairos;
 
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,13 +30,15 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class ShelterListOfDogs extends AppCompatActivity {
+public class ShelterListOfDogsFragment extends Fragment {
 
+    private ShelterListOfDogsViewModel mViewModel;
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-
+    RecyclerView recyclerView;
+    View view;
     private String shelterEmail, petID, petImageName;
 
     private ArrayList<String> petIDs = new ArrayList<>();
@@ -39,37 +49,50 @@ public class ShelterListOfDogs extends AppCompatActivity {
     RegisteredDogData[] registeredDogData;
 
     private ImageButton backBtn;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shelter_list_of_dogs);
 
+    public static ShelterListOfDogsFragment newInstance() {
+        return new ShelterListOfDogsFragment();
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_shelter_list_of_dogs, container, false);
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
-        withFirebase();
+        recyclerView = view.findViewById(R.id.recyclerViewDogs);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        withFirebase(recyclerView);
 
-        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShelterListOfDogs.this,ShelterHomeDashboard.class);
-                startActivity(intent);
-
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+                transaction.replace(R.id.nav_host_fragment, shelterHomeDashboard);
+                transaction.commit();
             }
         });
+        return view;
     }
 
-    private void withFirebase() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewDogs);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        mViewModel = new ViewModelProvider(this).get(ShelterListOfDogsViewModel.class);
+        // TODO: Use the ViewModel
+    }
+
+    private void withFirebase(RecyclerView recyclerView) {
+
 
         petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                         for(DataSnapshot ds : snapshot.getChildren()) {
                             petID = ds.getKey();
                             petIDs.add(petID);
@@ -86,8 +109,8 @@ public class ShelterListOfDogs extends AppCompatActivity {
 //                            System.out.println("zaina: "+element.getImageName());
 //                        }
 
-                       RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogs.this);
-                       recyclerView.setAdapter(registeredDogsAdapter);
+                        RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogsFragment.this);
+                        recyclerView.setAdapter(registeredDogsAdapter);
 
                     }
 
@@ -97,4 +120,6 @@ public class ShelterListOfDogs extends AppCompatActivity {
                     }
                 });
     }
+
+
 }

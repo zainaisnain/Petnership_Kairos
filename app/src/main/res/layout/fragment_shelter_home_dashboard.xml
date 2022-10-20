@@ -33,22 +33,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />
 
-        <TextView
-            android:id="@+id/ASDashboardTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/animal_shelter"
-            android:textColor="@color/secondary_purple"
-            android:textSize="25sp"
-            android:fontFamily="@font/playfairdisplayblack"
-            app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
-            app:layout_constraintEnd_toStartOf="@id/imageAdd"
-            app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
-            app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />
-
         <!--    <com.makeramen.roundedimageview.RoundedImageView-->
         <!--        android:id="@+id/imageProfile"-->
         <!--        android:layout_width="100dp"-->
@@ -61,18 +45,6 @@
         <!--        app:riv_oval="true"-->
         <!--        tools:ignore="MissingClass,MissingConstraints"-->
         <!--        tools:layout_editor_absoluteY="52dp" />-->
-
-        <ImageView
-            android:id="@+id/adopterImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ASDashboardTitle"
-            app:riv_oval="true"/>
 
         <!--    <TextView-->
         <!--        android:id="@+id/username"-->
@@ -89,209 +61,242 @@
         <!--        app:layout_constraintTop_toBottomof="@id/imageProfile"-->
         <!--        tools:ignore="MissingConstraints" />-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/secondary_purple"
-            app:tint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.helper.widget.Flow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
-            app:flow_horizontalGap="8dp"
-            app:flow_maxElementsWrap="2"
-            app:flow_verticalGap="8dp"
-            app:flow_wrapMode="aligned"
-            app:layout_constraintBottom_toTopOf="@id/fabAdd"
-            app:layout_constraintTop_toBottomOf="@id/adopterImage" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/registeredPets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp" >
-
+        <!--
                 <TextView
-                    android:id="@+id/num_reg_pets_shelter"
-                    android:layout_width="match_parent"
+                    android:id="@+id/ASDashboardTitle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:text="36"
-                    android:textAlignment="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:gravity="center"
+                    android:text="@string/animal_shelter"
                     android:textColor="@color/secondary_purple"
-                    android:textSize="40sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="registered pets"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/dogs"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            app:cardBackgroundColor="@color/secondary_purple"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp" >
-
-                <TextView
-                    android:id="@+id/num_reg_dogs_shelter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:text="18 dogs"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
                     android:textSize="25sp"
-                    android:textStyle="bold" />
+                    app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
+                    app:layout_constraintEnd_toStartOf="@id/imageAdd"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
+                    app:layout_constraintTop_toTopOf="@id/imageBurgerMenu"
+                    app:layout_constraintVertical_bias="0.0" /> -->
 
-            </LinearLayout>
+                <ImageView
+                    android:id="@+id/adopterImage"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_oval="true" />
 
-        </androidx.cardview.widget.CardView>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fabAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_add"
+                    app:backgroundTint="@color/secondary_purple"
+                    app:tint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cats"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            app:cardBackgroundColor="@color/secondary_purple"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp" >
-
-                <TextView
-                    android:id="@+id/num_reg_cats_shelter"
+                <androidx.constraintlayout.helper.widget.Flow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="18 cats"
-                    android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
-            </LinearLayout>
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
+                    app:flow_horizontalGap="8dp"
+                    app:flow_maxElementsWrap="2"
+                    app:flow_verticalGap="8dp"
+                    app:flow_wrapMode="aligned"
+                    app:layout_constraintBottom_toTopOf="@id/fabAdd"
+                    app:layout_constraintTop_toBottomOf="@id/adopterImage" />
 
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/activeAdopters"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp" >
-
-                <TextView
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/registeredPets"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true"
+                    tools:ignore="MissingConstraints">
 
-                <TextView
-                    android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp" >
+
+                        <TextView
+                            android:id="@+id/num_reg_pets_shelter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:text="36"
+                            android:textAlignment="center"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="40sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="registered pets"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/dogs"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    app:cardBackgroundColor="@color/secondary_purple"
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp" >
+
+                        <TextView
+                            android:id="@+id/num_reg_dogs_shelter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:text="18 dogs"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cats"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    app:cardBackgroundColor="@color/secondary_purple"
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true"
+                    tools:ignore="MissingConstraints">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp" >
+
+                        <TextView
+                            android:id="@+id/num_reg_cats_shelter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="18 cats"
+                            android:textColor="@color/white"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/activeAdopters"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="active adopters"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true"
+                    tools:ignore="MissingConstraints">
 
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp" >
 
-        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="40sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/toReview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            tools:ignore="MissingConstraints">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:text="active adopters"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp" >
+                    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/toReview"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="12"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true"
+                    tools:ignore="MissingConstraints">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="for review applicants"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textAlignment="center"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp" >
 
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="40sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
 
-        </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="for review applicants"
+                            android:textColor="@color/secondary_purple"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textAlignment="center"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
-</ScrollView>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>

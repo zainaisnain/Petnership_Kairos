@@ -283,7 +283,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/catdog" />
+                    android:src="@drawable/cat_dog" />
 
                 <TextView
                     android:id="@+id/adopterIntBrowseA"

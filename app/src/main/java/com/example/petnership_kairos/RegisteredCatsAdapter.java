@@ -1,6 +1,5 @@
 package com.example.petnership_kairos;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -11,11 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -32,8 +27,7 @@ import java.util.ArrayList;
 public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAdapter.ViewHolder> {
 
     RegisteredCatData[] petsData;
-    Context context;
-
+    ShelterListOfCatsFragment context;
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private FirebaseAuth authProfile;
@@ -43,9 +37,9 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
 
     private ArrayList<String> petIDs = new ArrayList<>();
 
-    public RegisteredCatsAdapter(RegisteredCatData[] petsData, ShelterListOfCats activity){
+    public RegisteredCatsAdapter(RegisteredCatData[] petsData, ShelterListOfCatsFragment context){
         this.petsData = petsData;
-        this.context = activity;
+        this.context = context;
     }
 
     @NonNull
@@ -81,7 +75,7 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         holder.cvCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, PerCatProfile.class);
+                Intent intent = new Intent(view.getContext(), PerCatProfile.class);
                 intent.putExtra("petID", registeredCatDataList.getPetID());
                 view.getContext().startActivity(intent);
             }
@@ -96,7 +90,7 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, registeredCatDataList.getPetName(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), registeredCatDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
     }

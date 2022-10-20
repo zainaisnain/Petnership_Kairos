@@ -28,14 +28,14 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.adopter_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer);
+        setContentView(R.layout.activity_drawer_adopter);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser currUser = auth.getCurrentUser();
@@ -60,13 +60,13 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
          * Hooks
          */
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view_adopter);
         toolbar = findViewById(R.id.main_toolbar);
 
         /**
          * Tool bar
          */
-        setSupportActionBar(toolbar);
+   //     setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu

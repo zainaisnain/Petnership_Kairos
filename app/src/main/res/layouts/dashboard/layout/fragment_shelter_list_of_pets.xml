@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
-    tools:context=".ShelterListOfPets">
+    tools:context=".ShelterListOfPetsFragment">
 
 
     <ImageButton
@@ -25,20 +25,20 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:fontFamily="@font/playfairdisplayblack"
-    android:text="List of Pets"
-    android:textColor="@color/secondary_purple"
-    android:textSize="30sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toTopOf="@+id/cardView"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.825"
-    tools:ignore="TextContrastCheck" />
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/playfairdisplayblack"
+        android:text="List of Pets"
+        android:textColor="@color/secondary_purple"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

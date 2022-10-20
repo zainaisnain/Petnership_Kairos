@@ -6,8 +6,7 @@
     android:orientation="vertical"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
-    tools:context=".ShelterListOfPets">
-
+    tools:context=".ShelterListOfCatsFragment">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -17,48 +16,48 @@
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113"
+        app:layout_constraintVertical_bias="0.144"
         app:tint="@color/black"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:fontFamily="@font/playfairdisplayblack"
-    android:text="List of Pets"
-    android:textColor="@color/secondary_purple"
-    android:textSize="30sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toTopOf="@+id/cardView"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.825"
-    tools:ignore="TextContrastCheck" />
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/playfairdisplayblack"
+        android:text="List of Cats"
+        android:textColor="@color/secondary_purple"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="377dp"
-        android:layout_height="570dp"
+        android:layout_width="371dp"
+        android:layout_height="541dp"
         android:layout_margin="5dp"
         app:cardBackgroundColor="#C3B1E1"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.844">
+        app:layout_constraintVertical_bias="0.877">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPets"
-            android:layout_width="375dp"
-            android:layout_height="559dp"
+            android:id="@+id/recyclerViewCats"
+            android:layout_width="361dp"
+            android:layout_height="541dp"
             android:layout_margin="2dp" />
 
     </androidx.cardview.widget.CardView>
