@@ -32,10 +32,19 @@ public class RecommendedPetIndiv extends Fragment {
         toAdopt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                MyCustomDialog submitDialog = new MyCustomDialog();
-//                submitDialog.show(getParentFragmentManager(), "My Fragment");
                 AdoptionForm adoptionForm = new AdoptionForm();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, adoptionForm).commit();
+            }
+
+        });
+
+        notForMe = view.findViewById(R.id.recommendedPet_notToAdopt);
+        notForMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TO-DO
+//                RecommendedPets recommendedPets = new RecommendedPets();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, recommendedPets).commit();
             }
 
         });

@@ -25,7 +25,7 @@ import com.google.firebase.storage.FirebaseStorage;
 public class AdoptionForm extends Fragment implements View.OnClickListener{
 
     AppCompatRadioButton rbDog, rbCat;
-    Button submitForm;
+    Button submitForm, cancelForm;
 
     private AdoptionFormViewModel mViewModel;
 
@@ -47,6 +47,15 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
             public void onClick(View v) {
                 MyCustomDialog submitDialog = new MyCustomDialog();
                 submitDialog.show(getParentFragmentManager(), "My Fragment");
+            }
+        });
+
+        cancelForm = view.findViewById(R.id.adopterRegisterCancel);
+        cancelForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCancelDialog cancelDialog = new MyCancelDialog();
+                cancelDialog.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
