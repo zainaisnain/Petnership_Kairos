@@ -21,7 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-<<<<<<< HEAD:app/src/main/res/layout/activity_recommended_pets.xml
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="70dp"
@@ -35,10 +34,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078"
         app:tint="@color/black"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-=======
->>>>>>> main:app/src/main/res/layouts/dashboard/layout/fragment_recommended_pets.xml
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="378dp"
