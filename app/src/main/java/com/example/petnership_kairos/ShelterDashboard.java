@@ -75,7 +75,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         /**
          * Tool bar
          */
-        setSupportActionBar(toolbar);
+       // setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -84,7 +84,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+       // navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
@@ -123,7 +123,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
             case R.id.nav_reg_my_pets:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterMyPets()).commit();
+                        new ShelterListOfPetsFragment()).commit();
                 break;
 
             case R.id.nav_logout:

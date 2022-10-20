@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class ApplicationHistory extends AppCompatActivity {
 
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +26,15 @@ public class ApplicationHistory extends AppCompatActivity {
                 new ApplicationHistoryData("Charlie","Approved",R.drawable.cat_dog)
 
         };
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ApplicationHistory.this,AdopterHomeDashboard.class);
+                startActivity(intent);
 
+            }
+        });
         ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData,ApplicationHistory.this);
         recyclerView.setAdapter(applicationHistoryAdapter);
 

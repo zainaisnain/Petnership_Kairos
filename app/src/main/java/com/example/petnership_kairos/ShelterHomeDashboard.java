@@ -32,7 +32,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class ShelterHomeDashboard extends Fragment {
 
-    CardView card1, card2,card3;
+    CardView card1, card2,card3, card4, card5;
     FloatingActionButton fabAddBtn;
 
     private ShelterHomeDashboardViewModel mViewModel;
@@ -65,7 +65,7 @@ public class ShelterHomeDashboard extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Shelter Home");
+        getActivity();
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -80,12 +80,10 @@ public class ShelterHomeDashboard extends Fragment {
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                ShelterRegisteredPets shelterRegisteredPets = new ShelterRegisteredPets();
-//                transaction.replace(R.id.nav_host_fragment,shelterRegisteredPets);
-//                transaction.commit();
-
-                startActivity(new Intent(getActivity(), ShelterListOfPets.class));
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfPetsFragment shelterRegisteredPets = new ShelterListOfPetsFragment();
+                transaction.replace(R.id.nav_host_fragment,shelterRegisteredPets);
+                transaction.commit();
             }
         });
 
@@ -93,12 +91,10 @@ public class ShelterHomeDashboard extends Fragment {
         card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                PetDogs PetDogs = new PetDogs();
-//                transaction.replace(R.id.nav_host_fragment,PetDogs);
-//                transaction.commit();
-
-                startActivity(new Intent(getActivity(), ShelterListOfDogs.class));
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
+                transaction.replace(R.id.nav_host_fragment,PetDogs);
+                transaction.commit();
             }
         });
 
@@ -106,13 +102,34 @@ public class ShelterHomeDashboard extends Fragment {
         card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                PetCats PetCats = new PetCats();
-//                transaction.replace(R.id.nav_host_fragment,PetCats);
-//                transaction.commit();
-                startActivity(new Intent(getActivity(), ShelterListOfCats.class));
+               FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+               ShelterListOfCatsFragment PetCats = new ShelterListOfCatsFragment();
+               transaction.replace(R.id.nav_host_fragment,PetCats);
+               transaction.commit();
             }
         });
+
+        card4 = view.findViewById(R.id.activeAdopters);
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ActiveAdopters activeadptrs = new ActiveAdopters();
+                transaction.replace(R.id.nav_host_fragment, activeadptrs);
+                transaction.commit();
+            }
+        });
+
+        card5 = view.findViewById(R.id.toReview);
+        card5.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            ApplicantsReviewFragment appreviewfrag = new ApplicantsReviewFragment();
+            transaction.replace(R.id.nav_host_fragment, appreviewfrag);
+            transaction.commit();
+//                startActivity(new Intent(getActivity(), ShelterToReviewApplications.class));
+        }
+    });
 
         fabAddBtn = view.findViewById(R.id.fabAdd);
         fabAddBtn.setOnClickListener(new View.OnClickListener() {

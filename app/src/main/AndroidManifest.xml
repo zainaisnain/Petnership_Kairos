@@ -51,15 +51,6 @@
             android:name=".PerCatProfile"
             android:exported="false" />
         <activity
-            android:name=".ShelterListOfPets"
-            android:exported="false" />
-        <activity
-            android:name=".ShelterListOfDogs"
-            android:exported="false" />
-        <activity
-            android:name=".ShelterListOfCats"
-            android:exported="false" />
-        <activity
             android:name=".ShelterInfo"
             android:exported="false">
             <meta-data
@@ -105,14 +96,15 @@
             android:exported="false" />
         <activity
             android:name=".ShelterRegistration"
-            android:exported="true" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".AdopterRegistration"
-            android:exported="true" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
         </activity>
         <activity
             android:name=".LoginActivity"
@@ -128,7 +120,8 @@
             android:exported="false" />
         <activity
             android:name=".ShelterDashboard"
-            android:exported="true" />
+            android:exported="true">
+        </activity>
         <activity android:name=".activity_userprofile" />
     </application>
 

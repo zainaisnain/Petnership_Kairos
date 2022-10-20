@@ -1,4 +1,4 @@
-package com.example.petnership_kairos;
+/*package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -71,7 +71,7 @@ public class ShelterListOfCats extends AppCompatActivity {
         shelterEmail = firebaseUser.getEmail();
         withFirebase();
 
-    }
+    } */ /*
 
     private void withFirebase() {
         RecyclerView recyclerView = findViewById(R.id.recyclerViewCats);
@@ -109,4 +109,4 @@ public class ShelterListOfCats extends AppCompatActivity {
                     }
                 });
     }
-}
+} */

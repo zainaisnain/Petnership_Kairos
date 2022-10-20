@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class AdopterHomeDashboard extends Fragment {
+public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
     private AdopterHomeDashboardViewModel mViewModel;
 
@@ -42,7 +42,9 @@ public class AdopterHomeDashboard extends Fragment {
     private String adopterEmail, adopterUsername, adopterImageName, adopterName, adopterContact, adopterAddress;
     private ImageView ivAdopterImage, ivCvAdopterImage;
     private CardView cvAdopterInfo;
-
+    private CardView cvApplicationHistory;
+    private CardView cvAdoptPet;
+    private CardView cvBrowseAnimals;
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     // instance for firebase storage and StorageReference
@@ -74,11 +76,38 @@ public class AdopterHomeDashboard extends Fragment {
         ivAdopterImage = view.findViewById(R.id.adopterImage);
         ivCvAdopterImage = view.findViewById(R.id.cvAdopterImage);
         cvAdopterInfo = view.findViewById(R.id.adopter_info_cv);
+        cvApplicationHistory = view.findViewById(R.id.adopterIntAppHistory);
+        cvAdoptPet =  view.findViewById(R.id.adopterIntBrowseShelter);
+        cvBrowseAnimals = view.findViewById(R.id.adopterIntBrowseAnimal);
 
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                startActivity(intent);
+            }
+        });
+
+        cvApplicationHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ApplicationHistoryFragment.class);
+                startActivity(intent);
+            }
+        });
+
+        cvAdoptPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                startActivity(intent);
+            }
+        });
+
+        cvBrowseAnimals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RecommendedPets.class);
                 startActivity(intent);
             }
         });
@@ -126,7 +155,7 @@ public class AdopterHomeDashboard extends Fragment {
                                             @Override
                                             public void onSuccess(Uri uri) {
                                                 Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
-                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                            //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
                                             }
                                         });
 
