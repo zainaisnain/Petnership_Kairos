@@ -75,7 +75,7 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_pet_cats.xml" value="0.25053441641727237" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_cats.xml" value="0.21077383497221033" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_dogs.xml" value="0.32107738349722104" />
-        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.19794784095767423" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.44412856605533046" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.37602703133957177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_edited_pet.xml" value="0.2783240701154339" />
         <entry key="app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.21504916631038906" />
@@ -84,6 +84,8 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_blank.xml" value="0.32107738349722104" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_dog_questionnaire10.xml" value="0.2013681060282172" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_recommended_pets.xml" value="0.15946985891406584" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/shelter/drawable/ic_round_phone_24.xml" value="0.1" />
         <entry key="app/src/main/res/menu/adopter_menu.xml" value="0.27191107310816587" />
@@ -94,7 +96,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
