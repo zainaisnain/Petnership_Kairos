@@ -211,7 +211,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/sched" />
+                    android:src="@drawable/schedule" />
 
                 <TextView
                     android:id="@+id/adopterIntAppHis"

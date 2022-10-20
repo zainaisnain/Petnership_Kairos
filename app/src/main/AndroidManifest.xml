@@ -14,35 +14,25 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
+            android:name=".RecommendedPets"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SuccessfullyEditedPet"
             android:exported="false" />
         <activity
             android:name=".SuccessfullyAddedPet"
             android:exported="false" />
         <activity
-            android:name=".ApplicationHistory"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-        <activity
             android:name=".StartOfQuestionnaire"
             android:exported="true"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
-            <!--             TODO: REMOVE THIS AFTER -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-
         </activity>
         <activity
             android:name=".PerDogProfile"
@@ -96,21 +86,24 @@
             android:exported="false" />
         <activity
             android:name=".ShelterRegistration"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".AdopterRegistration"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
 
+            <!-- TODO: REMOVE THIS AFTER -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ActivityUserType"
@@ -120,9 +113,7 @@
             android:exported="false" />
         <activity
             android:name=".ShelterDashboard"
-            android:exported="true">
-        </activity>
-        <activity android:name=".activity_userprofile" />
+            android:exported="true"></activity>
     </application>
 
 </manifest>
