@@ -1,15 +1,20 @@
 /*package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,6 +43,12 @@ public class ShelterListOfCats extends AppCompatActivity {
     private String petName, petAge, petSex, petBreed;
 
     RegisteredCatData[] registeredCatData;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.shelter_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     private ImageButton backBtn;
     @Override
@@ -84,7 +95,6 @@ public class ShelterListOfCats extends AppCompatActivity {
                             ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));
                         }
                         registeredCatData = ALregisteredCatData.toArray(new RegisteredCatData[ALregisteredCatData.size()]);
-                        System.out.println("size nya: " + registeredCatData.length);
                         for (RegisteredCatData element: registeredCatData) {
                             System.out.println("zaina: "+element.getImageName());
                         }

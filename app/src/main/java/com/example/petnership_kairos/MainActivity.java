@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_drawer);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        // TODO: Check if not signed in
         FirebaseUser currUser = auth.getCurrentUser();
 
 //        if(currUser == null)
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    // TODO: Confirmation Dialog
     private void userLogout()
     {
         FirebaseAuth.getInstance().signOut();

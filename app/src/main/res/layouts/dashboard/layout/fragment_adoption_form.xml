@@ -5,18 +5,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/adoptionFormFrag"
     android:background="#C8A4D4"
-    tools:context=".AdopterRegistration">
+    tools:context=".AdoptionForm">
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="400dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
         android:background="@color/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-219dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,12 +27,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/playfairdisplayblack"
                 android:text="Adoption Form"
+                android:fontFamily="@font/marmelad_regular"
+                android:textSize="25sp"
                 android:textColor="#371576"
-                android:textSize="25sp" />
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"/>
 
             <EditText
                 android:id="@+id/txt_date"
@@ -42,8 +43,8 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Date (mm/dd/yyyy)"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:hint="Date (mm/dd/yyyy)"/>
 
             <EditText
                 android:id="@+id/txt_lname_adopter"
@@ -54,20 +55,8 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Name"
-                android:paddingLeft="10dp" />
-
-            <EditText
-                android:id="@+id/txt_email_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Name of the pet you wish to adopt"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:hint="Name" />
 
             <EditText
                 android:id="@+id/txt_email"
@@ -97,14 +86,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/montserrat_reg"
-                android:paddingLeft="10dp"
                 android:text="Address"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"
+                android:layout_gravity="center"
                 android:textColor="#371576"
-                android:textSize="20sp" />
+                android:layout_marginTop="30dp"
+                android:paddingLeft="10dp" />
 
             <EditText
                 android:id="@+id/txt_street"
@@ -169,13 +157,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/montserrat_reg"
                 android:text="Personal References"
-                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_reg"
+                android:textSize="20sp"
                 android:textColor="#371576"
-                android:textSize="20sp" />
+                android:layout_marginTop="30dp"/>
 
             <EditText
                 android:id="@+id/txt_contact_adopter"
@@ -186,8 +173,8 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Name"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:hint="Name" />
 
             <EditText
                 android:id="@+id/txt_street_adopter"
@@ -198,8 +185,8 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Relationship"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:hint="Relationship" />
 
             <EditText
                 android:id="@+id/txt_city_adopter"
@@ -210,38 +197,66 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Mobile No."
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:hint="Mobile No." />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Pet Preferences"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
                 android:fontFamily="@font/montserrat_reg"
-                android:text="Are you interested in a"
-                android:textStyle="bold"
+                android:textSize="20sp"
                 android:textColor="#371576"
-                android:textSize="20sp" />
+                android:layout_marginTop="30dp"/>
 
-            <RadioButton
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Are you interested in a"
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_reg"
-                android:text="Dog"
-                android:textSize="14sp" />
+                android:textSize="20sp"
+                android:textColor="#371576"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
 
-            <RadioButton
-                android:layout_width="wrap_content"
+            <RadioGroup
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                android:id="@+id/radioGroup_petType"
                 android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Cat"
-                android:textSize="14sp" />
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/dogClicked"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="DOG"
+                    android:textColor="@color/white"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_button_dog"
+                    android:onClick="onRadioButtonClicked"
+                    android:fontFamily="@font/montserrat_reg" />
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/catClicked"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="CAT"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:textColor="@color/white"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/radio_button_dog"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
 
             <EditText
-                android:id="@+id/txt_province_adopter"
+                android:id="@+id/txt_email_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -249,51 +264,8 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Breed/Mix"
-                android:paddingLeft="10dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Size"
-                android:textStyle="bold"
-                android:textColor="#371576"
-                android:textSize="20sp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Small"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Medium"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Large"
-                android:textSize="14sp" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Extra Large"
-                android:textSize="14sp" />
+                android:paddingLeft="10dp"
+                android:hint="Name of the pet you wish to adopt" />
 
             <EditText
                 android:id="@+id/pref_pet_age"
@@ -304,9 +276,20 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-
                 android:hint="Age"
                 android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_province_adopter"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Breed/Mix" />
 
             <EditText
                 android:id="@+id/pref_pet_description"
@@ -327,19 +310,17 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#371576"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Submit" />
+                android:text="Submit"/>
 
             <Button
                 android:id="@+id/adopterRegisterCancel"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:backgroundTint="#FF0000"
-                android:text="Cancel"
-                android:fontFamily="@font/montserrat_reg"
-                android:textColor="@color/black" />
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:text="Cancel" />
 
         </LinearLayout>
     </ScrollView>
