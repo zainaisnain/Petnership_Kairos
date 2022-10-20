@@ -32,6 +32,8 @@ public class RecommendedPetIndiv extends Fragment {
         toAdopt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                MyCustomDialog submitDialog = new MyCustomDialog();
+//                submitDialog.show(getParentFragmentManager(), "My Fragment");
                 AdoptionForm adoptionForm = new AdoptionForm();
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, adoptionForm).commit();
             }

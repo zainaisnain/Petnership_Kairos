@@ -30,6 +30,8 @@ import com.google.firebase.storage.StorageReference;
 
 public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
+
+
     private AdopterHomeDashboardViewModel mViewModel;
 
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
