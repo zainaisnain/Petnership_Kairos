@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/container"
     android:background="#C3B1E1"
     >
 
@@ -181,7 +180,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage1"
@@ -198,15 +197,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.505" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="339dp"
-            android:layout_height="150dp"
+            android:layout_height="127dp"
             android:background="@drawable/minicard"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -282,7 +278,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage2"
@@ -295,21 +291,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.902"
+                app:layout_constraintHorizontal_bias="0.909"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.375" />
-
-            <Button
-                android:id="@+id/viewPet1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#000000"
-                android:text="View Pet"
-                app:layout_constraintEnd_toEndOf="@+id/percentage2"
-                app:layout_constraintStart_toStartOf="@+id/percentage2"
-                app:layout_constraintTop_toBottomOf="@+id/percentage2" />
-
+                app:layout_constraintVertical_bias="0.505" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -390,7 +375,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/dog" />
+                app:srcCompat="@drawable/cat_dog" />
 
             <TextView
                 android:id="@+id/percentage3"
@@ -415,16 +400,16 @@
         android:id="@+id/recforyou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/playfairdisplayblack"
         android:text="Recommended for You"
         android:textColor="#371576"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:fontFamily="@font/playfairdisplayblack"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintVertical_bias="0.797" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

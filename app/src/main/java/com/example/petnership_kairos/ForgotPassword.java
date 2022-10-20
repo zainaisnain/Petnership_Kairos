@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.content.Intent;
+import android.widget.ImageButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ public class ForgotPassword extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private EditText emailForgot;
     private Button proceedForgot;
+    private ImageButton backForgot;
     private String email;
 
     @Override
@@ -30,6 +33,16 @@ public class ForgotPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendPasswordReset();
+            }
+        });
+
+        backForgot = (ImageButton) findViewById(R.id.btnBack);
+        backForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ForgotPassword.this,LoginActivity.class);
+                startActivity(intent);
+
             }
         });
     }
@@ -49,4 +62,6 @@ public class ForgotPassword extends AppCompatActivity {
                     }
                 });
     }
+
+
 }

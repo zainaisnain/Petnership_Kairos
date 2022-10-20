@@ -15,7 +15,6 @@ import android.widget.TextView;
 public class CatQuestionnaire1 extends AppCompatActivity {
 
     ImageButton popupc1;
-    Dialog helpDialogc1;
     SeekBar cseekBar, cseekBar2, cseekBar3, cseekBar4, cseekBar5, cseekBar6, cseekBar7;
     TextView crate1, crate2, crate3, crate4, crate5, crate6, crate7;
     @Override
@@ -252,15 +251,28 @@ public class CatQuestionnaire1 extends AppCompatActivity {
             });
 
             popupc1 = findViewById(R.id.instructionsBTNc1);
-            helpDialogc1 = new Dialog(this);
             popupc1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    helpDialogc1.setContentView(R.layout.help_popup);
-                    helpDialogc1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                    helpDialogc1.show();
+                    showDialog();
                 }
             });
 
     }
+
+    private void showDialog() {
+        final Dialog helpDialogc1 = new Dialog(this);
+        helpDialogc1.setContentView(R.layout.help_popup);
+        helpDialogc1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        helpDialogc1.show();
+        ImageButton closeBTN = (ImageButton) helpDialogc1.findViewById(R.id.closeBTN);
+        closeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                helpDialogc1.dismiss();
+
+            }
+        });
+    }
+
 }

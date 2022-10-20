@@ -4,8 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C8A4D4"
+    android:background="@color/background"
     tools:context=".AdopterRegistration">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:background="#0000"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:tint="@color/black"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -26,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pet Adopter Registration"
-                android:fontFamily="@font/montserrat_bold"
+                android:fontFamily="@font/playfairdisplayblack"
                 android:textSize="25sp"
                 android:textColor="#371576"
                 android:layout_marginTop="30dp"
@@ -204,12 +219,14 @@
 
             <Button
                 android:id="@+id/upload_image_btn"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:backgroundTint="#C0C0C0"
+                android:layout_width="120dp"
+                android:layout_height="37dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Upload" />
+                android:backgroundTint="#C0C0C0"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Upload"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/btn_submit_adopter"
@@ -218,6 +235,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#371576"
+                android:fontFamily="@font/montserrat_reg"
+                android:textStyle="bold"
                 android:text="Submit"/>
 
             <Button
@@ -228,6 +247,8 @@
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:textStyle="bold"
                 android:text="Cancel" />
 
         </LinearLayout>

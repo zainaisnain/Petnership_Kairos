@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ActivityUserType extends AppCompatActivity {
 
+    private ImageButton backBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,16 @@ public class ActivityUserType extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 shelterRegistration();
+            }
+        });
+
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityUserType.this,LoginActivity.class);
+                startActivity(intent);
+
             }
         });
 //

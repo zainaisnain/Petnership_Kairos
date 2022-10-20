@@ -58,11 +58,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pet_profile"
-                android:fontFamily="@font/montserrat_reg"
+                android:fontFamily="@font/playfairdisplayblack"
                 android:layout_marginTop="35dp"
                 android:textSize="30sp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
+                android:textColor="@color/secondary_purple"
                 android:textStyle="bold"/>
 
             <TextView
@@ -112,7 +112,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q1ans1_petprofile"
@@ -139,7 +141,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog can obey 30 % or more of the commands given every time."
                             android:textColor="@color/white" />
@@ -200,7 +202,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q2ans1_petprofile"
@@ -227,7 +231,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog can understand new commands with training frequency of 16 to 40 reps."
                             android:textColor="@color/white" />
@@ -288,7 +292,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q3ans1_petprofile"
@@ -315,7 +321,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog loses fur periodically/seasonally naturally."
                             android:textColor="@color/white" />
@@ -376,7 +382,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q4ans1_petprofile"
@@ -403,7 +411,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog’s drooling sometimes occurs seasonally or in certain conditions."
                             android:textColor="@color/white" />
@@ -464,7 +472,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q5ans1_petprofile"
@@ -491,7 +501,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog requires extra care twice a month"
                             android:textColor="@color/white" />
@@ -552,7 +562,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q6ans1_petprofile"
@@ -579,7 +591,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog might bark at any unfamiliar subject."
                             android:textColor="@color/white" />
@@ -640,7 +652,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q7ans1_petprofile"
@@ -667,7 +681,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog can still adapt well but needs time to make a new relationship with a human."
                             android:textColor="@color/white" />
@@ -728,7 +742,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q8ans1_petprofile"
@@ -755,7 +771,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog can adapt well with certain pets or  the same species but can behave differently towards others."
                             android:textColor="@color/white" />
@@ -816,7 +832,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q9ans1_petprofile"
@@ -843,7 +861,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog can still adapt well to certain environmental conditions but sometimes need humans to help the adaptation process"
                             android:textColor="@color/white" />
@@ -906,26 +924,26 @@
                             android:textSize="15sp"
                             android:minHeight="100dp"/>
 
-                            <Spinner
-                                android:id="@+id/dogType"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginRight="20dp"
-                                android:autofillHints=""
-                                android:background="@drawable/textfield"
-                                android:ems="10"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:hint=" Status"
-                                android:inputType="textPersonName"
-                                android:spinnerMode="dropdown"
-                                android:textColorHint="#757575"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.376" />
+                        <Spinner
+                            android:id="@+id/dogType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
 
                     </GridLayout>
 
@@ -970,7 +988,9 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:minHeight="100dp"/>
+                            android:minHeight="100dp"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"/>
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/q11ans1_petprofile"
@@ -997,7 +1017,7 @@
                             android:layout_marginEnd="40dp"
                             android:padding="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:background="@drawable/round_lightpurple"
+                            android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
                             android:text="The dog's lifespan is below-average or is mature"
                             android:textColor="@color/white" />

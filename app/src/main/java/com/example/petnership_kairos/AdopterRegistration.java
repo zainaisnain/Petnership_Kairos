@@ -2,12 +2,10 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatRadioButton;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,6 +13,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -39,15 +38,13 @@ import java.util.UUID;
 
 public class AdopterRegistration extends AppCompatActivity implements View.OnClickListener {
 
-    AppCompatRadioButton rbDog, rbCat;
-
     private EditText editTextFname, editTextLname, editTextEmail, editTextUsername,
             editTextPassword, editTextConfirmPassword, editTextContact, editTextStreet,
             editTextCity, editTextProvince, editTextCountry, editTextGender, editTextBirthday;
 
     private Button submit, uploadBtn;
     private FirebaseAuth mAuth;
-
+    private ImageButton backBtn;
 
     // view for image view
     private ImageView imageView;
@@ -126,21 +123,16 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
-        rbDog = findViewById(R.id.dogClicked);
-        rbCat = findViewById(R.id.catClicked);
-    }
+        backBtn = (ImageButton) findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdopterRegistration.this,ActivityUserType.class);
+                startActivity(intent);
 
-    public void onRadioButtonClicked (View view) {
-        boolean isSelected = ((AppCompatRadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.dogClicked:
-                if (isSelected) {
-                    rbDog.setBackgroundColor(Color.MAGENTA);
             }
-                break;
-            case R.id.catClicked:
-                break;
-        }
+        });
+
     }
 
     private void selectUserType()
