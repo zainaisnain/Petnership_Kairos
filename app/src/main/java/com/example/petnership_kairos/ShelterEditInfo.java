@@ -26,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -41,7 +43,6 @@ public class ShelterEditInfo extends AppCompatActivity {
             editTextCity, editTextProvince, editTextCountry, editTextTin;
 
     private String shelterEmail, shelterUsername;
-
     private Button uploadEditBtn, submit, uploadBtn;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
@@ -98,7 +99,6 @@ public class ShelterEditInfo extends AppCompatActivity {
 
         //GET EXISTING DATA FROM DATABASE
         getData();
-
 
         backBtn = (ImageButton) findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
