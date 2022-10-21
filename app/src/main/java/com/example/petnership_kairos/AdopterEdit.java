@@ -108,7 +108,7 @@ public class AdopterEdit extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdopterEdit.this,AdopterHomeDashboard.class);
+                Intent intent = new Intent(AdopterEdit.this,AdopterDashboard.class);
                 startActivity(intent);
 
             }
