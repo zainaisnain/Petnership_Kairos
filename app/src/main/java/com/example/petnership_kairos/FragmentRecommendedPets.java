@@ -36,7 +36,7 @@ public class FragmentRecommendedPets extends Fragment {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
 
@@ -45,7 +45,7 @@ public class FragmentRecommendedPets extends Fragment {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
 
@@ -54,7 +54,7 @@ public class FragmentRecommendedPets extends Fragment {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
 

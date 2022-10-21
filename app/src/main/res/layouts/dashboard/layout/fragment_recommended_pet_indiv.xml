@@ -31,6 +31,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="360dp"
                         android:background="@drawable/top_bg"
+                        android:layout_marginTop="@dimen/_40sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -67,7 +68,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_reg"
+                        android:fontFamily="@font/playfairdisplayblack"
                         android:text="PERCY'S PROFILE"
                         android:textColor="@color/white"
                         android:textSize="32dp"
