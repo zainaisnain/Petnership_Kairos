@@ -126,6 +126,10 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                         new ShelterListOfPetsFragment()).commit();
                 break;
 
+            case R.id.nav_shelter_edit_info:
+                startActivity(new Intent(ShelterDashboard.this, ShelterEditInfo.class));
+                break;
+
             case R.id.nav_logout:
                 userLogout();
                 break;

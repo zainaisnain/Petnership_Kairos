@@ -4,6 +4,28 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/bg_profile.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/button.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/button1.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/button2.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/cancel_bg.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/drawable/card.xml" value="0.1355" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layout/fragment_adopter_home_dashboard.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layout/layout.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/drawable/modal_bg.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/activity_recommended_pets.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/application_forreview_card.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/cancel_dialog.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_add_dog.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_application_history.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_recommended_pet_indiv.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_shelter_list_of_dogs.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_shelter_list_of_pets.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.1" />
+        <entry key="..\:/Users/joseph/Desktop/Petnership_Kairosvvv/app/src/main/res/layouts/dashboard/layout/submit_dialog.xml" value="0.22" />
         <entry key="app/src/main/res/drawable-v24/edit_text_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable-v24/scrollview_bg.xml" value="0.346" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.1" />
@@ -12,7 +34,7 @@
         <entry key="app/src/main/res/drawable/round_lightpurple.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_add_pet.xml" value="0.26701164294532753" />
         <entry key="app/src/main/res/layout/activity_adopter_dashboard.xml" value="0.2394344334726713" />
-        <entry key="app/src/main/res/layout/activity_adopter_edit.xml" value="0.40762939453125" />
+        <entry key="app/src/main/res/layout/activity_adopter_edit.xml" value="0.4025531914893617" />
         <entry key="app/src/main/res/layout/activity_adopter_registration.xml" value="0.24925181701581872" />
         <entry key="app/src/main/res/layout/activity_animal_registration.xml" value="0.3476851851851852" />
         <entry key="app/src/main/res/layout/activity_cat_questionnaire1.xml" value="0.32107738349722104" />
@@ -73,9 +95,11 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_cat_profile.xml" value="0.24278846153846154" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_dog_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_pet_cats.xml" value="0.25053441641727237" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_recommended_pets.xml" value="0.20222317229585293" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_edit_info.xml" value="0.22702009405728943" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_cats.xml" value="0.21077383497221033" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_dogs.xml" value="0.32107738349722104" />
-        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.19794784095767423" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.44412856605533046" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.37602703133957177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_edited_pet.xml" value="0.2783240701154339" />
         <entry key="app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.21504916631038906" />
@@ -84,7 +108,10 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_adoption_form.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_application_form.xml" value="0.20380434782608695" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_blank.xml" value="0.32107738349722104" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_dog_questionnaire10.xml" value="0.2013681060282172" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/fragment_recommended_pets.xml" value="0.15946985891406584" />
         <entry key="app/src/main/res/layouts/dashboard/layout/fragment_shelter_to_review_applications.xml" value="0.1" />
+        <entry key="app/src/main/res/layouts/shelter/drawable/ic_cancel.xml" value="0.24" />
         <entry key="app/src/main/res/layouts/shelter/drawable/ic_round_phone_24.xml" value="0.1" />
         <entry key="app/src/main/res/menu/adopter_menu.xml" value="0.27191107310816587" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.27191107310816587" />

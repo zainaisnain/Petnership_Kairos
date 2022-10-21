@@ -38,6 +38,17 @@ public class RecommendedPetIndiv extends Fragment {
 
         });
 
+        notForMe = view.findViewById(R.id.recommendedPet_notToAdopt);
+        notForMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TO-DO
+//                RecommendedPets recommendedPets = new RecommendedPets();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, recommendedPets).commit();
+            }
+
+        });
+
         return view;
     }
 

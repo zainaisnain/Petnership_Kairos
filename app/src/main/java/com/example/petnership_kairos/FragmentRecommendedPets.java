@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import androidx.annotation.NonNull;
@@ -19,16 +20,47 @@ import android.widget.TextView;
 public class FragmentRecommendedPets extends Fragment {
 
     ImageButton popup10;
+    Button recommendedPet1, recommendedPet2, recommendedPet3;
+
     public static FragmentRecommendedPets newInstance() {
         return new FragmentRecommendedPets();
     }
+
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recommended_pets, container, false);
+        View view = inflater.inflate(R.layout.fragment_recommended_pets, container, false);
+        recommendedPet1 = view.findViewById(R.id.viewPet1);
+        recommendedPet1.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
+            }
+        });
 
+        recommendedPet2 = view.findViewById(R.id.viewPet2);
+        recommendedPet2.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
+            }
+        });
+
+        recommendedPet3 = view.findViewById(R.id.viewPet3);
+        recommendedPet3.setOnClickListener (new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
+            }
+        });
+
+        return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
