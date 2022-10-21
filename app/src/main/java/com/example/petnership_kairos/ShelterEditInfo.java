@@ -38,7 +38,7 @@ import java.util.UUID;
 
 public class ShelterEditInfo extends AppCompatActivity {
 
-    private EditText editTextBizName, editTextOwner, editTextEmail, editTextUsername,
+    private EditText editTextBizName, editTextOwner, editTextUsername,
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
             editTextCity, editTextProvince, editTextCountry, editTextTin;
 
@@ -80,10 +80,7 @@ public class ShelterEditInfo extends AppCompatActivity {
 
         editTextBizName = findViewById(R.id.txt_biz_name_shelter_edit);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter_edit);
-        editTextEmail = findViewById(R.id.txt_email_shelter_edit);
         editTextUsername = findViewById(R.id.txt_username_shelter_edit);
-        editTextPassword = findViewById(R.id.txt_password_shelter_edit);
-        editTextConfirmPassword = findViewById(R.id.txt_confirmpassword_shelter_edit);
         editTextWebsite = findViewById(R.id.txt_website_shelter_edit);
         editTextContact = findViewById(R.id.txt_contact_shelter_edit);
         editTextStreet = findViewById(R.id.txt_street_shelter_edit);
@@ -143,7 +140,16 @@ public class ShelterEditInfo extends AppCompatActivity {
                         sheltersDBRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                                editTextBizName.setText(String.valueOf(snapshot.child(shelterUsername).child("bizName").getValue()));
+                                editTextOwner.setText(String.valueOf(snapshot.child(shelterUsername).child("owner").getValue()));
+                                editTextUsername.setText(String.valueOf(snapshot.child(shelterUsername).child("username").getValue()));
+                                editTextWebsite.setText(String.valueOf(snapshot.child(shelterUsername).child("website").getValue()));
+                                editTextContact.setText(String.valueOf(snapshot.child(shelterUsername).child("contact").getValue()));
+                                editTextStreet.setText(String.valueOf(snapshot.child(shelterUsername).child("street").getValue()));
+                                editTextCity.setText(String.valueOf(snapshot.child(shelterUsername).child("city").getValue()));
+                                editTextProvince.setText(String.valueOf(snapshot.child(shelterUsername).child("province").getValue()));
+                                editTextCountry.setText(String.valueOf(snapshot.child(shelterUsername).child("country").getValue()));
+                                editTextTin.setText(String.valueOf(snapshot.child(shelterUsername).child("tin").getValue()));
 
                                 imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());
                                 System.out.println("imageName AdopterEdit" + imageName);
