@@ -99,9 +99,6 @@ public class AdopterEdit extends AppCompatActivity {
         etGender = findViewById(R.id.txt_gender_adopter_edit);
         etBirthday = findViewById(R.id.txt_birthday_adopter_edit);
 
-        // calling method
-        // for getting data.
-        submitAdopterEditBtn = findViewById(R.id.btn_submit_adopter_edit);
 
         //UPLOAD IMAGE
         imageView = findViewById(R.id.iv_image_adopter_edit);
@@ -138,6 +135,9 @@ public class AdopterEdit extends AppCompatActivity {
             }
         });
 
+        // calling method
+        // for getting data.
+        submitAdopterEditBtn = findViewById(R.id.btn_submit_adopter_edit);
         submitAdopterEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

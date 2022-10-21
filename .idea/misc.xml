@@ -73,6 +73,7 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_cat_profile.xml" value="0.24278846153846154" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_per_dog_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_pet_cats.xml" value="0.25053441641727237" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_edit_info.xml" value="0.22702009405728943" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_cats.xml" value="0.21077383497221033" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_dogs.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_list_of_pets.xml" value="0.44412856605533046" />
