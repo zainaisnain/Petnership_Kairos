@@ -86,10 +86,8 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
-                transaction.replace(R.id.nav_host_fragment,PetDogs);
-                transaction.commit();
+                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                startActivity(intent);
             }
         });
 
