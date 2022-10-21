@@ -86,7 +86,8 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), AdopterEdit.class));
+                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                startActivity(intent);
             }
         });
 
