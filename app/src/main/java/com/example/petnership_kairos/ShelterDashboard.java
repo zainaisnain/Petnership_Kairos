@@ -84,7 +84,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-       // navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
@@ -112,17 +112,23 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         switch(item.getItemId())
         {
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterHomeDashboard()).commit();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                ShelterHomeDashboard  shelterHomeDashboard = new ShelterHomeDashboard();
+                transaction.replace(R.id.shelter_dashboard_frag, shelterHomeDashboard);
+                transaction.commit();
                 break;
 
             case R.id.nav_reg_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterRegisterPets()).commit();
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
+                transaction1.replace(R.id.shelter_dashboard_frag, shelterRegisterPets);
+                transaction1.commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+//                        new ShelterRegisterPets()).commit();
                 break;
 
             case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
                         new ShelterListOfPetsFragment()).commit();
                 break;
 
