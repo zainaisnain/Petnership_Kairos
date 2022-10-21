@@ -99,7 +99,6 @@ public class AdopterEdit extends AppCompatActivity {
         etGender = findViewById(R.id.txt_gender_adopter_edit);
         etBirthday = findViewById(R.id.txt_birthday_adopter_edit);
 
-
         //UPLOAD IMAGE
         imageView = findViewById(R.id.iv_image_adopter_edit);
         uploadEditBtn = findViewById(R.id.upload_image_btn_edit);
