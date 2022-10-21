@@ -16,10 +16,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -36,8 +42,7 @@ public class ShelterEditInfo extends AppCompatActivity {
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
             editTextCity, editTextProvince, editTextCountry, editTextTin;
 
-    private String shelterEmail;
-
+    private String shelterEmail, shelterUsername;
     private Button uploadEditBtn, submit, uploadBtn;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
@@ -56,7 +61,8 @@ public class ShelterEditInfo extends AppCompatActivity {
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -91,6 +97,9 @@ public class ShelterEditInfo extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        //GET EXISTING DATA FROM DATABASE
+        getData();
+
         backBtn = (ImageButton) findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +129,46 @@ public class ShelterEditInfo extends AppCompatActivity {
                 uploadImage();
             }
         });
+    }
+
+    private void getData() {
+        usersDBRef.orderByChild("email").equalTo(shelterEmail)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot ds : snapshot.getChildren()) {
+                            shelterUsername = ds.getKey();
+                        }
+
+                        sheltersDBRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                                imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());
+                                System.out.println("imageName AdopterEdit" + imageName);
+                                storageReference.child("Shelters/").child(imageName).getDownloadUrl()
+                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Glide.with(ShelterEditInfo.this).load(uri.toString()).into(imageView);
+                                            }
+                                        });
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     // Select Image method

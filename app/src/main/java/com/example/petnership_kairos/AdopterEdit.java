@@ -49,10 +49,7 @@ public class AdopterEdit extends AppCompatActivity {
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
-    // variable for Text view.
-    private TextView tvFname, tvLname, tvUsername;
-
-    private EditText etContact,
+    private EditText etFname, etLname, etUsername, etContact,
             etStreet, etCity, etProvince, etCountry, etGender,  etBirthday;
 
     private String contact,
@@ -88,9 +85,9 @@ public class AdopterEdit extends AppCompatActivity {
         adopterEmail = firebaseUser.getEmail();
 
         // initializing our object class variables.
-        tvFname = findViewById(R.id.txt_fname_adopter_edit);
-        tvLname = findViewById(R.id.txt_lname_adopter_edit);
-        tvUsername = findViewById(R.id.txt_username_adopter_edit);
+        etFname = findViewById(R.id.txt_fname_adopter_edit);
+        etLname = findViewById(R.id.txt_lname_adopter_edit);
+        etUsername = findViewById(R.id.txt_username_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etStreet = findViewById(R.id.txt_street_adopter_edit);
         etCity = findViewById(R.id.txt_city_adopter_edit);
@@ -382,14 +379,17 @@ public class AdopterEdit extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String fname = String.valueOf(snapshot.child(adopterUsername).child("fname").getValue());
                         System.out.println(fname);
-                        tvFname.setText(fname);
+                        etFname.setText(fname);
+                        etFname.setEnabled(false);
 
                         String lname = String.valueOf(snapshot.child(adopterUsername).child("lname").getValue());
                         System.out.println(lname);
-                        tvLname.setText(lname);
+                        etLname.setText(lname);
+                        etLname.setEnabled(false);
 
                         String username = String.valueOf(snapshot.child(adopterUsername).child("username").getValue());
-                        tvUsername.setText(username);
+                        etUsername.setText(username);
+                        etUsername.setEnabled(false);
 
                         etContact.setText(String.valueOf(snapshot.child(adopterUsername).child("contact").getValue()));
                         etStreet.setText(String.valueOf(snapshot.child(adopterUsername).child("street").getValue()));
