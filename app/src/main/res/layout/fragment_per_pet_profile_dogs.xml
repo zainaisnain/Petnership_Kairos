@@ -98,17 +98,17 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_pet_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Name: "
                                 android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:text="Name: "
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:id="@+id/per_cat_name"
@@ -117,7 +117,7 @@
                                 android:layout_weight="1"
                                 android:text="PERCY"
                                 android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <View
@@ -138,8 +138,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Type:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Type:"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -165,8 +165,8 @@
                                 android:layout_width="62dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Details:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Details:"
                                 android:textSize="20sp" />
 
                             <TextView
