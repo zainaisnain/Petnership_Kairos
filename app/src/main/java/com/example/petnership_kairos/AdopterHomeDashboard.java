@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+
+
 
     private AdopterHomeDashboardViewModel mViewModel;
 
@@ -83,32 +86,37 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AdopterEdit.class);
-                startActivity(intent);
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
+                transaction.replace(R.id.nav_host_fragment,PetDogs);
+                transaction.commit();
             }
         });
 
         cvApplicationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ApplicationHistoryFragment.class);
-                startActivity(intent);
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
+                transaction.replace(R.id.nav_host_fragment,applicationHistory);
+                transaction.commit();
             }
         });
 
         cvAdoptPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AdopterEdit.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), StartOfQuestionnaire.class));
             }
         });
 
         cvBrowseAnimals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), RecommendedPets.class);
-          //      startActivity(intent);
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                BrowseAnimals browseAnimals = new BrowseAnimals();
+                transaction.replace(R.id.nav_host_fragment,browseAnimals);
+                transaction.commit();
             }
         });
 

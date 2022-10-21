@@ -13,9 +13,9 @@ package com.example.petnership_kairos;
 public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationHistoryAdapter.ViewHolder> {
 
     ApplicationHistoryData[] applicationHistoryData;
-    Context context;
+    ApplicationHistoryFragment context;
 
-    public ApplicationHistoryAdapter(ApplicationHistoryData[] applicationHistoryData, ApplicationHistory activity){
+    public ApplicationHistoryAdapter(ApplicationHistoryData[] applicationHistoryData, ApplicationHistoryFragment activity){
         this.applicationHistoryData = applicationHistoryData;
         this.context = activity;
     }
@@ -37,7 +37,7 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ApplicationHistoryDataList.getapphistoName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), ApplicationHistoryDataList.getapphistoName(), Toast.LENGTH_SHORT).show();
             }
         });
     }

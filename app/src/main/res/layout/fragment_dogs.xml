@@ -23,6 +23,8 @@
                 android:id="@+id/dog_image"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/dog"/>
             <LinearLayout
                 android:layout_weight="1"

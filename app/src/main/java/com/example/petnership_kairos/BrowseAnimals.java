@@ -16,20 +16,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-public class ApplicationHistoryFragment extends Fragment {
+public class BrowseAnimals extends Fragment {
 
-    private ApplicationHistoryViewModel mViewModel;
-    View view;
-    RecyclerView recyclerView;
-    ImageButton backBtn;
-    public static ApplicationHistoryFragment newInstance() {
-        return new ApplicationHistoryFragment();
+    private BrowseAnimalsViewModel mViewModel;
+    private ImageButton backBtn;
+    public static BrowseAnimals newInstance() {
+
+        return new BrowseAnimals();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_application_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_browse_animals, container, false);
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,19 +39,19 @@ public class ApplicationHistoryFragment extends Fragment {
                 transaction.commit();
             }
         });
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewApplications);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewBrowseAnimals);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ApplicationHistoryData[] applicationHistoryData = new ApplicationHistoryData[]{
-                new ApplicationHistoryData("Alpha","Denied",R.drawable.cat_dog),
-                new ApplicationHistoryData("Bravo","Pending",R.drawable.cat_dog),
-                new ApplicationHistoryData("Charlie","Approved",R.drawable.cat_dog)
+        BrowseAnimalsData[] browseAnimalsData = new BrowseAnimalsData[]{
+                new BrowseAnimalsData("Brownie", "13 years", "Male", "Aspin", R.drawable.cat_dog),
+                new BrowseAnimalsData("Beauty", "10 years", "Female", "Aspin", R.drawable.cat_dog),
+                new BrowseAnimalsData("Bruno", "8 years", "Male", "Aspin", R.drawable.cat_dog)
 
         };
 
-        ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData,ApplicationHistoryFragment.this);
-        recyclerView.setAdapter(applicationHistoryAdapter);
+        BrowseAnimalsAdapter browseAnimalsAdapter = new BrowseAnimalsAdapter(browseAnimalsData, BrowseAnimals.this);
+        recyclerView.setAdapter(browseAnimalsAdapter);
 
         return view;
     }
@@ -60,8 +59,10 @@ public class ApplicationHistoryFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(ApplicationHistoryViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(BrowseAnimalsViewModel.class);
         // TODO: Use the ViewModel
     }
 
 }
+
+
