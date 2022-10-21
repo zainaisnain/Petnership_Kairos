@@ -71,18 +71,6 @@
                 android:hint="Owner Name" />
 
             <EditText
-                android:id="@+id/txt_email_shelter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Email" />
-
-            <EditText
                 android:id="@+id/txt_username_shelter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -92,32 +80,6 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:hint="Username"
-                android:paddingLeft="10dp" />
-
-            <EditText
-                android:id="@+id/txt_password_shelter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingLeft="10dp" />
-
-            <EditText
-                android:id="@+id/txt_confirmpassword_shelter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
                 android:paddingLeft="10dp" />
 
             <EditText
@@ -204,7 +166,9 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="TIN Number" />
+                android:hint="TIN Number"
+                android:inputType = "numberPassword"
+                />
 
 
             <ImageView
