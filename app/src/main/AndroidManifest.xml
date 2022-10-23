@@ -89,13 +89,13 @@
             android:exported="false" />
         <activity
             android:name=".ShelterRegistration"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdopterRegistration"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -116,7 +116,7 @@
             android:exported="false" />
         <activity
             android:name=".ShelterDashboard"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
