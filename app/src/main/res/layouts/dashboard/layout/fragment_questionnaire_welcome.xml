@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     android:background="#C3B1E1"
     >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="-38dp"
+        tools:layout_editor_absoluteY="236dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="745dp"
+                android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="361dp"
-        android:layout_height="578dp"
+        android:layout_height="613dp"
         android:background="@drawable/card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +74,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/questionnaireStartHeader"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.756" />
 
         <TextView
             android:id="@+id/questionnaireStartMessage2"
@@ -113,6 +128,7 @@
             android:id="@+id/proceedToChooseAnimal"
             android:layout_width="236dp"
             android:layout_height="46dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/button1"
             android:fontFamily="@font/montserrat_reg"
             android:text="PROCEED"
@@ -121,10 +137,14 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/imageButton2"
