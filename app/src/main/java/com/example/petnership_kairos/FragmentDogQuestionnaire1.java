@@ -24,6 +24,7 @@ public class FragmentDogQuestionnaire1 extends Fragment {
     }
 
     ImageButton popup;
+    private ImageButton backBtn;
     SeekBar seekBar1, seekBar2, seekBar3, seekBar4, seekBar5, seekBar6, seekBar7;
     TextView rate1, rate2, rate3, rate4, rate5, rate6, rate7;
     MCDMAnswersViewModel mViewModel;
@@ -197,6 +198,16 @@ public class FragmentDogQuestionnaire1 extends Fragment {
                 FragmentDogQuestionnaire2 dog2Fragment = new FragmentDogQuestionnaire2();
                 transaction.replace(R.id.nav_host_fragment,dog2Fragment);
                 transaction.addToBackStack("dogQuestionnaire2");
+                transaction.commit();
+            }
+        });
+        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
+                transaction.replace(R.id.nav_host_fragment, chooseAnimal);
                 transaction.commit();
             }
         });
