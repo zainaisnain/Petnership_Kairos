@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -19,10 +20,15 @@ public class CatPetProfileSummary extends Fragment {
 
     private CatPetProfileSummaryViewModel mViewModel;
 
-    private Button proceedBtn;
+    private Button proceedBtn, backBtn;
     private TextView tvCatlvl1, tvCatlvl2, tvCatlvl3, tvCatlvl4, tvCatlvl5,
             tvCatlvl6, tvCatlvl7, tvCatlvl8, tvCatlvl9;
 
+    private String[] popularityHigh = {"Maine Coon", "Bengal", "Siamese", "Siberian", "Ragdoll",
+            "British Shorthair", "Persian", "Scottish Fold", "Bombay", "Birman"};
+    private String[] popularityMedium = {"Snowshoe", "Abyssinian", "Norwegian Forest", "Burmese", "Turkish Angora",
+            "Ragamuffin", "Sphynx", "Nebelung", "Russian Blue", "Burmilla", "Chartreux", "American Shorthair",
+            "Himalayan", "Turkish Van", "Tonkinese"};
     public static CatPetProfileSummary newInstance() {
         return new CatPetProfileSummary();
     }
@@ -64,6 +70,7 @@ public class CatPetProfileSummary extends Fragment {
             int q6 = bundle.getInt("q6");
             int q7 = bundle.getInt("q7");
             int q8 = bundle.getInt("q8");
+            String q9 = bundle.getString("q9");
             System.out.println("CatPetProfileSummary q1 == " + q1);
             System.out.println("CatPetProfileSummary q2 == " + q2);
             System.out.println("CatPetProfileSummary q3 == " + q3);
@@ -72,6 +79,7 @@ public class CatPetProfileSummary extends Fragment {
             System.out.println("CatPetProfileSummary q6 == " + q6);
             System.out.println("CatPetProfileSummary q7 == " + q7);
             System.out.println("CatPetProfileSummary q8 == " + q8);
+            System.out.println("CatPetProfileSummary q9 == " + q9);
 
             if(q1 == 1){
                 tvCatlvl1.setText("high");
@@ -136,8 +144,44 @@ public class CatPetProfileSummary extends Fragment {
             }else{
                 tvCatlvl8.setText("low");
             }
+
+            //Q9 BREED POPULARITY
+            //HIGH : TOP 1 - 10
+            // MEDIUM : 11 - 25
+            // LOW : NOT ON THE LIST
+            for (String highBreed : popularityHigh) {
+                if (highBreed.equals(q9)) {
+                    tvCatlvl9.setText("High");
+                }
+            }
+
+            for (String mediumBreed : popularityMedium) {
+                if (mediumBreed.equals(q9)) {
+                    tvCatlvl9.setText("Medium");
+                }else{
+                    tvCatlvl9.setText("Low");
+                }
+            }
         }
 
+        backBtn = view.findViewById(R.id.cat_summary_back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ShelterCatQuestionnaire shelterCatQuestionnaire = new ShelterCatQuestionnaire();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_host_fragment, shelterCatQuestionnaire);
+                transaction.commit();
+            }
+        });
+
+        proceedBtn = view.findViewById(R.id.cat_summary_proceed_btn);
+        proceedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
+            }
+        });
     }
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
