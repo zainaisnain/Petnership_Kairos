@@ -168,8 +168,8 @@
                 android:paddingLeft="10dp"
                 android:hint="City" />
 
-            <EditText
-                android:id="@+id/txt_province_shelter"
+            <Spinner
+                android:id="@+id/dd_province_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -191,38 +191,8 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Country" />
-
-
-            <EditText
-                android:id="@+id/txt_tin_shelter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="TIN Number" />
-
-
-            <ImageView
-                android:id="@+id/profile_pic_iv"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
-
-            <Button
-                android:id="@+id/upload_image_shelter_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#C0C0C0"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Upload" />
+                android:hint="Country"
+                android:text = "Philippines"/>
 
             <Button
                 android:id="@+id/btn_submit_shelter"

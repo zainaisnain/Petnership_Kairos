@@ -113,7 +113,14 @@
             android:exported="true" />
         <activity
             android:name=".AdopterDashboard"
-            android:exported="false" />
+            android:exported="true">
+        <!-- TODO: REMOVE THIS AFTER -->
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".ShelterDashboard"
             android:exported="true"></activity>

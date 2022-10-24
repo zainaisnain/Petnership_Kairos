@@ -1,4 +1,4 @@
-[
+{"provinces":[
   { "name": "Metro Manila", "region": "NCR", "key": "MM" },
 
   { "name": "Abra", "region": "CAR", "key": "ABR" },
@@ -92,9 +92,9 @@
   { "name": "Surigao del Norte", "region": "XIII", "key": "SUN" },
   { "name": "Surigao del Sur", "region": "XIII", "key": "SUR" },
 
-  { "name": "Basilan", "region": "ARMM", "key": "BAS" },
-  { "name": "Lanao del Sur", "region": "ARMM", "key": "LAS" },
-  { "name": "Maguindanao", "region": "ARMM", "key": "MAG" },
-  { "name": "Sulu", "region": "ARMM", "key": "SLU" },
-  { "name": "Tawi-tawi", "region": "ARMM", "key": "TAW" }
-]
+  { "name": "Basilan", "region": "BARMM", "key": "BAS" },
+  { "name": "Lanao del Sur", "region": "BARMM", "key": "LAS" },
+  { "name": "Maguindanao", "region": "BARMM", "key": "MAG" },
+  { "name": "Sulu", "region": "BARMM", "key": "SLU" },
+  { "name": "Tawi-tawi", "region": "BARMM", "key": "TAW" }
+]}

@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout/activity_add_pet.xml" value="0.26701164294532753" />
         <entry key="app/src/main/res/layout/activity_adopter_dashboard.xml" value="0.2394344334726713" />
         <entry key="app/src/main/res/layout/activity_adopter_edit.xml" value="0.4025531914893617" />
-        <entry key="app/src/main/res/layout/activity_adopter_registration.xml" value="0.24925181701581872" />
+        <entry key="app/src/main/res/layout/activity_adopter_registration.xml" value="0.3311920166015625" />
         <entry key="app/src/main/res/layout/activity_animal_registration.xml" value="0.3476851851851852" />
         <entry key="app/src/main/res/layout/activity_cat_questionnaire1.xml" value="0.32107738349722104" />
         <entry key="app/src/main/res/layout/activity_cat_questionnaire4.xml" value="0.24754168448054725" />
@@ -66,7 +66,7 @@
         <entry key="app/src/main/res/layout/bottomnav.xml" value="0.1526293287729799" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2304403591278324" />
         <entry key="app/src/main/res/layout/drawer_app_bar_main.xml" value="0.27191107310816587" />
-        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.3158676147460937" />
+        <entry key="app/src/main/res/layout/fragment_add_pet.xml" value="0.41872406005859375" />
         <entry key="app/src/main/res/layout/fragment_adopter_home_dashboard.xml" value="0.24596509945201994" />
         <entry key="app/src/main/res/layout/fragment_cat_pet_profile.xml" value="0.23286540049545829" />
         <entry key="app/src/main/res/layout/fragment_cats.xml" value="0.37719879150390623" />
