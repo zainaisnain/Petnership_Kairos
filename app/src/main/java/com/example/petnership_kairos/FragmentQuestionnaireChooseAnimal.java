@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 
 public class FragmentQuestionnaireChooseAnimal extends Fragment {
 
-
+    private ImageButton backBtn;
     public static FragmentQuestionnaireChooseAnimal newInstance() {
         return new FragmentQuestionnaireChooseAnimal();
     }
@@ -52,6 +52,16 @@ public class FragmentQuestionnaireChooseAnimal extends Fragment {
                 FragmentDogQuestionnaire1 dog1Fragment = new FragmentDogQuestionnaire1();
                 transaction.replace(R.id.nav_host_fragment,dog1Fragment);
                 transaction.addToBackStack("dogQuestionnaire1");
+                transaction.commit();
+            }
+        });
+        backBtn = (ImageButton)getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                FragmentQuestionnaireWelcome questionnairewelcome = new FragmentQuestionnaireWelcome();
+                transaction.replace(R.id.nav_host_fragment, questionnairewelcome);
                 transaction.commit();
             }
         });

@@ -28,6 +28,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
     TextView crate1, crate2, crate3, crate4, crate5, crate6, crate7;
     MCDMAnswersViewModel mViewModel;
     View view;
+    private ImageButton backBtn;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -200,7 +201,16 @@ public class FragmentCatQuestionnaire1 extends Fragment {
                 transaction.commit();
             }
         });
-
+        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
+                transaction.replace(R.id.nav_host_fragment, chooseAnimal);
+                transaction.commit();
+            }
+        });
 
     }
 

@@ -61,7 +61,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
          */
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view_adopter);
-        toolbar = findViewById(R.id.main_toolbar);
+        //toolbar = findViewById(R.id.main_toolbar);
 
         /**
          * Tool bar

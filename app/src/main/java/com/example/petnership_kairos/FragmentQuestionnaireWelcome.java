@@ -14,10 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.cardview.widget.CardView;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class FragmentQuestionnaireWelcome extends Fragment {
 
-
+    private ImageButton backBtn;
     public static FragmentQuestionnaireWelcome newInstance() {
         return new FragmentQuestionnaireWelcome();
     }
@@ -41,6 +42,16 @@ public class FragmentQuestionnaireWelcome extends Fragment {
                 FragmentQuestionnaireChooseAnimal chooseFragment = new FragmentQuestionnaireChooseAnimal();
                 transaction.replace(R.id.nav_host_fragment,chooseFragment);
                 transaction.addToBackStack("chooseAnimal");
+                transaction.commit();
+            }
+        });
+        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
                 transaction.commit();
             }
         });
