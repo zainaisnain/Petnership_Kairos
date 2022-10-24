@@ -103,7 +103,7 @@ public class ShelterEditDog extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        PerDogProfile pdp = new PerDogProfile();
+        ShelterPerDogProfile pdp = new ShelterPerDogProfile();
         petID = pdp.petID;
 
         //NAME

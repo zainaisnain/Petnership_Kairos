@@ -44,10 +44,10 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".PerDogProfile"
+            android:name=".ShelterPerDogProfile"
             android:exported="false" />
         <activity
-            android:name=".PerCatProfile"
+            android:name=".ShelterPerCatProfile"
             android:exported="false" />
         <activity
             android:name=".ShelterInfo"

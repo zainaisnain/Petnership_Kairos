@@ -23,7 +23,7 @@ public class activity_petprofilequestionnaire extends AppCompatActivity implemen
 //
 //        switch (view.getId()) {
 //            case R.id.pet1:
-//                i = new Intent(this, PerPetProfile.class);
+//                i = new Intent(this, ShelterPerPetProfile.class);
 //                startActivity(i);
 //                break;
 //

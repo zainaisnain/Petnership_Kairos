@@ -1,6 +1,6 @@
 package com.example.petnership_kairos;
 
-import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -64,19 +65,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredPetData registeredPetDataList = PetsData[position];
 
-//        holder.ivPetImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PerPetProfilePets yourfragmentobject = new PerPetProfilePets();
-//                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-//                activity.getSupportFragmentManager().beginTransaction().
-//                        replace(R.id.per_Pet_profile_frag, yourfragmentobject)
-//                        .addToBackStack(null).commit();
-//
-//            }
-//        });
-
-        storageReference.child("Pets/").child(registeredPetDataList.getPetImageName()).getDownloadUrl()
+        storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
@@ -84,13 +73,19 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
                     }
                 });
 
-        System.out.println("petImageName OUTSIDE" + petImageName);
-
-//        holder.ivPetImage.setImageResource(registeredPetDataList.getImageName());
         holder.tvPetName.setText("Name : " + registeredPetDataList.getPetName());
         holder.tvPetAge.setText("Age : " + registeredPetDataList.getPetAge());
         holder.tvPetSex.setText("Sex : " + registeredPetDataList.getPetSex());
         holder.tvPetBreed.setText("Breed : " + registeredPetDataList.getPetBreed());
+
+        holder.cvPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ShelterPerDogProfile.class);
+                intent.putExtra("dogPetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(intent);
+            }
+        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,6 +105,8 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
         ImageView ivPetImage;
         TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed;
 
+        CardView cvPet;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPetImage = itemView.findViewById(R.id.pet_image);
@@ -117,6 +114,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
             tvPetAge = itemView.findViewById(R.id.pet_age);
             tvPetSex = itemView.findViewById(R.id.pet_sex);
             tvPetBreed = itemView.findViewById(R.id.pet_breed);
+            cvPet = itemView.findViewById(R.id.cvPet);
 
         }
     }

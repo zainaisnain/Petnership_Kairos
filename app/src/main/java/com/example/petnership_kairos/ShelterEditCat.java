@@ -100,7 +100,7 @@ public class ShelterEditCat extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
 
-        PerCatProfile pcp = new PerCatProfile();
+        ShelterPerCatProfile pcp = new ShelterPerCatProfile();
         petID = pcp.petID;
 
         //NAME
