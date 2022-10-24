@@ -97,24 +97,28 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            databaseReference.child(username).child("userType")
-                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            String userType = snapshot.getValue(String.class);
+                            if (mAuth.getCurrentUser().isEmailVerified()){
+                                databaseReference.child(username).child("userType")
+                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                String userType = snapshot.getValue(String.class);
 
-                                            if(userType.equals("adopter")){
-                                                startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
-                                            }else if(userType.equals("shelter")) {
-                                                startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
+                                                if(userType.equals("adopter")){
+                                                    startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                                }else if(userType.equals("shelter")) {
+                                                    startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
+                                                }
                                             }
-                                        }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-                                            System.out.println("on cancelled");
-                                        }
-                                    });
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                System.out.println("on cancelled");
+                                            }
+                                        });
+                            }else{
+                                startActivity(new Intent(LoginActivity.this, UserVerifyEmailDialog.class));
+                            }
                         }
                         else
                         {

@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,9 +21,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,6 +56,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     //DROPDOWNS
@@ -68,7 +73,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_registration);
 
-        mAuth = FirebaseAuth.getInstance();
+
 
         editTextBizName = findViewById(R.id.txt_biz_name_shelter);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter);
@@ -265,6 +270,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        mAuth = FirebaseAuth.getInstance();
         databaseReference.child("Shelters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -275,16 +281,26 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                             .addOnCompleteListener(task -> {
 
                                 if(task.isSuccessful()){
-                                    Shelter shelter = new Shelter(bizName, owner, email, username, password,
-                                            website, contact, street, city, shelterProvince, country);
+                                    mAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                       @Override
+                                                                       public void onComplete(@NonNull Task<Void> task) {
 
-                                    databaseReference.child("Shelters").child(username).setValue(shelter);
+                                                                           if(task.isSuccessful()){
+                                                                               Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                                                                       website, contact, street, city, shelterProvince, country);
 
-                                    User user = new User(email, password, username, "shelter");
+                                                                               databaseReference.child("Shelters").child(username).setValue(shelter);
 
-                                    databaseReference.child("Users").child(username).setValue(user);
+                                                                               User user = new User(email, password, username, "shelter");
 
-                                    Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
+                                                                               databaseReference.child("Users").child(username).setValue(user);
+
+                                                                               startActivity(new Intent(ShelterRegistration.this, UserVerifyEmailDialog.class));
+                                                                           }
+                                                                       }
+                                                                   });
+
                                 }else {
                                     Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                                 }

@@ -22,8 +22,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -527,19 +529,26 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                 }else{
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(task -> {
-
                                 if(task.isSuccessful()){
-                                    Adopter adopter = new Adopter(fname, lname, email, username, password,
-                                            contact, street, city, adopterProvince, country, sex, birthday, imageName);
+                                    mAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName);
 
-                                    databaseReference.child("Adopters").child(username).setValue(adopter);
+                                                        databaseReference.child("Adopters").child(username).setValue(adopter);
 
+                                                        User user = new User(email, password, username, "adopter");
 
-                                    User user = new User(email, password, username, "adopter");
+                                                        databaseReference.child("Users").child(username).setValue(user);
 
-                                    databaseReference.child("Users").child(username).setValue(user);
+                                                        startActivity(new Intent(AdopterRegistration.this, UserVerifyEmailDialog.class));
+                                                    }
 
-                                    Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                                                }
+                                            });
                                 }else {
                                     System.out.println(task.getException().getMessage());
                                     Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
