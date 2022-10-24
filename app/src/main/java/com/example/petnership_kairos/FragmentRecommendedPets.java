@@ -27,10 +27,12 @@ public class FragmentRecommendedPets extends Fragment {
     }
 
     @SuppressLint("MissingInflatedId")
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recommended_pets, container, false);
+        
         recommendedPet1 = view.findViewById(R.id.viewPet1);
         recommendedPet1.setOnClickListener (new View.OnClickListener() {
             @Override
@@ -48,6 +50,7 @@ public class FragmentRecommendedPets extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
+
 
         recommendedPet3 = view.findViewById(R.id.viewPet3);
         recommendedPet3.setOnClickListener (new View.OnClickListener() {

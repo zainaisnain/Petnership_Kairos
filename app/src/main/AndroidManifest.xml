@@ -14,6 +14,12 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
+            android:name=".UserVerifyEmailDialog"
+            android:exported="false" />
+        <activity
+            android:name=".ShelterVerifyEmailDialog"
+            android:exported="false" />
+        <activity
             android:name=".RecommendedPets"
             android:exported="true">
             <meta-data
@@ -89,13 +95,13 @@
             android:exported="false" />
         <activity
             android:name=".ShelterRegistration"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AdopterRegistration"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -113,10 +119,18 @@
             android:exported="true" />
         <activity
             android:name=".AdopterDashboard"
-            android:exported="false" />
+            android:exported="true">
+
+            <!-- TODO: REMOVE THIS AFTER -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ShelterDashboard"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

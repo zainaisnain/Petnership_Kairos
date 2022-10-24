@@ -111,12 +111,6 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_home:
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                ShelterHomeDashboard  shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.shelter_dashboard_frag, shelterHomeDashboard);
-                transaction.commit();
-                break;
 
             case R.id.nav_reg_pets:
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
