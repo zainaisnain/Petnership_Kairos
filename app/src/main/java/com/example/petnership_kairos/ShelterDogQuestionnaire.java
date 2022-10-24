@@ -49,6 +49,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
     private FirebaseUser firebaseUser;
 
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -260,9 +261,11 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                     Toast.makeText(getActivity(), "Please answer all questions", Toast.LENGTH_LONG).show();
                     return;
                 }else{
+                    String petType = "dog";
                     DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9,q10,q11);
+                            q6,q7,q8,q9,q10,q11,petType);
                     petsDogsDBRef.child(petID).setValue(dogAnswers);
+                    allPetsDBRef.child(petID).setValue(dogAnswers);
                     addToShelterDB();
                     startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
                 }

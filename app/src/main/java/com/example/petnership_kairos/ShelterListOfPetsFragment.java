@@ -36,6 +36,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class ShelterListOfPetsFragment extends Fragment {
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
@@ -99,6 +100,21 @@ public class ShelterListOfPetsFragment extends Fragment {
         // TODO: Use the ViewModel
     }
     private void withFirebase(RecyclerView recyclerView) {
+
+        //WITH ALLPETS CHILD
+        //might need to add petType to differentiate between cats and dogs for breed type
+        allPetsDBRef.orderByChild("shelter").equalTo(shelterEmail)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
         petsCatsDBRef.orderByChild("shelter").equalTo(shelterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {

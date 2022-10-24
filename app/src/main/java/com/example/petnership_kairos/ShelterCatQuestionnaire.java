@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
     private FirebaseUser firebaseUser;
 
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -231,11 +233,30 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                     Toast.makeText(getActivity(), "Please set cat's breed.", Toast.LENGTH_LONG).show();
                     return;
                 }else{
+                    CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("q1", q1);
+                    bundle.putInt("q2", q2);
+                    bundle.putInt("q3", q3);
+                    bundle.putInt("q4", q4);
+                    bundle.putInt("q5", q5);
+                    bundle.putInt("q6", q6);
+                    bundle.putInt("q7", q7);
+                    bundle.putInt("q8", q8);
+                    catPetProfileSummary.setArguments(bundle);
+
+                    String petType = "cat";
                     CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9);
+                            q6,q7,q8,q9, petType);
                     petsCatsDBRef.child(petID).setValue(catAnswers);
+                    allPetsDBRef.child(petID).setValue(catAnswers);
                     addToShelterDB();
-                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
+////                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                    CatPetProfileSummary  catPetProfileSummary = new CatPetProfileSummary();
+                    transaction.replace(R.id.nav_host_fragment, catPetProfileSummary);
+                    transaction.commit();
+
                 }
             }
         });
