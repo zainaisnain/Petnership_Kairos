@@ -22,7 +22,7 @@
                 android:id="@+id/imageView2"
                 android:layout_width="214dp"
                 android:layout_height="172dp"
-                app:srcCompat="@drawable/ic_warning"
+                app:srcCompat="@drawable/check"
                 tools:layout_editor_absoluteX="93dp"
                 tools:layout_editor_absoluteY="27dp" />
 
@@ -30,10 +30,10 @@
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/marmelad_regular"
                 android:textSize="24sp"
                 android:padding="10dp"
-                android:text="Are you sure you want to cancel?"
+                android:fontFamily="@font/marmelad_regular"
+                android:text="Changes successfully saved!"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="YES"
+        android:text="OK"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />

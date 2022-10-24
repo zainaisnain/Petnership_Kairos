@@ -28,6 +28,7 @@ public class RecommendedPetIndiv extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recommended_pet_indiv, container, false);
+
         toAdopt = view.findViewById(R.id.recommendedPet_toAdopt);
         toAdopt.setOnClickListener(new View.OnClickListener() {
             @Override
