@@ -95,7 +95,8 @@
                 android:fontFamily="@font/montserrat_reg"
                 android:gravity="center"
                 android:hint="Age"
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"
+                android:inputType="number"/>
 
             <Spinner
                 android:id="@+id/pet_age_dd"
