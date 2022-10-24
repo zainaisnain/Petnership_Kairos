@@ -33,6 +33,8 @@ public class ShelterToReviewApplications extends Fragment {
 
     Spinner statusAppTxt;
 
+    Button saveApplication, cancelApplication;
+
     ArrayAdapter<String> statusAdapter;
     protected static String petStatus;
 
@@ -73,6 +75,24 @@ public class ShelterToReviewApplications extends Fragment {
             @Override
             public void onClick(View v) {
                 sendMail();
+            }
+        });
+
+        saveApplication = view.findViewById(R.id.btn_save_adoptionForm);
+        saveApplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCustomDialog submitDialog = new MyCustomDialog();
+                submitDialog.show(getParentFragmentManager(), "My Fragment");
+            }
+        });
+
+        cancelApplication = view.findViewById(R.id.btn_cancel_adoptionForm);
+        cancelApplication.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCancelDialog cancelDialog = new MyCancelDialog();
+                cancelDialog.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
