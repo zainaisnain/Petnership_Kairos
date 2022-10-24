@@ -3,6 +3,7 @@ package com.example.petnership_kairos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,14 +12,20 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,14 +40,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.UUID;
 
 public class AdopterRegistration extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextFname, editTextLname, editTextEmail, editTextUsername,
             editTextPassword, editTextConfirmPassword, editTextContact, editTextStreet,
-            editTextCity, editTextProvince, editTextCountry, editTextGender, editTextBirthday;
+            editTextCity, editTextCountry, editTextGender, editTextBirthday;
+
+    DatePickerDialog.OnDateSetListener setListener;
+    String datePicked;
 
     private Button submit, uploadBtn;
     private FirebaseAuth mAuth;
@@ -63,6 +80,16 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+    //DROPDOWNS
+    Spinner ddSex, ddProvince;
+    String[] ddSexValues = {"Female", "Male"};
+
+    String sex, adopterProvince;
+
+
+    String json_string;
+    JSONObject jsonObj;
+    JSONArray jsonArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +107,96 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         editTextContact = findViewById(R.id.txt_contact_adopter);
         editTextStreet = findViewById(R.id.txt_street_adopter);
         editTextCity = findViewById(R.id.txt_city_adopter);
-        editTextProvince = findViewById(R.id.txt_province_adopter);
+
+        //PROVINCES
+        json_string= loadJSONFromAsset();
+        ddProvince = findViewById(R.id.adopter_province_dd);
+        ArrayList<String> provinces = new ArrayList<String>();
+        {
+
+            try {
+                jsonObj =new JSONObject(json_string);
+                jsonArray =jsonObj.getJSONArray("provinces");
+                String province;
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                    province= jObj.getString("name");
+                    provinces.add(province);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, provinces);
+
+        Spinner ddProvince = (Spinner)findViewById(R.id.adopter_province_dd);
+        ddProvince.setAdapter(provinceAdapter);
+        ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                adopterProvince = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
         editTextCountry = findViewById(R.id.txt_country_adopter);
-        editTextGender = findViewById(R.id.txt_gender_adopter);
+        editTextCountry.setEnabled(false);
+
+        ddSex = findViewById(R.id.adopter_sex_dd);
+        ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddSexValues);
+        ddSex.setAdapter(sexAdapter);
+
+        ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sex = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
+        //BIRTHDAY
         editTextBirthday = findViewById(R.id.txt_birthday_adopter);
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+//
+//        setListener = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+//                month = month + 1;
+//                String date = month + "/" + day + "/" + year;
+//                editTextBirthday.setText(date);
+//            }
+//        };
+
+        editTextBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog
+                        (AdopterRegistration.this, new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                month = month + 1;
+                                datePicked = month + "/" + day + "/" + year;
+                                editTextBirthday.setText(datePicked);
+                            }
+                        }, year,month, day);
+                datePickerDialog.show();
+            }
+        });
 
         submit = findViewById(R.id.btn_submit_adopter);
         submit.setOnClickListener(this);
@@ -133,6 +246,23 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
+    }
+
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("provinces.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     private void selectUserType()
@@ -296,9 +426,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
-        String province = editTextProvince.getText().toString().trim();
-        String country = editTextCountry.getText().toString().trim();
-        String gender = editTextGender.getText().toString().trim();
+//        String province = editTextProvince.getText().toString().trim();
+        String country = "Philippines";
+//        String gender = editTextGender.getText().toString().trim();
         String birthday = editTextBirthday.getText().toString().trim();
         String user_type = "adopter";
 
@@ -379,11 +509,11 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        if(province.isEmpty()){
-            editTextProvince.setError("Province Required.");
-            editTextProvince.requestFocus();
-            return;
-        }
+//        if(province.isEmpty()){
+//            editTextProvince.setError("Province Required.");
+//            editTextProvince.requestFocus();
+//            return;
+//        }
 
         if(country.isEmpty()){
             editTextCountry.setError("Country Required.");
@@ -399,19 +529,26 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                 }else{
                     mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(task -> {
-
                                 if(task.isSuccessful()){
-                                    Adopter adopter = new Adopter(fname, lname, email, username, password,
-                                            contact, street, city, province, country, gender, birthday, imageName);
+                                    mAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName);
 
-                                    databaseReference.child("Adopters").child(username).setValue(adopter);
+                                                        databaseReference.child("Adopters").child(username).setValue(adopter);
 
+                                                        User user = new User(email, password, username, "adopter");
 
-                                    User user = new User(email, password, username, "adopter");
+                                                        databaseReference.child("Users").child(username).setValue(user);
 
-                                    databaseReference.child("Users").child(username).setValue(user);
+                                                        startActivity(new Intent(AdopterRegistration.this, UserVerifyEmailDialog.class));
+                                                    }
 
-                                    Toast.makeText(AdopterRegistration.this, "Adopter registered successfully!", Toast.LENGTH_LONG).show();
+                                                }
+                                            });
                                 }else {
                                     System.out.println(task.getException().getMessage());
                                     Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
