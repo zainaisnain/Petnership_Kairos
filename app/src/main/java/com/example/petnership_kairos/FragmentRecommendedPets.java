@@ -26,17 +26,19 @@ public class FragmentRecommendedPets extends Fragment {
         return new FragmentRecommendedPets();
     }
 
+    @SuppressLint("MissingInflatedId")
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recommended_pets, container, false);
-
+        
         recommendedPet1 = view.findViewById(R.id.viewPet1);
         recommendedPet1.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
 
@@ -45,16 +47,17 @@ public class FragmentRecommendedPets extends Fragment {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
+
 
         recommendedPet3 = view.findViewById(R.id.viewPet3);
         recommendedPet3.setOnClickListener (new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, recommendedPetIndiv).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
             }
         });
 

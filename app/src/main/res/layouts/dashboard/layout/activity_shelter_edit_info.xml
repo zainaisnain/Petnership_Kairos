@@ -4,6 +4,214 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".ShelterEditInfo">
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:background="#0000"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:tint="@color/black"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/scrollview_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Animal Shelter Information"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:textSize="25sp"
+                android:textColor="#371576"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:id="@+id/txt_biz_name_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Business Name"/>
+
+            <EditText
+                android:id="@+id/txt_biz_owner_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Owner Name" />
+
+            <EditText
+                android:id="@+id/txt_username_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:hint="Username"
+                android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/txt_website_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Website" />
+
+            <EditText
+                android:id="@+id/txt_contact_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Contact Number" />
+
+            <EditText
+                android:id="@+id/txt_street_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Street Address" />
+
+            <EditText
+                android:id="@+id/txt_city_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="City" />
+
+            <EditText
+                android:id="@+id/txt_province_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Province" />
+
+
+            <EditText
+                android:id="@+id/txt_country_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="Country" />
+
+
+            <EditText
+                android:id="@+id/txt_tin_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp"
+                android:hint="TIN Number"
+                android:inputType = "numberPassword"
+                />
+
+
+            <ImageView
+                android:id="@+id/profile_pic_iv_edit"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/upload_image_shelter_btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#C0C0C0"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Upload" />
+
+            <Button
+                android:id="@+id/btn_submit_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#371576"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Submit" />
+
+            <Button
+                android:id="@+id/btn_cancel_shelter_edit"
+                android:layout_width="350dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#AC94F4"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:text="Cancel" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

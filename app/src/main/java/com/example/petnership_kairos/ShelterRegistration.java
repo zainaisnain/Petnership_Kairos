@@ -9,17 +9,24 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,42 +37,43 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class ShelterRegistration extends AppCompatActivity implements View.OnClickListener  {
 
     private EditText editTextBizName, editTextOwner, editTextEmail, editTextUsername,
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
-            editTextCity, editTextProvince, editTextCountry, editTextTin;
+            editTextCity, editTextCountry;
 
-    private Button submit, uploadBtn;
+    private Button submit;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
-
-    // view for image view
-    private ImageView imageView;
-
-    // Uri indicates, where the image will be picked from
-    private Uri filePath;
-    private String imageName;
-
-    // request code
-    private final int PICK_IMAGE_REQUEST = 22;
-
-    // instance for firebase storage and StorageReference
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+    //DROPDOWNS
+    Spinner ddProvince;
+    private String shelterProvince;
+
+
+    String json_string;
+    JSONObject jsonObj;
+    JSONArray jsonArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_registration);
 
-        mAuth = FirebaseAuth.getInstance();
+
 
         editTextBizName = findViewById(R.id.txt_biz_name_shelter);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter);
@@ -77,37 +85,52 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         editTextContact = findViewById(R.id.txt_contact_shelter);
         editTextStreet = findViewById(R.id.txt_street_shelter);
         editTextCity = findViewById(R.id.txt_city_shelter);
-        editTextProvince = findViewById(R.id.txt_province_shelter);
+
+        //PROVINCES
+        json_string= loadJSONFromAsset();
+        ddProvince = findViewById(R.id.dd_province_shelter);
+        ArrayList<String> provinces = new ArrayList<String>();
+        {
+
+            try {
+                jsonObj =new JSONObject(json_string);
+                jsonArray =jsonObj.getJSONArray("provinces");
+                String province;
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                    province= jObj.getString("name");
+                    provinces.add(province);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, provinces);
+        Spinner ddProvince = (Spinner)findViewById(R.id.dd_province_shelter);
+        ddProvince.setAdapter(provinceAdapter);
+        ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                shelterProvince = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         editTextCountry = findViewById(R.id.txt_country_shelter);
-        editTextTin = findViewById(R.id.txt_tin_shelter);
+        editTextCountry.setEnabled(false);
 
         submit = findViewById(R.id.btn_submit_shelter);
         submit.setOnClickListener(this);
 
-        //UPLOAD IMAGE
-        imageView = findViewById(R.id.profile_pic_iv);
-        uploadBtn = findViewById(R.id.upload_image_shelter_btn);
-
-        // get the Firebase  storage reference
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
-
-        // on pressing btnSelect SelectImage() is called
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                SelectImage();
-            }
-        });
-
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
-        });
 
         backBtn = (ImageButton) findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -119,139 +142,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
     }
-
-    // Select Image method
-    private void SelectImage()
-    {
-        // Defining Implicit Intent to mobile gallery
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(
-                        intent,
-                        "Select Image from here..."),
-                PICK_IMAGE_REQUEST);
-    }
-
-    // Override onActivityResult method
-    @Override
-    protected void onActivityResult(int requestCode,
-                                    int resultCode,
-                                    Intent data)
-    {
-
-        super.onActivityResult(requestCode,
-                resultCode,
-                data);
-
-        // checking request code and result code
-        // if request code is PICK_IMAGE_REQUEST and
-        // resultCode is RESULT_OK
-        // then set image in the image view
-        if (requestCode == PICK_IMAGE_REQUEST
-                && resultCode == RESULT_OK
-                && data != null
-                && data.getData() != null) {
-
-            // Get the Uri of data
-            filePath = data.getData();
-            try {
-
-                // Setting image on image view using Bitmap
-                Bitmap bitmap = MediaStore
-                        .Images
-                        .Media
-                        .getBitmap(
-                                getContentResolver(),
-                                filePath);
-                imageView.setImageBitmap(bitmap);
-            }
-
-            catch (IOException e) {
-                // Log the exception
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    // UploadImage method
-    private void uploadImage()
-    {
-        imageName = UUID.randomUUID().toString();
-        if (filePath != null) {
-
-            // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog
-                    = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
-
-            // Defining the child of storageReference
-            StorageReference ref
-                    = storageReference
-                    .child(
-                            "Shelters/"
-                                    + imageName);
-
-            // adding listeners on upload
-            // or failure of image
-            ref.putFile(filePath)
-                    .addOnSuccessListener(
-                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot)
-                                {
-
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
-                                    progressDialog.dismiss();
-                                    Toast
-                                            .makeText(ShelterRegistration.this,
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
-                                }
-                            })
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e)
-                        {
-
-                            // Error, Image not uploaded
-                            progressDialog.dismiss();
-                            Toast
-                                    .makeText(ShelterRegistration.this,
-                                            "Failed " + e.getMessage(),
-                                            Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot)
-                                {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int)progress + "%");
-                                }
-                            });
-        }
-    }
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -259,6 +149,22 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                 registerShelter();
                 break;
         }
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("provinces.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 
     private void registerShelter() {
@@ -272,9 +178,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
-        String province = editTextProvince.getText().toString().trim();
-        String country = editTextCountry.getText().toString().trim();
-        String tin = editTextTin.getText().toString().trim();
+        String country = "Philippines";
 
 
         if(bizName.isEmpty()){
@@ -359,11 +263,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        if(province.isEmpty()){
-            editTextProvince.setError("Province Required.");
-            editTextProvince.requestFocus();
-            return;
-        }
 
         if(country.isEmpty()){
             editTextCountry.setError("Country Required.");
@@ -371,6 +270,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        mAuth = FirebaseAuth.getInstance();
         databaseReference.child("Shelters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -381,16 +281,26 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                             .addOnCompleteListener(task -> {
 
                                 if(task.isSuccessful()){
-                                    Shelter shelter = new Shelter(bizName, owner, email, username, password,
-                                            website, contact, street, city, province, country, tin, imageName);
+                                    mAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                       @Override
+                                                                       public void onComplete(@NonNull Task<Void> task) {
 
-                                    databaseReference.child("Shelters").child(username).setValue(shelter);
+                                                                           if(task.isSuccessful()){
+                                                                               Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                                                                       website, contact, street, city, shelterProvince, country);
 
-                                    User user = new User(email, password, username, "shelter");
+                                                                               databaseReference.child("Shelters").child(username).setValue(shelter);
 
-                                    databaseReference.child("Users").child(username).setValue(user);
+                                                                               User user = new User(email, password, username, "shelter");
 
-                                    Toast.makeText(ShelterRegistration.this, "Animal Shelter registered successfully!", Toast.LENGTH_LONG).show();
+                                                                               databaseReference.child("Users").child(username).setValue(user);
+
+                                                                               startActivity(new Intent(ShelterRegistration.this, UserVerifyEmailDialog.class));
+                                                                           }
+                                                                       }
+                                                                   });
+
                                 }else {
                                     Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                                 }

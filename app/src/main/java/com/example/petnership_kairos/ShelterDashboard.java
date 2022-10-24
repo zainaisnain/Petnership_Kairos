@@ -35,7 +35,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.shelter_menu,menu);
+        getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -84,7 +84,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-       // navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
@@ -111,19 +111,23 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterHomeDashboard()).commit();
-                break;
 
             case R.id.nav_reg_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterRegisterPets()).commit();
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
+                transaction1.replace(R.id.shelter_dashboard_frag, shelterRegisterPets);
+                transaction1.commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+//                        new ShelterRegisterPets()).commit();
                 break;
 
             case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
                         new ShelterListOfPetsFragment()).commit();
+                break;
+
+            case R.id.nav_shelter_edit_info:
+                startActivity(new Intent(ShelterDashboard.this, ShelterEditInfo.class));
                 break;
 
             case R.id.nav_logout:

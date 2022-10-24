@@ -47,7 +47,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_fname_adopter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -57,8 +57,9 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="First Name"/>
-            <TextView
+                android:hint="First Name"
+                android:inputType="none"/>
+            <EditText
                 android:id="@+id/txt_lname_adopter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -68,9 +69,10 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Last Name" />
+                android:hint="Last Name"
+                android:inputType="none"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txt_username_adopter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -82,7 +84,8 @@
                 android:fontFamily="@font/montserrat_reg"
                 android:textColorHint="#757575"
                 android:hint="Username"
-                android:paddingLeft="10dp" />
+                android:paddingLeft="10dp"
+                android:inputType="none"/>
 
 
             <EditText

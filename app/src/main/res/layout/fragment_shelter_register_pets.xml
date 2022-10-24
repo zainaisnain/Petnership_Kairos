@@ -108,6 +108,22 @@
         <!--            />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="-38dp"
+        tools:layout_editor_absoluteY="236dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="745dp"
+                android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -168,22 +184,28 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/petnershiplogo2"
+                    android:layout_width="156dp"
+                    android:layout_height="134dp"
+                    android:contentDescription="petnership logo"
+                    android:src="@drawable/petnership_logo_colored"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.078"
+                    tools:ignore="ImageContrastCheck" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-    <ImageView
-        android:id="@+id/petnershiplogo2"
-        android:layout_width="156dp"
-        android:layout_height="134dp"
-        android:contentDescription="petnership logo"
-        android:src="@drawable/petnership_logo_colored"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078"
-        tools:ignore="ImageContrastCheck" />
+
 
     <!--    <com.google.android.material.button.MaterialButton-->
     <!--        android:id="@+id/btnBack"-->
@@ -199,4 +221,3 @@
     <!--        app:layout_constraintBottom_toBottomOf="parent"-->
     <!--        app:layout_constraintStart_toStartOf="parent"/>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
