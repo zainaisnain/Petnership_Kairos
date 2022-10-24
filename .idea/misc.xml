@@ -104,6 +104,7 @@
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_shelter_verify_email_dialog.xml" value="0.2159042325780248" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_added_pet.xml" value="0.37602703133957177" />
         <entry key="app/src/main/res/layouts/dashboard/layout/activity_successfully_edited_pet.xml" value="0.2783240701154339" />
+        <entry key="app/src/main/res/layouts/dashboard/layout/activity_user_verify_email.xml" value="0.23386062419837536" />
         <entry key="app/src/main/res/layouts/dashboard/layout/application_card.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/application_forreview_card.xml" value="0.21504916631038906" />
         <entry key="app/src/main/res/layouts/dashboard/layout/cancel_dialog.xml" value="0.2159042325780248" />
