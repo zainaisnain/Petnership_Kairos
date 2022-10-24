@@ -205,6 +205,8 @@ public class FragmentCatQuestionnaire7 extends Fragment {
     }
 
     private void showDialog() {
+        HelpPopup helpDialogc7 = new HelpPopup();
+        helpDialogc7.show(getParentFragmentManager(), "Help Popup");
         /*
                 final Dialog helpDialog = new Dialog();
         helpDialog.setContentView(R.layout.help_popup);

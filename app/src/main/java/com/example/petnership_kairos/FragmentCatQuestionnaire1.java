@@ -27,12 +27,13 @@ public class FragmentCatQuestionnaire1 extends Fragment {
     SeekBar cseekBar1, cseekBar2, cseekBar3, cseekBar4, cseekBar5, cseekBar6, cseekBar7;
     TextView crate1, crate2, crate3, crate4, crate5, crate6, crate7;
     MCDMAnswersViewModel mViewModel;
+    View view;
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cat_questionnaire1, container, false);
-
+        view = inflater.inflate(R.layout.fragment_cat_questionnaire1, container, false);
+        return view;
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -175,7 +176,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         cpopup1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialog();
+                    showDialog();
             }
         });
         Button proceedBtn = (Button) getView().findViewById(R.id.cproceed_ques1);
@@ -222,6 +223,8 @@ public class FragmentCatQuestionnaire1 extends Fragment {
     }
 
     private void showDialog() {
+        HelpPopup helpDialogc1 = new HelpPopup();
+        helpDialogc1.show(getParentFragmentManager(), "Help Popup");
         /*
                 final Dialog helpDialog = new Dialog();
         helpDialog.setContentView(R.layout.help_popup);
@@ -234,8 +237,8 @@ public class FragmentCatQuestionnaire1 extends Fragment {
                 helpDialog.dismiss();
 
             }
-        });
-         */
+        }); */
+
     }
 
 

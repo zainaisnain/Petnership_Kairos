@@ -172,6 +172,8 @@ public class FragmentDogQuestionnaire9 extends Fragment {
         }
     }
     private void showDialog() {
+        HelpPopup helpDialog9 = new HelpPopup();
+        helpDialog9.show(getParentFragmentManager(), "Help Popup");
         /*
         final Dialog helpDialog10 = new Dialog(this);
         helpDialog10.setContentView(R.layout.help_popup);
