@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -55,10 +57,12 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetSex.setText("Sex : " + registeredPetDataList.getPetSex());
         holder.tvPetBreed.setText("Breed : " + registeredPetDataList.getPetBreed());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), registeredPetDataList.getPetName(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(view.getContext(), AdopterPerPetProfile.class);
+                intent.putExtra("PetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(intent);
             }
         });
     }
@@ -71,6 +75,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivPetImage;
         TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed;
+        CardView cvAnimal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +84,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
             tvPetAge = itemView.findViewById(R.id.pet_age);
             tvPetSex = itemView.findViewById(R.id.pet_sex);
             tvPetBreed = itemView.findViewById(R.id.pet_breed);
+            cvAnimal = itemView.findViewById(R.id.cvAnimal);
 
         }
     }
