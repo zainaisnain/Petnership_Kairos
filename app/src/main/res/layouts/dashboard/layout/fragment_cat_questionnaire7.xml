@@ -36,6 +36,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.60">
+
                     <TextView
                         android:id="@+id/crating39"
                         android:layout_width="wrap_content"
@@ -43,8 +44,8 @@
                         android:fontFamily="@font/montserrat_black"
                         android:text="Equally Important"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/crating40"
-                        app:layout_constraintStart_toStartOf="@+id/crating40"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.153" />
 
@@ -55,8 +56,8 @@
                         android:fontFamily="@font/montserrat_black"
                         android:text="Equally Important"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/crating41"
-                        app:layout_constraintStart_toStartOf="@+id/crating41"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.282" />
 
@@ -67,23 +68,23 @@
                         android:fontFamily="@font/montserrat_black"
                         android:text="Equally Important"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/crating42"
-                        app:layout_constraintStart_toStartOf="@+id/crating42"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.401" />
 
                     <TextView
                         android:id="@+id/crating42"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="182dp"
+                        android:layout_height="23dp"
                         android:fontFamily="@font/montserrat_black"
                         android:text="Equally Important"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/crating43"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/crating43"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.62"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.594" />
+                        app:layout_constraintVertical_bias="0.59" />
 
                     <TextView
                         android:id="@+id/crating43"
@@ -92,8 +93,8 @@
                         android:fontFamily="@font/montserrat_black"
                         android:text="Equally Important"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/crating44"
-                        app:layout_constraintStart_toStartOf="@+id/crating44"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.723" />
 
@@ -283,9 +284,10 @@
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="@+id/textView13"
                         app:layout_constraintEnd_toEndOf="@+id/textView19"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="@+id/textView19"
                         app:layout_constraintTop_toTopOf="@+id/textView13"
-                        app:layout_constraintVertical_bias="0.714" />
+                        app:layout_constraintVertical_bias="0.909" />
 
                     <TextView
                         android:id="@+id/textView19"
@@ -439,12 +441,12 @@
                     <Button
                         android:id="@+id/cproceed_ques7"
                         android:layout_width="231dp"
-                        android:layout_height="34dp"
+                        android:layout_height="41dp"
                         android:background="@drawable/button1"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="PROCEED"
                         android:textColor="#FFFFFF"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         app:backgroundTint="@null"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
