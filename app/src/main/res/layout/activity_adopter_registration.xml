@@ -277,23 +277,6 @@
                 android:hint="Birthday (mm/dd/yyyy)"
                 android:inputType="date" />
 
-            <ImageView
-                android:id="@+id/profile_pic_iv"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"/>
-
-            <Button
-                android:id="@+id/upload_image_btn"
-                android:layout_width="120dp"
-                android:layout_height="37dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#C0C0C0"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Upload"
-                tools:ignore="TouchTargetSizeCheck" />
 
             <Button
                 android:id="@+id/btn_submit_adopter"
