@@ -58,7 +58,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AdopterPerPetProfileAct.class);
+                Intent intent = new Intent(view.getContext(), AdopterPerPetProfile.class);
                 intent.putExtra("PetID", registeredPetDataList.getPetID());
                 view.getContext().startActivity(intent);
             }
