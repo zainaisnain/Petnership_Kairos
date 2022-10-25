@@ -47,12 +47,12 @@ import java.util.UUID;
 
 public class ShelterEditInfo extends AppCompatActivity {
 
-    private EditText editTextBizName, editTextOwner, editTextUsername,
-            editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
-            editTextCity, editTextProvince, editTextCountry, editTextTin;
+    private EditText editTextBizName, editTextOwner, editTextWebsite, editTextContact,
+            editTextStreet, editTextCity, editTextCountry;
+    private String bizName, owner, website, contact, street, city, country;
 
     private String shelterEmail, shelterUsername;
-    private Button uploadEditBtn, submit, uploadBtn;
+    private Button uploadEditBtn, submitBtn, uploadBtn;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
@@ -75,7 +75,7 @@ public class ShelterEditInfo extends AppCompatActivity {
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-    private Boolean imageUploaded = true;
+    private Boolean imageUploaded = false;
 
     //DROPDOWNS
     Spinner ddProvince;
@@ -182,6 +182,97 @@ public class ShelterEditInfo extends AppCompatActivity {
                 uploadImage();
             }
         });
+
+        submitBtn = findViewById(R.id.btn_submit_shelter_edit);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bizName = editTextBizName.getText().toString().trim();
+                owner = editTextOwner.getText().toString().trim();
+                website = editTextWebsite.getText().toString().trim();
+                contact = editTextContact.getText().toString().trim();
+                street = editTextStreet.getText().toString().trim();
+                city = editTextCity.getText().toString().trim();
+                country = editTextCountry.getText().toString().trim();
+
+                int contactNumCount = 0;
+                for(int i = 0; i < contact.length(); i++){
+                    if(contact.charAt(i) != ' ')
+                        contactNumCount++;
+                }
+
+
+                if(bizName.isEmpty()){
+                    editTextBizName.setError("Business Name is Required.");
+                    editTextBizName.requestFocus();
+                    return;
+                }else if(owner.isEmpty()){
+                    editTextOwner.setError("Owner name is Required.");
+                    editTextOwner.requestFocus();
+                    return;
+                }else if(website.isEmpty()){
+                    editTextWebsite.setError("Website Required.");
+                    editTextWebsite.requestFocus();
+                    return;
+                }else if(contact.isEmpty()){
+                    editTextContact.setError("Contact number is Required.");
+                    editTextContact.requestFocus();
+                    return;
+                }else if (contactNumCount < 11) {
+                    editTextContact.setError("Contact number must be 11 digits.");
+                    editTextContact.requestFocus();
+                    return;
+                }else if(street.isEmpty()){
+                    editTextStreet.setError("Street address Required.");
+                    editTextStreet.requestFocus();
+                    return;
+                }else if(city.isEmpty()){
+                    editTextCity.setError("City is Required.");
+                    editTextCity.requestFocus();
+                    return;
+                }else if(filePath==null){
+                    Toast.makeText(ShelterEditInfo.this, "Please select a picture", Toast.LENGTH_LONG).show();
+                }else if(!imageUploaded){
+                    Toast.makeText(ShelterEditInfo.this, "Please upload a picture", Toast.LENGTH_LONG).show();
+                }else{
+                    editShelterInfo();
+                }
+
+            }
+        });
+    }
+
+    private void editShelterInfo() {
+        usersDBRef.orderByChild("email").equalTo(shelterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        sheltersDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.hasChild(shelterUsername)){
+                                    snapshot.child(shelterUsername).getRef().child("bizName").setValue(bizName);
+                                    snapshot.child(shelterUsername).getRef().child("owner").setValue(owner);
+                                    snapshot.child(shelterUsername).getRef().child("website").setValue(website);
+                                    snapshot.child(shelterUsername).getRef().child("contact").setValue(contact);
+                                    snapshot.child(shelterUsername).getRef().child("street").setValue(street);
+                                    snapshot.child(shelterUsername).getRef().child("city").setValue(city);
+                                    snapshot.child(shelterUsername).getRef().child("imageName").setValue(imageName);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     public String loadJSONFromAsset() {
@@ -332,6 +423,7 @@ public class ShelterEditInfo extends AppCompatActivity {
                                 public void onSuccess(
                                         UploadTask.TaskSnapshot taskSnapshot)
                                 {
+                                    imageUploaded = true;
 
                                     // Image uploaded successfully
                                     // Dismiss dialog
