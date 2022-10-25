@@ -10,10 +10,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +36,13 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class ShelterEditInfo extends AppCompatActivity {
@@ -66,8 +75,17 @@ public class ShelterEditInfo extends AppCompatActivity {
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-
     private Boolean imageUploaded = true;
+
+    //DROPDOWNS
+    Spinner ddProvince;
+    private String shelterProvince;
+
+
+    String json_string;
+    JSONObject jsonObj;
+    JSONArray jsonArray;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,15 +98,53 @@ public class ShelterEditInfo extends AppCompatActivity {
 
         editTextBizName = findViewById(R.id.txt_biz_name_shelter_edit);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter_edit);
-        editTextUsername = findViewById(R.id.txt_username_shelter_edit);
         editTextWebsite = findViewById(R.id.txt_website_shelter_edit);
         editTextContact = findViewById(R.id.txt_contact_shelter_edit);
         editTextStreet = findViewById(R.id.txt_street_shelter_edit);
         editTextCity = findViewById(R.id.txt_city_shelter_edit);
-        editTextProvince = findViewById(R.id.txt_province_shelter_edit);
         editTextCountry = findViewById(R.id.txt_country_shelter_edit);
-        editTextTin = findViewById(R.id.txt_tin_shelter_edit);
 
+        //PROVINCES
+        json_string= loadJSONFromAsset();
+        ddProvince = findViewById(R.id.dd_province_shelter_edit);
+        ArrayList<String> provinces = new ArrayList<String>();
+        {
+
+            try {
+                jsonObj =new JSONObject(json_string);
+                jsonArray =jsonObj.getJSONArray("provinces");
+                String province;
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jObj = jsonArray.getJSONObject(i);
+                    province= jObj.getString("name");
+                    provinces.add(province);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, provinces);
+        Spinner ddProvince = (Spinner)findViewById(R.id.dd_province_shelter_edit);
+        ddProvince.setAdapter(provinceAdapter);
+        ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                shelterProvince = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        editTextCountry = findViewById(R.id.txt_country_shelter_edit);
+        editTextCountry.setEnabled(false);
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
@@ -128,6 +184,22 @@ public class ShelterEditInfo extends AppCompatActivity {
         });
     }
 
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("provinces.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
     private void getData() {
         usersDBRef.orderByChild("email").equalTo(shelterEmail)
                 .addValueEventListener(new ValueEventListener() {
@@ -142,14 +214,12 @@ public class ShelterEditInfo extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 editTextBizName.setText(String.valueOf(snapshot.child(shelterUsername).child("bizName").getValue()));
                                 editTextOwner.setText(String.valueOf(snapshot.child(shelterUsername).child("owner").getValue()));
-                                editTextUsername.setText(String.valueOf(snapshot.child(shelterUsername).child("username").getValue()));
                                 editTextWebsite.setText(String.valueOf(snapshot.child(shelterUsername).child("website").getValue()));
                                 editTextContact.setText(String.valueOf(snapshot.child(shelterUsername).child("contact").getValue()));
                                 editTextStreet.setText(String.valueOf(snapshot.child(shelterUsername).child("street").getValue()));
                                 editTextCity.setText(String.valueOf(snapshot.child(shelterUsername).child("city").getValue()));
-                                editTextProvince.setText(String.valueOf(snapshot.child(shelterUsername).child("province").getValue()));
+//                                editTextProvince.setText(String.valueOf(snapshot.child(shelterUsername).child("province").getValue()));
                                 editTextCountry.setText(String.valueOf(snapshot.child(shelterUsername).child("country").getValue()));
-                                editTextTin.setText(String.valueOf(snapshot.child(shelterUsername).child("tin").getValue()));
 
                                 imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());
                                 System.out.println("imageName AdopterEdit" + imageName);

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -51,8 +52,13 @@ public class ShelterPerPetProfile extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ShelterPerPetProfile.this, ShelterListOfPetsFragment.class));
+                //ACTIVITY TO FRAGMENT
+                ShelterListOfPetsFragment shelterListOfPetsFragment= new ShelterListOfPetsFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.per_pet_profile_container, shelterListOfPetsFragment);
+                transaction.commit();
             }
+
         });
 
         setUpPetImage();
