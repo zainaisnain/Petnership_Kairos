@@ -57,6 +57,9 @@
             android:name=".ShelterPerCatProfile"
             android:exported="false" />
         <activity
+            android:name=".ShelterPerPetProfile"
+            android:exported="false" />
+        <activity
             android:name=".ShelterInfo"
             android:exported="false">
             <meta-data
