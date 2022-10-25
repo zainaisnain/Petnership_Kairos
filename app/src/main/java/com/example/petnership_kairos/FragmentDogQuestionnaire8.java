@@ -57,9 +57,9 @@ public class FragmentDogQuestionnaire8 extends Fragment {
 
 
         // bring back previous progress if any
-        if (mViewModel.getDogAnswer(8) != null){
-            seekBar49.setProgress(mViewModel.getDogAnswer(8));
-        }
+    //    if (mViewModel.getDogAnswer(8) != null){
+      //      seekBar49.setProgress(mViewModel.getDogAnswer(8));
+        //}
 
         seekBar45.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
