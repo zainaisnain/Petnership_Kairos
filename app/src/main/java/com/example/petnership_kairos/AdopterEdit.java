@@ -3,10 +3,14 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -55,7 +59,7 @@ public class AdopterEdit extends AppCompatActivity {
     private String contact,
             street, city, province, country, gender, birthday;
 
-    private Button submitAdopterEditBtn, uploadEditBtn;
+    private Button submitAdopterEditBtn, uploadEditBtn, cancelBtn;
     private ImageButton backBtn;
     private ImageView imageView;
 
@@ -108,11 +112,21 @@ public class AdopterEdit extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdopterEdit.this,AdopterDashboard.class);
-                startActivity(intent);
-
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
             }
         });
+
+        cancelBtn = (Button) findViewById(R.id.cancelBTN);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showcancelDialog();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
+            }
+        });
+
         // on pressing btnSelect SelectImage() is called
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,11 +191,45 @@ public class AdopterEdit extends AppCompatActivity {
                     Toast.makeText(AdopterEdit.this, "Please upload picture", Toast.LENGTH_LONG).show();
                 }else{
                     editAdopterInfo();
+                    showsaveDialog();
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
                 }
             }
+
         });
 
         getData();
+    }
+
+    private void showcancelDialog() {
+        final Dialog cancelDialog  = new Dialog(this);
+        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        cancelDialog.show();
+        Button okBTN = (Button) cancelDialog.findViewById(R.id.buttonOk);
+        okBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                cancelDialog.dismiss();
+
+            }
+        });
+    }
+
+    private void showsaveDialog() {
+        final Dialog saveDialog  = new Dialog(this);
+        saveDialog.setContentView(R.layout.activity_save_dialog);
+        saveDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        saveDialog.show();
+        Button okBTN = (Button) saveDialog.findViewById(R.id.buttonOk);
+        okBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                saveDialog.dismiss();
+
+            }
+        });
     }
 
     // Select Image method

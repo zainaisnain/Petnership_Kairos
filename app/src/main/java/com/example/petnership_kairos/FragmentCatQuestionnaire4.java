@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class FragmentCatQuestionnaire4 extends Fragment {
+public class  FragmentCatQuestionnaire4 extends Fragment {
 
     public static FragmentCatQuestionnaire4 newInstance() {
         return new FragmentCatQuestionnaire4();
