@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/shelter_list_of_pets_frag"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
     tools:context=".ShelterListOfPetsFragment">

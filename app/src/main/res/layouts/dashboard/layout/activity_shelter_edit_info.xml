@@ -71,18 +71,6 @@
                 android:hint="Owner Name" />
 
             <EditText
-                android:id="@+id/txt_username_shelter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Username"
-                android:paddingLeft="10dp" />
-
-            <EditText
                 android:id="@+id/txt_website_shelter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -130,8 +118,8 @@
                 android:paddingLeft="10dp"
                 android:hint="City" />
 
-            <EditText
-                android:id="@+id/txt_province_shelter_edit"
+            <Spinner
+                android:id="@+id/dd_province_shelter_edit"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -153,23 +141,8 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Country" />
-
-
-            <EditText
-                android:id="@+id/txt_tin_shelter_edit"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="TIN Number"
-                android:inputType = "numberPassword"
-                />
-
+                android:hint="Country"
+                android:text = "Philippines" />
 
             <ImageView
                 android:id="@+id/profile_pic_iv_edit"

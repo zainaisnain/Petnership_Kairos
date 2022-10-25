@@ -2,6 +2,7 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -51,7 +52,10 @@ public class AdopterPerPetProfile extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AdopterPerPetProfile.this, BrowseAnimals.class));
+                BrowseAnimals browseAnimals= new BrowseAnimals();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.adopter_per_pet_profile_container, browseAnimals);
+                transaction.commit();
             }
         });
 
