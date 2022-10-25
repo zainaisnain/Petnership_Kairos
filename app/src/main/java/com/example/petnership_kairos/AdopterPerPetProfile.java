@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class AdopterPerPetProfile extends AppCompatActivity {
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage;
     private ImageButton backBtn;
+    private Button adoptMeBtn, notForMeBtn;
 
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -47,14 +49,23 @@ public class AdopterPerPetProfile extends AppCompatActivity {
         tvPetDescription = findViewById(R.id.adopter_per_pet_description);
 
         backBtn = findViewById(R.id.adopter_per_pet_back_btn);
-
-
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 BrowseAnimals browseAnimals= new BrowseAnimals();
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.adopter_per_pet_profile_container, browseAnimals);
+                transaction.commit();
+            }
+        });
+
+        adoptMeBtn = findViewById(R.id.adopter_per_pet_adopt_me_btn);
+        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AdoptionForm adoptionForm= new AdoptionForm();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.adopter_per_pet_profile_container, adoptionForm);
                 transaction.commit();
             }
         });

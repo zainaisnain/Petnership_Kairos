@@ -20,10 +20,19 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
 public class AdoptionForm extends Fragment implements View.OnClickListener{
 
+    private FirebaseAuth authProfile;
+    private FirebaseUser firebaseUser;
+    private String adopterEmail, adopterUsername;
+
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     AppCompatRadioButton rbDog, rbCat;
     Button submitForm, cancelForm;
 
@@ -37,6 +46,10 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adoption_form, container, false);
+
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        adopterEmail = firebaseUser.getEmail();
 
         rbDog = view.findViewById(R.id.dogClicked);
         rbCat = view.findViewById(R.id.catClicked);

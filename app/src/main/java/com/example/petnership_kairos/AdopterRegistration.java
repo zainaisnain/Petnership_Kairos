@@ -63,12 +63,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     private FirebaseAuth mAuth;
     private ImageButton backBtn;
 
-    // view for image view
-    private ImageView imageView;
-
     // Uri indicates, where the image will be picked from
     private Uri filePath;
-    private String imageName;
+    private String imageName="";
 
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
@@ -201,30 +198,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         submit = findViewById(R.id.btn_submit_adopter);
         submit.setOnClickListener(this);
 
-        //UPLOAD IMAGE
-        imageView = findViewById(R.id.profile_pic_iv);
-        uploadBtn = findViewById(R.id.upload_image_btn);
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
-        // on pressing btnSelect SelectImage() is called
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                SelectImage();
-            }
-        });
-
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
-        });
 
 
         //return user type selection
@@ -272,140 +249,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         finish();
 
     }
-
-    // Select Image method
-    private void SelectImage()
-    {
-        // Defining Implicit Intent to mobile gallery
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(
-                        intent,
-                        "Select Image from here..."),
-                PICK_IMAGE_REQUEST);
-    }
-
-    // Override onActivityResult method
-    @Override
-    protected void onActivityResult(int requestCode,
-                                    int resultCode,
-                                    Intent data)
-    {
-
-        super.onActivityResult(requestCode,
-                resultCode,
-                data);
-
-        // checking request code and result code
-        // if request code is PICK_IMAGE_REQUEST and
-        // resultCode is RESULT_OK
-        // then set image in the image view
-        if (requestCode == PICK_IMAGE_REQUEST
-                && resultCode == RESULT_OK
-                && data != null
-                && data.getData() != null) {
-
-            // Get the Uri of data
-            filePath = data.getData();
-            try {
-
-                // Setting image on image view using Bitmap
-                Bitmap bitmap = MediaStore
-                        .Images
-                        .Media
-                        .getBitmap(
-                                getContentResolver(),
-                                filePath);
-                imageView.setImageBitmap(bitmap);
-            }
-
-            catch (IOException e) {
-                // Log the exception
-                e.printStackTrace();
-            }
-        }
-    }
-
-
-    // UploadImage method
-    private void uploadImage()
-    {
-        imageName = UUID.randomUUID().toString();
-
-        if (filePath != null) {
-
-            // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog
-                    = new ProgressDialog(this);
-            progressDialog.setTitle("Uploading...");
-            progressDialog.show();
-
-            // Defining the child of storageReference
-            StorageReference ref
-                    = storageReference
-                    .child(
-                            "Adopters/"
-                                    + imageName);
-
-            // adding listeners on upload
-            // or failure of image
-            ref.putFile(filePath)
-                    .addOnSuccessListener(
-                            new OnSuccessListener<UploadTask.TaskSnapshot>() {
-
-                                @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot)
-                                {
-
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
-                                    progressDialog.dismiss();
-                                    Toast
-                                            .makeText(AdopterRegistration.this,
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
-                                }
-                            })
-
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e)
-                        {
-
-                            // Error, Image not uploaded
-                            progressDialog.dismiss();
-                            Toast
-                                    .makeText(AdopterRegistration.this,
-                                            "Failed " + e.getMessage(),
-                                            Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot)
-                                {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int)progress + "%");
-                                }
-                            });
-        }
-    }
-
 
     @Override
     public void onClick(View view) {
@@ -508,12 +351,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             editTextCity.requestFocus();
             return;
         }
-
-//        if(province.isEmpty()){
-//            editTextProvince.setError("Province Required.");
-//            editTextProvince.requestFocus();
-//            return;
-//        }
 
         if(country.isEmpty()){
             editTextCountry.setError("Country Required.");

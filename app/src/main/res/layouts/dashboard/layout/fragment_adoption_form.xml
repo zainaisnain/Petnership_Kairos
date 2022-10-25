@@ -9,22 +9,12 @@
     android:background="@color/background"
     tools:context=".AdoptionForm">
 
-<!--    <ScrollView-->
-<!--        android:id="@+id/scrollView2"-->
-<!--        android:layout_width="400dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:background="@color/background"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent">-->
-
-        <LinearLayout
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageButton
+        <ImageButton
                 android:id="@+id/btnBack"
                 android:layout_width="70dp"
                 android:layout_height="45dp"
@@ -39,7 +29,7 @@
                 app:tint="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Adoption Form"
@@ -49,7 +39,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"/>
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_date"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -61,7 +51,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Date (mm/dd/yyyy)"/>
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_lname_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -73,7 +63,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Name" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_email"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -85,7 +75,7 @@
                 android:hint="Email"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_mobilenum"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -98,7 +88,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="10dp" />
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Address"
@@ -109,7 +99,7 @@
                 android:layout_marginTop="30dp"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_street"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -121,7 +111,7 @@
                 android:hint="Street Address"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_street2"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -133,7 +123,7 @@
                 android:hint="Street Address Line 2"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_city"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -145,7 +135,7 @@
                 android:hint="City/State/Province"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_zip"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -157,7 +147,7 @@
                 android:hint="Postal/ZIP Code"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_country"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -169,7 +159,7 @@
                 android:hint="Country"
                 android:paddingLeft="10dp" />
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Personal References"
@@ -179,7 +169,7 @@
                 android:textColor="#371576"
                 android:layout_marginTop="30dp"/>
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_contact_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -191,7 +181,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Name" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_street_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -203,7 +193,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Relationship" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_city_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -215,7 +205,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Mobile No." />
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pet Preferences"
@@ -225,7 +215,7 @@
                 android:textColor="#371576"
                 android:layout_marginTop="30dp"/>
 
-            <TextView
+        <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Are you interested in a"
@@ -236,7 +226,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"/>
 
-            <RadioGroup
+        <RadioGroup
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/radioGroup_petType"
@@ -270,7 +260,7 @@
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_email_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -282,7 +272,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Name of the pet you wish to adopt" />
 
-            <EditText
+        <EditText
                 android:id="@+id/pref_pet_age"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -294,7 +284,7 @@
                 android:hint="Age"
                 android:paddingLeft="10dp" />
 
-            <EditText
+        <EditText
                 android:id="@+id/txt_province_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -306,7 +296,7 @@
                 android:paddingLeft="10dp"
                 android:hint="Breed/Mix" />
 
-            <EditText
+        <EditText
                 android:id="@+id/pref_pet_description"
                 android:layout_width="350dp"
                 android:layout_height="120dp"
@@ -318,7 +308,7 @@
                 android:hint="Name/Description of animal"
                 android:paddingLeft="10dp" />
 
-            <Button
+        <Button
                 android:id="@+id/btn_submit_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -327,7 +317,7 @@
                 android:backgroundTint="#371576"
                 android:text="Submit"/>
 
-            <Button
+        <Button
                 android:id="@+id/adopterRegisterCancel"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
@@ -337,7 +327,5 @@
                 android:layout_marginTop="10dp"
                 android:text="Cancel" />
 
-        </LinearLayout>
-    </ScrollView>
-
-<!--</ScrollView>-->
+    </LinearLayout>
+</ScrollView>
