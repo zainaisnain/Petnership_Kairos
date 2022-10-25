@@ -92,7 +92,8 @@
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Contact Number" />
+                android:hint="Contact Number"
+                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/txt_street_shelter_edit"
