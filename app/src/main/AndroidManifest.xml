@@ -14,7 +14,7 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
-            android:name=".AdopterPerPetProfile"
+            android:name=".AdopterPerPetProfileAct"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
