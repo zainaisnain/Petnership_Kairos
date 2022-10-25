@@ -2,12 +2,12 @@ package com.example.petnership_kairos;
 
 public class DogAnswers {
     public int q1,q2,q3,q4,q5,q6,q7, q8, q9, q11;
-    public String shelter, petName, petAge, petSex, petStatus, petDesc, imageName, petID, q10;
+    public String shelter, petName, petAge, petSex, petStatus, petDesc, imageName, petID, q10, petType;
 
     public DogAnswers(){}
     public DogAnswers(String shelter, String petName, String petAge, String petSex, String petStatus, String petDesc,
                       String imageName, String petID, int q1, int q2, int q3, int q4, int q5,
-                      int q6, int q7, int q8, int q9, String q10, int q11){
+                      int q6, int q7, int q8, int q9, String q10, int q11, String petType){
         this.shelter=shelter;
         this.petName = petName;
         this.petAge = petAge;
@@ -27,5 +27,6 @@ public class DogAnswers {
         this.q9=q9;
         this.q10=q10;
         this.q11=q11;
+        this.petType = petType;
     }
 }

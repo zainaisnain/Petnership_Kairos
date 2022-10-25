@@ -46,6 +46,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
     private FirebaseUser firebaseUser;
 
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -184,11 +185,32 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
-                        q6,q7,q8,q9);
+                CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
+                Bundle bundle = new Bundle();
+                bundle.putInt("q1", q1);
+                bundle.putInt("q2", q2);
+                bundle.putInt("q3", q3);
+                bundle.putInt("q4", q4);
+                bundle.putInt("q5", q5);
+                bundle.putInt("q6", q6);
+                bundle.putInt("q7", q7);
+                bundle.putInt("q8", q8);
+                bundle.putString("q9", q9);
+                catPetProfileSummary.setArguments(bundle);
+
+                String petType = "cat";
+                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus,
+                        petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                        q6,q7,q8,q9, petType);
                 petsCatsDBRef.child(petID).setValue(catAnswers);
+                allPetsDBRef.child(petID).setValue(catAnswers);
                 addToShelterDB();
                 startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
+
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                    CatPetProfileSummary  catPetProfileSummary = new CatPetProfileSummary();
+//                transaction.replace(R.id.nav_host_fragment, catPetProfileSummary);
+//                transaction.commit();
             }
         });
 

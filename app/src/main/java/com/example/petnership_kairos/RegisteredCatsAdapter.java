@@ -75,7 +75,7 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         holder.cvCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), PerCatProfile.class);
+                Intent intent = new Intent(view.getContext(), ShelterPerCatProfile.class);
                 intent.putExtra("petID", registeredCatDataList.getPetID());
                 view.getContext().startActivity(intent);
             }

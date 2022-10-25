@@ -34,7 +34,7 @@ public class PerPetProfileDogs extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterListOfDogsFragment shelterListOfDogs = new ShelterListOfDogsFragment();
-                transaction.replace(R.id.nav_host_fragment, shelterListOfDogs);
+                transaction.replace(R.id.per_pet_profile_dogs_frag, shelterListOfDogs);
                 transaction.commit();
             }
         });

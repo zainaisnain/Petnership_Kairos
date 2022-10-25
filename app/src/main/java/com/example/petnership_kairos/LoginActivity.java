@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -83,50 +84,62 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            etUserEmail.setError("Please provide valid email.");
+            etUserEmail.requestFocus();
+            return;
+        }
+
+        databaseReference.orderByChild("email").equalTo(email)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                //first locate the parent (in this case, also the username) of the email
-                for(DataSnapshot ds : snapshot.getChildren()) {
-                    username = ds.getKey();
-                }
-
-                //sign in
-                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            databaseReference.child(username).child("userType")
-                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                            String userType = snapshot.getValue(String.class);
-
-                                            if(userType.equals("adopter")){
-                                                startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
-                                            }else if(userType.equals("shelter")) {
-                                                startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
-                                            System.out.println("on cancelled");
-                                        }
-                                    });
-                        }
-                        else
-                        {
-                            //failed login
-                            Toast.makeText(LoginActivity.this,"Authentication Failed.",Toast.LENGTH_LONG).show();
-                        }
+                if(snapshot.exists()){
+                    //first locate the parent (in this case, also the username) of the email
+                    for(DataSnapshot ds : snapshot.getChildren()) {
+                        username = ds.getKey();
                     }
-                });
 
+                    //sign in
+                    mAuth.signInWithEmailAndPassword(email,password)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
+                                        if (mAuth.getCurrentUser().isEmailVerified()){
+                                            databaseReference.child(username).child("userType")
+                                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                            String userType = snapshot.getValue(String.class);
 
+                                                            if(userType.equals("adopter")){
+                                                                startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                                            }else if(userType.equals("shelter")) {
+                                                                startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {
+                                                            System.out.println("on cancelled");
+                                                        }
+                                                    });
+                                        }else{
+                                            startActivity(new Intent(LoginActivity.this, UserVerifyEmailDialog.class));
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //failed login
+                                        Toast.makeText(LoginActivity.this,"Login Failed. Please check email and/or password.",Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
+                }else{
+                    Toast.makeText(LoginActivity.this,"Email not found. Please sign up first.",Toast.LENGTH_LONG).show();
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

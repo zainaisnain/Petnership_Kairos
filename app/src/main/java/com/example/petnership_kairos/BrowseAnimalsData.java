@@ -1,56 +1,53 @@
 package com.example.petnership_kairos;
 
 public class BrowseAnimalsData {
+    String petImageName, petName, petAge, petSex, petBreed;
 
-    private String animalName;
-    private String animalAge; 
-    private String animalSex; 
-    private String animalBreed; 
-    private Integer animalImage;
-
-    public BrowseAnimalsData(String animalName, String animalAge, String animalSex, String animalBreed, Integer animalImage) {
-        this.animalName = animalName;
-        this.animalAge = animalAge;
-        this.animalSex = animalSex;
-        this.animalBreed = animalBreed;
-        this.animalImage = animalImage;
+    public BrowseAnimalsData(String petImageName, String petName, String petAge, String petSex, String petBreed) {
+        this.petImageName = petImageName;
+        this.petName = petName;
+        this.petAge = petAge;
+        this.petSex = petSex;
+        this.petBreed = petBreed;
     }
 
-    public String getanimalName() {
-        return animalName;
-    }
-    public String getanimalAge() {
-        return animalAge;
-    }
-    public String getanimalSex() {
-        return animalSex;
-    }
-    public String getanimalBreed() {
-        return animalBreed;
+    public String getPetImageName() {
+        return petImageName;
     }
 
-    public Integer getanimalImage() {
-        return animalImage;
+    public void setPetImageName(String petImageName) {
+        this.petImageName = petImageName;
     }
 
-    public void setanimalName(String animalName) {
-        this.animalName = animalName;
+    public String getPetName() {
+        return petName;
     }
 
-    public void setanimalAge(String animalAge) {
-        this.animalAge = animalAge;
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 
-    public void setanimalSex(String animalSex) {
-        this.animalSex = animalSex;
+    public String getPetAge() {
+        return petAge;
     }
 
-    public void setanimalBreed(String animalBreed) {
-        this.animalBreed = animalBreed;
+    public void setPetAge(String petAge) {
+        this.petAge = petAge;
     }
 
-    public void setanimalImage(Integer animalImage) {
-        this.animalImage = animalImage;
+    public String getPetSex() {
+        return petSex;
     }
 
+    public void setPetSex(String petSex) {
+        this.petSex = petSex;
+    }
+
+    public String getPetBreed() {
+        return petBreed;
+    }
+
+    public void setPetBreed(String petBreed) {
+        this.petBreed = petBreed;
+    }
 }

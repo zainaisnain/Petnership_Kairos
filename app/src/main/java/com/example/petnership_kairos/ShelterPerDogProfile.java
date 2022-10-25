@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,17 +23,18 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-public class PerDogProfile extends AppCompatActivity {
+public class ShelterPerDogProfile extends AppCompatActivity {
 
     protected static String petID, petImageName, petName, petBreed, petAge, petSex, petDescription;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage, editDogInfoBtn;
+    private ImageButton backBtn;
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_per_dog_profile);
+        setContentView(R.layout.activity_shelter_per_dog_profile);
 
         petID = getIntent().getStringExtra("dogPetID");
         ivPetImage = findViewById(R.id.per_dog_image);
@@ -43,7 +46,13 @@ public class PerDogProfile extends AppCompatActivity {
         tvPetDescription = findViewById(R.id.per_dog_description);
         editDogInfoBtn = findViewById(R.id.edit_dog_info_btn);
 
-        System.out.println("petID inside PerdogProfile : " + petID);
+        backBtn = findViewById(R.id.per_dog_back_btn);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShelterPerDogProfile.this, ShelterListOfDogsFragment.class));
+            }
+        });
 
         editDogInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +79,7 @@ public class PerDogProfile extends AppCompatActivity {
                 storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Glide.with(PerDogProfile.this).load(uri.toString()).into(ivPetImage);
+                        Glide.with(ShelterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
                     }
                 });
 

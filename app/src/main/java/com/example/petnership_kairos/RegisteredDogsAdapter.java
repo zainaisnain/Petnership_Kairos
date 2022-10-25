@@ -1,6 +1,5 @@
 package com.example.petnership_kairos;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -79,7 +78,7 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
         holder.cvDog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), PerDogProfile.class);
+                Intent intent = new Intent(view.getContext(), ShelterPerDogProfile.class);
                 intent.putExtra("dogPetID", registeredDogDataList.getPetID());
                 view.getContext().startActivity(intent);
             }

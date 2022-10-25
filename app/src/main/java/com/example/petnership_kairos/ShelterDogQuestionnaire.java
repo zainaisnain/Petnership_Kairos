@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -49,6 +50,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
     private FirebaseUser firebaseUser;
 
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
@@ -260,11 +262,31 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                     Toast.makeText(getActivity(), "Please answer all questions", Toast.LENGTH_LONG).show();
                     return;
                 }else{
+                    DogPetProfileSummary dogPetProfileSummary = new DogPetProfileSummary();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("q1", q1);
+                    bundle.putInt("q2", q2);
+                    bundle.putInt("q3", q3);
+                    bundle.putInt("q4", q4);
+                    bundle.putInt("q5", q5);
+                    bundle.putInt("q6", q6);
+                    bundle.putInt("q7", q7);
+                    bundle.putInt("q8", q8);
+                    bundle.putInt("q9", q9);
+                    bundle.putString("q10", q10);
+                    bundle.putInt("q11", q11);
+                    dogPetProfileSummary.setArguments(bundle);
+
+                    String petType = "dog";
                     DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9,q10,q11);
+                            q6,q7,q8,q9,q10,q11,petType);
                     petsDogsDBRef.child(petID).setValue(dogAnswers);
+                    allPetsDBRef.child(petID).setValue(dogAnswers);
                     addToShelterDB();
-                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
+
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
+                    transaction.commit();
                 }
             }
         });

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/shelter_dashboard_frag"
     android:padding="@dimen/_12sdp"
     >
 
@@ -237,7 +238,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="12"
+                            android:text="4"
                             android:textColor="@color/secondary_purple"
                             android:textSize="40sp"
                             android:textStyle="bold"
@@ -276,7 +277,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="12"
+                            android:text="3"
                             android:textColor="@color/secondary_purple"
                             android:textSize="40sp"
                             android:textStyle="bold"
