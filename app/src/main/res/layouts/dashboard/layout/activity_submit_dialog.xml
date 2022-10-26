@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/card">
+    android:background="#FFFFFF">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -22,21 +22,21 @@
                 android:id="@+id/imageView2"
                 android:layout_width="214dp"
                 android:layout_height="172dp"
-                app:srcCompat="@drawable/ic_warning"
-                tools:layout_editor_absoluteX="93dp"
-                tools:layout_editor_absoluteY="27dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/check" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/marmelad_regular"
-                android:textSize="24sp"
-                android:padding="10dp"
-                android:text="Task cancelled."
+                android:text="Thank you! Your application is now under review."
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:fontFamily="@font/marmelad_regular"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
