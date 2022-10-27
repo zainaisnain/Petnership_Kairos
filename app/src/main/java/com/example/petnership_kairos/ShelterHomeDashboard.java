@@ -127,7 +127,7 @@ public class ShelterHomeDashboard extends Fragment {
             ApplicantsReviewFragment appreviewfrag = new ApplicantsReviewFragment();
             transaction.replace(R.id.nav_host_fragment, appreviewfrag);
             transaction.commit();
-//                startActivity(new Intent(getActivity(), ShelterToReviewApplications.class));
+//                startActivity(new Intent(getActivity(), ShelterToReviewApplication.class));
         }
     });
 
