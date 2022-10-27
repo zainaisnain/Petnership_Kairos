@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -30,8 +29,8 @@ public class AdopterPerPetProfile extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
 
-    protected static String petID, petImageName, petName, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
-    private String adopterEmail, adopterID;
+    protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
+    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage;
     private ImageButton backBtn;
@@ -81,6 +80,7 @@ public class AdopterPerPetProfile extends AppCompatActivity {
                 //pass the pet's info to next screen (fragment)
                 Bundle bundle = new Bundle();
                 bundle.putString("petID", petID);
+                bundle.putString("petType", petType);
                 bundle.putString("petImageName", petImageName);
                 bundle.putString("petName", petName);
                 bundle.putString("petBreed", petBreed);
@@ -89,8 +89,13 @@ public class AdopterPerPetProfile extends AppCompatActivity {
                 bundle.putString("petDescription", petDescription);
                 bundle.putString("petShelter", petShelter);
                 bundle.putString("shelterID", shelterID);
+                bundle.putString("shelterEmail", shelterEmail);
                 bundle.putString("adopterID", adopterID);
                 bundle.putString("adopterEmail", adopterEmail);
+                bundle.putString("adopterName", adopterName);
+                bundle.putString("adopterContact", adopterContact);
+                bundle.putString("adopterAddress", adopterAddress);
+
 
 
                 AdoptionForm adoptionForm = new AdoptionForm();
@@ -113,6 +118,11 @@ public class AdopterPerPetProfile extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 snapshot.child("appliedToAdopt").getRef().setValue(appliedToAdopt);
+
+                                BrowseAnimals browseAnimals = new BrowseAnimals();
+                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                transaction.replace(R.id.adopter_per_pet_profile_container, browseAnimals);
+                                transaction.commit();
                             }
 
                             @Override
@@ -135,7 +145,32 @@ public class AdopterPerPetProfile extends AppCompatActivity {
                                     for (DataSnapshot ds : snapshot.getChildren()) {
                                         adopterID = ds.getKey();
                                     }
+
+                                    adoptersDBRef.child(adopterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            String fname = (String) snapshot.child("fname").getValue();
+                                            String lname = (String) snapshot.child("lname").getValue();
+                                            adopterName = fname + " " + lname;
+                                            adopterContact = (String) snapshot.child("contact").getValue();
+                                            String street = (String) snapshot.child("street").getValue();
+                                            String city = (String) snapshot.child("city").getValue();
+                                            String province = (String) snapshot.child("province").getValue();
+                                            String country = (String) snapshot.child("country").getValue();
+                                            adopterAddress = street + ", " + city + ", " + province + ", " + country;
+                                            System.out.println("adopterName   == " + adopterName);
+                                            System.out.println("adopterContact   == " + adopterContact);
+                                            System.out.println("adopterAddress   == " + adopterAddress);
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                                 }
+
+
 
                                 adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID)
                                         .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -154,9 +189,9 @@ public class AdopterPerPetProfile extends AppCompatActivity {
                                                 petAge = (String) snapshot.child("petAge").getValue();
                                                 petSex = (String) snapshot.child("petSex").getValue();
                                                 petDescription = (String) snapshot.child("petDesc").getValue();
-                                                String shelterEmail = (String) snapshot.child("shelter").getValue();
+                                                shelterEmail = (String) snapshot.child("shelter").getValue();
 
-                                                String petType = (String) snapshot.child("petType").getValue();
+                                                petType = (String) snapshot.child("petType").getValue();
                                                 if(petType.equals("dog")){
                                                     petBreed = (String) snapshot.child("q10").getValue();
                                                 }else if(petType.equals("cat")){

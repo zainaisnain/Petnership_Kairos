@@ -31,10 +31,10 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-    private String adopterEmail, adopterID, appliedToAdopt, timeStamp;
+    private String adopterID, adopterName, adopterEmail, adopterContact, adopterAddress,
+            petID, petType, petName, petBreed, petAge, petDescription, dateApplied, timeApplied, applicationStatus;
 
-    protected static String petID, petImageName, petName, petBreed, petAge, petSex,
-            petDescription, petShelter, shelterID;
+    protected static String petImageName, petSex, petShelter, shelterID, shelterEmail;
 
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
@@ -43,7 +43,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
     CheckBox agreeCb;
     EditText intentionsTv;
 
-    String adopterIntentions;
+    String adopterIntentions, appliedToAdopt;
     boolean adopterAgreed;
     private AdoptionFormViewModel mViewModel;
 
@@ -68,6 +68,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
         //get pet infos
         //store that in db upon submit
         petID = getArguments().getString("petID");
+        petType = getArguments().getString("petType");
         petImageName = getArguments().getString("petImageName");
         petName = getArguments().getString("petName");
         petBreed = getArguments().getString("petBreed");
@@ -76,10 +77,16 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
         petDescription = getArguments().getString("petDescription");
         petShelter = getArguments().getString("petShelter");
         shelterID = getArguments().getString("shelterID");
+        shelterEmail = getArguments().getString("shelterEmail");
         adopterID = getArguments().getString("adopterID");
+        adopterName = getArguments().getString("adopterName");
         adopterEmail = getArguments().getString("adopterEmail");
-        timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        System.out.println("timeStamp == " +  timeStamp);
+        adopterContact = getArguments().getString("adopterContact");
+        adopterAddress = getArguments().getString("adopterAddress");
+        dateApplied = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+        timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        System.out.println("adopterID   == " + adopterID);
+        System.out.println("petBreed   == " + petBreed);
 
         agreeCb = view.findViewById(R.id.agree_terms_adoption_cb);
         agreeCb.setOnClickListener(new View.OnClickListener() {
@@ -115,9 +122,14 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
 
                     //update AdopterAllPets
                     appliedToAdopt = "true";
+                    intentionsTv = view.findViewById(R.id.intentions_adopter);
+                    adopterIntentions = intentionsTv.getText().toString();
+                    System.out.println("adopterIntentions === " + adopterIntentions);
+                    System.out.println("dateApplied == " +  dateApplied);
+                    System.out.println("timeApplied == " +  timeApplied);
+
                     updateDBs();
 
-                    //add to db
                     MyCustomDialog submitDialog = new MyCustomDialog();
                     submitDialog.show(getParentFragmentManager(), "My Fragment");
                 }
@@ -141,10 +153,15 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         snapshot.child("appliedToAdopt").getRef().setValue(appliedToAdopt);
+                        applicationStatus = "pending";
 
-                        ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo(adopterID, adopterEmail, petID, timeStamp);
+                        ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
+                                (dateApplied, timeApplied, adopterID, adopterIntentions,
+                                        petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
                         //insert to designated shelter's db
-                        sheltersDBRef.child("ForReviewApplicants").setValue(forReviewApplicantsInfo);
+                        sheltersDBRef.child(shelterID).child("ForReviewApplicants").setValue(forReviewApplicantsInfo);
+                        //add to adopters application history
+                        adoptersDBRef.child(adopterID).child("ApplicationHistory").setValue(forReviewApplicantsInfo);
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
