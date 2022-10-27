@@ -12,7 +12,8 @@
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+        >
 
         <ImageButton
                 android:id="@+id/btnBack"
@@ -39,265 +40,26 @@
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"/>
 
-        <EditText
-                android:id="@+id/txt_date"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Date (mm/dd/yyyy)"/>
-
-        <EditText
-                android:id="@+id/txt_lname_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Name" />
-
-        <EditText
-                android:id="@+id/txt_email"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Email"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_mobilenum"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Mobile Number"
-                android:inputType="textPassword"
-                android:paddingLeft="10dp" />
-
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Address"
-                android:fontFamily="@font/montserrat_reg"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:textColor="#371576"
-                android:layout_marginTop="30dp"
-                android:paddingLeft="10dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terms and Condition"
+            android:fontFamily="@font/marmelad_regular"
+            android:textSize="25sp"
+            android:textColor="#371576"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"/>
+
+        <CheckBox
+            android:id="@+id/agree_terms_adoption_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Agree"/>
+
 
         <EditText
-                android:id="@+id/txt_street"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Street Address"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_street2"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Street Address Line 2"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_city"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="City/State/Province"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_zip"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Postal/ZIP Code"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_country"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Country"
-                android:paddingLeft="10dp" />
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal References"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:textSize="20sp"
-                android:textColor="#371576"
-                android:layout_marginTop="30dp"/>
-
-        <EditText
-                android:id="@+id/txt_contact_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Name" />
-
-        <EditText
-                android:id="@+id/txt_street_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Relationship" />
-
-        <EditText
-                android:id="@+id/txt_city_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Mobile No." />
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pet Preferences"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:textSize="20sp"
-                android:textColor="#371576"
-                android:layout_marginTop="30dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Are you interested in a"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_reg"
-                android:textSize="20sp"
-                android:textColor="#371576"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"/>
-
-        <RadioGroup
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioGroup_petType"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/dogClicked"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:gravity="center"
-                    android:text="DOG"
-                    android:textColor="@color/white"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/radio_button_type"
-                    android:onClick="onRadioButtonClicked"
-                    android:fontFamily="@font/montserrat_reg" />
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/catClicked"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:checked="false"
-                    android:gravity="center"
-                    android:text="CAT"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:textColor="@color/white"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/radio_button_type"
-                    android:onClick="onRadioButtonClicked"/>
-            </RadioGroup>
-
-        <EditText
-                android:id="@+id/txt_email_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Name of the pet you wish to adopt" />
-
-        <EditText
-                android:id="@+id/pref_pet_age"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Age"
-                android:paddingLeft="10dp" />
-
-        <EditText
-                android:id="@+id/txt_province_adopter"
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Breed/Mix" />
-
-        <EditText
-                android:id="@+id/pref_pet_description"
+                android:id="@+id/intentions_adopter"
                 android:layout_width="350dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
@@ -305,7 +67,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Name/Description of animal"
+                android:hint="Intentions in adopting (?)"
                 android:paddingLeft="10dp" />
 
         <Button
