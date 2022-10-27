@@ -1,11 +1,12 @@
 package com.example.petnership_kairos;
 
 public class ForReviewApplicantsInfo {
-    String dateApplied, timeApplied, adopterID, adopterIntentions,
-            petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus;
+    String applicationID, dateApplied, timeApplied, adopterID, adopterIntentions,
+            petID, petType, petName, petBreed, petAge, petDescription, shelterID,
+            applicationStatus;
 
-
-    public ForReviewApplicantsInfo(String dateApplied, String timeApplied, String adopterID, String adopterIntentions, String petID, String petType, String petName, String petBreed, String petAge, String petDescription, String shelterID, String applicationStatus) {
+    public ForReviewApplicantsInfo(String applicationID, String dateApplied, String timeApplied, String adopterID, String adopterIntentions, String petID, String petType, String petName, String petBreed, String petAge, String petDescription, String shelterID, String applicationStatus) {
+        this.applicationID = applicationID;
         this.dateApplied = dateApplied;
         this.timeApplied = timeApplied;
         this.adopterID = adopterID;
@@ -18,6 +19,14 @@ public class ForReviewApplicantsInfo {
         this.petDescription = petDescription;
         this.shelterID = shelterID;
         this.applicationStatus = applicationStatus;
+    }
+
+    public String getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(String applicationID) {
+        this.applicationID = applicationID;
     }
 
     public String getDateApplied() {
@@ -116,3 +125,4 @@ public class ForReviewApplicantsInfo {
         this.applicationStatus = applicationStatus;
     }
 }
+

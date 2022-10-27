@@ -153,15 +153,18 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         snapshot.child("appliedToAdopt").getRef().setValue(appliedToAdopt);
-                        applicationStatus = "pending";
+                        applicationStatus = "Pending";
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                        String applicationID = reference.push().getKey();
+                        System.out.println("applicationID === " + applicationID);
 
                         ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
-                                (dateApplied, timeApplied, adopterID, adopterIntentions,
+                                (applicationID, dateApplied, timeApplied, adopterID, adopterIntentions,
                                         petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
                         //insert to designated shelter's db
-                        sheltersDBRef.child(shelterID).child("ForReviewApplicants").setValue(forReviewApplicantsInfo);
+                        sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID).setValue(forReviewApplicantsInfo);
                         //add to adopters application history
-                        adoptersDBRef.child(adopterID).child("ApplicationHistory").setValue(forReviewApplicantsInfo);
+                        adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).setValue(forReviewApplicantsInfo);
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
