@@ -1,35 +1,63 @@
 package com.example.petnership_kairos;
 
 public class ApplicantsReviewData {
-    private String applicantName;
-    private String applicantPet;
-    private Integer applicantImage;
+    private String applicationID, applicantID, applicantName, applicantPetID, applicantPetName, applicantDateApplied;
 
-    public ApplicantsReviewData(String applicantName, String applicantPet, Integer applicantImage) {
+    public ApplicantsReviewData(String applicationID, String applicantID, String applicantName, String applicantPetID, String applicantPetName, String applicantDateApplied) {
+        this.applicationID = applicationID;
+        this.applicantID = applicantID;
         this.applicantName = applicantName;
-        this.applicantPet = applicantPet;
-        this.applicantImage = applicantImage;
+        this.applicantPetID = applicantPetID;
+        this.applicantPetName = applicantPetName;
+        this.applicantDateApplied = applicantDateApplied;
     }
 
-    public String getapplicantName() {
+    public String getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(String applicationID) {
+        this.applicationID = applicationID;
+    }
+
+    public String getApplicantID() {
+        return applicantID;
+    }
+
+    public void setApplicantID(String applicantID) {
+        this.applicantID = applicantID;
+    }
+
+    public String getApplicantName() {
         return applicantName;
     }
-    public String getapplicantPet() {
-        return applicantPet;
-    }
-    public Integer getapplicantImage() {
-        return applicantImage;
-    }
 
-    public void setapplicantName(String applicantName) {
+    public void setApplicantName(String applicantName) {
         this.applicantName = applicantName;
     }
 
-    public void setapplicantPet(String applicantPet) {
-        this.applicantPet = applicantPet;
+    public String getApplicantPetID() {
+        return applicantPetID;
     }
 
-    public void setapplicantImage(Integer applicantImage) {
-        this.applicantImage = applicantImage;
+    public void setApplicantPetID(String applicantPetID) {
+        this.applicantPetID = applicantPetID;
+    }
+
+    public String getApplicantPetName() {
+        return applicantPetName;
+    }
+
+    public void setApplicantPetName(String applicantPetName) {
+        this.applicantPetName = applicantPetName;
+    }
+
+    public String getApplicantDateApplied() {
+        return applicantDateApplied;
+    }
+
+    public void setApplicantDateApplied(String applicantDateApplied) {
+        this.applicantDateApplied = applicantDateApplied;
     }
 }
+

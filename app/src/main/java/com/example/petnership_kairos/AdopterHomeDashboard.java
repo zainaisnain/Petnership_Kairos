@@ -17,7 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.common.util.CollectionUtils;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+
 public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
 
@@ -36,13 +41,13 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
-    DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
     private int numOfCats, numOfDogs, catsCount, dogsCount;
     private TextView tvAdopterName, tvAdopterContact, tvAdopterAddress;
-    private String adopterEmail, adopterUsername, adopterImageName, adopterName, adopterContact, adopterAddress;
+    private String adopterEmail, adopterID, adopterImageName, adopterName, adopterContact, adopterAddress, petID, existingPetID, allPetsID;
     private ImageView ivAdopterImage, ivCvAdopterImage;
     private CardView cvAdopterInfo;
     private CardView cvApplicationHistory;
@@ -52,6 +57,12 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
     private FirebaseUser firebaseUser;
     // instance for firebase storage and StorageReference
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+    private String appliedToAdopt = "not yet";
+    private ArrayList<String> existingPetIDs = new ArrayList<>();
+    private ArrayList<String> allPetsIDs = new ArrayList<>();
+
+    private ArrayList<String> diffPetsIDs = new ArrayList<>();
+
 
 
     public static AdopterHomeDashboard newInstance() {
@@ -83,6 +94,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdoptPet =  view.findViewById(R.id.adopterIntBrowseShelter);
         cvBrowseAnimals = view.findViewById(R.id.adopterIntBrowseAnimal);
 
+        createCopyOfAllPets();
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,6 +123,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvBrowseAnimals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 BrowseAnimals browseAnimals = new BrowseAnimals();
                 transaction.replace(R.id.nav_host_fragment,browseAnimals);
@@ -123,6 +136,90 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
     }
 
+    private void createCopyOfAllPets() {
+
+        //first check if AdopterAllPets exists
+            //if yes:
+                //only append petID not in the list
+            // if no: create copy
+        //create a copy of AllPets node to adopter's node
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot adoptersDBsnapshot) {
+                        if(adoptersDBsnapshot.exists()){
+                            for(DataSnapshot ds : adoptersDBsnapshot.getChildren()) {
+                                adopterID = ds.getKey();
+                            }
+
+                            if(adoptersDBsnapshot.child(adopterID).hasChild("AdopterAllPets")){
+                                for(DataSnapshot petID: adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").getChildren()){
+                                    existingPetID = petID.getKey();
+                                    existingPetIDs.add(existingPetID);
+                                    if (!adoptersDBsnapshot.child(adopterID).child("AdopterAllPets")
+                                            .child(existingPetID).hasChild("appliedToAdopt")){
+                                        adoptersDBsnapshot.child(adopterID).child("AdopterAllPets")
+                                                .child(existingPetID).child("appliedToAdopt").getRef().setValue("not yet");
+                                    }
+                                }
+                                System.out.println("existingPetIDs == " + existingPetIDs);
+
+                                //ADD the updated pet
+                                allPetsDBRef.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        for(DataSnapshot ds : snapshot.getChildren()) {
+                                            allPetsID = ds.getKey();
+                                            allPetsIDs.add(allPetsID);
+                                        }
+                                        System.out.println("allPetsIDs === " + allPetsIDs);
+
+                                        allPetsIDs.removeAll(existingPetIDs);
+
+                                        for(String petID: allPetsIDs){
+                                            System.out.println("allPetsID AFTER === " + petID);
+                                            adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(petID)
+                                                    .getRef().setValue(snapshot.child(petID).getValue());
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }else{
+                                allPetsDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                        //Create copy to AdopterAllPets
+                                        adoptersDBRef.child(adopterID).child("AdopterAllPets")
+                                                .setValue(snapshot.getValue()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void unused) {
+                                                    }
+                                                });
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+                            }
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+    }
+
     private void setUpProfilePic() {
         //retrieve imageName
         adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
@@ -131,17 +228,17 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                System.out.println("snapshot setUpProfilePic === " + snapshot);
                         for(DataSnapshot ds : snapshot.getChildren()) {
-                            adopterUsername = ds.getKey();
+                            adopterID = ds.getKey();
                         }
 
-                        adopterName = snapshot.child(adopterUsername).child("fname").getValue() + " "
-                                + snapshot.child(adopterUsername).child("lname").getValue();
+                        adopterName = snapshot.child(adopterID).child("fname").getValue() + " "
+                                + snapshot.child(adopterID).child("lname").getValue();
 
-                        adopterContact = (String) snapshot.child(adopterUsername).child("contact").getValue();
-                        adopterAddress = snapshot.child(adopterUsername).child("street").getValue() + ", "
-                                + snapshot.child(adopterUsername).child("city").getValue() + ", " +
-                                snapshot.child(adopterUsername).child("province").getValue() + ", " +
-                                snapshot.child(adopterUsername).child("country").getValue();
+                        adopterContact = (String) snapshot.child(adopterID).child("contact").getValue();
+                        adopterAddress = snapshot.child(adopterID).child("street").getValue() + ", "
+                                + snapshot.child(adopterID).child("city").getValue() + ", " +
+                                snapshot.child(adopterID).child("province").getValue() + ", " +
+                                snapshot.child(adopterID).child("country").getValue();
 
                         tvAdopterName.setText("Name: "+adopterName);
                         tvAdopterContact.setText("Contact: "+adopterContact);
@@ -149,7 +246,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
 
 //                System.out.println("shelterUsername " + shelterUsername);
 
-                        adoptersDBRef.child(adopterUsername).child("imageName").
+                        adoptersDBRef.child(adopterID).child("imageName").
                                 addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {

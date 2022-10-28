@@ -183,7 +183,7 @@
             />
 
         <Spinner
-            android:id="@+id/pet_status"
+            android:id="@+id/shelter_adoption_application_status"
             android:layout_width="188dp"
             android:layout_height="48dp"
             android:layout_marginLeft="20dp"

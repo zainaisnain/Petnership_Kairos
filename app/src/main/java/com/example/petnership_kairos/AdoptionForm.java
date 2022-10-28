@@ -1,12 +1,7 @@
 package com.example.petnership_kairos;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatRadioButton;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,25 +12,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class AdoptionForm extends Fragment implements View.OnClickListener{
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-    private String adopterEmail, adopterUsername;
+    private String adopterID, adopterName, adopterEmail, adopterContact, adopterAddress,
+            petID, petType, petName, petBreed, petAge, petDescription, dateApplied, timeApplied, applicationStatus;
+
+    protected static String petImageName, petSex, petShelter, shelterID, shelterEmail;
 
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
-    AppCompatRadioButton rbDog, rbCat;
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     Button submitForm, cancelForm;
+    CheckBox agreeCb;
+    EditText intentionsTv;
 
+    String adopterIntentions, appliedToAdopt;
+    boolean adopterAgreed;
     private AdoptionFormViewModel mViewModel;
 
     public static AdoptionForm newInstance() {
@@ -47,19 +56,83 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_adoption_form, container, false);
 
-        authProfile = FirebaseAuth.getInstance();
-        firebaseUser = authProfile.getCurrentUser();
-        adopterEmail = firebaseUser.getEmail();
+        return view;
+    }
 
-        rbDog = view.findViewById(R.id.dogClicked);
-        rbCat = view.findViewById(R.id.catClicked);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getActivity().setTitle("Adoption Form");
 
+        //Get adopter's infos
+        //get pet infos
+        //store that in db upon submit
+        petID = getArguments().getString("petID");
+        petType = getArguments().getString("petType");
+        petImageName = getArguments().getString("petImageName");
+        petName = getArguments().getString("petName");
+        petBreed = getArguments().getString("petBreed");
+        petAge = getArguments().getString("petAge");
+        petSex = getArguments().getString("petSex");
+        petDescription = getArguments().getString("petDescription");
+        petShelter = getArguments().getString("petShelter");
+        shelterID = getArguments().getString("shelterID");
+        shelterEmail = getArguments().getString("shelterEmail");
+        adopterID = getArguments().getString("adopterID");
+        adopterName = getArguments().getString("adopterName");
+        adopterEmail = getArguments().getString("adopterEmail");
+        adopterContact = getArguments().getString("adopterContact");
+        adopterAddress = getArguments().getString("adopterAddress");
+        dateApplied = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+        timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+        System.out.println("adopterID   == " + adopterID);
+        System.out.println("petBreed   == " + petBreed);
+
+        agreeCb = view.findViewById(R.id.agree_terms_adoption_cb);
+        agreeCb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(agreeCb.isChecked()){
+                    adopterAgreed = true;
+                    System.out.println("adopterAgreed == " + adopterAgreed);
+                }else{
+                    adopterAgreed = false;
+                    System.out.println("adopterAgreed == " + adopterAgreed);
+                }
+            }
+        });
+
+
+        intentionsTv = view.findViewById(R.id.intentions_adopter);
+
+        //BUTTONS
         submitForm = view.findViewById(R.id.btn_submit_adopter);
         submitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCustomDialog submitDialog = new MyCustomDialog();
-                submitDialog.show(getParentFragmentManager(), "My Fragment");
+                adopterIntentions = intentionsTv.getText().toString();
+                if(!adopterAgreed){
+                    Toast.makeText(getContext(),"Please agree to terms and conditions.",Toast.LENGTH_LONG).show();
+                    return;
+                }else if (adopterIntentions.isEmpty()){
+                    intentionsTv.setError("Please fill this up.");
+                    intentionsTv.requestFocus();
+                    return;
+                }else{
+
+                    //update AdopterAllPets
+                    appliedToAdopt = "true";
+                    intentionsTv = view.findViewById(R.id.intentions_adopter);
+                    adopterIntentions = intentionsTv.getText().toString();
+                    System.out.println("adopterIntentions === " + adopterIntentions);
+                    System.out.println("dateApplied == " +  dateApplied);
+                    System.out.println("timeApplied == " +  timeApplied);
+
+                    updateDBs();
+
+                    MyCustomDialog submitDialog = new MyCustomDialog();
+                    submitDialog.show(getParentFragmentManager(), "My Fragment");
+                }
             }
         });
 
@@ -72,48 +145,36 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
             }
         });
 
+    }
 
-        rbDog.setOnClickListener(this);
-        rbCat.setOnClickListener(this);
+    private void updateDBs() {
+        adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        snapshot.child("appliedToAdopt").getRef().setValue(appliedToAdopt);
+                        applicationStatus = "Pending";
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                        String applicationID = reference.push().getKey();
+                        System.out.println("applicationID === " + applicationID);
 
-        return view;
+                        ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
+                                (applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
+                                        petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
+                        //insert to designated shelter's db
+                        sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID).setValue(forReviewApplicantsInfo);
+                        //add to adopters application history
+                        adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).setValue(forReviewApplicantsInfo);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Adoption Form");
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.dogClicked:
-                rbDog.setTextColor(Color.BLACK);
-                rbCat.setTextColor(Color.WHITE);
-                break;
-            case R.id.catClicked:
-                rbCat.setTextColor(Color.BLACK);
-                rbDog.setTextColor(Color.WHITE);
-                break;
-        }
-    }
-
-    public void onRadioButtonClicked (View view) {
-        boolean isSelected = ((AppCompatRadioButton) view).isChecked();
-        switch (view.getId()) {
-            case R.id.dogClicked:
-                if (isSelected) {
-                    rbDog.setTextColor(Color.BLACK);
-                }
-                break;
-            case R.id.catClicked:
-                if (isSelected) {
-                    rbCat.setTextColor(Color.BLACK);
-                }
-                break;
-        }
-    }
+    public void onClick(View v) {}
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

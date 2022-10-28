@@ -121,7 +121,7 @@ public class ShelterEditDog extends Fragment {
         ddSex.setAdapter(sexAdapter);
 
         //STATUS
-        ddStatus = view.findViewById(R.id.pet_status);
+        ddStatus = view.findViewById(R.id.shelter_adoption_application_status);
         ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
         ddStatus.setAdapter(statusAdapter);
 

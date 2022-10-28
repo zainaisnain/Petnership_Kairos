@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     private String email, password;
     private TextView forgotPwdBtn;
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference usersDbRef = FirebaseDatabase.getInstance().getReference("Users");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        databaseReference.orderByChild("email").equalTo(email)
+        usersDbRef.orderByChild("email").equalTo(email)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
                                         if (mAuth.getCurrentUser().isEmailVerified()){
-                                            databaseReference.child(username).child("userType")
+                                            usersDbRef.child(username).child("userType")
                                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                                         @Override
                                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
