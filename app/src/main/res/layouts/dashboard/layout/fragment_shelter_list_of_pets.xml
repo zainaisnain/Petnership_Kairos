@@ -49,7 +49,7 @@
         android:textColor="@color/secondary_purple"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +57,7 @@
         tools:ignore="TextContrastCheck" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/applicant_cv"
         android:layout_width="377dp"
         android:layout_height="570dp"
         android:layout_margin="5dp"

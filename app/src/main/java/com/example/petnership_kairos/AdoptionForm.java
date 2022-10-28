@@ -159,7 +159,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                         System.out.println("applicationID === " + applicationID);
 
                         ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
-                                (applicationID, dateApplied, timeApplied, adopterID, adopterIntentions,
+                                (applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
                                         petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
                         //insert to designated shelter's db
                         sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID).setValue(forReviewApplicantsInfo);
