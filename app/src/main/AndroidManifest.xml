@@ -133,7 +133,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdopterEdit"
+            android:name=".AdopterEditInfo"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
