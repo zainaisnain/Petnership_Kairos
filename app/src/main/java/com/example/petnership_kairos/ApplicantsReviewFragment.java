@@ -31,7 +31,7 @@ public class ApplicantsReviewFragment extends Fragment {
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
-    String shelterID, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied;
+    String shelterID, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied, applicationStatus;
     ApplicantsReviewData[] applicantsReviewData;
     private ArrayList<ApplicantsReviewData> ALApplicantsReviewData = new ArrayList<ApplicantsReviewData>();
 
@@ -74,8 +74,6 @@ public class ApplicantsReviewFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getFromDB(recyclerView);
-
-
     }
 
     private void getFromDB(RecyclerView recyclerView){
@@ -99,11 +97,12 @@ public class ApplicantsReviewFragment extends Fragment {
 
                                     adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
                                     adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
-                                    petID = (String) snapshot.child(applicationID).child("adopterID").getValue();
+                                    petID = (String) snapshot.child(applicationID).child("petID").getValue();
                                     petName = (String) snapshot.child(applicationID).child("petName").getValue();
+                                    applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
                                     dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
 
-                                    ALApplicantsReviewData.add( new ApplicantsReviewData(applicationID, adopterID, adopterName, petID, petName, dateApplied));
+                                    ALApplicantsReviewData.add( new ApplicantsReviewData(applicationID, adopterID, adopterName, petID, petName, applicationStatus, dateApplied));
                                 }
 
                                 applicantsReviewData = ALApplicantsReviewData.toArray(new ApplicantsReviewData[ALApplicantsReviewData.size()]);

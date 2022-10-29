@@ -75,23 +75,23 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
             }
         });
 
-        holder.cvApplicant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
-                Bundle bundle = new Bundle();
-                bundle.putString("applicationID", ApplicantsReviewDataList.getApplicationID());
-                bundle.putString("adopterID", ApplicantsReviewDataList.getApplicantID());
-                bundle.putString("adopterName", ApplicantsReviewDataList.getApplicantName());
-                bundle.putString("petID", ApplicantsReviewDataList.getApplicantPetID());
-                bundle.putString("petName", ApplicantsReviewDataList.getApplicantPetName());
-                bundle.putString("dateApplied", ApplicantsReviewDataList.getApplicantDateApplied());
-                shelterToReviewApplication.setArguments(bundle);
-
-                ((contextA.getActivity())).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.applicants_for_review_frag, shelterToReviewApplication,"ShelterToReviewApplication").addToBackStack(null).commit();
-            }
-        });
+//        holder.cvApplicant.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
+//                Bundle bundle = new Bundle();
+//                bundle.putString("applicationID", ApplicantsReviewDataList.getApplicationID());
+//                bundle.putString("adopterID", ApplicantsReviewDataList.getApplicantID());
+//                bundle.putString("adopterName", ApplicantsReviewDataList.getApplicantName());
+//                bundle.putString("petID", ApplicantsReviewDataList.getApplicantPetID());
+//                bundle.putString("petName", ApplicantsReviewDataList.getApplicantPetName());
+//                bundle.putString("dateApplied", ApplicantsReviewDataList.getApplicantDateApplied());
+//                shelterToReviewApplication.setArguments(bundle);
+//
+//                ((contextA.getActivity())).getSupportFragmentManager().beginTransaction()
+//                        .replace(R.id.applicants_for_review_frag, shelterToReviewApplication,"ShelterToReviewApplication").addToBackStack(null).commit();
+//            }
+//        });
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

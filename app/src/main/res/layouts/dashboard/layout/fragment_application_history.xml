@@ -6,7 +6,8 @@
     android:orientation="vertical"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
-    tools:context=".ApplicationHistoryFragment">
+    tools:context=".ApplicationHistoryFragment"
+    android:id="@+id/appication_history_frag">
 
     <ImageButton
         android:id="@+id/btnBack"

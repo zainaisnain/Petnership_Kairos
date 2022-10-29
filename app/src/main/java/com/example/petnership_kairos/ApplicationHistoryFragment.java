@@ -16,8 +16,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-public class ApplicationHistoryFragment extends Fragment {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
+public class ApplicationHistoryFragment extends Fragment {
+    private FirebaseAuth authProfile;
+    private FirebaseUser firebaseUser;
+
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
+    String shelterID, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied, applicationStatus;
+
+    ApplicationHistoryData[] applicationHistoryData;
+    private ArrayList<ApplicationHistoryData> ALApplicationHistoryData = new ArrayList<>();
     private ApplicationHistoryViewModel mViewModel;
     View view;
     RecyclerView recyclerView;
@@ -30,6 +49,17 @@ public class ApplicationHistoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_application_history, container, false);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        adopterEmail = firebaseUser.getEmail();
+
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,21 +70,57 @@ public class ApplicationHistoryFragment extends Fragment {
                 transaction.commit();
             }
         });
+
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewApplications);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        getFromDB(recyclerView);
+    }
 
-        ApplicationHistoryData[] applicationHistoryData = new ApplicationHistoryData[]{
-                new ApplicationHistoryData("Alpha","Denied",R.drawable.cat_dog),
-                new ApplicationHistoryData("Bravo","Pending",R.drawable.cat_dog),
-                new ApplicationHistoryData("Charlie","Approved",R.drawable.cat_dog)
+    private void getFromDB(RecyclerView recyclerView){
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot adopterSnapshot) {
+                if(adopterSnapshot.exists()){
+                    for(DataSnapshot ds : adopterSnapshot.getChildren()) {
+                        adopterID = ds.getKey();
+                    }
 
-        };
+                    if(adopterSnapshot.child(adopterID).hasChild("ApplicationHistory")){
+                        adoptersDBRef.child(adopterID).child("ApplicationHistory").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData,ApplicationHistoryFragment.this);
-        recyclerView.setAdapter(applicationHistoryAdapter);
+                                for(DataSnapshot ds : snapshot.getChildren()) {
+                                    applicationID = ds.getKey();
 
-        return view;
+                                    shelterID = (String) snapshot.child(applicationID).child("shelterID").getValue();
+                                    petID = (String) snapshot.child(applicationID).child("petID").getValue();
+                                    petName = (String) snapshot.child(applicationID).child("petName").getValue();
+                                    applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
+                                    dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
+
+                                    ALApplicationHistoryData.add(new ApplicationHistoryData(applicationID, shelterID, petID, petName, applicationStatus, dateApplied));
+                                }
+                                applicationHistoryData = ALApplicationHistoryData.toArray(new ApplicationHistoryData[ALApplicationHistoryData.size()]);
+                                ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData, ApplicationHistoryFragment.this);
+                                recyclerView.setAdapter(applicationHistoryAdapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

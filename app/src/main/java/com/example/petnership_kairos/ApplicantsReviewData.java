@@ -1,14 +1,15 @@
 package com.example.petnership_kairos;
 
 public class ApplicantsReviewData {
-    private String applicationID, applicantID, applicantName, applicantPetID, applicantPetName, applicantDateApplied;
+    private String applicationID, applicantID, applicantName, applicantPetID, applicantPetName, applicationStatus , applicantDateApplied;
 
-    public ApplicantsReviewData(String applicationID, String applicantID, String applicantName, String applicantPetID, String applicantPetName, String applicantDateApplied) {
+    public ApplicantsReviewData(String applicationID, String applicantID, String applicantName, String applicantPetID, String applicantPetName, String applicationStatus, String applicantDateApplied) {
         this.applicationID = applicationID;
         this.applicantID = applicantID;
         this.applicantName = applicantName;
         this.applicantPetID = applicantPetID;
         this.applicantPetName = applicantPetName;
+        this.applicationStatus = applicationStatus;
         this.applicantDateApplied = applicantDateApplied;
     }
 
@@ -50,6 +51,14 @@ public class ApplicantsReviewData {
 
     public void setApplicantPetName(String applicantPetName) {
         this.applicantPetName = applicantPetName;
+    }
+
+    public String getApplicationStatus() {
+        return applicationStatus;
+    }
+
+    public void setApplicationStatus(String applicationStatus) {
+        this.applicationStatus = applicationStatus;
     }
 
     public String getApplicantDateApplied() {
