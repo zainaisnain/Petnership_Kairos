@@ -113,29 +113,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_toRightOf="@+id/adopterIntProfilePic"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="Name"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/adopterContact"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_toRightOf="@+id/adopterIntProfilePic"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Contact"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/adopterAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_toRightOf="@+id/adopterIntProfilePic"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Address"
+                        android:text="View Profile"
                         android:textSize="20sp" />
 
                 </LinearLayout>

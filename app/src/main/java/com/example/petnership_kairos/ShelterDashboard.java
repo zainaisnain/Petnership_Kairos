@@ -41,7 +41,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu,menu);
+        getMenuInflater().inflate(R.menu.shelter_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -121,14 +121,14 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
             case R.id.nav_reg_pets:
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                 ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
-                transaction1.replace(R.id.shelter_dashboard_frag, shelterRegisterPets);
+                transaction1.replace(R.id.nav_host_fragment, shelterRegisterPets);
                 transaction1.commit();
 //                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
 //                        new ShelterRegisterPets()).commit();
                 break;
 
             case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new ShelterListOfPetsFragment()).commit();
                 break;
 
@@ -138,9 +138,30 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
             case R.id.nav_logout:
 //                startActivity(new Intent(ShelterDashboard.this, MyLogoutDialog.class));
-                userLogout();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
-//                        new MyLogoutDialog()).commit();
+//                userLogout();
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new ShelterHomeDashboard()).commit();
+                dialog = new Dialog(ShelterDashboard.this);
+                dialog.setContentView(R.layout.logout_dialog);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCancelable(false);
+                dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+                logout = dialog.findViewById(R.id.buttonOk);
+                logout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        userLogout();
+                    }
+                });
+
+                cancelLogout = dialog.findViewById(R.id.buttonCancel);
+                cancelLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
         }
 
@@ -148,7 +169,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         return true;
     }
 
-    private void userLogout()
+    public void userLogout()
     {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(ShelterDashboard.this,LoginActivity.class);

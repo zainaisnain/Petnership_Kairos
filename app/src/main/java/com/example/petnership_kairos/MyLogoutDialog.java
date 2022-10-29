@@ -23,22 +23,32 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MyLogoutDialog extends DialogFragment {
 
-    Button btnOk;
+    Button logout, cancelLogout;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.submit_dialog, container, false);
+        View view = inflater.inflate(R.layout.logout_dialog, container, false);
 
-        btnOk = view.findViewById(R.id.buttonOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        logout = view.findViewById(R.id.buttonOk);
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-                transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
-                transaction.commit();
+                ShelterDashboard shelterDashboard = new ShelterDashboard();
+                shelterDashboard.userLogout();
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+//                transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
+//                transaction.commit();
+            }
+        });
+
+        cancelLogout = view.findViewById(R.id.buttonCancel);
+        cancelLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
             }
         });
         return view;

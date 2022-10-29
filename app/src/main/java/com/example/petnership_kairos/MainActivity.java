@@ -138,9 +138,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_logout:
 //                startActivity(new Intent(ShelterDashboard.this, MyLogoutDialog.class));
-                userLogout();
+//                userLogout();
 //                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
 //                        new MyLogoutDialog()).commit();
+                dialog = new Dialog(this);
+                dialog.setContentView(R.layout.logout_dialog);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCancelable(false);
+                dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+                logout = dialog.findViewById(R.id.buttonOk);
+                logout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                cancelLogout = dialog.findViewById(R.id.buttonCancel);
+                cancelLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
         }
 
@@ -150,34 +174,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void userLogout()
     {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
-//        dialog = new Dialog(ShelterDashboard.this);
-//        dialog.setContentView(R.layout.logout_dialog);
-//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-//        dialog.setCancelable(false);
-//        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
-//
-//        logout = dialog.findViewById(R.id.buttonOk);
-//        logout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseAuth.getInstance().signOut();
-//                Intent intent = new Intent(ShelterDashboard.this,LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-//
-//        cancelLogout = dialog.findViewById(R.id.buttonCancel);
-//        cancelLogout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialog.dismiss();
-//            }
-//        });
+//        FirebaseAuth.getInstance().signOut();
+//        Intent intent = new Intent(this,LoginActivity.class);
+//        startActivity(intent);
+//        finish();
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.logout_dialog);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+        logout = dialog.findViewById(R.id.buttonOk);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        cancelLogout = dialog.findViewById(R.id.buttonCancel);
+        cancelLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
     }
 
