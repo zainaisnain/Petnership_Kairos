@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,7 +34,7 @@ import com.google.firebase.storage.StorageReference;
 public class ShelterHomeDashboard extends Fragment {
 
     CardView card1, card2,card3, card4, card5;
-    FloatingActionButton fabAddBtn;
+    ExtendedFloatingActionButton fabAddBtn;
 
     private ShelterHomeDashboardViewModel mViewModel;
 

@@ -90,19 +90,34 @@
         <!--        app:layout_constraintTop_toBottomof="@id/imageProfile"-->
         <!--        tools:ignore="MissingConstraints" />-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fabAdd"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="4dp"-->
+<!--            android:contentDescription="@string/app_name"-->
+<!--            android:text="ADD PET"-->
+<!--            android:src="@drawable/ic_add"-->
+<!--            app:fab_title="Add Pet"-->
+<!--            app:backgroundTint="@color/secondary_purple"-->
+<!--            app:tint="@color/white"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:contentDescription="@string/app_name"
-            android:text="ADD PET"
-            android:src="@drawable/ic_add"
-            app:backgroundTint="@color/secondary_purple"
-            app:tint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_margin="8dp"
+            android:contentDescription="Petnership"
+            android:text="Add Pet"
+            app:icon="@drawable/ic_add"
+            android:backgroundTint="@color/secondary_purple"
+            app:layout_anchorGravity="bottom|right|end"
+            tools:layout_editor_absoluteX="123dp"
+            android:id="@+id/fabAdd"
+            tools:layout_editor_absoluteY="716dp"
+            tools:ignore="MissingConstraints" />
 
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="match_parent"

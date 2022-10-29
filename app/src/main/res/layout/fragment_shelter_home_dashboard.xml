@@ -14,16 +14,6 @@
         android:layout_height="wrap_content" >
 
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageBurgerMenu"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginStart="172dp"
-            android:layout_marginTop="704dp"
-            android:src="@drawable/ic_burger_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
 
 <!--        <androidx.appcompat.widget.AppCompatImageView-->
 <!--            android:id="@+id/imageAdd"-->
@@ -96,38 +86,34 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:riv_oval="true" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabAdd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:contentDescription="@string/app_name"
-                    app:backgroundTint="@color/secondary_purple"
-                    app:tint="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="Petnership"
+            android:text="Add Pet"
+            app:icon="@drawable/ic_add"
+            app:layout_anchorGravity="bottom|right|end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toReview"
+            tools:ignore="MissingConstraints" />
 
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:text="@android:string/ok"-->
-<!--                    android:textColor="@android:color/white"-->
-<!--                    android:textAppearance="?android:attr/textAppearanceMedium" />-->
-
-                <androidx.constraintlayout.helper.widget.Flow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
-                    app:flow_horizontalGap="8dp"
-                    app:flow_maxElementsWrap="2"
-                    app:flow_verticalGap="8dp"
-                    app:flow_wrapMode="aligned"
-                    app:layout_constraintBottom_toTopOf="@id/fabAdd"
-                    app:layout_constraintTop_toBottomOf="@id/adopterImage" />
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
+            app:flow_horizontalGap="8dp"
+            app:flow_maxElementsWrap="2"
+            app:flow_verticalGap="8dp"
+            app:flow_wrapMode="aligned"
+            app:layout_constraintBottom_toTopOf="@id/fabAdd"
+            app:layout_constraintTop_toBottomOf="@id/adopterImage" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/registeredPets"
@@ -268,45 +254,46 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/toReview"
-                    android:layout_width="0dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/toReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="577dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/num_of_for_review"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="16dp"
-                    app:cardUseCompatPadding="true"
-                    tools:ignore="MissingConstraints">
+                    android:fontFamily="@font/montserrat_reg"
+                    android:text="3"
+                    android:textAlignment="center"
+                    android:textColor="@color/secondary_purple"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp" >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:text="for review applicants"
+                    android:textAlignment="center"
+                    android:textColor="@color/secondary_purple"
+                    android:textSize="15sp" />
 
-                        <TextView
-                            android:id="@+id/num_of_for_review"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="3"
-                            android:textColor="@color/secondary_purple"
-                            android:textSize="40sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:textAlignment="center"/>
+            </LinearLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="for review applicants"
-                            android:textColor="@color/secondary_purple"
-                            android:textSize="15sp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:textAlignment="center"/>
-
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
