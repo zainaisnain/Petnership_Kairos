@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
     {
 
         //fetch input values
-        email = etUserEmail.getText().toString();
+        email = etUserEmail.getText().toString().toLowerCase();
         password = etUserPassword.getText().toString();
 
         if(email.isEmpty() || password.isEmpty())

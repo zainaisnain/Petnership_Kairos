@@ -170,7 +170,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     private void registerShelter() {
         String bizName = editTextBizName.getText().toString().trim();
         String owner = editTextOwner.getText().toString().trim();
-        String email = editTextEmail.getText().toString();
+        String email = editTextEmail.getText().toString().toLowerCase();
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
