@@ -41,6 +41,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
             q7a1Btn, q7a2Btn, q7a3Btn, q8a1Btn, q8a2Btn, q8a3Btn;
 
     private TextView tvQ1, tvQ2, tvQ3, tvQ4, tvQ5, tvQ6, tvQ7, tvQ8, tvQ9;
+    private EditText etOtherBreed;
 
     private int q1,q2,q3,q4,q5,q6,q7, q8;
     private String q9, shelter;
@@ -180,11 +181,22 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         //What dog breed
         ArrayAdapter<String> catBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, catBreed);
         catBreedTxt.setAdapter(catBreedAdapter);
+        etOtherBreed = view.findViewById(R.id.cat_breed_other_et);
+        etOtherBreed.setEnabled(false);
 
         catBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 q9 = adapterView.getItemAtPosition(i).toString();
+                if(q9.equals("Other")){
+                    etOtherBreed.setEnabled(true);
+                    q9 = etOtherBreed.getText().toString().trim().toLowerCase();
+                    System.out.println("q9 seton== " + q9);
+                }else{
+                    etOtherBreed.setText("");
+                    q9 = adapterView.getItemAtPosition(i).toString();
+                    etOtherBreed.setEnabled(false);
+                }
             }
 
             @Override
@@ -198,6 +210,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("q9 click == " + q9);
                 if(q1==0){
                     tvQ1.requestFocus();
                     Toast.makeText(getActivity(), "Please answer all questions", Toast.LENGTH_LONG).show();
