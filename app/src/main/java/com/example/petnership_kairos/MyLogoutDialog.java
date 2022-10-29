@@ -21,26 +21,29 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MyLogoutDialog extends DialogFragment {
+public class MyLogoutDialog extends DialogFragment{
 
     Button logout, cancelLogout;
-
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.logout_dialog, container, false);
 
+//        Intent intent = new Intent(getActivity(), ShelterDashboard.class);
         logout = view.findViewById(R.id.buttonOk);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 //FRAGMENT to FRAGMENT
-                ShelterDashboard shelterDashboard = new ShelterDashboard();
-                shelterDashboard.userLogout();
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-//                transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
-//                transaction.commit();
+//                ShelterDashboard shelterDashboard = new ShelterDashboard();
+//                shelterDashboard.userLogout();
+//                startActivity(intent);
+//                dismiss();
+                auth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+//                dismiss();
             }
         });
 
@@ -53,4 +56,16 @@ public class MyLogoutDialog extends DialogFragment {
         });
         return view;
     }
+
+//    public void userlogout()
+//    {
+//        FirebaseAuth.getInstance().signOut();
+////        startActivity(new Intent(getContext(), LoginActivity.class));
+//        Intent intent = new Intent(this,LoginActivity.class);
+////        Intent intent = new Intent(ShelterDashboard.getActivity(), LoginActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
 }
+
+

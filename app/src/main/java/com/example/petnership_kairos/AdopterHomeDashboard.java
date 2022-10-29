@@ -84,9 +84,9 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         firebaseUser = authProfile.getCurrentUser();
         adopterEmail = firebaseUser.getEmail();
 
-        tvAdopterName = view.findViewById(R.id.adopterName);
-        tvAdopterContact = view.findViewById(R.id.adopterContact);
-        tvAdopterAddress = view.findViewById(R.id.adopterAddress);
+//        tvAdopterName = view.findViewById(R.id.adopterName);
+//        tvAdopterContact = view.findViewById(R.id.adopterContact);
+//        tvAdopterAddress = view.findViewById(R.id.adopterAddress);
         ivAdopterImage = view.findViewById(R.id.adopterImage);
         ivCvAdopterImage = view.findViewById(R.id.cvAdopterImage);
         cvAdopterInfo = view.findViewById(R.id.adopter_info_cv);
@@ -240,9 +240,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
                                 snapshot.child(adopterID).child("province").getValue() + ", " +
                                 snapshot.child(adopterID).child("country").getValue();
 
-                        tvAdopterName.setText("Name: "+adopterName);
-                        tvAdopterContact.setText("Contact: "+adopterContact);
-                        tvAdopterAddress.setText("Address: "+adopterAddress);
+
 
 //                System.out.println("shelterUsername " + shelterUsername);
 

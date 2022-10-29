@@ -118,6 +118,10 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         switch(item.getItemId())
         {
 
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new ShelterHomeDashboard()).commit();
+
             case R.id.nav_reg_pets:
                 FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
                 ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
@@ -137,31 +141,35 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_logout:
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+//                userLogout();
 //                startActivity(new Intent(ShelterDashboard.this, MyLogoutDialog.class));
 //                userLogout();
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterHomeDashboard()).commit();
-                dialog = new Dialog(ShelterDashboard.this);
-                dialog.setContentView(R.layout.logout_dialog);
-                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-                dialog.setCancelable(false);
-                dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
 
-                logout = dialog.findViewById(R.id.buttonOk);
-                logout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        userLogout();
-                    }
-                });
-
-                cancelLogout = dialog.findViewById(R.id.buttonCancel);
-                cancelLogout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
+//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+//                        new ShelterHomeDashboard()).commit();
+//                dialog = new Dialog(ShelterDashboard.this);
+//                dialog.setContentView(R.layout.logout_dialog);
+//                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//                dialog.setCancelable(false);
+//                dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+//
+//                logout = dialog.findViewById(R.id.buttonOk);
+//                logout.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        userLogout();
+//                    }
+//                });
+//
+//                cancelLogout = dialog.findViewById(R.id.buttonCancel);
+//                cancelLogout.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog.dismiss();
+//                    }
+//                });
                 break;
         }
 
@@ -171,10 +179,15 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
     public void userLogout()
     {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(ShelterDashboard.this,LoginActivity.class);
-        startActivity(intent);
-        finish();
+//        MyLogoutDialog logoutDialog = new MyLogoutDialog();
+//        logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+
+//        FirebaseAuth.getInstance().signOut();
+////        startActivity(new Intent(getContext(), LoginActivity.class));
+//        Intent intent = new Intent(this,LoginActivity.class);
+////        Intent intent = new Intent(ShelterDashboard.getActivity(), LoginActivity.class);
+//        startActivity(intent);
+//        finish();
 //        dialog = new Dialog(ShelterDashboard.this);
 //        dialog.setContentView(R.layout.logout_dialog);
 //        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
