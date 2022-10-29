@@ -167,12 +167,12 @@ public class FragmentCatQuestionnaire7 extends Fragment {
             @Override
             public void onClick(View v) {
                 // save answers
-                mViewModel.setDogAnswer(39, cseekBar39.getProgress());
-                mViewModel.setDogAnswer(40, cseekBar40.getProgress());
-                mViewModel.setDogAnswer(41, cseekBar41.getProgress());
-                mViewModel.setDogAnswer(42, cseekBar42.getProgress());
-                mViewModel.setDogAnswer(43, cseekBar43.getProgress());
-                mViewModel.setDogAnswer(44, cseekBar44.getProgress());
+                mViewModel.setAnswer(39, cseekBar39.getProgress());
+                mViewModel.setAnswer(40, cseekBar40.getProgress());
+                mViewModel.setAnswer(41, cseekBar41.getProgress());
+                mViewModel.setAnswer(42, cseekBar42.getProgress());
+                mViewModel.setAnswer(43, cseekBar43.getProgress());
+                mViewModel.setAnswer(44, cseekBar44.getProgress());
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

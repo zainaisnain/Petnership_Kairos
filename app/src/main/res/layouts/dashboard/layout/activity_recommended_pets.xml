@@ -118,7 +118,7 @@
                 app:layout_constraintVertical_bias="0.115" />
 
             <ImageView
-                android:id="@+id/rec_pet1"
+                android:id="@+id/rec_pet2"
                 android:layout_width="133dp"
                 android:layout_height="138dp"
                 android:contentDescription="2nd Recommended Pet"
@@ -159,7 +159,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+            android:id="@+id/petCard1"
             android:layout_width="339dp"
             android:layout_height="127dp"
             android:background="@drawable/minicard"
@@ -227,7 +227,7 @@
                 app:layout_constraintVertical_bias="0.115" />
 
             <ImageView
-                android:id="@+id/rec_pet2"
+                android:id="@+id/rec_pet1"
                 android:layout_width="133dp"
                 android:layout_height="138dp"
                 android:contentDescription="1st Recommended Pet"

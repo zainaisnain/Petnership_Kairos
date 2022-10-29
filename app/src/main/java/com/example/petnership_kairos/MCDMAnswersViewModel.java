@@ -4,6 +4,22 @@ import java.util.Hashtable;
 import androidx.lifecycle.ViewModel;
 
 public class MCDMAnswersViewModel extends ViewModel {
+
+    // final values
+    private final int INTENSITY_COUNT = 3;
+    private final int DOG_MAIN_MATRICES_SIZE = 7;
+    private final int[] DOG_SUBCRITERIA_MATRICES_COUNT = {3, 2, 2, 3};
+    private final int DOG_INTENSITY_MATRICES_COUNT = 11;
+    private final int CAT_MAIN_MATRICES_SIZE = 8;
+    private final int[] CAT_SUBCRITERIA_MATRICES_COUNT = {1, 2};
+    private final int CAT_INTENSITY_MATRICES_COUNT = 9;
+    private final int DOG_MAIN_ANSWERS = 21;
+    private final int DOG_SUBCRITERIA_ANSWERS = 5;
+    private final int DOG_INTENSITY_ANSWERS = 33;
+    private final int CAT_MAIN_ANSWERS = 28;
+    private final int CAT_SUBCRITERIA_ANSWERS = 1;
+    private final int CAT_INTENSITY_ANSWERS = 27;
+
     public static String[] dogCodes = {
             "",
             "DA0101", "DA0102", "DA0103", "DA0104", "DA0105", "DA0106",
@@ -47,22 +63,98 @@ public class MCDMAnswersViewModel extends ViewModel {
     };
 
 
-    private Hashtable<String, Integer> dogAnswersDict = new Hashtable<String, Integer>();
-    private Hashtable<String, Integer> catAnswersDict = new Hashtable<String, Integer>();
 
+    private String animalType;
 
-    public Integer getDogAnswer(int label) {
-        return this.dogAnswersDict.get(dogCodes[label]);
+    private Hashtable<String, Integer> answersDict = new Hashtable<String, Integer>();
+    //private Hashtable<String, Integer> catAnswersDict = new Hashtable<String, Integer>();
+
+    private int[] mainAnswers;
+    private int[] subcriteriaAnswers;
+    private int[] intensityAnswers;
+
+    private MCDMAlternative[] topThree;
+
+    public String getAnimalType() {
+        return animalType;
+    }
+    public void setAnimalType(String animalType) {
+        this.animalType = animalType;
+        if (animalType.equals("Dog")) {
+            mainAnswers = new int[DOG_MAIN_ANSWERS];
+            subcriteriaAnswers = new int[DOG_SUBCRITERIA_ANSWERS];
+            intensityAnswers = new int[DOG_INTENSITY_ANSWERS];
+        }
+        else {
+            mainAnswers = new int[CAT_MAIN_ANSWERS];
+            subcriteriaAnswers = new int[CAT_SUBCRITERIA_ANSWERS];
+            intensityAnswers = new int[CAT_INTENSITY_ANSWERS];
+        }
     }
 
-    public void setDogAnswer(int label, int answer) {
-        this.dogAnswersDict.put(dogCodes[label], answer);
+    public MCDMAlternative[] getTopThree() {
+        return topThree;
     }
+    public void setTopThree(MCDMAlternative[] topThree) {
+        this.topThree = topThree;
+    }
+
+    public Integer getAnswer(int label) {
+        return this.answersDict.get((animalType.equals("Dog") ? dogCodes:catCodes)[label]);
+    }
+    public void setAnswer(int label, int answer) {
+        this.answersDict.put((animalType.equals("Dog") ? dogCodes:catCodes)[label], answer);
+        if (label < (animalType.equals("Dog") ? DOG_MAIN_ANSWERS : CAT_MAIN_ANSWERS)+1) {
+            mainAnswers[label-1] = normalize(answer);
+        }
+        else if (label < (animalType.equals("Dog") ? DOG_MAIN_ANSWERS+DOG_SUBCRITERIA_ANSWERS : CAT_MAIN_ANSWERS+CAT_SUBCRITERIA_ANSWERS)+1) {
+            subcriteriaAnswers[label-((animalType.equals("Dog") ? DOG_MAIN_ANSWERS : CAT_MAIN_ANSWERS)+1)] = normalize(answer);
+        }
+        else {
+            intensityAnswers[label-((animalType.equals("Dog") ? DOG_MAIN_ANSWERS+DOG_SUBCRITERIA_ANSWERS : CAT_MAIN_ANSWERS+CAT_SUBCRITERIA_ANSWERS)+1)] = normalize(answer);
+        }
+
+    }
+/*
     public Integer getCatAnswer(int label) {
         return this.catAnswersDict.get(catCodes[label]);
     }
-
     public void setCatAnswer(int label, int answer) {
         this.catAnswersDict.put(catCodes[label], answer);
     }
+*/
+    public int getMainAnswer(int val) {
+        return this.mainAnswers[val];
+    }
+    public int getSubcriteriaAnswer(int val) {
+        return this.subcriteriaAnswers[val];
+    }
+    public int getIntensityAnswer(int val) {
+        return this.intensityAnswers[val];
+    }
+
+    public int normalize(int val) {
+        int temp = 0;
+        switch(val) {
+            case 0: temp = 9; break;
+            case 1: temp = 8; break;
+            case 2: temp = 7; break;
+            case 3: temp = 6; break;
+            case 4: temp = 5; break;
+            case 5: temp = 4; break;
+            case 6: temp = 3; break;
+            case 7: temp = 2; break;
+            case 8: temp = 1; break;
+            case 9: temp = -2; break;
+            case 10: temp = -3; break;
+            case 11: temp = -4; break;
+            case 12: temp = -5; break;
+            case 13: temp = -6; break;
+            case 14: temp = -7; break;
+            case 15: temp = -8; break;
+            case 16: temp = -9; break;
+        }
+        return temp;
+    }
+
 }

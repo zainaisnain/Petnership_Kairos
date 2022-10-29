@@ -42,6 +42,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         getActivity().setTitle("Cat Questionnaire 1");
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
+        mViewModel.setAnimalType("Cat");
 
 
         cseekBar1 = (SeekBar)getView().findViewById(R.id.cseekBar1);
@@ -174,42 +175,32 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         });
 
         cpopup1 = getView().findViewById(R.id.cinstructionsBTN1);
-        cpopup1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    showDialog();
-            }
-        });
-        Button proceedBtn = (Button) getView().findViewById(R.id.cproceed_ques1);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setDogAnswer(1, cseekBar1.getProgress());
-                mViewModel.setDogAnswer(2, cseekBar2.getProgress());
-                mViewModel.setDogAnswer(3, cseekBar3.getProgress());
-                mViewModel.setDogAnswer(4, cseekBar4.getProgress());
-                mViewModel.setDogAnswer(5, cseekBar5.getProgress());
-                mViewModel.setDogAnswer(6, cseekBar6.getProgress());
-                mViewModel.setDogAnswer(7, cseekBar7.getProgress());
+        cpopup1.setOnClickListener(view1 -> showDialog());
 
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentCatQuestionnaire2 cat2Fragment = new FragmentCatQuestionnaire2();
-                transaction.replace(R.id.nav_host_fragment,cat2Fragment);
-                transaction.addToBackStack("catQuestionnaire2");
-                transaction.commit();
-            }
+        Button proceedBtn = getView().findViewById(R.id.cproceed_ques1);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(1, cseekBar1.getProgress());
+            mViewModel.setAnswer(2, cseekBar2.getProgress());
+            mViewModel.setAnswer(3, cseekBar3.getProgress());
+            mViewModel.setAnswer(4, cseekBar4.getProgress());
+            mViewModel.setAnswer(5, cseekBar5.getProgress());
+            mViewModel.setAnswer(6, cseekBar6.getProgress());
+            mViewModel.setAnswer(7, cseekBar7.getProgress());
+
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            FragmentCatQuestionnaire2 cat2Fragment = new FragmentCatQuestionnaire2();
+            transaction.replace(R.id.nav_host_fragment,cat2Fragment);
+            transaction.addToBackStack("catQuestionnaire2");
+            transaction.commit();
         });
-        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
-                transaction.replace(R.id.nav_host_fragment, chooseAnimal);
-                transaction.commit();
-            }
+        backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
+            transaction.replace(R.id.nav_host_fragment, chooseAnimal);
+            transaction.commit();
         });
 
     }

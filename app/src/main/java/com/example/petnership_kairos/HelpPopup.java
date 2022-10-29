@@ -27,12 +27,7 @@ public class HelpPopup extends DialogFragment {
         view = inflater.inflate(R.layout.fragment_help_popup, container, false);
 
         btnOk = view.findViewById(R.id.closeBTN);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                HelpPopup.this.dismiss();
-            }
-        });
+        btnOk.setOnClickListener(view -> HelpPopup.this.dismiss());
         return view;
     }
 }

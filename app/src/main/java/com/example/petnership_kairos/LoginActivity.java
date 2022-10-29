@@ -61,12 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         signUpBtn = findViewById(R.id.signupbutton);
-        signUpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchToRegister();
-            }
-        });
+        signUpBtn.setOnClickListener(v -> switchToRegister());
 
 
     }

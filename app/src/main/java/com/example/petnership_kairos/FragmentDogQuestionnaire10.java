@@ -24,6 +24,9 @@ public class FragmentDogQuestionnaire10 extends Fragment {
         return new FragmentDogQuestionnaire10();
     }
 
+    MCDM mainAlgo;
+
+
     ImageButton popup;
     SeekBar seekBar54, seekBar55, seekBar56, seekBar57, seekBar58, seekBar59;
     TextView rate54, rate55, rate56, rate57, rate58, rate59;
@@ -41,7 +44,12 @@ public class FragmentDogQuestionnaire10 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Dog Questionnaire 10");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
-        System.out.println("Test: " + mViewModel.getDogAnswer(1));
+        System.out.println("Test: " + mViewModel.getAnswer(1));
+
+        // begin data fetch
+        mainAlgo = new MCDM();
+        mainAlgo.fetchAlternatives(getContext(),1);
+
 
         seekBar54 = (SeekBar) getView().findViewById(R.id.seekBar54);
         seekBar55 = (SeekBar) getView().findViewById(R.id.seekBar55);
@@ -185,19 +193,18 @@ public class FragmentDogQuestionnaire10 extends Fragment {
             @Override
             public void onClick(View v) {
                 // save answers
-                mViewModel.setDogAnswer(54, seekBar54.getProgress());
-                mViewModel.setDogAnswer(55, seekBar55.getProgress());
-                mViewModel.setDogAnswer(56, seekBar56.getProgress());
-                mViewModel.setDogAnswer(57, seekBar57.getProgress());
-                mViewModel.setDogAnswer(58, seekBar58.getProgress());
-                mViewModel.setDogAnswer(59, seekBar59.getProgress());
+                mViewModel.setAnswer(54, seekBar54.getProgress());
+                mViewModel.setAnswer(55, seekBar55.getProgress());
+                mViewModel.setAnswer(56, seekBar56.getProgress());
+                mViewModel.setAnswer(57, seekBar57.getProgress());
+                mViewModel.setAnswer(58, seekBar58.getProgress());
+                mViewModel.setAnswer(59, seekBar59.getProgress());
 
                 for (int i = 1; i < 60; i++) {
-                    System.out.println("SEEKBAR #" + i + ": " + mViewModel.getDogAnswer(i));
+                    System.out.println("SEEKBAR #" + i + ": " + mViewModel.getAnswer(i));
                 }
 
-                MCDM mainAlgo = new MCDM();
-                mainAlgo.beginMCDM(getContext());
+                mainAlgo.beginMCDM();
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
