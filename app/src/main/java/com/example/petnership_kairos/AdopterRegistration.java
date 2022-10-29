@@ -372,12 +372,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
-                                                        Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                                        Adopter adopter = new Adopter(fname, lname, email, username,
                                                                 contact, street, city, adopterProvince, country, sex, birthday, imageName);
 
                                                         databaseReference.child("Adopters").child(username).setValue(adopter);
 
-                                                        User user = new User(email, password, username, "adopter");
+                                                        User user = new User(email, username, "adopter");
 
                                                         databaseReference.child("Users").child(username).setValue(user);
 

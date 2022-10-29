@@ -287,12 +287,12 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                                                                        public void onComplete(@NonNull Task<Void> task) {
 
                                                                            if(task.isSuccessful()){
-                                                                               Shelter shelter = new Shelter(bizName, owner, email, username, password,
+                                                                               Shelter shelter = new Shelter(bizName, owner, email, username,
                                                                                        website, contact, street, city, shelterProvince, country);
 
                                                                                databaseReference.child("Shelters").child(username).setValue(shelter);
 
-                                                                               User user = new User(email, password, username, "shelter");
+                                                                               User user = new User(email, username, "shelter");
 
                                                                                databaseReference.child("Users").child(username).setValue(user);
 
