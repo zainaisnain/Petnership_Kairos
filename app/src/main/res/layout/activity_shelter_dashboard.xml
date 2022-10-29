@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/shelterDashboardFrag"
     android:padding="@dimen/_12sdp"
     >
 
@@ -95,6 +96,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:contentDescription="@string/app_name"
+            android:text="ADD PET"
             android:src="@drawable/ic_add"
             app:backgroundTint="@color/secondary_purple"
             app:tint="@color/white"

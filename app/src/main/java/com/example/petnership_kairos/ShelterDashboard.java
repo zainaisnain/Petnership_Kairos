@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import android.content.Intent;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -32,6 +36,8 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    Button logout, cancelLogout;
+    Dialog dialog;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,7 +137,10 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_logout:
+//                startActivity(new Intent(ShelterDashboard.this, MyLogoutDialog.class));
                 userLogout();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+//                        new MyLogoutDialog()).commit();
                 break;
         }
 
@@ -142,9 +151,34 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
     private void userLogout()
     {
         FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,LoginActivity.class);
+        Intent intent = new Intent(ShelterDashboard.this,LoginActivity.class);
         startActivity(intent);
         finish();
+//        dialog = new Dialog(ShelterDashboard.this);
+//        dialog.setContentView(R.layout.logout_dialog);
+//        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+//        dialog.setCancelable(false);
+//        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+//
+//        logout = dialog.findViewById(R.id.buttonOk);
+//        logout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(ShelterDashboard.this,LoginActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//
+//        cancelLogout = dialog.findViewById(R.id.buttonCancel);
+//        cancelLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                dialog.dismiss();
+//            }
+//        });
+
     }
 
 

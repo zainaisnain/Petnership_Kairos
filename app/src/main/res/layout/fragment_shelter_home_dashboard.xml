@@ -11,28 +11,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content" >
 
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageBurgerMenu"
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginStart="172dp"
+            android:layout_marginTop="704dp"
             android:src="@drawable/ic_burger_menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageAdd"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_add"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/imageAdd"-->
+<!--            android:layout_width="@dimen/_24sdp"-->
+<!--            android:layout_height="@dimen/_24sdp"-->
+<!--            android:layout_marginTop="@dimen/_4sdp"-->
+<!--            android:src="@drawable/ic_add"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:tint="@color/black" />-->
 
         <!--    <com.makeramen.roundedimageview.RoundedImageView-->
         <!--        android:id="@+id/imageProfile"-->
@@ -101,12 +102,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_add"
                     app:backgroundTint="@color/secondary_purple"
                     app:tint="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:text="@android:string/ok"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textAppearance="?android:attr/textAppearanceMedium" />-->
 
                 <androidx.constraintlayout.helper.widget.Flow
                     android:layout_width="match_parent"

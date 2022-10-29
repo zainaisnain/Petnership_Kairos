@@ -61,12 +61,12 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
          */
         drawerLayout = findViewById(R.id.drawer_layout_adopter);
         navigationView = findViewById(R.id.nav_view_adopter);
-        //toolbar = findViewById(R.id.main_toolbar);
+        toolbar = findViewById(R.id.main_toolbar);
 
         /**
          * Tool bar
          */
-   //     setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -75,7 +75,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+//        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_home);
     }
 
@@ -104,12 +104,24 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new home()).commit();
+                        new AdopterHomeDashboard()).commit();
                 break;
 
-            case R.id.nav_adopters:
+            case R.id.nav_appHistory:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new PetProfileDogs()).commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+//                        new ApplicationHistoryFragment()).commit();
+                break;
+
+            case R.id.nav_adoptAPet:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new AdoptionForm()).commit();
+                break;
+
+            case R.id.nav_browseAnimals:
+                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                        new ApplicationForm()).commit();
                 break;
 
             case R.id.nav_logout:

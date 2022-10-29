@@ -49,6 +49,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".MyLogoutDialog"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AdopterPerPetProfile"
             android:exported="false">
             <meta-data
