@@ -41,9 +41,10 @@ public class ShelterHomeDashboard extends Fragment {
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
-    private int numOfCats, numOfDogs, catsCount, dogsCount;
-    private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats;
+    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount;
+    private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfAdopters, tvNumOfForReview;
     private String shelterEmail, shelterUsername, shelterImageName;
     private ImageView ivShelterImage;
 
@@ -74,6 +75,8 @@ public class ShelterHomeDashboard extends Fragment {
         tvNumOfPets = view.findViewById(R.id.num_reg_pets_shelter);
         tvNumOfDogs = view.findViewById(R.id.num_reg_dogs_shelter);
         tvNumOfCats = view.findViewById(R.id.num_reg_cats_shelter);
+        tvNumOfAdopters =  view.findViewById(R.id.num_of_active_adopters);
+        tvNumOfForReview =  view.findViewById(R.id.num_of_for_review);
         ivShelterImage = view.findViewById(R.id.adopterImage);
 
         card1 = view.findViewById(R.id.registeredPets);
@@ -110,15 +113,15 @@ public class ShelterHomeDashboard extends Fragment {
         });
 
         card4 = view.findViewById(R.id.activeAdopters);
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ActiveAdopters activeadptrs = new ActiveAdopters();
-                transaction.replace(R.id.nav_host_fragment, activeadptrs);
-                transaction.commit();
-            }
-        });
+//        card4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ActiveAdopters activeadptrs = new ActiveAdopters();
+//                transaction.replace(R.id.nav_host_fragment, activeadptrs);
+//                transaction.commit();
+//            }
+//        });
 
         card5 = view.findViewById(R.id.toReview);
         card5.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +147,8 @@ public class ShelterHomeDashboard extends Fragment {
 
         setUpProfilePic();
         getNumOfRegPets();
-
+        getNumOfAdopters();
+        getNumOfForReview();
     }
 
     private void setUpProfilePic() {
@@ -190,8 +194,6 @@ public class ShelterHomeDashboard extends Fragment {
             }
         });
     }
-
-
     private void getNumOfRegPets() {
         //TODO: parang something wrong dito. pets ba to under current shelter
         petsDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -252,5 +254,61 @@ public class ShelterHomeDashboard extends Fragment {
         });
 
 
+    }
+
+    private void getNumOfAdopters(){
+        adoptersDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                numOfAdopters = (int) snapshot.getChildrenCount();
+                if(numOfAdopters>0){
+                    adoptersCount = numOfAdopters;
+                    String adopters = String.valueOf(numOfAdopters);
+                    tvNumOfAdopters.setText(adopters);
+                }else{
+                    tvNumOfAdopters.setText("0");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void getNumOfForReview(){
+        sheltersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterUsername = ds.getKey();
+                }
+
+                sheltersDBRef.child(shelterUsername).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        numOfForReview = (int) snapshot.getChildrenCount();
+                        if(numOfForReview>0){
+                            String forReview = String.valueOf(numOfForReview);
+                            forReviewCount = numOfForReview;
+                            tvNumOfForReview.setText(forReview);
+                        }else{
+                            tvNumOfForReview.setText("0");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

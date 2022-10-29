@@ -236,6 +236,7 @@
                         android:padding="16dp" >
 
                         <TextView
+                            android:id="@+id/num_of_active_adopters"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="4"
@@ -275,6 +276,7 @@
                         android:padding="16dp" >
 
                         <TextView
+                            android:id="@+id/num_of_for_review"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="3"
