@@ -129,7 +129,7 @@
                     android:id="@+id/adopterIntName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:text="Profile Info"
                     android:textSize="20sp"
                     android:fontFamily="@font/montserrat_reg"
                     android:layout_toRightOf="@+id/adopterIntProfilePic"

@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_adoptHome"
             android:icon="@drawable/ic_baseline_home_24"
             android:title="Home" />
 
@@ -25,17 +25,17 @@
 
     </group>
 
-    <item android:title="Social Media" >
-        <menu>
-            <group android:checkableBehavior="single">
-                <item
-                    android:title="Share"
-                    android:icon="@drawable/ic_baseline_share_24"
-                    android:id="@+id/nav_share"
-                    />
-            </group>
-        </menu>
-    </item>
+<!--    <item android:title="Social Media" >-->
+<!--        <menu>-->
+<!--            <group android:checkableBehavior="single">-->
+<!--                <item-->
+<!--                    android:title="Share"-->
+<!--                    android:icon="@drawable/ic_baseline_share_24"-->
+<!--                    android:id="@+id/nav_share"-->
+<!--                    />-->
+<!--            </group>-->
+<!--        </menu>-->
+<!--    </item>-->
 
     <item android:title="Authentication">
         <menu>

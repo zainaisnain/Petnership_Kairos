@@ -5,16 +5,27 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import android.content.Intent;
+import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    Button logout, cancelLogout;
+    Dialog dialog;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -38,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_drawer);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
-
-        // TODO: Check if not signed in
         FirebaseUser currUser = auth.getCurrentUser();
 
 //        if(currUser == null)
@@ -50,12 +61,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            return;
 //        }
 
+
+
         /**
          * Set home fragment as default page
          */
         if(savedInstanceState == null) {
             getSupportFragmentManager().
-                    beginTransaction().replace(R.id.nav_host_fragment,new home()).commit();
+                    beginTransaction().replace(R.id.nav_host_fragment,new ShelterHomeDashboard()).commit();
         }
 
         /**
@@ -68,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /**
          * Tool bar
          */
-       // setSupportActionBar(toolbar);
+        // setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -104,35 +117,94 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new home()).commit();
+
+            case R.id.nav_reg_pets:
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
+                transaction1.replace(R.id.shelterDashboardFrag, shelterRegisterPets);
+                transaction1.commit();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+//                        new ShelterRegisterPets()).commit();
                 break;
 
-            case R.id.nav_adopters:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new PetProfileDogs()).commit();
+            case R.id.nav_reg_my_pets:
+                getSupportFragmentManager().beginTransaction().replace(R.id.shelterDashboardFrag,
+                        new ShelterListOfPetsFragment()).commit();
+                break;
+
+            case R.id.nav_shelter_edit_info:
+                startActivity(new Intent(this, ShelterEditInfo.class));
                 break;
 
             case R.id.nav_logout:
-                userLogout();
+//                startActivity(new Intent(ShelterDashboard.this, MyLogoutDialog.class));
+//                userLogout();
+//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
+//                        new MyLogoutDialog()).commit();
+                dialog = new Dialog(this);
+                dialog.setContentView(R.layout.logout_dialog);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                dialog.setCancelable(false);
+                dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+                logout = dialog.findViewById(R.id.buttonOk);
+                logout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                cancelLogout = dialog.findViewById(R.id.buttonCancel);
+                cancelLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
                 break;
-
-
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    // TODO: Confirmation Dialog
     private void userLogout()
     {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
+//        FirebaseAuth.getInstance().signOut();
+//        Intent intent = new Intent(this,LoginActivity.class);
+//        startActivity(intent);
+//        finish();
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.logout_dialog);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
+        logout = dialog.findViewById(R.id.buttonOk);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        cancelLogout = dialog.findViewById(R.id.buttonCancel);
+        cancelLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
     }
+
 
 //    @Override
 //    public void onClick(View view) {
