@@ -56,13 +56,14 @@
 
                     <ImageView
                         android:id="@+id/adopter_per_pet_image"
-                        android:layout_width="198dp"
-                        android:layout_height="188dp"
+                        android:layout_width="153dp"
+                        android:layout_height="152dp"
+                        android:paddingTop="@dimen/_20sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:srcCompat="@drawable/cat"
                         tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteY="34dp" />
+                        tools:layout_editor_absoluteY="70dp" />
 
                     <TextView
                         android:id="@+id/adopter_per_pet_name_title"

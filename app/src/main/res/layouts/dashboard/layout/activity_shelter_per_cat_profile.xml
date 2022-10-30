@@ -24,13 +24,14 @@
                 android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="409dp"
+                    android:layout_height="735dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout5"
                         android:layout_width="match_parent"
                         android:layout_height="360dp"
                         android:background="@drawable/top_bg"
@@ -68,19 +69,21 @@
 
                     <ImageView
                         android:id="@+id/per_cat_image"
-                        android:layout_width="198dp"
-                        android:layout_height="188dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="@dimen/_50sdp"
+                        android:scaleType="centerCrop"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/constraintLayout5"
                         app:srcCompat="@drawable/cat"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteY="34dp" />
+                        tools:ignore="MissingConstraints" />
 
                     <TextView
                         android:id="@+id/per_pet_name_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="30dp"
                         android:fontFamily="@font/playfairdisplayblack"
                         android:text="PERCY'S PROFILE"
                         android:textColor="@color/white"
@@ -92,9 +95,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="420dp"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/white_perpetprofile"
                         android:elevation="3dp"
@@ -113,17 +116,17 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_pet_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Name: "
                                 android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:text="Name: "
+                                android:textSize="20sp" />
 
                             <TextView
                                 android:id="@+id/per_cat_name"
@@ -132,7 +135,7 @@
                                 android:layout_weight="1"
                                 android:text="PERCY"
                                 android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <View
@@ -153,8 +156,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Breed:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Breed:"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -179,8 +182,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Age:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Age:"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -205,8 +208,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Sex:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Sex:"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -231,8 +234,8 @@
                                 android:layout_width="62dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Description:"
                                 android:fontFamily="@font/montserrat_reg"
+                                android:text="Description:"
                                 android:textSize="18sp" />
 
                             <TextView

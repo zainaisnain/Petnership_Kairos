@@ -18,19 +18,23 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/_80sdp">
+
             <ImageView
                 android:id="@+id/dog_image"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="96dp"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/dog"/>
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/dog" />
             <LinearLayout
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp">
 
                 <TextView
                     android:id="@+id/dog_name"
@@ -45,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:text="age"
+                    android:text="Age"
                     android:textSize="15sp"/>
 
                 <TextView
@@ -53,14 +57,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:text="sex"
+                    android:text="Sex"
                     android:textSize="15sp"/>
                 <TextView
                     android:id="@+id/dog_breed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:text="breed"
+                    android:text="Breed"
                     android:textSize="15sp"/>
 
             </LinearLayout>
