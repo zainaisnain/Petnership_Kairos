@@ -68,7 +68,7 @@ public class ShelterListOfCatsFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, shelterHomeDashboard);
+                transaction.replace(R.id.shelter_list_of_cats_frag, shelterHomeDashboard);
                 transaction.commit();
             }
         });

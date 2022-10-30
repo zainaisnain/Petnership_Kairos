@@ -171,8 +171,6 @@ public class ShelterEditInfo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showcancelDialog();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.sheltereditInfo, new ShelterHomeDashboard()).commit();
             }
         });
         // on pressing btnSelect SelectImage() is called
@@ -249,8 +247,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                 }else{
                     editShelterInfo();
                     showsaveDialog();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.sheltereditInfo, new ShelterHomeDashboard()).commit();
                 }
 
             }
@@ -265,6 +261,9 @@ public class ShelterEditInfo extends AppCompatActivity {
         okBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+                fragmentTransaction.replace(R.id.sheltereditInfo, shelterHomeDashboard).commit();
                 saveDialog.dismiss();
 
             }
@@ -272,18 +271,27 @@ public class ShelterEditInfo extends AppCompatActivity {
     }
 
     private void showcancelDialog() {
-        final Dialog cancelDialog  = new Dialog(this);
-        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
-        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        cancelDialog.show();
-        Button okBTN = (Button) cancelDialog.findViewById(R.id.buttonOk);
-        okBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                cancelDialog.dismiss();
-
-            }
-        });
+            final Dialog cancelDialog  = new Dialog(this);
+            cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+            cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            cancelDialog.show();
+            Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+            yesBTN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                    ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+                    fragmentTransaction.replace(R.id.sheltereditInfo, shelterHomeDashboard).commit();
+                    cancelDialog.dismiss();
+                }
+            });
+            Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+            noBTN.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    cancelDialog.dismiss();
+                }
+            });
     }
 
     private void editShelterInfo() {

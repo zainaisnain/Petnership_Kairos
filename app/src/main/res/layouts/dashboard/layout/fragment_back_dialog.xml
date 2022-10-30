@@ -27,7 +27,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.17"
-                app:srcCompat="@drawable/ic_warning" />
+                app:srcCompat="@drawable/ic_back" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -36,7 +36,7 @@
                 android:fontFamily="@font/marmelad_regular"
                 android:textSize="24sp"
                 android:padding="10dp"
-                android:text="Are you sure you want to cancel?"
+                android:text="Are you sure you want to go back?"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +66,5 @@
         app:layout_constraintEnd_toEndOf="@id/buttonYes"
         app:layout_constraintStart_toStartOf="@+id/buttonYes"
         app:layout_constraintTop_toBottomOf="@+id/buttonYes" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,11 @@
 package com.example.petnership_kairos;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -19,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -49,7 +53,6 @@ public class AddCat extends Fragment {
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
-
     // view for image view
     private ImageView ivPetInfo;
 
@@ -89,8 +92,23 @@ public class AddCat extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_pet, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+        backBtn = view.findViewById(R.id.petinfo_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FRAGMENT to FRAGMENT
+                showDialog();
+            }
 
+            private void showDialog() {
+                View rootview = inflater.inflate(R.layout.fragment_back_dialog, container, false);
+                BackDialog backDialog = new BackDialog();
+                backDialog.show(getParentFragmentManager(), "Back Dialog");
+
+            }
+        });
+        return view;
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -158,17 +176,7 @@ public class AddCat extends Fragment {
 
         System.out.println("petStatus outside: " + petStatus);
 
-        backBtn = view.findViewById(R.id.petinfo_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterRegisterPets  shelterRegisterPets = new ShelterRegisterPets();
-                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
-                transaction.commit();
-            }
-        });
+
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);
         ivPetInfo.setOnClickListener(new View.OnClickListener() {
@@ -387,6 +395,5 @@ public class AddCat extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
 }
+

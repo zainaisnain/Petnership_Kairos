@@ -31,6 +31,7 @@
         android:layout_height="664dp"
         android:background="@drawable/card"
         android:gravity="center"
+        android:layout_marginTop="@dimen/_40sdp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

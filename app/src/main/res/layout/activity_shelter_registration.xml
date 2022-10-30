@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/shelterRegistration"
     tools:context=".ShelterRegistration">
     <ImageButton
         android:id="@+id/btnBack"
@@ -205,6 +206,7 @@
                 android:text="Submit" />
 
             <Button
+                android:id="@+id/shelterRegisterCancel"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:backgroundTint="#AC94F4"

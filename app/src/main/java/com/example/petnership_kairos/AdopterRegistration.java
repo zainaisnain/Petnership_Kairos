@@ -2,11 +2,15 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -59,7 +63,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     DatePickerDialog.OnDateSetListener setListener;
     String datePicked;
 
-    private Button submit, uploadBtn;
+    private Button submit, uploadBtn, cancelBtn;
     private FirebaseAuth mAuth;
     private ImageButton backBtn;
 
@@ -223,6 +227,14 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
+        cancelBtn = (Button) findViewById(R.id.adopterRegisterCancel);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showcancelDialog();
+            }
+        });
+
     }
 
 
@@ -259,6 +271,27 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         }
     }
 
+    private void showcancelDialog() {
+        final Dialog cancelDialog  = new Dialog(this);
+        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        cancelDialog.show();
+        Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+        yesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(AdopterRegistration.this, LoginActivity.class));
+                cancelDialog.dismiss();
+            }
+        });
+        Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+        noBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                cancelDialog.dismiss();
+            }
+        });
+    }
     private void registerAdopter() {
         String fname = editTextFname.getText().toString().trim();
         String lname = editTextLname.getText().toString().trim();

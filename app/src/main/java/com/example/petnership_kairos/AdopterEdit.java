@@ -122,8 +122,6 @@ public class AdopterEdit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showcancelDialog();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
             }
         });
 
@@ -192,8 +190,6 @@ public class AdopterEdit extends AppCompatActivity {
                 }else{
                     editAdopterInfo();
                     showsaveDialog();
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
                 }
             }
 
@@ -207,12 +203,20 @@ public class AdopterEdit extends AppCompatActivity {
         cancelDialog.setContentView(R.layout.activity_cancel_dialog);
         cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         cancelDialog.show();
-        Button okBTN = (Button) cancelDialog.findViewById(R.id.buttonOk);
-        okBTN.setOnClickListener(new View.OnClickListener() {
+        Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+        yesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
+                cancelDialog.dismiss();
+            }
+        });
+        Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+        noBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 cancelDialog.dismiss();
-
             }
         });
     }
@@ -226,6 +230,9 @@ public class AdopterEdit extends AppCompatActivity {
         okBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+                fragmentTransaction.replace(R.id.adopterEdit, adopterHomeDashboard).commit();
                 saveDialog.dismiss();
 
             }
