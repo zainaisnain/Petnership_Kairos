@@ -2,6 +2,7 @@ package com.example.petnership_kairos;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +42,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     Button submitForm, cancelForm;
+    ImageButton backBtn;
     CheckBox agreeCb;
     EditText intentionsTv;
 
@@ -104,6 +107,23 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
 
 
         intentionsTv = view.findViewById(R.id.intentions_adopter);
+
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(petType.equals("dog")){
+                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
+                    dogIntent.putExtra("PetID", petID);
+                    view.getContext().startActivity(dogIntent);
+                }else{
+                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
+                    catIntent.putExtra("PetID", petID);
+                    view.getContext().startActivity(catIntent);
+                }
+            }
+        });
+
 
         //BUTTONS
         submitForm = view.findViewById(R.id.btn_submit_adopter);
