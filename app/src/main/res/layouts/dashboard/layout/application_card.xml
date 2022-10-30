@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/applicant_cv"
         android:layout_width="wrap_content"
-        android:layout_height="179dp"
+        android:layout_height="120dp"
         android:layout_margin="5dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="10dp"
@@ -21,43 +21,72 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/adoptee_image"
                 android:layout_width="120dp"
-                android:layout_height="150dp"
-                android:layout_margin="10dp"
+                android:layout_height="120dp"
+                android:padding="@dimen/_10sdp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/cat_dog" />
 
             <LinearLayout
                 android:layout_width="284dp"
-                android:layout_height="189dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp">
 
-                <TextView
-                    android:id="@+id/adoptee_name"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:text="Pet Name"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/adoptee_status"
+                    <TextView
+                        android:id="@+id/label_pet_name"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Pet Name:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/adoptee_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Pet Name" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:layout_margin="10dp"
-                    android:text="Status: -" />
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/label_pet_status"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Status:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/adoptee_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Pet Status" />
+                </LinearLayout>
 
             </LinearLayout>
 

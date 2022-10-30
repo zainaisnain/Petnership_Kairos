@@ -84,10 +84,10 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
             }
         });
 
-        holder.tvPetName.setText("Name : " + registeredDogDataList.getPetName());
-        holder.tvPetAge.setText("Age : " + registeredDogDataList.getPetAge());
-        holder.tvPetSex.setText("Sex : " + registeredDogDataList.getPetSex());
-        holder.tvPetBreed.setText("Breed : " + registeredDogDataList.getPetBreed());
+        holder.tvPetName.setText(registeredDogDataList.getPetName());
+        holder.tvPetAge.setText(registeredDogDataList.getPetAge());
+        holder.tvPetSex.setText(registeredDogDataList.getPetSex());
+        holder.tvPetBreed.setText(registeredDogDataList.getPetBreed());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
