@@ -29,8 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
-public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+// if nagka-error:
+// public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+public class AdopterHomeDashboard extends Fragment {
 
 
 

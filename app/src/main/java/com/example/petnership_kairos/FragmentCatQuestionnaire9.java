@@ -48,18 +48,18 @@ public class FragmentCatQuestionnaire9 extends Fragment {
         mainAlgo = new MCDM();
         mainAlgo.fetchAlternatives(getContext(),2);
 
-        cseekBar51 = (SeekBar) getView().findViewById(R.id.cseekBar51);
-        cseekBar52 = (SeekBar) getView().findViewById(R.id.cseekBar52);
-        cseekBar53 = (SeekBar) getView().findViewById(R.id.cseekBar53);
-        cseekBar54 = (SeekBar) getView().findViewById(R.id.cseekBar54);
-        cseekBar55= (SeekBar) getView().findViewById(R.id.cseekBar55);
-        cseekBar56 = (SeekBar) getView().findViewById(R.id.cseekBar56);
-        crate51 = (TextView) getView().findViewById(R.id.crating51);
-        crate52 = (TextView) getView().findViewById(R.id.crating52);
-        crate53 = (TextView) getView().findViewById(R.id.crating53);
-        crate54 = (TextView) getView().findViewById(R.id.crating54);
-        crate55 = (TextView) getView().findViewById(R.id.crating55);
-        crate56 = (TextView) getView().findViewById(R.id.crating56);
+        cseekBar51 = getView().findViewById(R.id.cseekBar51);
+        cseekBar52 = getView().findViewById(R.id.cseekBar52);
+        cseekBar53 = getView().findViewById(R.id.cseekBar53);
+        cseekBar54 = getView().findViewById(R.id.cseekBar54);
+        cseekBar55= getView().findViewById(R.id.cseekBar55);
+        cseekBar56 = getView().findViewById(R.id.cseekBar56);
+        crate51 = getView().findViewById(R.id.crating51);
+        crate52 = getView().findViewById(R.id.crating52);
+        crate53 = getView().findViewById(R.id.crating53);
+        crate54 = getView().findViewById(R.id.crating54);
+        crate55 = getView().findViewById(R.id.crating55);
+        crate56 = getView().findViewById(R.id.crating56);
 
         // bring back previous progress if any
    //     if (mViewModel.getDogAnswer(8) != null){
@@ -178,55 +178,48 @@ public class FragmentCatQuestionnaire9 extends Fragment {
 
 
         cpopup9 = getView().findViewById(R.id.cinstructionsBTN9);
-        cpopup9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
+        cpopup9.setOnClickListener(view1 -> showDialog());
+
+        Button submitBtn = getView().findViewById(R.id.csubmit_ques);
+        submitBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(51, cseekBar51.getProgress());
+            mViewModel.setAnswer(52, cseekBar52.getProgress());
+            mViewModel.setAnswer(53, cseekBar53.getProgress());
+            mViewModel.setAnswer(54, cseekBar54.getProgress());
+            mViewModel.setAnswer(55, cseekBar55.getProgress());
+            mViewModel.setAnswer(56, cseekBar56.getProgress());
+
+            for (int i = 1; i < 57; i++) {
+                System.out.println("SEEKBAR #" + i + ": " + mViewModel.getAnswer(i));
             }
-        });
 
-        Button submitBtn = (Button) getView().findViewById(R.id.csubmit_ques);
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setAnswer(51, cseekBar51.getProgress());
-                mViewModel.setAnswer(52, cseekBar52.getProgress());
-                mViewModel.setAnswer(53, cseekBar53.getProgress());
-                mViewModel.setAnswer(54, cseekBar54.getProgress());
-                mViewModel.setAnswer(55, cseekBar55.getProgress());
-                mViewModel.setAnswer(56, cseekBar56.getProgress());
+            mainAlgo.beginMCDM();
 
-                for (int i = 1; i < 57; i++) {
-                    System.out.println("SEEKBAR #" + i + ": " + mViewModel.getAnswer(i));
-                }
-
-                mainAlgo.beginMCDM();
-
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentRecommendedPets recPets = new FragmentRecommendedPets();
-                transaction.replace(R.id.nav_host_fragment,recPets);
-                transaction.addToBackStack("recommendedPets");
-                transaction.commit();
-            }
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentRecommendedPets recPets = new FragmentRecommendedPets();
+            transaction.replace(R.id.nav_host_fragment,recPets);
+            transaction.addToBackStack("recommendedPets");
+            transaction.commit();
         });
     }
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
     private void showDialog() {

@@ -16,10 +16,11 @@ import android.widget.ImageButton;
 
 public class FragmentQuestionnaireChooseAnimal extends Fragment {
 
-    private ImageButton backBtn;
     public static FragmentQuestionnaireChooseAnimal newInstance() {
         return new FragmentQuestionnaireChooseAnimal();
     }
+
+    MCDMAnswersViewModel mViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -32,53 +33,44 @@ public class FragmentQuestionnaireChooseAnimal extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Adopter Questionnaire - Choose Animal");
-        ImageButton adoptCat = (ImageButton)getView().findViewById(R.id.adoptChoiceCat);
-        adoptCat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentCatQuestionnaire1 cat1Fragment = new FragmentCatQuestionnaire1();
-                transaction.replace(R.id.nav_host_fragment,cat1Fragment);
-                transaction.addToBackStack("catQuestionnaire1");
-                transaction.commit();
-            }
+        ImageButton adoptCat = getView().findViewById(R.id.adoptChoiceCat);
+        adoptCat.setOnClickListener(v -> {
+
+
+            mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
+            mViewModel.setAnimalType("Cat");
+
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentQuestionnairePart1 part1Fragment = new FragmentQuestionnairePart1();
+            transaction.replace(R.id.nav_host_fragment,part1Fragment);
+            transaction.addToBackStack("questionnairePart1");
+            transaction.commit();
         });
 
-        ImageButton adoptDog = (ImageButton)getView().findViewById(R.id.adoptChoiceDog);
-        adoptDog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentDogQuestionnaire1 dog1Fragment = new FragmentDogQuestionnaire1();
-                transaction.replace(R.id.nav_host_fragment,dog1Fragment);
-                transaction.addToBackStack("dogQuestionnaire1");
-                transaction.commit();
-            }
+        ImageButton adoptDog = getView().findViewById(R.id.adoptChoiceDog);
+        adoptDog.setOnClickListener(v -> {
+            mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
+            mViewModel.setAnimalType("Dog");
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentQuestionnairePart1 part1Fragment = new FragmentQuestionnairePart1();
+            transaction.replace(R.id.nav_host_fragment,part1Fragment);
+            transaction.addToBackStack("questionnairePart1");
+            transaction.commit();
         });
-        backBtn = (ImageButton)getView().findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentQuestionnaireWelcome questionnairewelcome = new FragmentQuestionnaireWelcome();
-                transaction.replace(R.id.nav_host_fragment, questionnairewelcome);
-                transaction.commit();
-            }
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view1 -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+            FragmentQuestionnaireWelcome questionnairewelcome = new FragmentQuestionnaireWelcome();
+            transaction.replace(R.id.nav_host_fragment, questionnairewelcome);
+            transaction.commit();
         });
 
     }
 
     // TODO: Add  Progress Dialog Box
-    private void catQuestionnaire()
-    {
-    }
-
-    private void dogQuestionnaire()
-    {
-
-
-
-    }
 
 
 }

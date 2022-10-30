@@ -1,69 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
-    android:layout_height="300dp"
+    android:layout_width="380dp"
+    android:layout_height="600dp"
     android:background="@drawable/dialogs">
 
 
     <TextView
-        android:id="@+id/textView42"
+        android:id="@+id/textView65"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/playfairdisplayblack"
-        android:text="INSTRUCTIONS"
-        android:textColor="#371576"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView47"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.419" />
-
-    <TextView
-        android:id="@+id/textView47"
-        android:layout_width="322dp"
-        android:layout_height="110dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Given option A and B, slide the button to the choice you value more. Sliding it more on the left-hand side states the importance of option A over option B, while sliding it more on the right-hand side states the importance of option B over option A.
-Putting the button in the middle indicates equal importance."
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView48"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="TextContrastCheck" />
-
-    <TextView
-        android:id="@+id/textView48"
-        android:layout_width="326dp"
-        android:layout_height="104dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="Note the changing indicators on top of each sliding bar: Extremely Important, Significantly Important, Moderately Important, Slightly Important, and Equally Important as you slide the button. Slide the button on which side matters more to you in accordance with the indicators."
-        android:textSize="12sp"
-        android:textStyle="bold"
+        android:text="EXPLANATION OF TERMS"
+        android:textColor="@color/dark_purple"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919" />
+        app:layout_constraintTop_toBottomOf="@+id/closeBTN"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="360dp"
+        android:layout_height="454dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView65"
+        app:layout_constraintVertical_bias="0.195">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="60dp">
+
+            <TextView
+                android:id="@+id/catMain1Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/activity_playfulness"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain1Desc"
+                android:layout_width="195dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How energetic, mischievous, and active the cat is"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/catMain2Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/calmness"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain2Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How calm the cat is in general"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/catMain3Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/non_aggression"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain3Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="Lack of aggressive behavior in a cat"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/catMain4Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/sociability"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain4Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How sociable the cat is with humans and other pets"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:minHeight="60dp">
+
+            <TextView
+                android:id="@+id/catMain5Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/litterbox_comfortability_adjustment"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain5Desc"
+                android:layout_width="195dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How comfortable and trained a cat is with using the litter box"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/catMain6Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/healthy_grooming"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain6Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How normal and healthy a cat's grooming habits are"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/catMain7Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/age_life_expectancy"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain7Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How many more years the cat is expected to live"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="26dp">
+
+            <TextView
+                android:id="@+id/catMain8Name"
+                android:layout_width="165dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/popularity"
+                android:textColor="@color/dark_purple" />
+
+            <TextView
+                android:id="@+id/catMain8Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="How popular the cat is, based on the Most Popular Breeds in the World according to Cat Time"
+                android:textColor="@color/black" />
+        </TableRow>
+    </TableLayout>
 
     <ImageButton
         android:id="@+id/closeBTN"
         android:layout_width="45dp"
         android:layout_height="41dp"
         android:background="#0000"
-        app:layout_constraintBottom_toTopOf="@+id/textView47"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/textView42"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.231"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

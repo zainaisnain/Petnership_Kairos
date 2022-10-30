@@ -41,14 +41,14 @@ public class FragmentCatQuestionnaire5 extends Fragment {
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
 
-        cseekBar29 = (SeekBar) getView().findViewById(R.id.cseekBar29);
-        cseekBar30 = (SeekBar) getView().findViewById(R.id.cseekBar30);
-        cseekBar31 = (SeekBar) getView().findViewById(R.id.cseekBar31);
-        cseekBar32 = (SeekBar) getView().findViewById(R.id.cseekBar32);
-        crate29 = (TextView) getView().findViewById(R.id.crating29);
-        crate30 = (TextView) getView().findViewById(R.id.crating30);
-        crate31 = (TextView) getView().findViewById(R.id.crating31);
-        crate32 = (TextView) getView().findViewById(R.id.crating32);
+        cseekBar29 = getView().findViewById(R.id.cseekBar29);
+        cseekBar30 = getView().findViewById(R.id.cseekBar30);
+        cseekBar31 = getView().findViewById(R.id.cseekBar31);
+        cseekBar32 = getView().findViewById(R.id.cseekBar32);
+        crate29 = getView().findViewById(R.id.crating29);
+        crate30 = getView().findViewById(R.id.crating30);
+        crate31 = getView().findViewById(R.id.crating31);
+        crate32 = getView().findViewById(R.id.crating32);
 
 
 
@@ -119,29 +119,22 @@ public class FragmentCatQuestionnaire5 extends Fragment {
         });
 
         cpopup5 = getView().findViewById(R.id.cinstructionsBTN5);
-        cpopup5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        Button proceedBtn = (Button) getView().findViewById(R.id.cproceed_ques5);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setAnswer(29, cseekBar29.getProgress());
-                mViewModel.setAnswer(30, cseekBar30.getProgress());
-                mViewModel.setAnswer(31, cseekBar31.getProgress());
-                mViewModel.setAnswer(32, cseekBar32.getProgress());
+        cpopup5.setOnClickListener(view1 -> showDialog());
+        Button proceedBtn = getView().findViewById(R.id.cproceed_ques5);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(29, cseekBar29.getProgress());
+            mViewModel.setAnswer(30, cseekBar30.getProgress());
+            mViewModel.setAnswer(31, cseekBar31.getProgress());
+            mViewModel.setAnswer(32, cseekBar32.getProgress());
 
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentCatQuestionnaire6 cat6Fragment = new FragmentCatQuestionnaire6();
-                transaction.replace(R.id.nav_host_fragment,cat6Fragment);
-                transaction.addToBackStack("catQuestionnaire6");
-                transaction.commit();
-            }
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentCatQuestionnaire6 cat6Fragment = new FragmentCatQuestionnaire6();
+            transaction.replace(R.id.nav_host_fragment,cat6Fragment);
+            transaction.addToBackStack("catQuestionnaire6");
+            transaction.commit();
         });
 
 
@@ -149,19 +142,19 @@ public class FragmentCatQuestionnaire5 extends Fragment {
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
 

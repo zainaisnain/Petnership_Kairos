@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,7 +93,12 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
             //TODO: FIX ONBACKPRESSED
             int count = getSupportFragmentManager().getBackStackEntryCount();
             if (count <= 1) {
-                super.onBackPressed();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
+                transaction.commit();
+                //super.onBackPressed();
             } else {
                 getSupportFragmentManager().popBackStack();
             }

@@ -41,20 +41,20 @@ public class FragmentCatQuestionnaire2 extends Fragment {
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
 
-        cseekBar8 = (SeekBar) getView().findViewById(R.id.cseekBar8);
-        cseekBar9 = (SeekBar) getView().findViewById(R.id.cseekBar9);
-        cseekBar10 = (SeekBar) getView().findViewById(R.id.cseekBar10);
-        cseekBar11 = (SeekBar) getView().findViewById(R.id.cseekBar11);
-        cseekBar12 = (SeekBar) getView().findViewById(R.id.cseekBar12);
-        cseekBar13 = (SeekBar) getView().findViewById(R.id.cseekBar13);
-        cseekBar14 = (SeekBar) getView().findViewById(R.id.cseekBar14);
-        crate8 = (TextView) getView().findViewById(R.id.crating8);
-        crate9 = (TextView) getView().findViewById(R.id.crating9);
-        crate10 = (TextView) getView().findViewById(R.id.crating10);
-        crate11 = (TextView) getView().findViewById(R.id.crating11);
-        crate12 = (TextView) getView().findViewById(R.id.crating12);
-        crate13 = (TextView) getView().findViewById(R.id.crating13);
-        crate14 = (TextView) getView().findViewById(R.id.crating14);
+        cseekBar8 = getView().findViewById(R.id.cseekBar8);
+        cseekBar9 = getView().findViewById(R.id.cseekBar9);
+        cseekBar10 = getView().findViewById(R.id.cseekBar10);
+        cseekBar11 = getView().findViewById(R.id.cseekBar11);
+        cseekBar12 = getView().findViewById(R.id.cseekBar12);
+        cseekBar13 = getView().findViewById(R.id.cseekBar13);
+        cseekBar14 = getView().findViewById(R.id.cseekBar14);
+        crate8 = getView().findViewById(R.id.crating8);
+        crate9 = getView().findViewById(R.id.crating9);
+        crate10 = getView().findViewById(R.id.crating10);
+        crate11 = getView().findViewById(R.id.crating11);
+        crate12 = getView().findViewById(R.id.crating12);
+        crate13 = getView().findViewById(R.id.crating13);
+        crate14 = getView().findViewById(R.id.crating14);
 
 
 
@@ -193,6 +193,7 @@ public class FragmentCatQuestionnaire2 extends Fragment {
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 FragmentCatQuestionnaire3 cat3Fragment = new FragmentCatQuestionnaire3();
                 transaction.replace(R.id.nav_host_fragment,cat3Fragment);
                 transaction.addToBackStack("catQuestionnaire3");
@@ -205,19 +206,19 @@ public class FragmentCatQuestionnaire2 extends Fragment {
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
 
