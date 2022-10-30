@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/adopterEdit"
     android:background="@color/background"
-    tools:context=".AdopterEdit">
+    tools:context=".AdopterEditInfo">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -183,16 +183,6 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"/>
-
-            <Button
-                android:id="@+id/upload_image_btn_edit"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#C0C0C0"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Upload" />
 
             <Button
                 android:id="@+id/btn_submit_adopter_edit"

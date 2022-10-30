@@ -178,12 +178,6 @@ public class AddCat extends Fragment {
             }
         });
 
-        uploadBtn = view.findViewById(R.id.upload_image_pet_info);
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {uploadImage();}
-        });
-
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -216,9 +210,10 @@ public class AddCat extends Fragment {
                     return;
                 }else if(filePath==null){
                     Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
-                }else if(!imageUploaded){
-                    Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
+                    if(!imageUploaded){
+                        uploadImage();
+                    }
                     addPet();
                     Toast.makeText(getActivity(), "Proceed to Questionnaire", Toast.LENGTH_LONG).show();
                 }

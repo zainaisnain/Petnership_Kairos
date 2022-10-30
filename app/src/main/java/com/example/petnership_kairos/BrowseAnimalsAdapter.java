@@ -54,13 +54,22 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetAge.setText("Age : " + registeredPetDataList.getPetAge());
         holder.tvPetSex.setText("Sex : " + registeredPetDataList.getPetSex());
         holder.tvPetBreed.setText("Breed : " + registeredPetDataList.getPetBreed());
-
+        String petType = registeredPetDataList.getPetType();
+        System.out.println("BrowseAnimalsAdapter petType === " + petType);
         holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AdopterPerPetProfile.class);
-                intent.putExtra("PetID", registeredPetDataList.getPetID());
-                view.getContext().startActivity(intent);
+
+                if(petType.equals("dog")){
+                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
+                    dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                    view.getContext().startActivity(dogIntent);
+                }else{
+                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
+                    catIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                    view.getContext().startActivity(catIntent);
+                }
+
             }
         });
     }
