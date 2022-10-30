@@ -1,9 +1,5 @@
 package com.example.petnership_kairos;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,26 +9,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Objects;
 
 public class HelpPopup extends DialogFragment {
     public View view;
     ImageButton btnOk;
+    private String type, animal;
+
+
+    public HelpPopup() {
+    }
+    public HelpPopup(String animal, String type) {
+        this.animal = animal;
+        this.type = type;
+    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        view = inflater.inflate(R.layout.fragment_help_popup, container, false);
+        if (animal.equals("Cat") && type.equals("Main")) {
+            view = inflater.inflate(R.layout.fragment_help_popup_cat_main, container, false);
+        }
+        else if (animal.equals("Dog") && type.equals("Main")) {
+            view = inflater.inflate(R.layout.fragment_help_popup_dog_main, container, false);
+        }
         if (getDialog() != null && getDialog().getWindow() != null) {
             getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);

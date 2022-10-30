@@ -223,8 +223,8 @@ public class FragmentCatQuestionnaire2 extends Fragment {
     }
 
     private void showDialog() {
-        HelpPopup helpDialogc2 = new HelpPopup();
-        helpDialogc2.show(getParentFragmentManager(), "Help Popup");
+        HelpPopup helpDialog = new HelpPopup("Cat", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
         /*
                 final Dialog helpDialog = new Dialog();
         helpDialog.setContentView(R.layout.help_popup);
