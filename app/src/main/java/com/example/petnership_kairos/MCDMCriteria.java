@@ -3,11 +3,23 @@ package com.example.petnership_kairos;
 public class MCDMCriteria {
 
     private String name;
+    private int ans;
     private double weight;
     private boolean negative;
 
     public MCDMCriteria() {
         super();
+    }
+
+    public MCDMCriteria(int ans, String name) {
+        super();
+        this.name = name;
+        this.ans = ans;
+    }
+    public MCDMCriteria(String name) {
+        super();
+        this.name = name;
+        this.weight = weight;
     }
 
     public MCDMCriteria(String name, double weight) {

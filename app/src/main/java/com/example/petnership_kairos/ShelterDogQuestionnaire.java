@@ -42,6 +42,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
             q9a1Btn, q9a2Btn, q9a3Btn, q11a1Btn, q11a2Btn, q11a3Btn;
 
     private TextView tvQ1, tvQ2, tvQ3, tvQ4, tvQ5, tvQ6, tvQ7, tvQ8, tvQ9, tvQ10, tvQ11;
+    private EditText etOtherBreed;
 
     private int q1,q2,q3,q4,q5,q6,q7, q8, q9, q11;
     private String q10, shelter;
@@ -188,6 +189,8 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
 
         //Q10
         dogBreedTxt = view.findViewById(R.id.dogType);
+        etOtherBreed = view.findViewById(R.id.dog_breed_other_et);
+        etOtherBreed.setEnabled(false);
         //What dog breed
         ArrayAdapter<String> dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
         dogBreedTxt.setAdapter(dogBreedAdapter);
@@ -196,6 +199,15 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 q10 = adapterView.getItemAtPosition(i).toString();
+                if(q10.equals("Other")){
+                    etOtherBreed.setEnabled(true);
+                    q10 = etOtherBreed.getText().toString().trim().toLowerCase();
+                    System.out.println("q10 seton == " + q10);
+                }else{
+                    etOtherBreed.setText("");
+                    q10 = adapterView.getItemAtPosition(i).toString();
+                    etOtherBreed.setEnabled(false);
+                }
             }
 
             @Override
@@ -216,6 +228,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println("q10 click  == " + q10);
                 //Validate answers
                 if(q1==0){
                     tvQ1.requestFocus();

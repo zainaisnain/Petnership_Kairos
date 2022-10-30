@@ -24,7 +24,6 @@ public class FragmentDogQuestionnaire1 extends Fragment {
     }
 
     ImageButton popup;
-    private ImageButton backBtn;
     SeekBar seekBar1, seekBar2, seekBar3, seekBar4, seekBar5, seekBar6, seekBar7;
     TextView rate1, rate2, rate3, rate4, rate5, rate6, rate7;
     MCDMAnswersViewModel mViewModel;
@@ -41,22 +40,23 @@ public class FragmentDogQuestionnaire1 extends Fragment {
         getActivity().setTitle("Dog Questionnaire 1");
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
+        mViewModel.setAnimalType("Dog");
 
 
-        seekBar1 = (SeekBar)getView().findViewById(R.id.seekBar);
-        seekBar2 = (SeekBar)getView().findViewById(R.id.seekBar2);
-        seekBar3 = (SeekBar)getView().findViewById(R.id.seekBar3);
-        seekBar4 = (SeekBar)getView().findViewById(R.id.seekBar4);
-        seekBar5 = (SeekBar)getView().findViewById(R.id.seekBar5);
-        seekBar6 = (SeekBar)getView().findViewById(R.id.seekBar6);
-        seekBar7 = (SeekBar)getView().findViewById(R.id.seekBar7);
-        rate1 = (TextView)getView().findViewById(R.id.rating1);
-        rate2 = (TextView)getView().findViewById(R.id.rating2);
-        rate3 = (TextView)getView().findViewById(R.id.rating3);
-        rate4 = (TextView)getView().findViewById(R.id.rating4);
-        rate5 = (TextView)getView().findViewById(R.id.rating5);
-        rate6 = (TextView)getView().findViewById(R.id.rating6);
-        rate7 = (TextView)getView().findViewById(R.id.rating7);
+        seekBar1 = getView().findViewById(R.id.seekBar);
+        seekBar2 = getView().findViewById(R.id.seekBar2);
+        seekBar3 = getView().findViewById(R.id.seekBar3);
+        seekBar4 = getView().findViewById(R.id.seekBar4);
+        seekBar5 = getView().findViewById(R.id.seekBar5);
+        seekBar6 = getView().findViewById(R.id.seekBar6);
+        seekBar7 = getView().findViewById(R.id.seekBar7);
+        rate1 = getView().findViewById(R.id.rating1);
+        rate2 = getView().findViewById(R.id.rating2);
+        rate3 = getView().findViewById(R.id.rating3);
+        rate4 = getView().findViewById(R.id.rating4);
+        rate5 = getView().findViewById(R.id.rating5);
+        rate6 = getView().findViewById(R.id.rating6);
+        rate7 = getView().findViewById(R.id.rating7);
 
 
 
@@ -174,42 +174,31 @@ public class FragmentDogQuestionnaire1 extends Fragment {
         });
 
         popup = getView().findViewById(R.id.instructionsBTN1);
-        popup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        Button proceedBtn = (Button) getView().findViewById(R.id.proceed_ques1);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setDogAnswer(1, seekBar1.getProgress());
-                mViewModel.setDogAnswer(2, seekBar2.getProgress());
-                mViewModel.setDogAnswer(3, seekBar3.getProgress());
-                mViewModel.setDogAnswer(4, seekBar4.getProgress());
-                mViewModel.setDogAnswer(5, seekBar5.getProgress());
-                mViewModel.setDogAnswer(6, seekBar6.getProgress());
-                mViewModel.setDogAnswer(7, seekBar7.getProgress());
+        popup.setOnClickListener(view1 -> showDialog());
+        Button proceedBtn = getView().findViewById(R.id.proceed_ques1);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(1, seekBar1.getProgress());
+            mViewModel.setAnswer(2, seekBar2.getProgress());
+            mViewModel.setAnswer(3, seekBar3.getProgress());
+            mViewModel.setAnswer(4, seekBar4.getProgress());
+            mViewModel.setAnswer(5, seekBar5.getProgress());
+            mViewModel.setAnswer(6, seekBar6.getProgress());
+            mViewModel.setAnswer(7, seekBar7.getProgress());
 
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentDogQuestionnaire2 dog2Fragment = new FragmentDogQuestionnaire2();
-                transaction.replace(R.id.nav_host_fragment,dog2Fragment);
-                transaction.addToBackStack("dogQuestionnaire2");
-                transaction.commit();
-            }
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            FragmentDogQuestionnaire2 dog2Fragment = new FragmentDogQuestionnaire2();
+            transaction.replace(R.id.nav_host_fragment,dog2Fragment);
+            transaction.addToBackStack("dogQuestionnaire2");
+            transaction.commit();
         });
-        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
-                transaction.replace(R.id.nav_host_fragment, chooseAnimal);
-                transaction.commit();
-            }
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
+            transaction.replace(R.id.nav_host_fragment, chooseAnimal);
+            transaction.commit();
         });
 
 
@@ -217,19 +206,19 @@ public class FragmentDogQuestionnaire1 extends Fragment {
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
 

@@ -262,7 +262,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     private void registerAdopter() {
         String fname = editTextFname.getText().toString().trim();
         String lname = editTextLname.getText().toString().trim();
-        String email = editTextEmail.getText().toString();
+        String email = editTextEmail.getText().toString().toLowerCase();
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
@@ -372,12 +372,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
-                                                        Adopter adopter = new Adopter(fname, lname, email, username, password,
+                                                        Adopter adopter = new Adopter(fname, lname, email, username,
                                                                 contact, street, city, adopterProvince, country, sex, birthday, imageName);
 
                                                         databaseReference.child("Adopters").child(username).setValue(adopter);
 
-                                                        User user = new User(email, password, username, "adopter");
+                                                        User user = new User(email, username, "adopter");
 
                                                         databaseReference.child("Users").child(username).setValue(user);
 

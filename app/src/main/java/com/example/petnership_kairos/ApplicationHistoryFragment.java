@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,6 +42,34 @@ public class ApplicationHistoryFragment extends Fragment {
     View view;
     RecyclerView recyclerView;
     ImageButton backBtn;
+
+    private TextView tvDoglvl1, tvDoglvl2, tvDoglvl3, tvDoglvl4, tvDoglvl5,
+            tvDoglvl6, tvDoglvl7, tvDoglvl8, tvDoglvl9, tvDoglvl10, tvDoglvl11;
+
+    private String[] popularityHigh =
+            {"Retrievers (Labrador)", "French Bulldogs", "Retrievers (Golden)", "German Shepherd Dogs", "Poodles",
+                    "Bulldogs", "Beagles", "Rottweilers", "Pointers (German Shorthaired)", "Dachshunds",
+                    "Pembroke Welsh Corgis", "Australian Shepherds", "Yorkshire Terriers", "Boxers", "Cavalier King Charles Spaniels",
+                    "Doberman Pinschers", "Great Danes", "Miniature Schnauzers", "Siberian Huskies", "Bernese Mountain Dogs",
+                    "Cane Corso", "Shih Tzu", "Boston Terriers", "Pomeranians", "Havanese"};
+
+    private String[] popularityMedium =
+            {"Spaniels (English Springer)", "Brittanys", "Shetland Sheepdogs", "Spaniels (Cocker)", "Miniature American Shepherds",
+                    "Border Collies", "Vizslas", "Pugs", "Basset Hounds", "Mastiffs",
+                    "Belgian Malinois", "Chihuahuas", "Collies", "Maltese", "Weimaraners",
+                    "Rhodesian Ridgebacks", "Shiba Inu", "Spaniels (English Cocker)", "Portuguese Water Dogs", "Newfoundlands",
+                    "West Highland White Terriers", "Bichons Frises", "Retrievers (Chesapeake Bay)", "Dalmatians", "Bloodhounds",
+                    "Australian Cattle Dogs", "Akitas", "St. Bernards", "Papillons", "Samoyeds",
+                    "Bullmastiffs", "Whippets", "Scottish Terriers", "Pointers (German Wirehaired)", "Wirehaired Pointing Griffons",
+                    "Bull Terriers", "Airedale Terriers", "Great Pyrenees", "Chinese Shar-Pei", "Giant Schnauzers",
+                    "Soft Coated Wheaten Terriers", "Cardigan Welsh Corgis", "Alaskan Malamutes", "Old English Sheepdogs", "Dogues de Bordeaux",
+                    "Setters (Irish)", "Russell Terriers", "Italian Greyhounds", "Cairn Terriers", "Staffordshire Bull Terriers",
+                    "Miniature Pinschers", "Chinese Crested", "Greater Swiss Mountain Dogs", "Lagotti Romagnoli", "Chow Chows",
+                    "American Staffordshire Terriers", "Biewer Terriers", "Coton de Tulear", "Lhasa Apsos", "Irish Wolfhounds",
+                    "Rat Terriers", "Basenjis", "Anatolian Shepherd Dogs", "Dogo Argentinos", "Spaniels (Boykin)",
+                    "Border Terriers", "Retrievers (Nova Scotia Duck Tolling)", "Retrievers (Flat-Coated)", "Pekingese", "Keeshonden",
+                    "Standard Schnauzers", "Brussels Griffons", "Setters (English)", "Fox Terriers (Wire)", "Norwegian Elkhounds"};
+
     public static ApplicationHistoryFragment newInstance() {
         return new ApplicationHistoryFragment();
     }
@@ -59,6 +88,18 @@ public class ApplicationHistoryFragment extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         adopterEmail = firebaseUser.getEmail();
+
+        tvDoglvl1 = view.findViewById(R.id.doglevel4a2);
+        tvDoglvl2 = view.findViewById(R.id.doglevel4b2);
+        tvDoglvl3 = view.findViewById(R.id.doglevel4a3);
+        tvDoglvl4 = view.findViewById(R.id.doglevel4b3);
+        tvDoglvl5 = view.findViewById(R.id.doglevel3);
+        tvDoglvl6 = view.findViewById(R.id.doglevel4);
+        tvDoglvl7 = view.findViewById(R.id.doglevel5a);
+        tvDoglvl8 = view.findViewById(R.id.doglevel5b);
+        tvDoglvl9 = view.findViewById(R.id.doglevel5c);
+        tvDoglvl10 = view.findViewById(R.id.doglevel6);
+        tvDoglvl11 = view.findViewById(R.id.doglevel7);
 
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {

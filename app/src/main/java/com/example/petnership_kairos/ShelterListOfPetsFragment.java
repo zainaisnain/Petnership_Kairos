@@ -122,7 +122,7 @@ public class ShelterListOfPetsFragment extends Fragment {
                                     }
 
 //                                    petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
-                                    ALregisteredPetData.add( new RegisteredPetData(petID, petImageName, petName, petAge, petSex, petBreed));
+                                    ALregisteredPetData.add( new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
                                 }
 
                                 registeredPetData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);

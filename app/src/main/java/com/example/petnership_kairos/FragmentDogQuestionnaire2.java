@@ -40,7 +40,7 @@ public class FragmentDogQuestionnaire2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Dog Questionnaire 2");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
-        System.out.println("Test: " + mViewModel.getDogAnswer(1));
+        System.out.println("Test: " + mViewModel.getAnswer(1));
 
         seekBar8 = (SeekBar) getView().findViewById(R.id.seekBar8);
         seekBar9 = (SeekBar) getView().findViewById(R.id.seekBar9);
@@ -58,6 +58,9 @@ public class FragmentDogQuestionnaire2 extends Fragment {
         rate14 = (TextView) getView().findViewById(R.id.rating14);
 
         // bring back previous progress if any
+        if (mViewModel.getAnswer(14) != null){
+            seekBar14.setProgress(mViewModel.getAnswer(14));
+        }
       //  if (mViewModel.getDogAnswer(8) != null){
         //    seekBar14.setProgress(mViewModel.getDogAnswer(8));
         //}
@@ -187,13 +190,13 @@ public class FragmentDogQuestionnaire2 extends Fragment {
             @Override
             public void onClick(View v) {
                 // save answers
-                mViewModel.setDogAnswer(8, seekBar8.getProgress());
-                mViewModel.setDogAnswer(9, seekBar9.getProgress());
-                mViewModel.setDogAnswer(10, seekBar10.getProgress());
-                mViewModel.setDogAnswer(11, seekBar11.getProgress());
-                mViewModel.setDogAnswer(12, seekBar12.getProgress());
-                mViewModel.setDogAnswer(13, seekBar13.getProgress());
-                mViewModel.setDogAnswer(14, seekBar14.getProgress());
+                mViewModel.setAnswer(8, seekBar8.getProgress());
+                mViewModel.setAnswer(9, seekBar9.getProgress());
+                mViewModel.setAnswer(10, seekBar10.getProgress());
+                mViewModel.setAnswer(11, seekBar11.getProgress());
+                mViewModel.setAnswer(12, seekBar12.getProgress());
+                mViewModel.setAnswer(13, seekBar13.getProgress());
+                mViewModel.setAnswer(14, seekBar14.getProgress());
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

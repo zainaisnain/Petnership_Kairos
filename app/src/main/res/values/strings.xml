@@ -24,4 +24,11 @@
     <string name="age_life_expectancy">Age / Life Expectancy</string>
     <string name="popularity">Popularity</string>
 
+    <!--    seekbar strings-->
+    <string name="seekTextExtremely">Extremely Important</string>
+    <string name="seekTextSignificantly">Significantly Important</string>
+    <string name="seekTextModerately">Moderately Important</string>
+    <string name="seekTextSlightly">Slightly Important</string>
+    <string name="seekTextEqually">Equally Important</string>
+
 </resources>

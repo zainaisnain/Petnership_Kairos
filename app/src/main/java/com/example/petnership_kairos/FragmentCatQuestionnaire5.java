@@ -130,10 +130,10 @@ public class FragmentCatQuestionnaire5 extends Fragment {
             @Override
             public void onClick(View v) {
                 // save answers
-                mViewModel.setDogAnswer(29, cseekBar29.getProgress());
-                mViewModel.setDogAnswer(30, cseekBar30.getProgress());
-                mViewModel.setDogAnswer(31, cseekBar31.getProgress());
-                mViewModel.setDogAnswer(32, cseekBar32.getProgress());
+                mViewModel.setAnswer(29, cseekBar29.getProgress());
+                mViewModel.setAnswer(30, cseekBar30.getProgress());
+                mViewModel.setAnswer(31, cseekBar31.getProgress());
+                mViewModel.setAnswer(32, cseekBar32.getProgress());
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
