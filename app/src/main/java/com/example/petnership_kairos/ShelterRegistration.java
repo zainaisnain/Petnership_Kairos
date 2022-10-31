@@ -3,9 +3,12 @@ package com.example.petnership_kairos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -52,7 +55,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
             editTextCity, editTextCountry;
 
-    private Button submit;
+    private Button submit, cancelBtn;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
@@ -141,6 +144,13 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
             }
         });
+        cancelBtn = (Button) findViewById(R.id.shelterRegisterCancel);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showcancelDialog();
+            }
+        });
     }
     @Override
     public void onClick(View view) {
@@ -167,6 +177,27 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         return json;
     }
 
+    private void showcancelDialog() {
+        final Dialog cancelDialog  = new Dialog(this);
+        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        cancelDialog.show();
+        Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+        yesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(ShelterRegistration.this, LoginActivity.class));
+                cancelDialog.dismiss();
+            }
+        });
+        Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+        noBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                cancelDialog.dismiss();
+            }
+        });
+    }
     private void registerShelter() {
         String bizName = editTextBizName.getText().toString().trim();
         String owner = editTextOwner.getText().toString().trim();

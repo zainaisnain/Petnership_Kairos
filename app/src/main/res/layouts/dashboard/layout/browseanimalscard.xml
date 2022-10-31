@@ -18,57 +18,115 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="140dp">
 
             <ImageView
                 android:id="@+id/pet_image"
-                android:layout_width="99dp"
-                android:layout_height="100dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                android:padding="@dimen/_10sdp"
                 android:src="@drawable/cat_dog" />
             <LinearLayout
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/label_pet_name"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Name:"
+                        android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/per_pet_name_title"
                     android:layout_width="132dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Name"
+                    android:text="Pet's Name"
                     android:textSize="15sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/label_pet_age"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Age:"
+                        android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/pet_age"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Age"
+                    android:text="Pet's Age"
                     android:textSize="15sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/label_pet_sex"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Sex:"
+                        android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/pet_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Sex"
+                    android:text="Pet's Sex"
                     android:textSize="15sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/label_pet_breed"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Breed:"
+                        android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/pet_breed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Breed"
+                    android:text="Pet's Breed"
                     android:textSize="15sp" />
-
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

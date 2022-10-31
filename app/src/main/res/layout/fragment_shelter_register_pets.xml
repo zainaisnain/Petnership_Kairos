@@ -5,52 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/registerPets"
     android:padding="15.60dp"
+    android:id="@+id/shelterregisterpets"
     android:background="#C3B1E1"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-
-        <ImageButton
-            android:id="@+id/imageBurgerMenu"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_burger_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="#0000"
-            app:tint="@color/black" />
-
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_back"
-            android:background="#0000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
-
-        <TextView
-            android:id="@+id/ASChoosePetTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:text="@string/animal_shelter"
-            android:textColor="@color/secondary_purple"
-            android:textSize="25sp"
-            android:fontFamily="@font/playfairdisplayblack"
-            app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
-            app:layout_constraintEnd_toStartOf="@id/btnBack"
-            app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
-            app:layout_constraintTop_toTopOf="@id/imageBurgerMenu" />
 
 
         <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
@@ -184,6 +146,34 @@
             app:layout_constraintVertical_bias="0.308"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dog"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.528" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.962" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
                 <ImageView
                     android:id="@+id/petnershiplogo2"
@@ -198,6 +188,20 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.078"
                     tools:ignore="ImageContrastCheck" />
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:background="#0000"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.954"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.084"
+                    app:tint="@color/black" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

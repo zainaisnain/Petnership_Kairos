@@ -91,7 +91,22 @@ public class  AddDog extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_pet, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+        backBtn = view.findViewById(R.id.petinfo_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FRAGMENT to FRAGMENT
+                showDialog();
+            }
+
+            private void showDialog() {
+                BackDialog backDialog = new BackDialog();
+                backDialog.show(getParentFragmentManager(), "Back Dialog");
+
+            }
+        });
+        return view;
     }
 
     @Override
@@ -164,17 +179,7 @@ public class  AddDog extends Fragment {
             }
         });
 
-        backBtn = view.findViewById(R.id.petinfo_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterRegisterPets  shelterRegisterPets = new ShelterRegisterPets();
-                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
-                transaction.commit();
-            }
-        });
+
 
 
         // get the Firebase  storage reference
