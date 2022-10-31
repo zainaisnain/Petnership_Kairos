@@ -58,7 +58,6 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adopter_per_cat_profile);
 
-
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         adopterEmail = firebaseUser.getEmail();

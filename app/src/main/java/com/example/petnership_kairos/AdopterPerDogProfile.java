@@ -137,8 +137,6 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                 bundle.putString("adopterContact", adopterContact);
                 bundle.putString("adopterAddress", adopterAddress);
 
-
-
                 AdoptionForm adoptionForm = new AdoptionForm();
                 adoptionForm.setArguments(bundle);
 
