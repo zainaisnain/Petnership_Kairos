@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.ui.AppBarConfiguration;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -76,7 +78,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 //        navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+        navigationView.setCheckedItem(R.id.nav_adoptHome);
     }
 
 
@@ -102,7 +104,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId())
         {
-            case R.id.nav_home:
+            case R.id.nav_adoptHome:
                 getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
                         new AdopterHomeDashboard()).commit();
                 break;
@@ -125,7 +127,9 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_logout:
-                userLogout();
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+//                userLogout();
                 break;
         }
 
@@ -135,10 +139,10 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
 
     private void userLogout()
     {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
+//        FirebaseAuth.getInstance().signOut();
+//        Intent intent = new Intent(this,LoginActivity.class);
+//        startActivity(intent);
+//        finish();
     }
 
 //    @Override
