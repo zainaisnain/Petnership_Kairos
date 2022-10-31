@@ -170,7 +170,7 @@ public class BrowseAnimals extends Fragment {
                                                     }else if(petType.equals("cat")){
                                                         petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
                                                     }
-                                                    ALregisteredPetData.add( new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
+                                                    ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
                                                 }
                                             }
 
