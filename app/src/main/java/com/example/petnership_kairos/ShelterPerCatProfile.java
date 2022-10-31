@@ -74,15 +74,15 @@ public class ShelterPerCatProfile extends AppCompatActivity {
         editCatInfoBtn = findViewById(R.id.edit_cat_info_btn);
         backBtn = findViewById(R.id.per_cat_back_btn);
 
-//        tvCatlvl1 = findViewById(R.id.shelter_catlevel1);
-//        tvCatlvl2 = findViewById(R.id.shelter_catlevel2);
-//        tvCatlvl3 = findViewById(R.id.shelter_catlevel3);
-//        tvCatlvl4 = findViewById(R.id.shelter_catlevel4a);
-//        tvCatlvl5 = findViewById(R.id.shelter_catlevel4b);
-//        tvCatlvl6 = findViewById(R.id.shelter_catlevel5);
-//        tvCatlvl7 = findViewById(R.id.shelter_catlevel6);
-//        tvCatlvl8 = findViewById(R.id.shelter_catlevel7);
-//        tvCatlvl9 = findViewById(R.id.shelter_catlevel8);
+        tvCatlvl1 = findViewById(R.id.shelter_catlevel1);
+        tvCatlvl2 = findViewById(R.id.shelter_catlevel2);
+        tvCatlvl3 = findViewById(R.id.shelter_catlevel3);
+        tvCatlvl4 = findViewById(R.id.shelter_catlevel4a);
+        tvCatlvl5 = findViewById(R.id.shelter_catlevel4b);
+        tvCatlvl6 = findViewById(R.id.shelter_catlevel5);
+        tvCatlvl7 = findViewById(R.id.shelter_catlevel6);
+        tvCatlvl8 = findViewById(R.id.shelter_catlevel7);
+        tvCatlvl9 = findViewById(R.id.shelter_catlevel8);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

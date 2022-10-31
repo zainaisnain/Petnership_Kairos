@@ -84,18 +84,18 @@ public class ShelterPerDogProfile extends AppCompatActivity {
         tvPetSex = findViewById(R.id.per_dog_sex);
         tvPetDescription = findViewById(R.id.per_dog_description);
         editDogInfoBtn = findViewById(R.id.edit_dog_info_btn);
-//
-//        tvDoglvl1 = findViewById(R.id.shelter_doglevel4a2);
-//        tvDoglvl2 = findViewById(R.id.shelter_doglevel4b2);
-//        tvDoglvl3 = findViewById(R.id.shelter_doglevel4a3);
-//        tvDoglvl4 = findViewById(R.id.shelter_doglevel4b3);
-//        tvDoglvl5 = findViewById(R.id.shelter_doglevel3);
-//        tvDoglvl6 = findViewById(R.id.shelter_doglevel4);
-//        tvDoglvl7 = findViewById(R.id.shelter_doglevel5a);
-//        tvDoglvl8 = findViewById(R.id.shelter_doglevel5b);
-//        tvDoglvl9 = findViewById(R.id.shelter_doglevel5c);
-//        tvDoglvl10 = findViewById(R.id.shelter_doglevel6);
-//        tvDoglvl11 = findViewById(R.id.shelter_doglevel7);
+
+        tvDoglvl1 = findViewById(R.id.shelter_doglevel4a2);
+        tvDoglvl2 = findViewById(R.id.shelter_doglevel4b2);
+        tvDoglvl3 = findViewById(R.id.shelter_doglevel4a3);
+        tvDoglvl4 = findViewById(R.id.shelter_doglevel4b3);
+        tvDoglvl5 = findViewById(R.id.shelter_doglevel3);
+        tvDoglvl6 = findViewById(R.id.shelter_doglevel4);
+        tvDoglvl7 = findViewById(R.id.shelter_doglevel5a);
+        tvDoglvl8 = findViewById(R.id.shelter_doglevel5b);
+        tvDoglvl9 = findViewById(R.id.shelter_doglevel5c);
+        tvDoglvl10 = findViewById(R.id.shelter_doglevel6);
+        tvDoglvl11 = findViewById(R.id.shelter_doglevel7);
 
         backBtn = findViewById(R.id.per_dog_back_btn);
         backBtn.setOnClickListener(new View.OnClickListener() {
