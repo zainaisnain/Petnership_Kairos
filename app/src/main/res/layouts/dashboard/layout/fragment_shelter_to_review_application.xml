@@ -461,6 +461,47 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:text="Reason "
+                                    android:fontFamily="@font/marmelad_regular"
+                                    android:textSize="20sp"
+                                    android:textColor="#371576"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center"/>
+
+                                <EditText
+                                    android:id="@+id/reasonForStatus_shelter"
+                                    android:layout_width="350dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="20dp"
+                                    android:width="200dp"
+                                    android:height="40dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:hint="Leave a message (Optional)"
+                                    android:paddingLeft="10dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:text="Email Adopter"
                                     android:fontFamily="@font/marmelad_regular"
                                     android:textSize="20sp"
