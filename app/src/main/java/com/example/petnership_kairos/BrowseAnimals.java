@@ -83,43 +83,6 @@ public class BrowseAnimals extends Fragment {
 //        });
     }
 
-//    private void updateAppliedToAdopt() {
-//        adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.exists()) {
-//                            for (DataSnapshot ds : snapshot.getChildren()) {
-//                                adopterID = ds.getKey();
-//                            }
-//
-//                            adoptersDBRef.child(adopterID).child("AdopterAllPets")
-//                                    .addListenerForSingleValueEvent(new ValueEventListener() {
-//                                        @Override
-//                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                            for(DataSnapshot ds : snapshot.getChildren()) {
-//                                                petID = ds.getKey();
-//
-//                                                snapshot.child(petID).child("appliedToAdopt").getRef().setValue(appliedToAdopt);
-//                                                AdopterAllPetsUpdated = true;
-//                                            }
-//                                        }
-//
-//                                        @Override
-//                                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                        }
-//                                    });
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//    }
-
     private void withFirebase(RecyclerView recyclerView) {
 
         adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
@@ -132,6 +95,7 @@ public class BrowseAnimals extends Fragment {
                             }
 
                             adoptersDBRef.child(adopterID).child("AdopterAllPets")
+                                    .orderByChild("petStatus").equalTo("Available")
                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -141,21 +105,6 @@ public class BrowseAnimals extends Fragment {
 
                                                 String valAppliedToAdopt = (String) snapshot.child(petID).child("appliedToAdopt").getValue();
                                                 System.out.println(valAppliedToAdopt);
-
-                                                String petStatus2;
-                                                allPetsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot allPetsSnapshot) {
-                                                        petStatus = (String) allPetsSnapshot.child("petStatus").getValue();
-                                                        System.out.println("PET STATUS 1 ==="+ petStatus);
-                                                    }
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
-                                                System.out.println("PET STATUS 2 ==="+ petStatus);
 
                                                 if(valAppliedToAdopt.equals("not yet")){
                                                     petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
