@@ -92,6 +92,17 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     JSONObject jsonObj;
     JSONArray jsonArray;
 
+    private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
+            "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
+            "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
+            "Davao del Norte", "Davao del Sur", "Davao Occidental", "Davao Oriental", "Dinagat Islands", "Eastern Samar",
+            "Guimaras", "Ifugao", "Ilocos Norte", "Ilocos Sur", "Iloilo", "Isabela", "Kalinga", "La Union", "Laguna", "Lanao del Norte",
+            "Lanao del Sur", "Leyte", "Maguindanao", "Marinduque", "Masbate", "Metro Manila", "Misamis Occidental", "Misamis Oriental",
+            "Mountain Province", "Negros Occidental", "Negros Oriental", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Occidental Mindoro",
+            "Oriental Mindoro", "Palawan", "Pampanga", "Pangasinan", "Quezon", "Quirino", "Rizal", "Romblon", "Samar", "Sarangani", "Siquijor",
+            "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao del Norte", "Surigao del Sur", "Tarlac",
+            "Tawi-Tawi", "Zambales", "Zamboanga del Norte", "Zamboanga del Sur", "Zamboanga Sibugay"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,31 +121,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         editTextCity = findViewById(R.id.txt_city_adopter);
 
         //PROVINCES
-        json_string= loadJSONFromAsset();
         ddProvince = findViewById(R.id.adopter_province_dd);
-        ArrayList<String> provinces = new ArrayList<String>();
-        {
-
-            try {
-                jsonObj =new JSONObject(json_string);
-                jsonArray =jsonObj.getJSONArray("provinces");
-                String province;
-                for (int i = 0; i < jsonArray.length(); i++){
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    province= jObj.getString("name");
-                    provinces.add(province);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, provinces);
-
-        Spinner ddProvince = (Spinner)findViewById(R.id.adopter_province_dd);
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
