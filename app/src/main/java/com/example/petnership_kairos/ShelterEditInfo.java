@@ -119,30 +119,8 @@ public class ShelterEditInfo extends AppCompatActivity {
         editTextCountry = findViewById(R.id.txt_country_shelter_edit);
 
         //PROVINCES
-        json_string= loadJSONFromAsset();
         ddProvince = findViewById(R.id.dd_province_shelter_edit);
-        ArrayList<String> provinces = new ArrayList<String>();
-        {
-
-            try {
-                jsonObj =new JSONObject(json_string);
-                jsonArray =jsonObj.getJSONArray("provinces");
-                String province;
-                for (int i = 0; i < jsonArray.length(); i++){
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    province= jObj.getString("name");
-                    provinces.add(province);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, provinces);
-        Spinner ddProvince = (Spinner)findViewById(R.id.dd_province_shelter_edit);
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -155,7 +133,6 @@ public class ShelterEditInfo extends AppCompatActivity {
 
             }
         });
-
 
         editTextCountry = findViewById(R.id.txt_country_shelter_edit);
         editTextCountry.setEnabled(false);
@@ -213,7 +190,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                         contactNumCount++;
                 }
 
-
                 if(bizName.isEmpty()){
                     editTextBizName.setError("Business Name is Required.");
                     editTextBizName.requestFocus();
@@ -230,7 +206,7 @@ public class ShelterEditInfo extends AppCompatActivity {
                     editTextContact.setError("Contact number is Required.");
                     editTextContact.requestFocus();
                     return;
-                }else if (contactNumCount < 11) {
+                }else if (contactNumCount < 11 || contactNumCount > 11) {
                     editTextContact.setError("Contact number must be 11 digits.");
                     editTextContact.requestFocus();
                     return;
@@ -242,8 +218,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                     editTextCity.setError("City is Required.");
                     editTextCity.requestFocus();
                     return;
-                }else if(filePath==null){
-                    Toast.makeText(ShelterEditInfo.this, "Please select a picture", Toast.LENGTH_LONG).show();
                 }else if(!imageUploaded){
                     Toast.makeText(ShelterEditInfo.this, "Please upload a picture", Toast.LENGTH_LONG).show();
                 }else{
@@ -330,22 +304,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                 });
     }
 
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("provinces.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
     private void getData() {
         usersDBRef.orderByChild("email").equalTo(shelterEmail)
                 .addValueEventListener(new ValueEventListener() {
@@ -364,7 +322,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                                 editTextContact.setText(String.valueOf(snapshot.child(shelterUsername).child("contact").getValue()));
                                 editTextStreet.setText(String.valueOf(snapshot.child(shelterUsername).child("street").getValue()));
                                 editTextCity.setText(String.valueOf(snapshot.child(shelterUsername).child("city").getValue()));
-//                                editTextProvince.setText(String.valueOf(snapshot.child(shelterUsername).child("province").getValue()));
                                 editTextCountry.setText(String.valueOf(snapshot.child(shelterUsername).child("country").getValue()));
 
                                 imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());

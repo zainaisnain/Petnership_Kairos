@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,10 +16,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +42,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.UUID;
 
 public class AdopterEditInfo extends AppCompatActivity {
@@ -77,6 +83,12 @@ public class AdopterEditInfo extends AppCompatActivity {
 
     private String adopterEmail, adopterUsername;
 
+    //DROPDOWNS
+    Spinner ddSex, ddProvince;
+    String[] ddSexValues = {"Female", "Male"};
+
+    String sex, adopterProvince, datePicked;
+
     private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
             "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
             "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
@@ -105,10 +117,58 @@ public class AdopterEditInfo extends AppCompatActivity {
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etStreet = findViewById(R.id.txt_street_adopter_edit);
         etCity = findViewById(R.id.txt_city_adopter_edit);
-        etProvince = findViewById(R.id.txt_province_adopter_edit);
+        //PROVINCES
+        ddProvince = findViewById(R.id.adopter_province_dd_edit);
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
+        ddProvince.setAdapter(provinceAdapter);
+        ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                adopterProvince = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         etCountry = findViewById(R.id.txt_country_adopter_edit);
-        etGender = findViewById(R.id.txt_gender_adopter_edit);
+        etCountry.setEnabled(false);
+
+        ddSex = findViewById(R.id.adopter_sex_dd_edit);
+        ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddSexValues);
+        ddSex.setAdapter(sexAdapter);
+        ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sex = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+
         etBirthday = findViewById(R.id.txt_birthday_adopter_edit);
+
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+        etBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog
+                        (AdopterEditInfo.this, new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                month = month + 1;
+                                datePicked = month + "/" + day + "/" + year;
+                                etBirthday.setText(datePicked);
+                            }
+                        }, year,month, day);
+                datePickerDialog.show();
+            }
+        });
 
         //UPLOAD IMAGE
         imageView = findViewById(R.id.iv_image_adopter_edit);
@@ -153,13 +213,20 @@ public class AdopterEditInfo extends AppCompatActivity {
                 contact=etContact.getText().toString().trim();
                 street=etStreet.getText().toString().trim();
                 city=etCity.getText().toString().trim();
-                province=etProvince.getText().toString().trim();
                 country=etCountry.getText().toString().trim();
-                gender=etGender.getText().toString().trim();
-                birthday=etBirthday.getText().toString().trim();
+
+                int contactNumCount = 0;
+                for(int i = 0; i < contact.length(); i++){
+                    if(contact.charAt(i) != ' ')
+                        contactNumCount++;
+                }
 
                 if(contact.isEmpty()){
                     etContact.setError("Contact is Required.");
+                    etContact.requestFocus();
+                    return;
+                }else if (contactNumCount < 11 || contactNumCount > 11) {
+                    etContact.setError("Contact number must be 11 digits.");
                     etContact.requestFocus();
                     return;
                 }else if(street.isEmpty()) {
@@ -169,22 +236,6 @@ public class AdopterEditInfo extends AppCompatActivity {
                 }else if(city.isEmpty()){
                     etCity.setError("City is Required.");
                     etCity.requestFocus();
-                    return;
-                }else if(province.isEmpty()){
-                    etProvince.setError("Province is Required.");
-                    etProvince.requestFocus();
-                    return;
-                }else if(country.isEmpty()){
-                    etCountry.setError("Country is Required.");
-                    etCountry.requestFocus();
-                    return;
-                }else if(gender.isEmpty()){
-                    etGender.setError("Gender is Required.");
-                    etGender.requestFocus();
-                    return;
-                }else if(birthday.isEmpty()){
-                    etBirthday.setError("Birthday is Required.");
-                    etBirthday.requestFocus();
                     return;
                 }else if(!imageUploaded){
                     Toast.makeText(AdopterEditInfo.this, "Please upload picture", Toast.LENGTH_LONG).show();
@@ -451,11 +502,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                         etContact.setText(String.valueOf(snapshot.child(adopterUsername).child("contact").getValue()));
                         etStreet.setText(String.valueOf(snapshot.child(adopterUsername).child("street").getValue()));
                         etCity.setText(String.valueOf(snapshot.child(adopterUsername).child("city").getValue()));
-                        etProvince.setText(String.valueOf(snapshot.child(adopterUsername).child("province").getValue()));
                         etCountry.setText(String.valueOf(snapshot.child(adopterUsername).child("country").getValue()));
-                        etGender.setText(String.valueOf(snapshot.child(adopterUsername).child("gender").getValue()));
                         etBirthday.setText(String.valueOf(snapshot.child(adopterUsername).child("birthday").getValue()));
-
 
                         imageName = String.valueOf(snapshot.child(adopterUsername).child("imageName").getValue());
                         System.out.println("imageName AdopterEditInfo" + imageName);

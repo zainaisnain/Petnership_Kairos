@@ -86,12 +86,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     String[] ddSexValues = {"Female", "Male"};
 
     String sex, adopterProvince;
-
-
-    String json_string;
-    JSONObject jsonObj;
-    JSONArray jsonArray;
-
     private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
             "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
             "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
@@ -161,16 +155,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//        setListener = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-//                month = month + 1;
-//                String date = month + "/" + day + "/" + year;
-//                editTextBirthday.setText(date);
-//            }
-//        };
-
         editTextBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -290,11 +274,15 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
-//        String province = editTextProvince.getText().toString().trim();
         String country = "Philippines";
-//        String gender = editTextGender.getText().toString().trim();
         String birthday = editTextBirthday.getText().toString().trim();
         String user_type = "adopter";
+
+        int contactNumCount = 0;
+        for(int i = 0; i < contact.length(); i++){
+            if(contact.charAt(i) != ' ')
+                contactNumCount++;
+        }
 
 
         if(fname.isEmpty()){
@@ -357,6 +345,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
         if(contact.isEmpty()){
             editTextContact.setError("Contact Number Required.");
+            editTextContact.requestFocus();
+            return;
+        }else if (contactNumCount < 11 || contactNumCount > 11) {
+            editTextContact.setError("Contact number must be 11 digits.");
             editTextContact.requestFocus();
             return;
         }
