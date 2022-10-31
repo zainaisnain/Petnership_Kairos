@@ -42,18 +42,18 @@ public class FragmentCatQuestionnaire7 extends Fragment {
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
 
 
-        cseekBar39 = (SeekBar) getView().findViewById(R.id.cseekBar39);
-        cseekBar40 = (SeekBar) getView().findViewById(R.id.cseekBar40);
-        cseekBar41 = (SeekBar) getView().findViewById(R.id.cseekBar41);
-        cseekBar42 = (SeekBar) getView().findViewById(R.id.cseekBar42);
-        cseekBar43= (SeekBar) getView().findViewById(R.id.cseekBar43);
-        cseekBar44 = (SeekBar) getView().findViewById(R.id.cseekBar44);
-        crate39 = (TextView) getView().findViewById(R.id.crating39);
-        crate40 = (TextView) getView().findViewById(R.id.crating40);
-        crate41 = (TextView) getView().findViewById(R.id.crating41);
-        crate42 = (TextView) getView().findViewById(R.id.crating42);
-        crate43 = (TextView) getView().findViewById(R.id.crating43);
-        crate44 = (TextView) getView().findViewById(R.id.crating44);
+        cseekBar39 = getView().findViewById(R.id.cseekBar39);
+        cseekBar40 = getView().findViewById(R.id.cseekBar40);
+        cseekBar41 = getView().findViewById(R.id.cseekBar41);
+        cseekBar42 = getView().findViewById(R.id.cseekBar42);
+        cseekBar43= getView().findViewById(R.id.cseekBar43);
+        cseekBar44 = getView().findViewById(R.id.cseekBar44);
+        crate39 = getView().findViewById(R.id.crating39);
+        crate40 = getView().findViewById(R.id.crating40);
+        crate41 = getView().findViewById(R.id.crating41);
+        crate42 = getView().findViewById(R.id.crating42);
+        crate43 = getView().findViewById(R.id.crating43);
+        crate44 = getView().findViewById(R.id.crating44);
 
 
 
@@ -156,31 +156,24 @@ public class FragmentCatQuestionnaire7 extends Fragment {
         });
 
         cpopup7 = getView().findViewById(R.id.cinstructionsBTN7);
-        cpopup7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        Button proceedBtn = (Button) getView().findViewById(R.id.cproceed_ques7);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setAnswer(39, cseekBar39.getProgress());
-                mViewModel.setAnswer(40, cseekBar40.getProgress());
-                mViewModel.setAnswer(41, cseekBar41.getProgress());
-                mViewModel.setAnswer(42, cseekBar42.getProgress());
-                mViewModel.setAnswer(43, cseekBar43.getProgress());
-                mViewModel.setAnswer(44, cseekBar44.getProgress());
+        cpopup7.setOnClickListener(view1 -> showDialog());
+        Button proceedBtn = getView().findViewById(R.id.cproceed_ques7);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(39, cseekBar39.getProgress());
+            mViewModel.setAnswer(40, cseekBar40.getProgress());
+            mViewModel.setAnswer(41, cseekBar41.getProgress());
+            mViewModel.setAnswer(42, cseekBar42.getProgress());
+            mViewModel.setAnswer(43, cseekBar43.getProgress());
+            mViewModel.setAnswer(44, cseekBar44.getProgress());
 
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentCatQuestionnaire8 cat8Fragment = new FragmentCatQuestionnaire8();
-                transaction.replace(R.id.nav_host_fragment,cat8Fragment);
-                transaction.addToBackStack("catQuestionnaire8");
-                transaction.commit();
-            }
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentCatQuestionnaire8 cat8Fragment = new FragmentCatQuestionnaire8();
+            transaction.replace(R.id.nav_host_fragment,cat8Fragment);
+            transaction.addToBackStack("catQuestionnaire8");
+            transaction.commit();
         });
 
 
@@ -188,25 +181,25 @@ public class FragmentCatQuestionnaire7 extends Fragment {
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
 
     private void showDialog() {
-        HelpPopup helpDialogc7 = new HelpPopup();
-        helpDialogc7.show(getParentFragmentManager(), "Help Popup");
+        HelpPopup helpDialog = new HelpPopup("Cat", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
         /*
                 final Dialog helpDialog = new Dialog();
         helpDialog.setContentView(R.layout.help_popup);

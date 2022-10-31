@@ -38,3 +38,5 @@ public class MyCustomDialog extends DialogFragment {
         return view;
     }
 }
+
+

@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -40,7 +39,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class AdopterEdit extends AppCompatActivity {
+public class AdopterEditInfo extends AppCompatActivity {
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -81,7 +80,7 @@ public class AdopterEdit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adopter_edit);
+        setContentView(R.layout.activity_adopter_edit_info);
 
 
         authProfile = FirebaseAuth.getInstance();
@@ -102,7 +101,6 @@ public class AdopterEdit extends AppCompatActivity {
 
         //UPLOAD IMAGE
         imageView = findViewById(R.id.iv_image_adopter_edit);
-        uploadEditBtn = findViewById(R.id.upload_image_btn_edit);
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
@@ -132,14 +130,6 @@ public class AdopterEdit extends AppCompatActivity {
             {
                 imageUploaded = false;
                 SelectImage();
-            }
-        });
-
-        uploadEditBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
             }
         });
 
@@ -186,8 +176,9 @@ public class AdopterEdit extends AppCompatActivity {
                     etBirthday.requestFocus();
                     return;
                 }else if(!imageUploaded){
-                    Toast.makeText(AdopterEdit.this, "Please upload picture", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AdopterEditInfo.this, "Please upload picture", Toast.LENGTH_LONG).show();
                 }else{
+                    uploadImage();
                     editAdopterInfo();
                     showsaveDialog();
                 }
@@ -330,7 +321,7 @@ public class AdopterEdit extends AppCompatActivity {
                                     // Dismiss dialog
                                     progressDialog.dismiss();
                                     Toast
-                                            .makeText(AdopterEdit.this,
+                                            .makeText(AdopterEditInfo.this,
                                                     "Image Uploaded!!",
                                                     Toast.LENGTH_SHORT)
                                             .show();
@@ -345,7 +336,7 @@ public class AdopterEdit extends AppCompatActivity {
                             // Error, Image not uploaded
                             progressDialog.dismiss();
                             Toast
-                                    .makeText(AdopterEdit.this,
+                                    .makeText(AdopterEditInfo.this,
                                             "Failed " + e.getMessage(),
                                             Toast.LENGTH_SHORT)
                                     .show();
@@ -456,12 +447,12 @@ public class AdopterEdit extends AppCompatActivity {
 
 
                         imageName = String.valueOf(snapshot.child(adopterUsername).child("imageName").getValue());
-                        System.out.println("imageName AdopterEdit" + imageName);
+                        System.out.println("imageName AdopterEditInfo" + imageName);
                         storageReference.child("Adopters/").child(imageName).getDownloadUrl()
                                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
-                                        Glide.with(AdopterEdit.this).load(uri.toString()).into(imageView);
+                                        Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
                                     }
                                 });
                     }

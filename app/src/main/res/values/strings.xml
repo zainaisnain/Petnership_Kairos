@@ -14,7 +14,7 @@
     <string name="menu_close">Close</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_settings">Settings</string>
-    
+
     <string name="activity_playfulness">Activity / Playfulness</string>
     <string name="calmness">Calmness</string>
     <string name="non_aggression">Non- Aggression</string>
@@ -23,6 +23,14 @@
     <string name="healthy_grooming">Healthy Grooming</string>
     <string name="age_life_expectancy">Age / Life Expectancy</string>
     <string name="popularity">Popularity</string>
+
+
+    <string name="intelligence">Intelligence</string>
+    <string name="hygiene">Hygiene</string>
+    <string name="ease_of_care">Ease of Care</string>
+    <string name="friendliness">Friendliness</string>
+    <string name="adaptability">Adaptability</string>
+    <string name="longevity">Longevity</string>
 
     <!--    seekbar strings-->
     <string name="seekTextExtremely">Extremely Important</string>

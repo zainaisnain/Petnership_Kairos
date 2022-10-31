@@ -180,15 +180,6 @@ public class ShelterEditDog extends Fragment {
             }
         });
 
-        uploadBtn = view.findViewById(R.id.upload_image_pet_info);
-        uploadBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
-        });
-
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -218,9 +209,8 @@ public class ShelterEditDog extends Fragment {
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
                     return;
-                }else if(!imageUploaded){
-                    Toast.makeText(getActivity(), "Please upload pet's picture", Toast.LENGTH_LONG).show();
                 }else{
+                    uploadImage();
                     editPetInfo();
                 }
             }

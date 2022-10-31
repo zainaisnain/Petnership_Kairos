@@ -164,12 +164,13 @@ public class BrowseAnimals extends Fragment {
                                                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
 
                                                     String petType = String.valueOf(snapshot.child(petID).child("petType").getValue());
+                                                    System.out.println("BrowseAnimals petType" + petType);
                                                     if(petType.equals("dog")){
                                                         petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
                                                     }else if(petType.equals("cat")){
                                                         petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
                                                     }
-                                                    ALregisteredPetData.add( new RegisteredPetData(petID, petImageName, petName, petAge, petSex, petBreed));
+                                                    ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
                                                 }
                                             }
 

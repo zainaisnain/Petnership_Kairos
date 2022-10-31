@@ -17,10 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.common.util.CollectionUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -32,8 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
-public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+// if nagka-error:
+// public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+public class AdopterHomeDashboard extends Fragment {
 
 
 
@@ -84,9 +82,9 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         firebaseUser = authProfile.getCurrentUser();
         adopterEmail = firebaseUser.getEmail();
 
-        tvAdopterName = view.findViewById(R.id.adopterName);
-        tvAdopterContact = view.findViewById(R.id.adopterContact);
-        tvAdopterAddress = view.findViewById(R.id.adopterAddress);
+//        tvAdopterName = view.findViewById(R.id.adopterName);
+//        tvAdopterContact = view.findViewById(R.id.adopterContact);
+//        tvAdopterAddress = view.findViewById(R.id.adopterAddress);
         ivAdopterImage = view.findViewById(R.id.adopterImage);
         ivCvAdopterImage = view.findViewById(R.id.cvAdopterImage);
         cvAdopterInfo = view.findViewById(R.id.adopter_info_cv);
@@ -98,7 +96,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                Intent intent = new Intent(getActivity(), AdopterEditInfo.class);
                 startActivity(intent);
             }
         });
@@ -240,9 +238,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
                                 snapshot.child(adopterID).child("province").getValue() + ", " +
                                 snapshot.child(adopterID).child("country").getValue();
 
-                        tvAdopterName.setText("Name: "+adopterName);
-                        tvAdopterContact.setText("Contact: "+adopterContact);
-                        tvAdopterAddress.setText("Address: "+adopterAddress);
+
 
 //                System.out.println("shelterUsername " + shelterUsername);
 

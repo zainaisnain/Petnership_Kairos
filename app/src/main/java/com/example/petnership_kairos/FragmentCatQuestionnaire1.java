@@ -42,23 +42,22 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         getActivity().setTitle("Cat Questionnaire 1");
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
-        mViewModel.setAnimalType("Cat");
 
 
-        cseekBar1 = (SeekBar)getView().findViewById(R.id.cseekBar1);
-        cseekBar2 = (SeekBar) getView().findViewById(R.id.cseekBar2);
-        cseekBar3 = (SeekBar)getView().findViewById(R.id.cseekBar3);
-        cseekBar4 = (SeekBar)getView().findViewById(R.id.cseekBar4);
-        cseekBar5 = (SeekBar)getView().findViewById(R.id.cseekBar5);
-        cseekBar6 = (SeekBar)getView().findViewById(R.id.cseekBar6);
-        cseekBar7 = (SeekBar)getView().findViewById(R.id.cseekBar7);
-        crate1 = (TextView)getView().findViewById(R.id.crating1);
-        crate2 = (TextView)getView().findViewById(R.id.crating2);
-        crate3 = (TextView)getView().findViewById(R.id.crating3);
-        crate4 = (TextView)getView().findViewById(R.id.crating4);
-        crate5 = (TextView)getView().findViewById(R.id.crating5);
-        crate6 = (TextView)getView().findViewById(R.id.crating6);
-        crate7 = (TextView)getView().findViewById(R.id.crating7);
+        cseekBar1 = getView().findViewById(R.id.cseekBar1);
+        cseekBar2 = getView().findViewById(R.id.cseekBar2);
+        cseekBar3 = getView().findViewById(R.id.cseekBar3);
+        cseekBar4 = getView().findViewById(R.id.cseekBar4);
+        cseekBar5 = getView().findViewById(R.id.cseekBar5);
+        cseekBar6 = getView().findViewById(R.id.cseekBar6);
+        cseekBar7 = getView().findViewById(R.id.cseekBar7);
+        crate1 = getView().findViewById(R.id.crating1);
+        crate2 = getView().findViewById(R.id.crating2);
+        crate3 = getView().findViewById(R.id.crating3);
+        crate4 = getView().findViewById(R.id.crating4);
+        crate5 = getView().findViewById(R.id.crating5);
+        crate6 = getView().findViewById(R.id.crating6);
+        crate7 = getView().findViewById(R.id.crating7);
 
 
         cseekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -190,6 +189,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             FragmentCatQuestionnaire2 cat2Fragment = new FragmentCatQuestionnaire2();
             transaction.replace(R.id.nav_host_fragment,cat2Fragment);
             transaction.addToBackStack("catQuestionnaire2");
@@ -198,6 +198,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
             FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
             transaction.replace(R.id.nav_host_fragment, chooseAnimal);
             transaction.commit();
@@ -207,25 +208,25 @@ public class FragmentCatQuestionnaire1 extends Fragment {
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
 
     private void showDialog() {
-        HelpPopup helpDialogc1 = new HelpPopup();
-        helpDialogc1.show(getParentFragmentManager(), "Help Popup");
+        HelpPopup helpDialog = new HelpPopup("Cat", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
         /*
                 final Dialog helpDialog = new Dialog();
         helpDialog.setContentView(R.layout.help_popup);

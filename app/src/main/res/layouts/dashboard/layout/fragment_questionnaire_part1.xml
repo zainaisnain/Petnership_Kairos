@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C3B1E1"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteX="-38dp"
+        tools:layout_editor_absoluteY="236dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="745dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="370dp"
+                    android:layout_height="600dp"
+                    android:background="@drawable/card"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.487"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.751">
+
+                    <TextView
+                        android:id="@+id/questionnaireStartMessage3"
+                        android:layout_width="345dp"
+                        android:layout_height="71dp"
+                        android:fontFamily="@font/marmelad_regular"
+                        android:gravity="center"
+                        android:text="For example, sliding the button towards the left means you consider &quot;Intelligence&quot; more important than &quot;Hygiene&quot;:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.52"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.3" />
+
+                    <TextView
+                        android:id="@+id/questionnaireStartHeader"
+                        android:layout_width="297dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/playfairdisplayblack"
+                        android:text="Instructions"
+                        android:textAlignment="center"
+                        android:textColor="#371576"
+                        android:textSize="22sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.506"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.026" />
+
+                    <TextView
+                        android:id="@+id/questionnaireStartMessage2"
+                        android:layout_width="345dp"
+                        android:layout_height="80dp"
+                        android:fontFamily="@font/marmelad_regular"
+                        android:gravity="center"
+                        android:text="In this questionnaire, you will see sliders per question. Slide the button towards the option that you consider MORE important when adopting a pet. Use the labels at the top of each slider as a guide."
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.52"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.136" />
+
+                    <TextView
+                        android:id="@+id/questionnaireStartMessage4"
+                        android:layout_width="345dp"
+                        android:layout_height="49dp"
+                        android:fontFamily="@font/marmelad_regular"
+                        android:gravity="center"
+                        android:text="Right means you consider &quot;Hygiene&quot; more important than &quot;Intelligence&quot;:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.56"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.543" />
+
+                    <TextView
+                        android:id="@+id/questionnaireStartMessage12"
+                        android:layout_width="345dp"
+                        android:layout_height="45dp"
+                        android:fontFamily="@font/marmelad_regular"
+                        android:gravity="center"
+                        android:text="Middle means you consider both to be equally important:"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.52"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.757" />
+
+                    <Button
+                        android:id="@+id/proceedToStart"
+                        android:layout_width="236dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/button1"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="START"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        app:backgroundTint="@null"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.972"
+                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="344dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/shadow_rect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.417"
+                        app:srcCompat="@drawable/sample_left_important" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="342dp"
+                        android:layout_height="55dp"
+                        android:background="@drawable/shadow_rect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.535"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.635"
+                        app:srcCompat="@drawable/sample_right_important" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="340dp"
+                        android:layout_height="64dp"
+                        android:background="@drawable/shadow_rect"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.864"
+                        app:srcCompat="@drawable/sample_equally_important" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="58dp"
+                    android:layout_height="45dp"
+                    android:background="#0000"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.954"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:tint="@color/black"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="37dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_burger_menu"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
