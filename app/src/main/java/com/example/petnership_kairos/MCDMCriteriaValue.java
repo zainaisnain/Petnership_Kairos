@@ -3,12 +3,13 @@ package com.example.petnership_kairos;
 public class MCDMCriteriaValue  {
 
     private MCDMCriteria criteria;
+    private int intensityLevel;
     private double value;
 
-    public MCDMCriteriaValue(MCDMCriteria criteria, double value) {
+    public MCDMCriteriaValue(MCDMCriteria criteria, int intensityLevel) {
         super();
         this.criteria = criteria;
-        this.value = value;
+        this.intensityLevel = intensityLevel;
     }
 
     public MCDMCriteriaValue() {
@@ -29,5 +30,13 @@ public class MCDMCriteriaValue  {
 
     public void setValue(double value) {
         this.value = value;
+    }
+
+    public int getIntensityLevel() {
+        return intensityLevel;
+    }
+
+    public void setIntensityLevel(int intensityLevel) {
+        this.intensityLevel = intensityLevel;
     }
 }

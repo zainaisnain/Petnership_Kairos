@@ -186,14 +186,6 @@ public class ShelterEditInfo extends AppCompatActivity {
             }
         });
 
-        uploadEditBtn = findViewById(R.id.upload_image_shelter_btn_edit);
-        uploadEditBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                uploadImage();
-            }
-        });
 
         submitBtn = findViewById(R.id.btn_submit_shelter_edit);
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +239,7 @@ public class ShelterEditInfo extends AppCompatActivity {
                 }else if(!imageUploaded){
                     Toast.makeText(ShelterEditInfo.this, "Please upload a picture", Toast.LENGTH_LONG).show();
                 }else{
+                    uploadImage();
                     editShelterInfo();
                     showsaveDialog();
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -357,7 +350,7 @@ public class ShelterEditInfo extends AppCompatActivity {
                                 editTextCountry.setText(String.valueOf(snapshot.child(shelterUsername).child("country").getValue()));
 
                                 imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());
-                                System.out.println("imageName AdopterEdit" + imageName);
+                                System.out.println("imageName AdopterEditInfo" + imageName);
                                 storageReference.child("Shelters/").child(imageName).getDownloadUrl()
                                         .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                             @Override

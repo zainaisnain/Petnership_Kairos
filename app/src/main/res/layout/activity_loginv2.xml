@@ -86,7 +86,7 @@
             android:autofillHints=""
             android:background="@drawable/edit_text_bg"
             android:ems="10"
-            android:hint="Username"
+            android:hint="Email Address"
             android:inputType="textEmailAddress"
             android:padding="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="parent"

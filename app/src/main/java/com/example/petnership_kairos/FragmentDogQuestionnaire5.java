@@ -39,7 +39,7 @@ public class FragmentDogQuestionnaire5 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Dog Questionnaire 5");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
-        System.out.println("Test: " + mViewModel.getDogAnswer(1));
+        System.out.println("Test: " + mViewModel.getAnswer(1));
         seekBar27 = (SeekBar) getView().findViewById(R.id.seekBar27);
         seekBar28 = (SeekBar) getView().findViewById(R.id.seekBar28);
         seekBar29 = (SeekBar) getView().findViewById(R.id.seekBar29);
@@ -168,12 +168,12 @@ public class FragmentDogQuestionnaire5 extends Fragment {
             @Override
             public void onClick(View v) {
                 // save answers
-                mViewModel.setDogAnswer(27, seekBar27.getProgress());
-                mViewModel.setDogAnswer(28, seekBar28.getProgress());
-                mViewModel.setDogAnswer(29, seekBar29.getProgress());
-                mViewModel.setDogAnswer(30, seekBar30.getProgress());
-                mViewModel.setDogAnswer(31, seekBar31.getProgress());
-                mViewModel.setDogAnswer(32, seekBar32.getProgress());
+                mViewModel.setAnswer(27, seekBar27.getProgress());
+                mViewModel.setAnswer(28, seekBar28.getProgress());
+                mViewModel.setAnswer(29, seekBar29.getProgress());
+                mViewModel.setAnswer(30, seekBar30.getProgress());
+                mViewModel.setAnswer(31, seekBar31.getProgress());
+                mViewModel.setAnswer(32, seekBar32.getProgress());
 
                 // change screen
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

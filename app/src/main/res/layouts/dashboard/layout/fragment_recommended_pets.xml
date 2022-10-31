@@ -38,327 +38,363 @@
                     app:layout_constraintVertical_bias="0.654">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout2"
-                        android:layout_width="339dp"
-                        android:layout_height="127dp"
-                        android:background="@drawable/minicard"
+                        android:layout_width="367dp"
+                        android:layout_height="170dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:id="@+id/rp2_sex"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sex"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.407"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.812" />
-
-                        <TextView
-                            android:id="@+id/rp2_breed"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Breed"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.423"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.575" />
-
-                        <TextView
-                            android:id="@+id/rp2_age"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Age"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.404"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.345" />
-
-                        <TextView
-                            android:id="@+id/rp2_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.418"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.115" />
-
-                        <ImageView
-                            android:id="@+id/rec_pet1"
-                            android:layout_width="133dp"
-                            android:layout_height="138dp"
-                            android:contentDescription="2nd Recommended Pet"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.017"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@drawable/cat_dog" />
-
-                        <TextView
-                            android:id="@+id/percentage2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:text="88%"
-                            android:textColor="#371576"
-                            android:textSize="50sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.931"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.19" />
-
-                        <Button
-                            android:id="@+id/viewPet2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#000000"
-                            android:text="View Pet"
-                            app:layout_constraintEnd_toEndOf="@+id/percentage2"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/percentage2"
-                            app:layout_constraintTop_toBottomOf="@+id/percentage2" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/constraintLayout3"
-                        android:layout_width="339dp"
-                        android:layout_height="127dp"
-                        android:background="@drawable/minicard"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.432"
+                        app:layout_constraintHorizontal_bias="0.545"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.115">
+                        app:layout_constraintVertical_bias="0.041">
 
-                        <TextView
-                            android:id="@+id/rp1_sex"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sex"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/rec1_card"
+                            android:layout_width="326dp"
+                            android:layout_height="157dp"
+                            android:background="@drawable/minicard"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.407"
+                            app:layout_constraintHorizontal_bias="0.489"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.812" />
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <TextView
+                                android:id="@+id/rec1_sex"
+                                android:layout_width="146dp"
+                                android:layout_height="22dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Sex"
+                                android:textSize="15sp"
+                                android:textStyle="italic"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.375" />
+
+                            <TextView
+                                android:id="@+id/rec1_age"
+                                android:layout_width="145dp"
+                                android:layout_height="24dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Age"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.889"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.593" />
+
+                            <TextView
+                                android:id="@+id/rec1_name"
+                                android:layout_width="146dp"
+                                android:layout_height="25dp"
+                                android:gravity="start"
+                                android:text="Name"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.151" />
+
+                            <ImageView
+                                android:id="@+id/rec1_image"
+                                android:layout_width="116dp"
+                                android:layout_height="116dp"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="1st Recommended Pet"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.128"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.487"
+                                app:srcCompat="@drawable/cat_dog" />
+
+                            <TextView
+                                android:id="@+id/rec1_percent"
+                                android:layout_width="153dp"
+                                android:layout_height="33dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="start|center_vertical"
+                                android:text="99.99% Match"
+                                android:textColor="#371576"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.93"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.83" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <TextView
-                            android:id="@+id/rp1_breed"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Breed"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.423"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.575" />
-
-                        <TextView
-                            android:id="@+id/rp1_age"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Age"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.404"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.345" />
-
-                        <TextView
-                            android:id="@+id/rp1_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.418"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.115" />
-
-                        <ImageView
-                            android:id="@+id/rec_pet2"
-                            android:layout_width="133dp"
-                            android:layout_height="138dp"
-                            android:contentDescription="1st Recommended Pet"
+                            android:id="@+id/rec1_number"
+                            android:layout_width="45dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_background"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:gravity="center"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:circularflow_radiusInDP="90dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.545"
-                            app:srcCompat="@drawable/cat_dog" />
-
-                        <TextView
-                            android:id="@+id/percentage1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:text="99%"
-                            android:textColor="#371576"
-                            android:textSize="50sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.932"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.206" />
-
-                        <Button
-                            android:id="@+id/viewPet1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#000000"
-                            android:text="View Pet"
-                            app:layout_constraintEnd_toEndOf="@+id/percentage1"
-                            app:layout_constraintStart_toStartOf="@+id/percentage1"
-                            app:layout_constraintTop_toBottomOf="@+id/percentage1" />
+                            app:layout_constraintVertical_bias="0.0" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="339dp"
-                        android:layout_height="127dp"
-                        android:background="@drawable/minicard"
+                        android:layout_width="367dp"
+                        android:layout_height="170dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.567"
+                        app:layout_constraintHorizontal_bias="0.545"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.886">
+                        app:layout_constraintVertical_bias="0.498">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/rec2_card"
+                            android:layout_width="326dp"
+                            android:layout_height="157dp"
+                            android:background="@drawable/minicard"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.489"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <TextView
+                                android:id="@+id/rec2_sex"
+                                android:layout_width="146dp"
+                                android:layout_height="22dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Sex"
+                                android:textSize="15sp"
+                                android:textStyle="italic"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.375" />
+
+                            <TextView
+                                android:id="@+id/rec2_age"
+                                android:layout_width="145dp"
+                                android:layout_height="24dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Age"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.889"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.593" />
+
+                            <TextView
+                                android:id="@+id/rec2_name"
+                                android:layout_width="146dp"
+                                android:layout_height="25dp"
+                                android:gravity="start"
+                                android:text="Name"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.151" />
+
+                            <ImageView
+                                android:id="@+id/rec2_image"
+                                android:layout_width="116dp"
+                                android:layout_height="116dp"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="1st Recommended Pet"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.128"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.487"
+                                app:srcCompat="@drawable/cat_dog" />
+
+                            <TextView
+                                android:id="@+id/rec2_percent"
+                                android:layout_width="153dp"
+                                android:layout_height="33dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="start|center_vertical"
+                                android:text="99.99% Match"
+                                android:textColor="#371576"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.93"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.83" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <TextView
-                            android:id="@+id/rp3_sex"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sex"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
+                            android:id="@+id/rec2_number"
+                            android:layout_width="45dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_background"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:gravity="center"
+                            android:text="2"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:circularflow_radiusInDP="90dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.407"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.812" />
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="367dp"
+                        android:layout_height="170dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.545"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.958">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/rec3_card"
+                            android:layout_width="326dp"
+                            android:layout_height="157dp"
+                            android:background="@drawable/minicard"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.489"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0">
+
+                            <TextView
+                                android:id="@+id/rec3_sex"
+                                android:layout_width="146dp"
+                                android:layout_height="22dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Sex"
+                                android:textSize="15sp"
+                                android:textStyle="italic"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.375"  />
+
+                            <TextView
+                                android:id="@+id/rec3_age"
+                                android:layout_width="145dp"
+                                android:layout_height="24dp"
+                                android:gravity="start|center_vertical"
+                                android:text="Age"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.889"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.593" />
+
+                            <TextView
+                                android:id="@+id/rec3_name"
+                                android:layout_width="146dp"
+                                android:layout_height="25dp"
+                                android:gravity="start"
+                                android:text="Name"
+                                android:textSize="17sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.894"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.151" />
+
+                            <ImageView
+                                android:id="@+id/rec3_image"
+                                android:layout_width="116dp"
+                                android:layout_height="116dp"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="1st Recommended Pet"
+                                android:scaleType="centerCrop"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.128"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.487"
+                                app:srcCompat="@drawable/cat_dog" />
+
+                            <TextView
+                                android:id="@+id/rec3_percent"
+                                android:layout_width="153dp"
+                                android:layout_height="33dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="start|center_vertical"
+                                android:text="99.99% Match"
+                                android:textColor="#371576"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.93"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.83" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <TextView
-                            android:id="@+id/rp3_breed"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Breed"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
+                            android:id="@+id/rec3_number"
+                            android:layout_width="45dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/circle_background"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            app:circularflow_radiusInDP="90dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.423"
+                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.575" />
+                            app:layout_constraintVertical_bias="0.0" />
 
-                        <TextView
-                            android:id="@+id/rp3_age"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Age"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.404"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.345" />
-
-                        <TextView
-                            android:id="@+id/rp3_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Name"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.418"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.115" />
-
-                        <ImageView
-                            android:id="@+id/rec_pet3"
-                            android:layout_width="133dp"
-                            android:layout_height="138dp"
-                            android:contentDescription="3rd Recommended Pet"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.017"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@drawable/cat_dog" />
-
-                        <TextView
-                            android:id="@+id/percentage3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:text="77%"
-                            android:textColor="#371576"
-                            android:textSize="50sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.912"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.174" />
-
-                        <Button
-                            android:id="@+id/viewPet3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="#000000"
-                            android:text="View Pet"
-                            app:layout_constraintEnd_toEndOf="@+id/percentage3"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            app:layout_constraintStart_toStartOf="@+id/percentage3"
-                            app:layout_constraintTop_toBottomOf="@+id/percentage3" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

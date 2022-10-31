@@ -103,7 +103,13 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         }
         else
         {
-            super.onBackPressed();
+            //TODO: FIX ONBACKPRESSED
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count <= 1) {
+                super.onBackPressed();
+            } else {
+                getSupportFragmentManager().popBackStack();
+            }
         }
 
     }

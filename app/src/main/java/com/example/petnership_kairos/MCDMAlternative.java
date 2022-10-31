@@ -6,12 +6,30 @@ import java.util.List;
 public class MCDMAlternative {
 
     private String name;
+    private String age;
+    private String desc;
+    private String sex;
+    private String status;
+    private String type;
+    private String shelter;
+    private String id;
+
+    private String imageName;
     private List<MCDMCriteriaValue> criteriaValues;
     private double calculatedPerformanceScore;
 
-    public MCDMAlternative(String name, List<MCDMCriteriaValue> criteriaValues) {
+
+    public MCDMAlternative(String name, List<MCDMCriteriaValue> criteriaValues, String age, String desc, String sex, String status, String type, String shelter, String imageName, String id) {
         super();
         this.name = name;
+        this.age = age;
+        this.desc = desc;
+        this.sex = sex;
+        this.status = status;
+        this.type = type;
+        this.shelter = shelter;
+        this.imageName = imageName;
+        this.id = id;
         this.criteriaValues = criteriaValues;
     }
 
@@ -47,7 +65,7 @@ public class MCDMAlternative {
         this.criteriaValues.add(criteriaValue);
     }
 
-    public void addCriteriaValue(MCDMCriteria criteria, double value) {
+    public void addCriteriaValue(MCDMCriteria criteria, int value) {
         if (criteriaValues == null) {
             criteriaValues = new ArrayList<MCDMCriteriaValue>();
         }
@@ -60,5 +78,70 @@ public class MCDMAlternative {
 
     protected void setCalculatedPerformanceScore(double calculatedPerformanceScore) {
         this.calculatedPerformanceScore = calculatedPerformanceScore;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getShelter() {
+        return shelter;
+    }
+
+    public void setShelter(String shelter) {
+        this.shelter = shelter;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

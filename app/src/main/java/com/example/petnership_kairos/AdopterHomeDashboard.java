@@ -17,10 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.common.util.CollectionUtils;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -98,7 +95,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
         cvAdopterInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), AdopterEdit.class);
+                Intent intent = new Intent(getActivity(), AdopterEditInfo.class);
                 startActivity(intent);
             }
         });
