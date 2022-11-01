@@ -1212,17 +1212,21 @@ public class MCDM {
         for (int i = 0; i < numberOfAlternatives; i++) {
             System.out.println(alternatives.get(i).getName() + ": " + alternatives.get(i).getCalculatedPerformanceScore());
         }
-        MCDMAlternative[] topThree = new MCDMAlternative[3];
-        for (int i = 0; i < 3; i++) {
+        int resultsSize = Math.min(alternatives.size(), 3);
+
+        MCDMAlternative[] topThree = new MCDMAlternative[resultsSize];
+        for (int i = 0; i < resultsSize; i++) {
             // TODO: Implement checker if less than 3
 
             topThree[i] = alternatives.get(i);
         }
         mViewModel.setTopThree(topThree);
-        System.out.println("ADDED TOP THREE: ");
-        System.out.println(mViewModel.getTopThree()[0].getImageName());
-        System.out.println(mViewModel.getTopThree()[1].getImageName());
-        System.out.println(mViewModel.getTopThree()[2].getImageName());
+        System.out.println("ADDED TOP " + resultsSize + ":");
+        for (int i = 0; i < resultsSize; i++) {
+            // TODO: Implement checker if less than 3
+
+            System.out.println(mViewModel.getTopThree()[i].getImageName());
+        }
     }
 }
 

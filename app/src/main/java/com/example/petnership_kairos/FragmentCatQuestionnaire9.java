@@ -122,6 +122,12 @@ public class FragmentCatQuestionnaire9 extends Fragment {
             transaction.addToBackStack("catQuestionnaire10");
             transaction.commit();
         });
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
+
+            getParentFragmentManager().popBackStack();
+        });
+
     }
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){

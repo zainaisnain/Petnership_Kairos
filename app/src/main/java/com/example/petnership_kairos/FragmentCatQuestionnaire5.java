@@ -136,7 +136,11 @@ public class FragmentCatQuestionnaire5 extends Fragment {
             transaction.addToBackStack("catQuestionnaire6");
             transaction.commit();
         });
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
+        });
 
     }
 

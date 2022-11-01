@@ -175,7 +175,11 @@ public class FragmentCatQuestionnaire3 extends Fragment {
             transaction.commit();
         });
 
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
+        });
     }
 
     private void setSeekText(int i, TextView j) {

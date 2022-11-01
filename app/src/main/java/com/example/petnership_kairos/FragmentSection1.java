@@ -33,7 +33,7 @@ public class FragmentSection1 extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Section 1");
+        getActivity().setTitle("How to Answer");
 
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
