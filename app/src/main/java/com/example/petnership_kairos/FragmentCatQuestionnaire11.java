@@ -17,109 +17,110 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class FragmentCatQuestionnaire9 extends Fragment {
+public class FragmentCatQuestionnaire11 extends Fragment {
 
-    public static FragmentCatQuestionnaire9 newInstance() {
-        return new FragmentCatQuestionnaire9();
+    public static FragmentCatQuestionnaire11 newInstance() {
+        return new FragmentCatQuestionnaire11();
     }
 
-    ImageButton cpopup9;
-    SeekBar cseekBar39, cseekBar40, cseekBar41;
-    TextView crate39, crate40, crate41;
+    ImageButton cpopup11;
+    SeekBar cseekBar45, cseekBar46, cseekBar47;
+    TextView crate45, crate46, crate47;
     MCDMAnswersViewModel mViewModel;
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cat_questionnaire9, container, false);
+        return inflater.inflate(R.layout.fragment_cat_questionnaire11, container, false);
 
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Cat Questionnaire 9");
+        getActivity().setTitle("Cat Questionnaire 11");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
         System.out.println("Test: " + mViewModel.getAnswer(1));
 
-        cseekBar39 = getView().findViewById(R.id.cseekBar39);
-        cseekBar40 = getView().findViewById(R.id.cseekBar40);
-        cseekBar41 = getView().findViewById(R.id.cseekBar41);
-        crate39 = getView().findViewById(R.id.crating39);
-        crate40 = getView().findViewById(R.id.crating40);
-        crate41 = getView().findViewById(R.id.crating41);
+
+        cseekBar45 = getView().findViewById(R.id.cseekBar45);
+        cseekBar46 = getView().findViewById(R.id.cseekBar46);
+        cseekBar47 = getView().findViewById(R.id.cseekBar47);
+        crate45 = getView().findViewById(R.id.crating45);
+        crate46 = getView().findViewById(R.id.crating46);
+        crate47 = getView().findViewById(R.id.crating47);
 
         // bring back previous progress if any
-   //     if (mViewModel.getDogAnswer(8) != null){
-     //       cseekBar56.setProgress(mViewModel.getDogAnswer(8));
-       // }
+        //     if (mViewModel.getDogAnswer(8) != null){
+        //       cseekBar56.setProgress(mViewModel.getDogAnswer(8));
+        // }
 
-        cseekBar39.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar45.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
-            public void onProgressChanged(SeekBar cseekBar39, int i, boolean b) {
-                setSeekText(i, crate39);
+            public void onProgressChanged(SeekBar cseekBar45, int i, boolean b) {
+                setSeekText(i, crate45);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar cseekBar39) {
+            public void onStartTrackingTouch(SeekBar cseekBar45) {
 
             }
             @Override
-            public void onStopTrackingTouch(SeekBar cseekBar39) {
+            public void onStopTrackingTouch(SeekBar cseekBar45) {
 
             }
         });
 
-        cseekBar40.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        cseekBar46.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar cseekBar40, int i, boolean b) {
-                setSeekText(i, crate40);
+            public void onProgressChanged(SeekBar cseekBar46, int i, boolean b) {
+                setSeekText(i, crate46);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar cseekBar40) {
+            public void onStartTrackingTouch(SeekBar cseekBar46) {
 
             }
             @Override
-            public void onStopTrackingTouch(SeekBar cseekBar40) {
-
-            }
-        });
-
-        cseekBar41.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar cseekBar41, int i, boolean b) {
-                setSeekText(i, crate41);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar cseekBar41) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar cseekBar41) {
+            public void onStopTrackingTouch(SeekBar cseekBar46) {
 
             }
         });
 
+        cseekBar47.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar cseekBar47, int i, boolean b) {
+                setSeekText(i, crate47);
+            }
 
-        cpopup9 = getView().findViewById(R.id.cinstructionsBTN9);
-        cpopup9.setOnClickListener(view1 -> showDialog());
+            @Override
+            public void onStartTrackingTouch(SeekBar cseekBar47) {
 
-        Button submitBtn = getView().findViewById(R.id.cproceed_ques9);
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar cseekBar47) {
+
+            }
+        });
+
+
+        cpopup11 = getView().findViewById(R.id.cinstructionsBTN11);
+        cpopup11.setOnClickListener(view1 -> showDialog());
+
+        Button submitBtn = getView().findViewById(R.id.cproceed_ques11);
         submitBtn.setOnClickListener(v -> {
             // save answers
-            mViewModel.setAnswer(39, cseekBar39.getProgress());
-            mViewModel.setAnswer(40, cseekBar40.getProgress());
-            mViewModel.setAnswer(41, cseekBar41.getProgress());
+            mViewModel.setAnswer(45, cseekBar45.getProgress());
+            mViewModel.setAnswer(46, cseekBar46.getProgress());
+            mViewModel.setAnswer(47, cseekBar47.getProgress());
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-            FragmentCatQuestionnaire10 cat10Fragment = new FragmentCatQuestionnaire10();
-            transaction.replace(R.id.nav_host_fragment,cat10Fragment);
-            transaction.addToBackStack("catQuestionnaire10");
+            FragmentCatQuestionnaire12 cat12Fragment = new FragmentCatQuestionnaire12();
+            transaction.replace(R.id.nav_host_fragment,cat12Fragment);
+            transaction.addToBackStack("catQuestionnaire12");
             transaction.commit();
         });
     }
