@@ -43,6 +43,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     String appliedToAdopt;
+    boolean answeredQuestionnaire;
 
     private TextView tvCatlvl1, tvCatlvl2, tvCatlvl3, tvCatlvl4, tvCatlvl5,
             tvCatlvl6, tvCatlvl7, tvCatlvl8, tvCatlvl9;
@@ -92,40 +93,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
             }
         });
 
-
         adoptMeBtn = findViewById(R.id.adopter_per_cat_adopt_me_btn);
-        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //pass the pet's info to next screen (fragment)
-                Bundle bundle = new Bundle();
-                bundle.putString("petID", petID);
-                bundle.putString("petType", petType);
-                bundle.putString("petImageName", petImageName);
-                bundle.putString("petName", petName);
-                bundle.putString("petBreed", petBreed);
-                bundle.putString("petAge", petAge);
-                bundle.putString("petSex", petSex);
-                bundle.putString("petDescription", petDescription);
-                bundle.putString("petShelter", petShelter);
-                bundle.putString("shelterID", shelterID);
-                bundle.putString("shelterEmail", shelterEmail);
-                bundle.putString("adopterID", adopterID);
-                bundle.putString("adopterEmail", adopterEmail);
-                bundle.putString("adopterName", adopterName);
-                bundle.putString("adopterContact", adopterContact);
-                bundle.putString("adopterAddress", adopterAddress);
-
-                AdoptionForm adoptionForm = new AdoptionForm();
-                adoptionForm.setArguments(bundle);
-
-                //Go to next screen
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_per_cat_profile_container, adoptionForm);
-                transaction.commit();
-            }
-        });
 
         backBtn = findViewById(R.id.adopter_per_cat_back_btn);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -138,8 +106,79 @@ public class AdopterPerCatProfile extends AppCompatActivity {
             }
         });
 
+        checkIfAdopterAnsweredQuestionnaire();
         setUpPetImage();
         setUpSummary();
+    }
+
+    private void checkIfAdopterAnsweredQuestionnaire(){
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                adopterID = ds.getKey();
+                            }
+                            adoptersDBRef.child(adopterID).child("answeredQuestionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    answeredQuestionnaire = (boolean) snapshot.getValue();
+                                    System.out.println("answeredQuestionnaire ==== " + answeredQuestionnaire);
+                                    if(answeredQuestionnaire){
+                                        adoptMeBtn.setEnabled(true);
+                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+
+                                                //pass the pet's info to next screen (fragment)
+                                                Bundle bundle = new Bundle();
+                                                bundle.putString("petID", petID);
+                                                bundle.putString("petType", petType);
+                                                bundle.putString("petImageName", petImageName);
+                                                bundle.putString("petName", petName);
+                                                bundle.putString("petBreed", petBreed);
+                                                bundle.putString("petAge", petAge);
+                                                bundle.putString("petSex", petSex);
+                                                bundle.putString("petDescription", petDescription);
+                                                bundle.putString("petShelter", petShelter);
+                                                bundle.putString("shelterID", shelterID);
+                                                bundle.putString("shelterEmail", shelterEmail);
+                                                bundle.putString("adopterID", adopterID);
+                                                bundle.putString("adopterEmail", adopterEmail);
+                                                bundle.putString("adopterName", adopterName);
+                                                bundle.putString("adopterContact", adopterContact);
+                                                bundle.putString("adopterAddress", adopterAddress);
+
+                                                AdoptionForm adoptionForm = new AdoptionForm();
+                                                adoptionForm.setArguments(bundle);
+
+                                                //Go to next screen
+                                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                                transaction.replace(R.id.adopter_per_cat_profile_container, adoptionForm);
+                                                transaction.commit();
+                                            }
+                                        });
+                                    }else{
+                                        adoptMeBtn.setEnabled(false);
+                                        //redirect to answer questionaire
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     private void setUpPetImage() {

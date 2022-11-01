@@ -209,23 +209,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     }
 
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("provinces.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
     private void selectUserType()
     {
         Intent intent = new Intent(this,ActivityUserType.class);
@@ -385,8 +368,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
+                                                        boolean answeredQuestionnaire = false;
                                                         Adopter adopter = new Adopter(fname, lname, email, username,
-                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName);
+                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
 
                                                         databaseReference.child("Adopters").child(username).setValue(adopter);
 
