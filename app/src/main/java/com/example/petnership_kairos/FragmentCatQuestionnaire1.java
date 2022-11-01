@@ -197,11 +197,8 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         });
         backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-            FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
-            transaction.replace(R.id.nav_host_fragment, chooseAnimal);
-            transaction.commit();
+
+            getParentFragmentManager().popBackStack();
         });
 
     }

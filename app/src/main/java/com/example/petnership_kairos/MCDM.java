@@ -1214,6 +1214,8 @@ public class MCDM {
         }
         MCDMAlternative[] topThree = new MCDMAlternative[3];
         for (int i = 0; i < 3; i++) {
+            // TODO: Implement checker if less than 3
+
             topThree[i] = alternatives.get(i);
         }
         mViewModel.setTopThree(topThree);

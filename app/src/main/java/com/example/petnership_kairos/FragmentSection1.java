@@ -12,14 +12,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.cardview.widget.CardView;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class FragmentQuestionnairePart1 extends Fragment {
+public class FragmentSection1 extends Fragment {
 
-    public static FragmentQuestionnairePart1 newInstance() {
-        return new FragmentQuestionnairePart1();
+    public static FragmentSection1 newInstance() {
+        return new FragmentSection1();
     }
 
     MCDMAnswersViewModel mViewModel;
@@ -27,14 +26,14 @@ public class FragmentQuestionnairePart1 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_questionnaire_part1, container, false);
+        return inflater.inflate(R.layout.fragment_section1, container, false);
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Part 1 Information");
+        getActivity().setTitle("Section 1");
 
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
@@ -60,11 +59,8 @@ public class FragmentQuestionnairePart1 extends Fragment {
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view1 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-            AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-            transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-            transaction.commit();
+
+            getParentFragmentManager().popBackStack();
         });
     }
 

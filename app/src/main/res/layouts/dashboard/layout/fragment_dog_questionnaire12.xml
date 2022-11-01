@@ -52,15 +52,15 @@
                     app:layout_constraintVertical_bias="0.60">
 
                     <TextView
-                        android:id="@+id/dogDescTrainability"
-                        android:layout_width="306dp"
+                        android:id="@+id/dogDescAdaptabilityOtherPets"
+                        android:layout_width="315dp"
                         android:layout_height="72dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:layout_marginBottom="415dp"
                         android:fontFamily="@font/marmelad_regular"
                         android:gravity="center"
-                        android:text="@string/description_trainability"
+                        android:text="@string/description_adaptability_other_pets"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
                         app:layout_constraintStart_toStartOf="parent" />
 
                     <TextView
-                        android:id="@+id/rating30"
+                        android:id="@+id/rating48"
                         android:layout_width="180dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
@@ -83,7 +83,7 @@
                         app:layout_constraintVertical_bias="0.335" />
 
                     <TextView
-                        android:id="@+id/rating31"
+                        android:id="@+id/rating49"
                         android:layout_width="180dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
@@ -97,7 +97,7 @@
                         app:layout_constraintVertical_bias="0.523" />
 
                     <TextView
-                        android:id="@+id/rating32"
+                        android:id="@+id/rating50"
                         android:layout_width="180dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
@@ -111,7 +111,7 @@
                         app:layout_constraintVertical_bias="0.716" />
 
                     <ImageButton
-                        android:id="@+id/instructionsBTN6"
+                        android:id="@+id/instructionsBTN12"
                         android:layout_width="43dp"
                         android:layout_height="45dp"
                         android:background="#0000"
@@ -144,89 +144,89 @@
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="85dp"
-                        android:layout_height="100dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginEnd="24dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_medium"
+                        android:text="@string/adaptability_other_pets_medium"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.4"
-                        app:layout_constraintStart_toEndOf="@+id/seekBar30"
+                        app:layout_constraintStart_toEndOf="@+id/seekBar48"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.367" />
+                        app:layout_constraintVertical_bias="0.37" />
 
                     <TextView
                         android:id="@+id/textView9"
-                        android:layout_width="85dp"
+                        android:layout_width="95dp"
                         android:layout_height="100dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginEnd="19dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_low"
+                        android:text="@string/adaptability_other_pets_low"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.421"
-                        app:layout_constraintStart_toEndOf="@+id/seekBar32"
+                        app:layout_constraintStart_toEndOf="@+id/seekBar50"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.827" />
+                        app:layout_constraintVertical_bias="0.837" />
 
                     <TextView
                         android:id="@+id/textView17"
-                        android:layout_width="85dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="45dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_medium"
+                        android:text="@string/adaptability_other_pets_medium"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/seekBar32"
+                        app:layout_constraintEnd_toStartOf="@+id/seekBar50"
                         app:layout_constraintHorizontal_bias="0.7"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.827" />
+                        app:layout_constraintVertical_bias="0.849" />
 
                     <TextView
                         android:id="@+id/textView8"
-                        android:layout_width="85dp"
+                        android:layout_width="95dp"
                         android:layout_height="100dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginEnd="19dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_low"
+                        android:text="@string/adaptability_other_pets_low"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.421"
-                        app:layout_constraintStart_toEndOf="@+id/seekBar31"
+                        app:layout_constraintStart_toEndOf="@+id/seekBar49"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.6" />
+                        app:layout_constraintVertical_bias="0.61" />
 
                     <TextView
                         android:id="@+id/textView16"
-                        android:layout_width="85dp"
+                        android:layout_width="95dp"
                         android:layout_height="100dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="30dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_high"
+                        android:text="@string/adaptability_other_pets_high"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/seekBar31"
+                        app:layout_constraintEnd_toStartOf="@+id/seekBar49"
                         app:layout_constraintHorizontal_bias="0.7"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -234,24 +234,24 @@
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="85dp"
+                        android:layout_width="95dp"
                         android:layout_height="100dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="30dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="@string/trainability_high"
+                        android:text="@string/adaptability_other_pets_high"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/seekBar30"
+                        app:layout_constraintEnd_toStartOf="@+id/seekBar48"
                         app:layout_constraintHorizontal_bias="0.678"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.367" />
+                        app:layout_constraintVertical_bias="0.37" />
 
                     <SeekBar
-                        android:id="@+id/seekBar30"
+                        android:id="@+id/seekBar48"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
@@ -266,7 +266,7 @@
                         app:layout_constraintVertical_bias="0.393" />
 
                     <SeekBar
-                        android:id="@+id/seekBar31"
+                        android:id="@+id/seekBar49"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
@@ -277,10 +277,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/seekBar30" />
+                        app:layout_constraintTop_toBottomOf="@+id/seekBar48" />
 
                     <SeekBar
-                        android:id="@+id/seekBar32"
+                        android:id="@+id/seekBar50"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
@@ -291,10 +291,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/seekBar31" />
+                        app:layout_constraintTop_toBottomOf="@+id/seekBar49" />
 
                     <Button
-                        android:id="@+id/proceed_ques6"
+                        android:id="@+id/proceed_ques12"
                         android:layout_width="245dp"
                         android:layout_height="44dp"
                         android:layout_marginBottom="16dp"
@@ -314,13 +314,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_black"
-                        android:text="@string/wrt_trainability"
+                        android:text="@string/wrt_adaptability_other_pets"
                         android:textColor="#371576"
                         android:textSize="13sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.486"
+                        app:layout_constraintHorizontal_bias="0.484"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.124" />

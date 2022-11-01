@@ -115,6 +115,7 @@ public class AdopterHomeDashboard extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), StartOfQuestionnaire.class));
+                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         });
 

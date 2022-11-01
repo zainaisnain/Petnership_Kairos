@@ -1,11 +1,11 @@
 package com.example.petnership_kairos;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,116 +17,121 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class FragmentDogQuestionnaire8 extends Fragment {
+public class FragmentDogQuestionnaire12 extends Fragment {
 
-    public static FragmentDogQuestionnaire8 newInstance() {
-        return new FragmentDogQuestionnaire8();
+    public static FragmentDogQuestionnaire12 newInstance() {
+        return new FragmentDogQuestionnaire12();
     }
-    ImageButton popup8, backBtn;
-    SeekBar seekBar36, seekBar37, seekBar38;
-    TextView rate36, rate37, rate38;
+
+
+    ImageButton popup12, backBtn;
+    SeekBar seekBar48, seekBar49, seekBar50;
+    TextView rate48, rate49, rate50;
     MCDMAnswersViewModel mViewModel;
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_dog_questionnaire8, container, false);
+        return inflater.inflate(R.layout.fragment_dog_questionnaire12, container, false);
 
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().setTitle("Dog Questionnaire 8");
+        getActivity().setTitle("Dog Questionnaire 12");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
         System.out.println("Test: " + mViewModel.getAnswer(1));
 
-        seekBar36 = getView().findViewById(R.id.seekBar36);
-        seekBar37 = getView().findViewById(R.id.seekBar37);
-        seekBar38 = getView().findViewById(R.id.seekBar38);
-        rate36 = getView().findViewById(R.id.rating36);
-        rate37 = getView().findViewById(R.id.rating37);
-        rate38 = getView().findViewById(R.id.rating38);
 
-
+        seekBar48 = getView().findViewById(R.id.seekBar48);
+        seekBar49 = getView().findViewById(R.id.seekBar49);
+        seekBar50 = getView().findViewById(R.id.seekBar50);
+        rate48 = getView().findViewById(R.id.rating48);
+        rate49 = getView().findViewById(R.id.rating49);
+        rate50 = getView().findViewById(R.id.rating50);
 
         // bring back previous progress if any
-    //    if (mViewModel.getDogAnswer(8) != null){
-      //      seekBar49.setProgress(mViewModel.getDogAnswer(8));
+        //  if (mViewModel.getDogAnswer(8) != null){
+        //    seekBar54.setProgress(mViewModel.getDogAnswer(8));
         //}
 
-        seekBar36.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+        seekBar48.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar36, int i, boolean b) {
-                setSeekText(i, rate36);
+            public void onProgressChanged(SeekBar seekBar48, int i, boolean b) {
+                setSeekText(i, rate48);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar36) {
+            public void onStartTrackingTouch(SeekBar seekBar48) {
 
             }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar36) {
-
-            }
-        });
-
-        seekBar37.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar37, int i, boolean b) {
-                setSeekText(i, rate37);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar37) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar37) {
+            public void onStopTrackingTouch(SeekBar seekBar48) {
 
             }
         });
-        seekBar38.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+        seekBar49.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar38, int i, boolean b) {
-                setSeekText(i, rate38);
+            public void onProgressChanged(SeekBar seekBar49, int i, boolean b) {
+                setSeekText(i, rate49);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar38) {
+            public void onStartTrackingTouch(SeekBar seekBar49) {
 
             }
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar38) {
+            public void onStopTrackingTouch(SeekBar seekBar49) {
 
             }
         });
 
 
-        popup8 = getView().findViewById(R.id.instructionsBTN8);
-        popup8.setOnClickListener(view1 -> showDialog());
-        Button proceedBtn = getView().findViewById(R.id.proceed_ques8);
+        seekBar50.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar50, int i, boolean b) {
+                setSeekText(i, rate50);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar50) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar50) {
+
+            }
+        });
+
+
+        popup12 = getView().findViewById(R.id.instructionsBTN12);
+        popup12.setOnClickListener(view1 -> showDialog());
+
+        Button proceedBtn = getView().findViewById(R.id.proceed_ques12);
         proceedBtn.setOnClickListener(v -> {
             // save answers
-            mViewModel.setAnswer(36, seekBar36.getProgress());
-            mViewModel.setAnswer(37, seekBar37.getProgress());
-            mViewModel.setAnswer(38, seekBar38.getProgress());
+            mViewModel.setAnswer(48, seekBar48.getProgress());
+            mViewModel.setAnswer(49, seekBar49.getProgress());
+            mViewModel.setAnswer(50, seekBar50.getProgress());
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-            FragmentDogQuestionnaire9 dog9Fragment = new FragmentDogQuestionnaire9();
-            transaction.replace(R.id.nav_host_fragment,dog9Fragment);
-            transaction.addToBackStack("dogQuestionnaire9");
+            FragmentDogQuestionnaire13 dog13Fragment = new FragmentDogQuestionnaire13();
+            transaction.replace(R.id.nav_host_fragment,dog13Fragment);
+            transaction.addToBackStack("dogQuestionnaire13");
             transaction.commit();
         });
-
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
 
             getParentFragmentManager().popBackStack();
         });
     }
+
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){

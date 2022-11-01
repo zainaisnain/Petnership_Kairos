@@ -42,7 +42,7 @@ public class FragmentQuestionnaireChooseAnimal extends Fragment {
 
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-            FragmentQuestionnairePart1 part1Fragment = new FragmentQuestionnairePart1();
+            FragmentSection1 part1Fragment = new FragmentSection1();
             transaction.replace(R.id.nav_host_fragment,part1Fragment);
             transaction.addToBackStack("questionnairePart1");
             transaction.commit();
@@ -54,18 +54,15 @@ public class FragmentQuestionnaireChooseAnimal extends Fragment {
             mViewModel.setAnimalType("Dog");
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-            FragmentQuestionnairePart1 part1Fragment = new FragmentQuestionnairePart1();
+            FragmentSection1 part1Fragment = new FragmentSection1();
             transaction.replace(R.id.nav_host_fragment,part1Fragment);
             transaction.addToBackStack("questionnairePart1");
             transaction.commit();
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view1 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-            FragmentQuestionnaireWelcome questionnairewelcome = new FragmentQuestionnaireWelcome();
-            transaction.replace(R.id.nav_host_fragment, questionnairewelcome);
-            transaction.commit();
+
+            getParentFragmentManager().popBackStack();
         });
 
     }
