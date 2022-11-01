@@ -39,4 +39,86 @@
     <string name="seekTextSlightly">Slightly Important</string>
     <string name="seekTextEqually">Equally Important</string>
 
+
+    <!-- intensity strings-->
+    <string name="obedience_high">HIGH: Obeys at least 70% of the time</string>
+    <string name="obedience_medium">MEDIUM: Obeys AT LEAST 30% of the time</string>
+    <string name="obedience_low">LOW: Obeys LESS THAN 30% of the time</string>
+
+    <string name="trainability_high">HIGH: Requires a training frequency of LESS than 16 repetitions</string>
+    <string name="trainability_medium">MEDIUM: Requires a training frequency of 16 to 40 repetitions</string>
+    <string name="trainability_low">LOW: Requires a training frequency of MORE than 40 repetitions</string>
+
+    <string name="nonshedding_high">HIGH: Rarely loses fur</string>
+    <string name="nonshedding_medium">MEDIUM: Loses fur periodically or seasonally</string>
+    <string name="nonshedding_low">LOW: Loses fur majority of the time</string>
+
+    <string name="nondrooling_high">HIGH: Drooling never or rarely happens</string>
+    <string name="nondrooling_medium">MEDIUM: Drooling sometimes occurs seasonally or in certain conditions</string>
+    <string name="nondrooling_low">LOW: Drooling occurs frequently</string>
+
+    <string name="ease_of_care_high">HIGH: Once a month</string>
+    <string name="ease_of_care_medium">MEDIUM: Twice a month</string>
+    <string name="ease_of_care_low">LOW: More than twice a month</string>
+
+    <string name="friendliness_high">HIGH: Dog is friendly; generally does not bark if there is no provocative action</string>
+    <string name="friendliness_medium">MEDIUM: Dog might bark at unfamiliar subject</string>
+    <string name="friendliness_low">LOW: Dog is very reactive to unfamiliar subjects</string>
+
+    <string name="adaptability_humans_high">HIGH: Dog can adapt well; easily connects with humans</string>
+    <string name="adaptability_humans_medium">MEDIUM: Dog might need time to make new relationships with humans</string>
+    <string name="adaptability_humans_low">LOW: Dog needs a lot of time to build new relationships; may seem uncomfortable until then</string>
+
+    <string name="adaptability_other_pets_high">HIGH: Dog is highly adaptable; can live with other pets without problems</string>
+    <string name="adaptability_other_pets_medium">MEDIUM: Dog can adapt well with certain pets or the same species, but can behave differently towards others</string>
+    <string name="adaptability_other_pets_low">LOW: Dog is reluctant to be friends with other friends; prefers to be alone</string>
+
+    <string name="adaptability_environment_high">HIGH: Dog is highly adaptable to various environmental conditions; has high tolerance for weather changes</string>
+    <string name="adaptability_environment_medium">MEDIUM: Dog can still adapt well to certain environmental conditions but sometimes need humans to adapt</string>
+    <string name="adaptability_environment_low">LOW: Dog needs a certain environmental condition to live well and is very dependent on humans to adapt</string>
+
+    <string name="popularity_high">HIGH: Very popular dog breed; ranks between 1 to 25</string>
+    <string name="popularity_medium">MEDIUM: Moderately popular dog breed; ranks between 26 to 100</string>
+    <string name="popularity_low">LOW: Less popular dog breed; ranks below 100</string>
+
+    <string name="longevity_high">HIGH: Long lifespan or a young pup</string>
+    <string name="longevity_medium">MEDIUM: Average lifespan or a mature dog</string>
+    <string name="longevity_low">LOW: Senior or geriatric dog</string>
+
+
+    <!-- criteria description strings -->
+    <string name="description_obedience">Obedience refers to how well or how often the dog successfully follows commands given by its adopter or handler at a given time.</string>
+    <string name="description_trainability">Trainability refers to how well the dog learns commands through repetitions.</string>
+    <string name="description_nonshedding">Non-Shedding refers to how rarely the dog sheds its fur naturally.</string>
+    <string name="description_nondrooling">Non-Drooling refers to how rarely the dog drools.</string>
+    <string name="description_ease_of_care">Ease of Care refers to how rarely the dog requires additional or extra care beyond normal (nail care, advanced grooming, or any other specialized treatment).</string>
+    <string name="description_friendliness">Friendliness refers to how friendly the dog is with humans and other animals.</string>
+    <string name="description_adaptability_humans">Adaptability to Humans refers to how well the dog adapts to new encounters with humans.</string>
+    <string name="description_adaptability_other_pets">Adaptability to Other Pets refers to how well the dog adapts to new encounters with other pets.</string>
+    <string name="description_adaptability_environment">Adaptability to Environment refers to how well the dog adapts to environmental conditions and changes.</string>
+    <string name="description_popularity">Popularity refers to how popular the dog is, based on the American Kennel Club List of breed popularity.</string>
+    <string name="description_longevity">Longevity refers to how many more years the dog is expected to live.</string>
+
+
+    <!-- wrt strings -->
+    <string name="wrt_obedience">With respect to Obedience under Intelligence</string>
+    <string name="wrt_trainability">With respect to Trainability under Intelligence</string>
+    <string name="wrt_nonshedding">With respect to Non-Shedding under Hygiene</string>
+    <string name="wrt_nondrooling">With respect to Non-Drooling under Hygiene</string>
+    <string name="wrt_ease_of_care">With respect to Ease of Care</string>
+    <string name="wrt_friendliness">With respect to Friendliness</string>
+    <string name="wrt_adaptability_humans">With respect to Adaptability to Humans</string>
+    <string name="wrt_adaptability_other_pets">With respect to Adaptability to Other Pets</string>
+    <string name="wrt_adaptability_environment">With respect to Adaptability to Environment</string>
+    <string name="wrt_popularity">With respect to Popularity</string>
+    <string name="wrt_longevity">With respect to Longevity</string>
+
+    <string name="proceed_content">Proceed to Next Part</string>
+    <string name="proceed">PROCEED</string>
+
+
+    <string name="heading_adopter_questionnaire">Pet Adopter Questionnaire</string>
+    <string name="burger">burger</string>
+    <string name="submit">SUBMIT</string>
+
 </resources>
