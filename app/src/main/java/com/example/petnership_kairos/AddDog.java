@@ -196,7 +196,7 @@ public class  AddDog extends Fragment {
                 petAgeNum = etPetAge.getText().toString().trim();
                 petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
-                petImage = imageName;
+
 
                 petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
@@ -216,11 +216,8 @@ public class  AddDog extends Fragment {
                 }else if(filePath==null){
                     Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else{
-                    if(!imageUploaded){
                         uploadImage();
-                    }
-                    addPet();
-                    Toast.makeText(getActivity(), "TEST", Toast.LENGTH_LONG).show();
+                        addPet();
                 }
             }
         });
@@ -285,7 +282,7 @@ public class  AddDog extends Fragment {
     // UploadImage method
     private void uploadImage()
     {
-        imageName = UUID.randomUUID().toString();
+        petImage = UUID.randomUUID().toString();
         if (filePath != null) {
 
             // Code for showing progressDialog while uploading
@@ -299,7 +296,7 @@ public class  AddDog extends Fragment {
                     = storageReference
                     .child(
                             "Pets/"
-                                    + imageName);
+                                    + petImage);
 
             // adding listeners on upload
             // or failure of image
@@ -315,11 +312,11 @@ public class  AddDog extends Fragment {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
-                                    Toast
-                                            .makeText(getActivity(),
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
+//                                    Toast
+//                                            .makeText(getActivity(),
+//                                                    "Image Uploaded!!",
+//                                                    Toast.LENGTH_SHORT)
+//                                            .show();
                                 }
                             })
 
@@ -359,6 +356,7 @@ public class  AddDog extends Fragment {
     }
 
     private void addPet(){
+        uploadImage();
         databaseReference.child("Pets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {    @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
