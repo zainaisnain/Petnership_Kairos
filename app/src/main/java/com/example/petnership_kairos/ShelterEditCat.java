@@ -156,7 +156,7 @@ public class ShelterEditCat extends Fragment {
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
 //                getParentFragmentManager().beginTransaction().addToBackStack("currentCatProfile").commit();
-                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+                MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
                 cancelDialog2.show(getParentFragmentManager(), "My Fragment");
 //                transaction.replace(R.id.add_pet_frag,cancelDialog2);
 
