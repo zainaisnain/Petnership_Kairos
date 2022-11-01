@@ -80,7 +80,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="400dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="60dp"
                         android:layout_marginEnd="24dp"
@@ -106,7 +106,7 @@
 
                             <TextView
                                 android:id="@+id/label_cat_name"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Name: "
@@ -115,7 +115,7 @@
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_name"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="PERCY"
@@ -123,22 +123,15 @@
                                 android:textStyle="bold"/>
                         </LinearLayout>
 
-                        <View
-                            android:id="@+id/view"
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_margin="10dp" />
-
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_cat_breed"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Breed:"
@@ -147,7 +140,7 @@
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_breed"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="SIAMESE CAT"
@@ -157,14 +150,13 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_cat_age"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Age:"
@@ -173,7 +165,7 @@
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_age"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="age"
@@ -183,14 +175,13 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_cat_sex"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Sex:"
@@ -199,7 +190,7 @@
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_sex"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="sex"
@@ -209,14 +200,13 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:layout_weight="1"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/label_cat_description"
-                                android:layout_width="62dp"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Description:"
@@ -225,7 +215,7 @@
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_description"
-                                android:layout_width="wrap_content"
+                                android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Lorem Ipsum dolor\n sit amet, "

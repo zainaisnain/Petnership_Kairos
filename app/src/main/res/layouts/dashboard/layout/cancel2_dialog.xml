@@ -16,6 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:background="@drawable/card">
 
             <ImageView
@@ -24,16 +25,16 @@
                 android:layout_height="172dp"
                 app:srcCompat="@drawable/ic_warning"
                 tools:layout_editor_absoluteX="93dp"
-                tools:layout_editor_absoluteY="27dp" />
+                tools:layout_editor_absoluteY="32dp" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
+                android:layout_margin="5dp"
+                android:textSize="22dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/marmelad_regular"
-                android:textSize="24sp"
-                android:padding="10dp"
-                android:text="Task cancelled."
+                android:text="Are you sure you want to cancel?"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

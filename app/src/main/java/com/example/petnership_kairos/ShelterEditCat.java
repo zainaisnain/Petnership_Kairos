@@ -64,6 +64,7 @@ public class ShelterEditCat extends Fragment {
     FirebaseStorage storage;
     StorageReference storageReference;
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
+    Button back;
 
     private boolean imageUploaded=true;
 
@@ -89,7 +90,9 @@ public class ShelterEditCat extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_pet, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+
+        return view;
 
     }
     @Override
@@ -135,6 +138,16 @@ public class ShelterEditCat extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
 
+        back = view.findViewById(R.id.petinfo_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
+            }
+
+        });
+
         //Set value for Dropdown Sex
         ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -162,16 +175,16 @@ public class ShelterEditCat extends Fragment {
 
         System.out.println("petStatus outside: " + petStatus);
 
-        backBtn = view.findViewById(R.id.petinfo_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfCatsFragment shelterRegisteredCats = new ShelterListOfCatsFragment();
-                transaction.replace(R.id.nav_host_fragment,shelterRegisteredCats);
-                transaction.commit();
-            }
-        });
+//        backBtn = view.findViewById(R.id.petinfo_back);
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterListOfCatsFragment shelterRegisteredCats = new ShelterListOfCatsFragment();
+//                transaction.replace(R.id.nav_host_fragment,shelterRegisteredCats);
+//                transaction.commit();
+//            }
+//        });
 
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);
