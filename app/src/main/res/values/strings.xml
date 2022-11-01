@@ -19,6 +19,8 @@
     <string name="calmness">Calmness</string>
     <string name="non_aggression">Non- Aggression</string>
     <string name="sociability">Sociability</string>
+    <string name="sociability_humans">Sociability Towards Humans</string>
+    <string name="sociability_other_pets">Sociability Towards Other Pets</string>
     <string name="litterbox_comfortability_adjustment">Litterbox Comfortability + Adjustment</string>
     <string name="healthy_grooming">Healthy Grooming</string>
     <string name="age_life_expectancy">Age / Life Expectancy</string>
@@ -40,7 +42,7 @@
     <string name="seekTextEqually">Equally Important</string>
 
 
-    <!-- intensity strings-->
+    <!-- DOG: intensity strings-->
     <string name="obedience_high">HIGH: Obeys at least 70% of the time</string>
     <string name="obedience_medium">MEDIUM: Obeys AT LEAST 30% of the time</string>
     <string name="obedience_low">LOW: Obeys LESS THAN 30% of the time</string>
@@ -61,32 +63,32 @@
     <string name="ease_of_care_medium">MEDIUM: Twice a month</string>
     <string name="ease_of_care_low">LOW: More than twice a month</string>
 
-    <string name="friendliness_high">HIGH: Dog is friendly; generally does not bark if there is no provocative action</string>
-    <string name="friendliness_medium">MEDIUM: Dog might bark at unfamiliar subject</string>
-    <string name="friendliness_low">LOW: Dog is very reactive to unfamiliar subjects</string>
+    <string name="friendliness_high">HIGH: Generally friendly; generally does not bark if there is no provocative action</string>
+    <string name="friendliness_medium">MEDIUM: Might bark at unfamiliar subject</string>
+    <string name="friendliness_low">LOW: Very reactive to unfamiliar subjects</string>
 
-    <string name="adaptability_humans_high">HIGH: Dog can adapt well; easily connects with humans</string>
-    <string name="adaptability_humans_medium">MEDIUM: Dog might need time to make new relationships with humans</string>
-    <string name="adaptability_humans_low">LOW: Dog needs a lot of time to build new relationships; may seem uncomfortable until then</string>
+    <string name="adaptability_humans_high">HIGH: Can adapt well; easily connects with humans</string>
+    <string name="adaptability_humans_medium">MEDIUM: Might need time to make new relationships with humans</string>
+    <string name="adaptability_humans_low">LOW: Needs a lot of time to build new relationships; may seem uncomfortable until then</string>
 
-    <string name="adaptability_other_pets_high">HIGH: Dog is highly adaptable; can live with other pets without problems</string>
-    <string name="adaptability_other_pets_medium">MEDIUM: Dog can adapt well with certain pets or the same species, but can behave differently towards others</string>
-    <string name="adaptability_other_pets_low">LOW: Dog is reluctant to be friends with other friends; prefers to be alone</string>
+    <string name="adaptability_other_pets_high">HIGH: Highly adaptable; can live with other pets without problems</string>
+    <string name="adaptability_other_pets_medium">MEDIUM: Can adapt well with certain pets or the same species, but can behave differently towards others</string>
+    <string name="adaptability_other_pets_low">LOW: Reluctant to be friends with other pets; prefers to be alone</string>
 
-    <string name="adaptability_environment_high">HIGH: Dog is highly adaptable to various environmental conditions; has high tolerance for weather changes</string>
-    <string name="adaptability_environment_medium">MEDIUM: Dog can still adapt well to certain environmental conditions but sometimes need humans to adapt</string>
-    <string name="adaptability_environment_low">LOW: Dog needs a certain environmental condition to live well and is very dependent on humans to adapt</string>
+    <string name="adaptability_environment_high">HIGH: Highly adaptable to various environmental conditions; has high tolerance for weather changes</string>
+    <string name="adaptability_environment_medium">MEDIUM: Can still adapt well to certain environmental conditions but sometimes need humans to adapt</string>
+    <string name="adaptability_environment_low">LOW: Needs a certain environmental condition to live well and is very dependent on humans to adapt</string>
 
-    <string name="popularity_high">HIGH: Very popular dog breed; ranks between 1 to 25</string>
-    <string name="popularity_medium">MEDIUM: Moderately popular dog breed; ranks between 26 to 100</string>
-    <string name="popularity_low">LOW: Less popular dog breed; ranks below 100</string>
+    <string name="popularity_dog_high">HIGH: Very popular dog breed; ranks between 1 to 25</string>
+    <string name="popularity_dog_medium">MEDIUM: Moderately popular dog breed; ranks between 26 to 100</string>
+    <string name="popularity_dog_low">LOW: Less popular dog breed; ranks below 100</string>
 
     <string name="longevity_high">HIGH: Long lifespan or a young pup</string>
     <string name="longevity_medium">MEDIUM: Average lifespan or a mature dog</string>
     <string name="longevity_low">LOW: Senior or geriatric dog</string>
 
 
-    <!-- criteria description strings -->
+    <!-- DOG: criteria description strings -->
     <string name="description_obedience">Obedience refers to how well or how often the dog successfully follows commands given by its adopter or handler at a given time.</string>
     <string name="description_trainability">Trainability refers to how well the dog learns commands through repetitions.</string>
     <string name="description_nonshedding">Non-Shedding refers to how rarely the dog sheds its fur naturally.</string>
@@ -96,11 +98,11 @@
     <string name="description_adaptability_humans">Adaptability to Humans refers to how well the dog adapts to new encounters with humans.</string>
     <string name="description_adaptability_other_pets">Adaptability to Other Pets refers to how well the dog adapts to new encounters with other pets.</string>
     <string name="description_adaptability_environment">Adaptability to Environment refers to how well the dog adapts to environmental conditions and changes.</string>
-    <string name="description_popularity">Popularity refers to how popular the dog is, based on the American Kennel Club List of breed popularity.</string>
+    <string name="description_popularity_dog">Popularity refers to how popular the dog is, based on the American Kennel Club List of breed popularity.</string>
     <string name="description_longevity">Longevity refers to how many more years the dog is expected to live.</string>
 
 
-    <!-- wrt strings -->
+    <!-- DOG: wrt strings -->
     <string name="wrt_obedience">With respect to Obedience under Intelligence</string>
     <string name="wrt_trainability">With respect to Trainability under Intelligence</string>
     <string name="wrt_nonshedding">With respect to Non-Shedding under Hygiene</string>
@@ -113,8 +115,71 @@
     <string name="wrt_popularity">With respect to Popularity</string>
     <string name="wrt_longevity">With respect to Longevity</string>
 
+
+    <!-- CAT: intensity strings-->
+    <string name="activity_playfulness_high">HIGH: Strongly enjoys playing; is easily excited</string>
+    <string name="activity_playfulness_medium">MEDIUM: Is fond of physical activity at times</string>
+    <string name="activity_playfulness_low">LOW: Cat is sedentary</string>
+
+    <string name="calmness_high">HIGH: Relaxed; is not easily agitated</string>
+    <string name="calmness_medium">MEDIUM: Often restless; gets scared moderately easily</string>
+    <string name="calmness_low">LOW: Exhibits extreme signs  of fearful behavior (e.g. growls, hisses, hiding)</string>
+
+    <string name="nonaggression_high">HIGH: Affectionate; is rarely rough</string>
+    <string name="nonaggression_medium">MEDIUM: Prone to be aggressive</string>
+    <string name="nonaggression_low">LOW: Habitually or highly likely to scratch, bite, or hiss</string>
+
+    <string name="sociability_humans_high">HIGH: Connects and interacts well with humans</string>
+    <string name="sociability_humans_medium">MEDIUM: Reacts and is somewhat friendly</string>
+    <string name="sociability_humans_low">LOW: Tends to be aloof or indifferent</string>
+
+    <string name="sociability_other_pets_high">HIGH: Enjoys and seeks to be with other pets</string>
+    <string name="sociability_other_pets_medium">MEDIUM: Fairly sociable with other pets; sometimes acts indifferent</string>
+    <string name="sociability_other_pets_low">LOW: Has difficulty getting along with other pets</string>
+
+    <string name="litterbox_comfortability_adjustment_high">HIGH: Potty-trained; adapts well to its litter box</string>
+    <string name="litterbox_comfortability_adjustment_medium">MEDIUM: Has excretory quirks and might be picky with the litter box</string>
+    <string name="litterbox_comfortability_adjustment_low">LOW: May need extra time or training to get used to the litter box</string>
+
+    <string name="healthy_grooming_high">HIGH: Grooms regularly</string>
+    <string name="healthy_grooming_medium">MEDIUM: Does moderate grooming</string>
+    <string name="healthy_grooming_low">LOW: May do intensive, harmful, or mutilating grooming</string>
+
+    <string name="age_life_expectancy_high">HIGH: More than 14 years left to live</string>
+    <string name="age_life_expectancy_medium">MEDIUM: 6 to 13 years left to live</string>
+    <string name="age_life_expectancy_low">LOW: Has LESS than 6 years left to live</string>
+
+    <string name="popularity_cat_high">HIGH: Very popular breed; ranks between 1 to 10</string>
+    <string name="popularity_cat_medium">MEDIUM: Moderately popular breed; ranks between 11 to 25</string>
+    <string name="popularity_cat_low">LOW: Less popular breed; ranks below 25</string>
+
+    <!-- CAT: criteria description strings -->
+    <string name="description_activity_playfulness">Activity/Playfulness refers to how energetic, mischievous, and active the cat is.</string>
+    <string name="description_calmness">Calmness refers to how calm the cat is in general.</string>
+    <string name="description_nonaggression">Non-Aggression refers to the lack of aggressive behavior in a cat.</string>
+    <string name="description_sociability_humans">Sociability to Humans refers to how friendly and affectionate a cat is towards humans, whether strangers or companions.</string>
+    <string name="description_sociability_other_pets">Sociability to Other Pets refers to how friendly and affectionate a cat is towards other pets, whether neighbors or outsiders.</string>
+    <string name="description_litterbox_comfortability_adjustment">Litterbox Comfortability + Adjustment refers to how comfortable and trained a cat is with using the litter box.</string>
+    <string name="description_healthy_grooming">Healthy Grooming refers to how normal and healthy a cat\'s grooming habits are.</string>
+    <string name="description_age_life_expectancy">Age/Life Expectancy refers to how many more years the cat is expected to live.</string>
+    <string name="description_popularity_cat">Popularity refers to how popular the cat is, based on the Most Popular Breeds in the World according to Cat Time.</string>
+
+
+    <!-- CAT: wrt strings -->
+    <string name="wrt_activity_playfulness">With respect to Activity/Playfulness</string>
+    <string name="wrt_calmness">With respect to Calmness</string>
+    <string name="wrt_nonaggression">With respect to Non-Aggression</string>
+    <string name="wrt_sociability_humans">With respect to Sociability to Humans</string>
+    <string name="wrt_sociability_other_pets">With respect to Sociability to Other Pets</string>
+    <string name="wrt_litterbox_comfortability_adjustment">With respect to Litterbox Comfortability + Adjustment</string>
+    <string name="wrt_healthy_grooming">With respect to Healthy Grooming</string>
+    <string name="wrt_age_life_expectancy">With respect to Age / Life Expectancy</string>
+    <string name="wrt_sociability">With respect to Sociability</string>
+
     <string name="proceed_content">Proceed to Next Part</string>
     <string name="proceed">PROCEED</string>
+    <string name="back_button">Back Button</string>
+    <string name="inst_button">Instructions Button</string>
 
 
     <string name="heading_adopter_questionnaire">Pet Adopter Questionnaire</string>
