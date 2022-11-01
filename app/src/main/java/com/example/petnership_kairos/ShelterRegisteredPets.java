@@ -34,6 +34,10 @@ public class ShelterRegisteredPets extends Fragment {
 
     private String shelterEmail, petID;
 
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
+    DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
+
     public static ShelterRegisteredPets newInstance() {
         return new ShelterRegisteredPets();
     }
@@ -59,64 +63,12 @@ public class ShelterRegisteredPets extends Fragment {
     private void setUpPetPic() {
         //retrieve imageName
         System.out.println("shelterEmail === " + shelterEmail);
-        petsDBRef.orderByChild("shelter").equalTo(shelterEmail)
+        allPetsDBRef.orderByChild("shelter").equalTo(shelterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         System.out.println("snapshot === " + snapshot);
-//                        for(DataSnapshot ds : snapshot.getChildren()) {
-//                            petID = ds.getKey();
-//                            System.out.println("petID inside " + petID);
-//                            System.out.println("ds getChildren: " + ds);
-//                        }
-
                         System.out.println("petID " + petID);
-//                        petsDBRef.child(shelterUsername).child("imageName").
-//                                addListenerForSingleValueEvent(new ValueEventListener() {
-//                                    @Override
-//                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                        shelterImageName = String.valueOf(snapshot.getValue());
-//                                        System.out.println("shelterImageName1 == " + shelterImageName);
-//
-//                                        //DISPLAY IMAGE TO IMAGE VIEW
-//                                        storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                                            @Override
-//                                            public void onSuccess(Uri uri) {
-//                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-//                                            }
-//                                        });
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                    }
-//                                });
-
-
-//                        petsDBRef.child(petID).child("imageName").
-//                                addListenerForSingleValueEvent(new ValueEventListener() {
-//                                    @Override
-//                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                        shelterImageName = String.valueOf(snapshot.getValue());
-//                                        System.out.println("shelterImageName1 == " + shelterImageName);
-//
-//                                        //DISPLAY IMAGE TO IMAGE VIEW
-//                                        storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-//                                            @Override
-//                                            public void onSuccess(Uri uri) {
-//                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-//                                            }
-//                                        });
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                    }
-//                                });
                     }
 
                     @Override
