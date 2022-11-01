@@ -61,10 +61,11 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
 
     //JANNEL
     String[] catBreed =
-            {"Other", "Abyssinian", "American Curl", "American Shorthair", "Bengal", "Birman", "Bombay",
-                    "British Shorthair", "Burmese", "Burmilla", "Chartreux", "Exotic Shorthair",
-                    "Himalayan", "Maine Coon", "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin",
-                    "Ragdoll", "Russian Blue", "Scottish Fold", "Siamese", "Siberian", "Snowshoe",
+            {"Other", "Puspin", "Abyssinian", "American Curl", "American Shorthair",
+                    "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese",
+                    "Burmilla", "Chartreux", "Exotic Shorthair", "Himalayan", "Maine Coon",
+                    "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin", "Ragdoll",
+                    "Russian Blue", "Scottish Fold", "Siamese", "Siberian", "Snowshoe",
                     "Sphynx", "Tonkinese", "Turkish Angora", "Turkish Van"};
 
     Spinner catBreedTxt;
