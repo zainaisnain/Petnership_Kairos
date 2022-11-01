@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -124,7 +125,6 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     answeredQuestionnaire = (boolean) snapshot.getValue();
-                                    System.out.println("answeredQuestionnaire ==== " + answeredQuestionnaire);
                                     if(answeredQuestionnaire){
                                         adoptMeBtn.setEnabled(true);
                                         adoptMeBtn.setOnClickListener(new View.OnClickListener() {
@@ -160,8 +160,14 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                             }
                                         });
                                     }else{
-                                        adoptMeBtn.setEnabled(false);
-                                        //redirect to answer questionaire
+                                        adoptMeBtn.setEnabled(true);
+                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                startActivity(new Intent(AdopterPerCatProfile.this, AdopterNotAnsweredQuestionnaire.class));
+                                            }
+                                        });
+
                                     }
                                 }
 
