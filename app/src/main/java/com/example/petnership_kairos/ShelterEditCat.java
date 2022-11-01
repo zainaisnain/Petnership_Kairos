@@ -43,7 +43,7 @@ import java.util.UUID;
 public class ShelterEditCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
-    private Button proceedBtn, uploadBtn, backBtn;
+    private Button proceedBtn, uploadBtn, back, backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -64,7 +64,6 @@ public class ShelterEditCat extends Fragment {
     FirebaseStorage storage;
     StorageReference storageReference;
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
-    Button back;
 
     private boolean imageUploaded=true;
 
@@ -142,8 +141,28 @@ public class ShelterEditCat extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                getParentFragmentManager().beginTransaction().addToBackStack("currentCatProfile").commit();
                 MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
+                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag,cancelDialog2);
+
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
             }
 
         });

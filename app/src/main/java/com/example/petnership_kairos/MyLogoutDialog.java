@@ -56,16 +56,6 @@ public class MyLogoutDialog extends DialogFragment{
         });
         return view;
     }
-
-//    public void userlogout()
-//    {
-//        FirebaseAuth.getInstance().signOut();
-////        startActivity(new Intent(getContext(), LoginActivity.class));
-//        Intent intent = new Intent(this,LoginActivity.class);
-////        Intent intent = new Intent(ShelterDashboard.getActivity(), LoginActivity.class);
-//        startActivity(intent);
-//        finish();
-//    }
 }
 
 

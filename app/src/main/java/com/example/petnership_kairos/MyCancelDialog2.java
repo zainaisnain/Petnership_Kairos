@@ -29,10 +29,10 @@ public class MyCancelDialog2 extends DialogFragment{
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.cancel2_dialog, container, false);
+        View view = inflater.inflate(R.layout.activity_cancel_dialog, container, false);
 
 //        Intent intent = new Intent(getActivity(), ShelterDashboard.class);
-        btnBack = view.findViewById(R.id.buttonOk);
+        btnBack = view.findViewById(R.id.buttonYes);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,13 +42,15 @@ public class MyCancelDialog2 extends DialogFragment{
 //                startActivity(intent);
 //                dismiss();
 //                auth.getInstance().signOut();
-                Intent intent = new Intent(getActivity(),ShelterPerCatProfile.class);
-                startActivity(intent);
-//                dismiss();
+                getParentFragmentManager().popBackStack();
+//                Intent intent = new Intent(getActivity(),ShelterPerCatProfile.class);
+//                startActivity(intent);
+                dismiss();
+
             }
         });
 
-        btnCancel = view.findViewById(R.id.buttonCancel);
+        btnCancel = view.findViewById(R.id.buttonNo);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,16 +59,6 @@ public class MyCancelDialog2 extends DialogFragment{
         });
         return view;
     }
-
-//    public void userlogout()
-//    {
-//        FirebaseAuth.getInstance().signOut();
-////        startActivity(new Intent(getContext(), LoginActivity.class));
-//        Intent intent = new Intent(this,LoginActivity.class);
-////        Intent intent = new Intent(ShelterDashboard.getActivity(), LoginActivity.class);
-//        startActivity(intent);
-//        finish();
-//    }
 }
 
 
