@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C3B1E1"
-    tools:context=".AdopterNotAnsweredQuestionnaire">
+    tools:context=".AdopterNotAnsweredQuestionnaire"
+    android:id="@+id/adopter_not_answered">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,7 +84,7 @@
                         tools:ignore="ImageContrastCheck" />
 
                     <Button
-                        android:id="@+id/answer_questionnaire"
+                        android:id="@+id/start_answering"
                         android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:background="@drawable/button1"
@@ -99,7 +100,7 @@
                         app:layout_constraintVertical_bias="0.845" />
 
                     <Button
-                        android:id="@+id/answer_questionaire"
+                        android:id="@+id/cancel_answering"
                         android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:background="#808080"
