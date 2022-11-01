@@ -199,7 +199,6 @@ public class AddCat extends Fragment {
                 petAgeNum = etPetAge.getText().toString().trim();
                 petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
-                petImage = imageName;
 
                 petID = databaseReference.child("Pets").push().getKey();
                 System.out.println("PET ID == " + petID);
@@ -219,9 +218,7 @@ public class AddCat extends Fragment {
                 }else if(filePath==null){
                     Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else{
-                    if(!imageUploaded){
-                        uploadImage();
-                    }
+                    uploadImage();
                     addPet();
                     Toast.makeText(getActivity(), "Proceed to Questionnaire", Toast.LENGTH_LONG).show();
                 }
@@ -288,7 +285,7 @@ public class AddCat extends Fragment {
     // UploadImage method
     private void uploadImage()
     {
-        imageName = UUID.randomUUID().toString();
+        petImage = UUID.randomUUID().toString();
         if (filePath != null) {
 
             // Code for showing progressDialog while uploading
@@ -302,7 +299,7 @@ public class AddCat extends Fragment {
                     = storageReference
                     .child(
                             "Pets/"
-                                    + imageName);
+                                    + petImage);
 
             // adding listeners on upload
             // or failure of image
@@ -318,11 +315,6 @@ public class AddCat extends Fragment {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
-                                    Toast
-                                            .makeText(getActivity(),
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
                                 }
                             })
 
@@ -368,8 +360,6 @@ public class AddCat extends Fragment {
                     if (snapshot.exists()) {
                         Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
                     } else {
-//                    Pet pet = new Pet(petName, petAge, petSex, petDesc, imageName, petID);
-//                    databaseReference.child("Pets").child("Cats").child(petID).setValue(pet);
                         Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

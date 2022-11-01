@@ -84,11 +84,11 @@
 
                     <Button
                         android:id="@+id/answer_questionnaire"
-                        android:layout_width="150dp"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
                         android:background="@drawable/button1"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="Answer Questionnaire"
+                        android:text="Start Answering"
                         android:textColor="#FFFFFF"
                         android:textSize="15sp"
                         app:backgroundTint="@null"
@@ -100,9 +100,9 @@
 
                     <Button
                         android:id="@+id/answer_questionaire"
-                        android:layout_width="150dp"
+                        android:layout_width="250dp"
                         android:layout_height="50dp"
-                        android:background="@drawable/button2"
+                        android:background="#808080"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Cancel"
                         android:textColor="#FFFFFF"
