@@ -144,6 +144,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
         });
     }
     private void setUpSummary(){
+        System.out.println("petID ShelterPerCat ==== " + petID);
         allPetsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

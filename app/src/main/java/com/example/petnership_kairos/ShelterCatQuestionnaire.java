@@ -190,7 +190,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                 q9 = adapterView.getItemAtPosition(i).toString();
                 if(q9.equals("Other")){
                     etOtherBreed.setEnabled(true);
-                    q9 = etOtherBreed.getText().toString().trim().toLowerCase();
+
                     System.out.println("q9 seton== " + q9);
                 }else{
                     etOtherBreed.setText("");
@@ -211,6 +211,10 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 System.out.println("q9 click == " + q9);
+                if(q9.equals("Other")){
+                    q9 = etOtherBreed.getText().toString().trim().toLowerCase();
+                }
+
                 if(q1==0){
                     tvQ1.requestFocus();
                     Toast.makeText(getActivity(), "Please answer all questions", Toast.LENGTH_LONG).show();

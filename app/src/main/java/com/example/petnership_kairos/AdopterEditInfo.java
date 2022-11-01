@@ -237,9 +237,12 @@ public class AdopterEditInfo extends AppCompatActivity {
                     etCity.setError("City is Required.");
                     etCity.requestFocus();
                     return;
-                }else if(!imageUploaded){
-                    Toast.makeText(AdopterEditInfo.this, "Please upload picture", Toast.LENGTH_LONG).show();
-                }else{
+                }else if (filePath == null) {
+                    Toast.makeText(AdopterEditInfo.this,
+                                    "Please select image to upload.",
+                                    Toast.LENGTH_SHORT)
+                            .show();
+                } else{
                     uploadImage();
                     editAdopterInfo();
                     showsaveDialog();
@@ -442,14 +445,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                                     String city = etCity.getText().toString();
                                     snapshot.child(adopterUsername).getRef().child("city").setValue(city);
 
-                                    String province = etProvince.getText().toString();
-                                    snapshot.child(adopterUsername).getRef().child("province").setValue(province);
-
                                     String country = etCountry.getText().toString();
                                     snapshot.child(adopterUsername).getRef().child("country").setValue(country);
-
-                                    String gender = etGender.getText().toString();
-                                    snapshot.child(adopterUsername).getRef().child("gender").setValue(gender);
 
                                     snapshot.child(adopterUsername).getRef().child("imageName").setValue(imageName);
                                 }
@@ -507,13 +504,19 @@ public class AdopterEditInfo extends AppCompatActivity {
 
                         imageName = String.valueOf(snapshot.child(adopterUsername).child("imageName").getValue());
                         System.out.println("imageName AdopterEditInfo" + imageName);
-                        storageReference.child("Adopters/").child(imageName).getDownloadUrl()
-                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
-                                    }
-                                });
+
+                        if(imageName.isEmpty() || imageName == null){
+                            return;
+                        }else{
+                            storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
+                                        }
+                                    });
+                        }
+
                     }
 
                     @Override
