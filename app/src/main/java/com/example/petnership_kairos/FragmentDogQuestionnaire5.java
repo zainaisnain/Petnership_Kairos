@@ -22,9 +22,9 @@ public class FragmentDogQuestionnaire5 extends Fragment {
     public static FragmentDogQuestionnaire5 newInstance() {
         return new FragmentDogQuestionnaire5();
     }
-    ImageButton popup5;
-    SeekBar seekBar27, seekBar28, seekBar29, seekBar30, seekBar31, seekBar32;
-    TextView rate27, rate28, rate29, rate30, rate31, rate32;
+    ImageButton popup5, backBtn;
+    SeekBar seekBar27, seekBar28, seekBar29;
+    TextView rate27, rate28, rate29;
     MCDMAnswersViewModel mViewModel;
 
     @SuppressLint("MissingInflatedId")
@@ -40,24 +40,21 @@ public class FragmentDogQuestionnaire5 extends Fragment {
         getActivity().setTitle("Dog Questionnaire 5");
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
         System.out.println("Test: " + mViewModel.getAnswer(1));
-        seekBar27 = (SeekBar) getView().findViewById(R.id.seekBar27);
-        seekBar28 = (SeekBar) getView().findViewById(R.id.seekBar28);
-        seekBar29 = (SeekBar) getView().findViewById(R.id.seekBar29);
-        seekBar30 = (SeekBar) getView().findViewById(R.id.seekBar30);
-        seekBar31 = (SeekBar) getView().findViewById(R.id.seekBar31);
-        seekBar32 = (SeekBar) getView().findViewById(R.id.seekBar32);
-        rate27 = (TextView) getView().findViewById(R.id.rating27);
-        rate28 = (TextView) getView().findViewById(R.id.rating28);
-        rate29 = (TextView) getView().findViewById(R.id.rating29);
-        rate30 = (TextView) getView().findViewById(R.id.rating30);
-        rate31 = (TextView) getView().findViewById(R.id.rating31);
-        rate32 = (TextView) getView().findViewById(R.id.rating32);
+        seekBar27 = getView().findViewById(R.id.seekBar27);
+        seekBar28 = getView().findViewById(R.id.seekBar28);
+        seekBar29 = getView().findViewById(R.id.seekBar29);
+        rate27 = getView().findViewById(R.id.rating27);
+        rate28 = getView().findViewById(R.id.rating28);
+        rate29 = getView().findViewById(R.id.rating29);
 
 
         // bring back previous progress if any
      //   if (mViewModel.getDogAnswer(8) != null){
        //     seekBar32.setProgress(mViewModel.getDogAnswer(8));
         //}
+
+
+        showInstructions();
 
         seekBar27.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
@@ -108,118 +105,58 @@ public class FragmentDogQuestionnaire5 extends Fragment {
             }
         });
 
-        seekBar30.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar30, int i, boolean b) {
-                setSeekText(i, rate30);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar30) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar30) {
-
-            }
-        });
-
-        seekBar31.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar31, int i, boolean b) {
-                setSeekText(i, rate31);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar31) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar31) {
-
-            }
-        });
-        seekBar32.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar32, int i, boolean b) {
-                setSeekText(i, rate32);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar32) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar32) {
-
-            }
-        });
 
 
         popup5 = getView().findViewById(R.id.instructionsBTN5);
-        popup5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        Button proceedBtn = (Button) getView().findViewById(R.id.proceed_ques5);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setAnswer(27, seekBar27.getProgress());
-                mViewModel.setAnswer(28, seekBar28.getProgress());
-                mViewModel.setAnswer(29, seekBar29.getProgress());
-                mViewModel.setAnswer(30, seekBar30.getProgress());
-                mViewModel.setAnswer(31, seekBar31.getProgress());
-                mViewModel.setAnswer(32, seekBar32.getProgress());
+        popup5.setOnClickListener(view1 -> showDialog());
+        Button proceedBtn = getView().findViewById(R.id.proceed_ques5);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(27, seekBar27.getProgress());
+            mViewModel.setAnswer(28, seekBar28.getProgress());
+            mViewModel.setAnswer(29, seekBar29.getProgress());
 
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentDogQuestionnaire6 dog6Fragment = new FragmentDogQuestionnaire6();
-                transaction.replace(R.id.nav_host_fragment,dog6Fragment);
-                transaction.addToBackStack("dogQuestionnaire6");
-                transaction.commit();
-            }
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentDogQuestionnaire6 dog6Fragment = new FragmentDogQuestionnaire6();
+            transaction.replace(R.id.nav_host_fragment,dog6Fragment);
+            transaction.addToBackStack("dogQuestionnaire6");
+            transaction.commit();
         });
 
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
+        });
     }
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
     private void showDialog() {
-        HelpPopup helpDialog5 = new HelpPopup();
-        helpDialog5.show(getParentFragmentManager(), "Help Popup");
-        /*
-        final Dialog helpDialog10 = new Dialog(this);
-        helpDialog10.setContentView(R.layout.help_popup);
-        helpDialog10.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog10.show();
-        ImageButton closeBTN = (ImageButton) helpDialog10.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog10.dismiss();
+        HelpPopup helpDialog = new HelpPopup("Dog", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
 
-            }
-        });*/
+    }
+    private void showInstructions() {
+        InstructionsPopup instructionsDialog = new InstructionsPopup();
+        instructionsDialog.show(getParentFragmentManager(), "Instructions Popup 2");
     }
 
 

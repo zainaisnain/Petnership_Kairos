@@ -50,12 +50,12 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
                     }
                 });
 
-        holder.tvPetName.setText("Name : " + registeredPetDataList.getPetName());
-        holder.tvPetAge.setText("Age : " + registeredPetDataList.getPetAge());
-        holder.tvPetSex.setText("Sex : " + registeredPetDataList.getPetSex());
-        holder.tvPetBreed.setText("Breed : " + registeredPetDataList.getPetBreed());
+        holder.tvPetName.setText(registeredPetDataList.getPetName());
+        holder.tvPetAge.setText( registeredPetDataList.getPetAge());
+        holder.tvPetSex.setText(registeredPetDataList.getPetSex());
+        holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
         String petType = registeredPetDataList.getPetType();
-        System.out.println("BrowseAnimalsAdapter petType === " + petType);
+
         holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

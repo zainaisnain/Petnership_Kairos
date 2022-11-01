@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:background="#C3B1E1"
     android:layout_height="match_parent"
+    android:id="@+id/shelter_list_of_cats_frag"
     tools:context=".ShelterListOfCatsFragment">
     <ScrollView
         android:layout_width="match_parent"

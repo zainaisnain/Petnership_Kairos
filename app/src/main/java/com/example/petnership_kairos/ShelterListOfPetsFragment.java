@@ -82,7 +82,7 @@ public class ShelterListOfPetsFragment extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, shelterHomeDashboard);
+                transaction.replace(R.id.shelter_list_of_pets_frag, shelterHomeDashboard);
                 transaction.commit();
 
             }
@@ -136,60 +136,6 @@ public class ShelterListOfPetsFragment extends Fragment {
 
                             }
                         });
-//        petsCatsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                        for(DataSnapshot ds : snapshot.getChildren()) {
-//                            petID = ds.getKey();
-//                            petIDs.add(petID);
-//
-//                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
-//                            petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-//                            petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
-//                            petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
-//                            petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
-////                            System.out.println(petName);
-//                            ALregisteredPetData.add( new RegisteredPetData(petImageName, petName, petAge, petSex, petBreed));
-//                        }
-//                        registeredCatData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-//                        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredCatData, ShelterListOfPetsFragment.this);
-//                        recyclerView.setAdapter(registeredPetsAdapter);
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
-//
-//        petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-//                .addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//
-//                        for(DataSnapshot ds : snapshot.getChildren()) {
-//                            petID = ds.getKey();
-//                            petIDs.add(petID);
-//
-//                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
-//                            petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-//                            petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
-//                            petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
-//                            petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
-//                            ALregisteredPetData.add( new RegisteredPetData(petImageName, petName, petAge, petSex, petBreed));
-//                        }
-//                        registeredDogData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-//                        RegisteredPetsAdapter registeredPetsAdapter = new RegisteredPetsAdapter(registeredDogData, ShelterListOfPetsFragment.this);
-//                        recyclerView.setAdapter(registeredPetsAdapter);
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
     }
 }
 

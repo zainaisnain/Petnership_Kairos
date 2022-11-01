@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 
 public class FragmentQuestionnaireWelcome extends Fragment {
 
-    private ImageButton backBtn;
     public static FragmentQuestionnaireWelcome newInstance() {
         return new FragmentQuestionnaireWelcome();
     }
@@ -34,26 +33,22 @@ public class FragmentQuestionnaireWelcome extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Adopter Questionnaire");
-        Button proceedBtn = (Button) getView().findViewById(R.id.proceedToChooseAnimal);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentQuestionnaireChooseAnimal chooseFragment = new FragmentQuestionnaireChooseAnimal();
-                transaction.replace(R.id.nav_host_fragment,chooseFragment);
-                transaction.addToBackStack("chooseAnimal");
-                transaction.commit();
-            }
+        Button proceedBtn = getView().findViewById(R.id.proceedToChooseAnimal);
+        proceedBtn.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentQuestionnaireChooseAnimal chooseFragment = new FragmentQuestionnaireChooseAnimal();
+            transaction.replace(R.id.nav_host_fragment,chooseFragment);
+            transaction.addToBackStack("chooseAnimal");
+            transaction.commit();
         });
-        backBtn = (ImageButton) getView().findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-                transaction.commit();
-            }
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view1 -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+            AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+            transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
+            transaction.commit();
         });
     }
 

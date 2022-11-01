@@ -14,17 +14,6 @@
         android:layout_height="wrap_content" >
 
 
-
-<!--        <androidx.appcompat.widget.AppCompatImageView-->
-<!--            android:id="@+id/imageAdd"-->
-<!--            android:layout_width="@dimen/_24sdp"-->
-<!--            android:layout_height="@dimen/_24sdp"-->
-<!--            android:layout_marginTop="@dimen/_4sdp"-->
-<!--            android:src="@drawable/ic_add"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:tint="@color/black" />-->
-
         <!--    <com.makeramen.roundedimageview.RoundedImageView-->
         <!--        android:id="@+id/imageProfile"-->
         <!--        android:layout_width="100dp"-->
@@ -105,15 +94,14 @@
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
             app:constraint_referenced_ids="registeredPets, dogs, cats, activeAdopters, toReview"
             app:flow_horizontalGap="8dp"
             app:flow_maxElementsWrap="2"
             app:flow_verticalGap="8dp"
             app:flow_wrapMode="aligned"
             app:layout_constraintBottom_toTopOf="@id/fabAdd"
-            app:layout_constraintTop_toBottomOf="@id/adopterImage" />
+            app:layout_constraintTop_toBottomOf="@id/adopterImage"
+            tools:layout_editor_absoluteX="4dp" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/registeredPets"

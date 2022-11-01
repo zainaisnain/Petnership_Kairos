@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
+    android:id="@+id/adopterRegistration"
     tools:context=".AdopterRegistration">
 
     <ImageButton
@@ -157,46 +158,6 @@
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
                 android:hint="City" />
-
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="350dp"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="@drawable/card"-->
-<!--                android:gravity="center"-->
-<!--                android:paddingLeft="22dp"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginRight="20dp"-->
-<!--                    android:fontFamily="@font/montserrat_reg"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text=" Province"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <Spinner-->
-<!--                    android:id="@+id/adopter_province_dd"-->
-<!--                    android:layout_width="188dp"-->
-<!--                    android:layout_height="48dp"-->
-<!--                    android:layout_marginLeft="30dp"-->
-<!--                    android:autofillHints=""-->
-<!--                    android:background="@drawable/textfield"-->
-<!--                    android:ems="10"-->
-<!--                    android:fontFamily="@font/montserrat_reg"-->
-<!--                    android:gravity="center"-->
-<!--                    android:hint=" Status"-->
-<!--                    android:inputType="textPersonName"-->
-<!--                    android:spinnerMode="dropdown"-->
-<!--                    android:textColorHint="#757575"-->
-<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent"-->
-<!--                    app:layout_constraintVertical_bias="0.376" />-->
-<!--            </LinearLayout>-->
 
             <Spinner
                 android:id="@+id/adopter_province_dd"

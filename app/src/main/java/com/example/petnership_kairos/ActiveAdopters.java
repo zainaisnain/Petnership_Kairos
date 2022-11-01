@@ -35,7 +35,7 @@ public class ActiveAdopters extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, shelterHomeDashboard);
+                transaction.replace(R.id.active_adopters_frag, shelterHomeDashboard);
                 transaction.commit();
             }
         });

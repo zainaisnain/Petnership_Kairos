@@ -43,6 +43,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
     private int q1,q2,q3,q4,q5,q6,q7, q8, q9, q11;
     private String q10, shelter;
     private EditText etQ10;
+    private EditText etOtherBreed;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -178,11 +179,21 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         //What dog breed
         ArrayAdapter<String> dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
         dogBreedTxt.setAdapter(dogBreedAdapter);
+        etOtherBreed = view.findViewById(R.id.cat_breed_other_et);
+        etOtherBreed.setEnabled(false);
 
         dogBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 q10 = adapterView.getItemAtPosition(i).toString();
+                if(q10.equals("Other")){
+                    etOtherBreed.setEnabled(true);
+                    System.out.println("q10 seton == " + q10);
+                }else{
+                    etOtherBreed.setText("");
+                    q10 = adapterView.getItemAtPosition(i).toString();
+                    etOtherBreed.setEnabled(false);
+                }
             }
 
             @Override
@@ -205,6 +216,9 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(q10.equals("Other")){
+                    q10 = etOtherBreed.getText().toString().trim().toLowerCase();
+                }
                 DogPetProfileSummary dogPetProfileSummary = new DogPetProfileSummary();
                 Bundle bundle = new Bundle();
                 bundle.putInt("q1", q1);

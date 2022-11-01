@@ -82,10 +82,10 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         });
 
 //        holder.ivPetImage.setImageResource(registeredCatDataList.getImageName());
-        holder.tvPetName.setText("Name : " + registeredCatDataList.getPetName());
-        holder.tvPetAge.setText("Age : " + registeredCatDataList.getPetAge());
-        holder.tvPetSex.setText("Sex : " + registeredCatDataList.getPetSex());
-        holder.tvPetBreed.setText("Breed : " + registeredCatDataList.getPetBreed());
+        holder.tvPetName.setText(registeredCatDataList.getPetName());
+        holder.tvPetAge.setText(registeredCatDataList.getPetAge());
+        holder.tvPetSex.setText(registeredCatDataList.getPetSex());
+        holder.tvPetBreed.setText(registeredCatDataList.getPetBreed());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

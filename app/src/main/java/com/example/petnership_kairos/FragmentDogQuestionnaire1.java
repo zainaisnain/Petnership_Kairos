@@ -188,6 +188,7 @@ public class FragmentDogQuestionnaire1 extends Fragment {
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             FragmentDogQuestionnaire2 dog2Fragment = new FragmentDogQuestionnaire2();
             transaction.replace(R.id.nav_host_fragment,dog2Fragment);
             transaction.addToBackStack("dogQuestionnaire2");
@@ -195,10 +196,8 @@ public class FragmentDogQuestionnaire1 extends Fragment {
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            FragmentQuestionnaireChooseAnimal chooseAnimal = new FragmentQuestionnaireChooseAnimal();
-            transaction.replace(R.id.nav_host_fragment, chooseAnimal);
-            transaction.commit();
+
+            getParentFragmentManager().popBackStack();
         });
 
 
@@ -223,22 +222,9 @@ public class FragmentDogQuestionnaire1 extends Fragment {
     }
 
     private void showDialog() {
-        HelpPopup helpDialog1 = new HelpPopup();
-        helpDialog1.show(getParentFragmentManager(), "Help Popup");
-        /*
-                final Dialog helpDialog = new Dialog();
-        helpDialog.setContentView(R.layout.help_popup);
-        helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog.show();
-        ImageButton closeBTN = (ImageButton) helpDialog.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog.dismiss();
+        HelpPopup helpDialog = new HelpPopup("Dog", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
 
-            }
-        });
-         */
     }
 
 

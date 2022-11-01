@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 
 public class ShelterRegisterPets extends Fragment {
 
-    ImageButton btn1,btn2;
+    ImageButton btn1,btn2, backBtn;
     private ShelterRegisterPetsViewModel mViewModel;
 
     public static ShelterRegisterPets newInstance() {
@@ -36,6 +36,7 @@ public class ShelterRegisterPets extends Fragment {
 
         btn1 = view.findViewById(R.id.dogButton);
         btn2 = view.findViewById(R.id.catButton);
+        backBtn = view.findViewById(R.id.btnBack);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +61,18 @@ public class ShelterRegisterPets extends Fragment {
                 transaction.commit();
             }
         });
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterCatQuestionnaire catPetProfile = new ShelterCatQuestionnaire();
+//                transaction.replace(R.id.nav_host_fragment,catPetProfile);
+                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+                transaction.replace(R.id.shelterregisterpets, shelterHomeDashboard);
+                transaction.commit();
+            }
+        });
+
 
 
     }

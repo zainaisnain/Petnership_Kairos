@@ -14,6 +14,13 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
+            android:name=".AdopterNotAnsweredQuestionnaire"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AdopterPerCatProfile"
             android:exported="false">
             <meta-data
@@ -56,14 +63,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyLogoutDialog"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".AdopterPerPetProfile"
+            android:name=".AdopterPerDogProfile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -98,6 +98,13 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+
+            <!-- TODO: REMOVE THIS AFTER -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ShelterPerDogProfile"
@@ -178,15 +185,7 @@
             android:exported="true" />
         <activity
             android:name=".AdopterDashboard"
-            android:exported="true">
-
-            <!-- TODO: REMOVE THIS AFTER -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ShelterDashboard"
             android:exported="true" />

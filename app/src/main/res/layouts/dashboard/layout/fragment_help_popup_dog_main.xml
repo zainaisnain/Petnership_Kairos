@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="360dp"
+    android:layout_height="570dp"
+    android:background="@drawable/minicard">
+
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="EXPLANATION OF TERMS"
+        android:textColor="@color/dark_purple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/closeBTN"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="270dp"
+        android:layout_height="440dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView65"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="20dp">
+
+            <TextView
+                android:id="@+id/catMain1Name"
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/intelligence"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain1Desc"
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How well the dog follows given commands by its adopter or handler at a given time"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/catMain2Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/hygiene"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain2Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How rarely the dog produces natural waste such as drool and fur"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/catMain3Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/ease_of_care"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain3Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How rarely the dog requires additional or extra care beyond normal (nail care, advanced grooming, or any other specialized treatment)"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/catMain4Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/friendliness"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain4Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How friendly the dog is with humans and other animals"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/border"
+            android:minHeight="60dp">
+
+            <TextView
+                android:id="@+id/catMain5Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/adaptability"
+                android:textColor="@color/dark_purple"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/catMain5Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How well the dog adapts to humans, other pets, and the environment"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/catMain6Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/popularity"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain6Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How popular the dog is, based on the American Kennel Club List of breed popularity"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border">
+
+            <TextView
+                android:id="@+id/catMain7Name"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/longevity"
+                android:textColor="@color/dark_purple"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/catMain7Desc"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:paddingTop="6dp"
+                android:paddingRight="6dp"
+                android:paddingBottom="6dp"
+                android:text="How many more years the dog is expected to live"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <ImageButton
+        android:id="@+id/closeBTN"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        android:background="#0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

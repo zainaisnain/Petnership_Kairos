@@ -29,8 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-
-public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+// if nagka-error:
+// public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
+public class AdopterHomeDashboard extends Fragment {
 
 
 
@@ -114,6 +115,7 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), StartOfQuestionnaire.class));
+                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
         });
 
@@ -245,18 +247,22 @@ public class AdopterHomeDashboard<cvApplicationHistory> extends Fragment {
                                 addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                                         adopterImageName = String.valueOf(snapshot.getValue());
 //                                System.out.println("shelterImageName1 == " + shelterImageName);
 
-                                        //DISPLAY IMAGE TO IMAGE VIEW
-                                        storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                            @Override
-                                            public void onSuccess(Uri uri) {
-                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
-                                            //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
-                                            }
-                                        });
-
+                                        if(adopterImageName.isEmpty() || adopterImageName == null){
+                                            return;
+                                        }else{
+                                            //DISPLAY IMAGE TO IMAGE VIEW
+                                            storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                @Override
+                                                public void onSuccess(Uri uri) {
+                                                    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
+                                                    //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                                }
+                                            });
+                                        }
                                     }
 
                                     @Override

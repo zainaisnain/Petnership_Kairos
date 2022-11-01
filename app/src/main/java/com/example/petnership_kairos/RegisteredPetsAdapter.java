@@ -73,17 +73,24 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
                     }
                 });
 
-        holder.tvPetName.setText("Name : " + registeredPetDataList.getPetName());
-        holder.tvPetAge.setText("Age : " + registeredPetDataList.getPetAge());
-        holder.tvPetSex.setText("Sex : " + registeredPetDataList.getPetSex());
-        holder.tvPetBreed.setText("Breed : " + registeredPetDataList.getPetBreed());
+        holder.tvPetName.setText(registeredPetDataList.getPetName());
+        holder.tvPetAge.setText(registeredPetDataList.getPetAge());
+        holder.tvPetSex.setText(registeredPetDataList.getPetSex());
+        holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
 
         holder.cvPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), ShelterPerPetProfile.class);
-                intent.putExtra("PetID", registeredPetDataList.getPetID());
-                view.getContext().startActivity(intent);
+                String petType = registeredPetDataList.getPetType();
+                if(petType.equals("dog")){
+                    Intent dogIntent = new Intent(view.getContext(), ShelterPerDogProfile.class);
+                    dogIntent.putExtra("dogPetID", registeredPetDataList.getPetID());
+                    view.getContext().startActivity(dogIntent);
+                }else{
+                    Intent catIntent = new Intent(view.getContext(), ShelterPerCatProfile.class);
+                    catIntent.putExtra("petID", registeredPetDataList.getPetID());
+                    view.getContext().startActivity(catIntent);
+                }
             }
         });
 

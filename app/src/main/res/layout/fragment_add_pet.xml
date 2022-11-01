@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C3B1E1"
-   >
+    >
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +17,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -25,270 +26,327 @@
                 android:orientation="vertical">
 
 
-    <LinearLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="347dp"
-        android:layout_height="664dp"
-        android:background="@drawable/card"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                <LinearLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="348dp"
+                    android:layout_height="738dp"
+                    android:background="@drawable/card"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
-            android:id="@+id/petinfo_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/playfairdisplayblack"
-            android:text="Pet Information"
-            android:textColor="#371576"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.056" />
+                    <TextView
+                        android:id="@+id/petinfo_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/playfairdisplayblack"
+                        android:text="Pet Information"
+                        android:textColor="#371576"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.056" />
 
-        <EditText
-            android:id="@+id/per_pet_name_title"
-            android:layout_width="280dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="10dp"
-            android:autofillHints=""
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:fontFamily="@font/montserrat_reg"
-            android:hint="Name"
-            android:padding="@dimen/_12sdp"
-            android:inputType="textPersonName"
-            android:textColorHint="#757575"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.528"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.159" />
+                    <EditText
+                        android:id="@+id/per_pet_name_title"
+                        android:layout_width="280dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints=""
+                        android:background="@drawable/edit_text_bg"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:hint="Name"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/_12sdp"
+                        android:textColorHint="#757575"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.528"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.159" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/pet_desc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Do you know the pet's birthday" />
+
+                        <RadioGroup
+                            android:id="@+id/per_pet_birthday_rg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/per_pet_birthday_yes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:text="Yes" />
+
+                            <RadioButton
+                                android:id="@+id/per_pet_birthday_no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/per_pet_birthday"
+                        android:layout_width="280dp"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints=""
+                        android:background="@drawable/edit_text_bg"
+                        android:ems="10"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:hint="Birthday"
+                        android:inputType="textPersonName"
+                        android:padding="@dimen/_12sdp"
+                        android:textColorHint="#757575"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.528"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.159" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
 
 
-            <EditText
-                android:id="@+id/pet_age_et"
-                android:layout_width="70dp"
-                android:layout_height="48dp"
-                android:autofillHints=""
-                android:background="@drawable/textfield"
-                android:ems="10"
-                android:textSize="18sp"
-                android:padding="@dimen/_10sdp"
-                android:fontFamily="@font/montserrat_reg"
-                android:gravity="center"
-                android:hint="Age"
-                android:textColorHint="#757575"
-                android:inputType="number"/>
+                        <EditText
+                            android:id="@+id/pet_age_et"
+                            android:layout_width="70dp"
+                            android:layout_height="48dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint="Age"
+                            android:inputType="number"
+                            android:padding="@dimen/_10sdp"
+                            android:textColorHint="#757575"
+                            android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/pet_age_dd"
-                android:layout_width="187dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="20dp"
-                android:autofillHints=""
-                android:background="@drawable/textfield"
-                android:ems="10"
-                android:padding="@dimen/_12sdp"
-                android:fontFamily="@font/montserrat_reg"
-                android:gravity="center"
-                android:hint=" Status"
-                android:inputType="textPersonName"
-                android:spinnerMode="dropdown"
-                android:textColorHint="#757575"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.376" />
-        </LinearLayout>
+                        <Spinner
+                            android:id="@+id/pet_age_dd"
+                            android:layout_width="187dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:padding="@dimen/_12sdp"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
+                    </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/pet_desc"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_reg"
-                android:gravity="center"
-                android:text=" Sex"
-                android:textSize="20sp"
-                android:layout_marginRight="20dp"
-                />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:text=" Sex"
+                            android:textSize="20sp" />
 
-            <Spinner
-                android:id="@+id/pet_sex_dd"
-                android:layout_width="188dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="30dp"
-                android:autofillHints=""
-                android:background="@drawable/textfield"
-                android:ems="10"
-                android:fontFamily="@font/montserrat_reg"
-                android:gravity="center"
-                android:hint=" Status"
-                android:padding="@dimen/_12sdp"
-                android:inputType="textPersonName"
-                android:spinnerMode="dropdown"
-                android:textColorHint="#757575"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.376" />
-        </LinearLayout>
+                        <Spinner
+                            android:id="@+id/pet_sex_dd"
+                            android:layout_width="188dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="30dp"
+                            android:autofillHints=""
+                            android:background="@drawable/textfield"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:padding="@dimen/_12sdp"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
+                    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/card"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_reg"
-            android:gravity="center"
-            android:text=" Status"
-            android:textSize="20sp"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:text=" Status"
+                            android:textSize="20sp"
 
-            />
+                            />
 
-        <Spinner
-            android:id="@+id/shelter_adoption_application_status"
-            android:layout_width="188dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="20dp"
-            android:autofillHints=""
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:fontFamily="@font/montserrat_reg"
-            android:gravity="center"
-            android:hint=" Status"
-            android:padding="@dimen/_12sdp"
-            android:inputType="textPersonName"
-            android:spinnerMode="dropdown"
-            android:textColorHint="#757575"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.376" />
-    </LinearLayout>
+                        <Spinner
+                            android:id="@+id/shelter_adoption_application_status"
+                            android:layout_width="188dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="20dp"
+                            android:autofillHints=""
+                            android:background="@drawable/edit_text_bg"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center"
+                            android:hint=" Status"
+                            android:inputType="textPersonName"
+                            android:padding="@dimen/_12sdp"
+                            android:spinnerMode="dropdown"
+                            android:textColorHint="#757575"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.376" />
+                    </LinearLayout>
 
-        <EditText
-            android:id="@+id/pet_desc"
-            android:layout_width="279dp"
-            android:layout_height="103dp"
-            android:background="@drawable/edit_text_bg"
-            android:fontFamily="@font/montserrat_reg"
-            android:gravity="top"
-            android:hint=" Description"
-            android:padding="@dimen/_12sdp"
-            android:inputType="text|textMultiLine"
-            android:textColorHint="#757575"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.535"
-            android:layout_marginTop="10dp"/>
+                    <EditText
+                        android:id="@+id/pet_desc"
+                        android:layout_width="279dp"
+                        android:layout_height="103dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_text_bg"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:gravity="top"
+                        android:hint=" Description"
+                        android:inputType="text|textMultiLine"
+                        android:padding="@dimen/_12sdp"
+                        android:textColorHint="#757575"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.507"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.535" />
 
-        <ImageView
-            android:id="@+id/pet_info_profile_pic_iv"
-            android:layout_width="151dp"
-            android:layout_height="144dp"
-            android:layout_gravity="center"
-            android:contentDescription="Upload picture."
-            android:src="@drawable/upload"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.777" />
+                    <ImageView
+                        android:id="@+id/pet_info_profile_pic_iv"
+                        android:layout_width="151dp"
+                        android:layout_height="144dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="Upload picture."
+                        android:src="@drawable/upload"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.777" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/card"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/petinfo_back"
-                android:layout_width="133dp"
-                android:layout_height="40dp"
-                android:background="@drawable/button2"
-                app:backgroundTint="@null"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Back"
-                android:textColor="#000"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.158"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.95"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
-            <Button
-                android:id="@+id/petinfo_proceed"
-                android:layout_width="133dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/button1"
-                app:backgroundTint="@null"
-                android:fontFamily="@font/montserrat_reg"
-                android:text="Proceed"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.841"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.95"
-                tools:ignore="TouchTargetSizeCheck" />
-        </LinearLayout>
+                        <Button
+                            android:id="@+id/petinfo_back"
+                            android:layout_width="133dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/button2"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:text="Back"
+                            android:textColor="#000"
+                            android:textSize="15sp"
+                            app:backgroundTint="@null"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.158"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.95"
+                            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
-    </LinearLayout>
+                        <Button
+                            android:id="@+id/petinfo_proceed"
+                            android:layout_width="133dp"
+                            android:layout_height="40dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/button1"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:text="Proceed"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            app:backgroundTint="@null"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.841"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.95"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

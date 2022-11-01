@@ -3,9 +3,12 @@ package com.example.petnership_kairos;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -52,7 +55,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
             editTextCity, editTextCountry;
 
-    private Button submit;
+    private Button submit, cancelBtn;
     private ImageButton backBtn;
     private FirebaseAuth mAuth;
 
@@ -63,17 +66,21 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     Spinner ddProvince;
     private String shelterProvince;
 
-
-    String json_string;
-    JSONObject jsonObj;
-    JSONArray jsonArray;
+    private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
+            "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
+            "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
+            "Davao del Norte", "Davao del Sur", "Davao Occidental", "Davao Oriental", "Dinagat Islands", "Eastern Samar",
+            "Guimaras", "Ifugao", "Ilocos Norte", "Ilocos Sur", "Iloilo", "Isabela", "Kalinga", "La Union", "Laguna", "Lanao del Norte",
+            "Lanao del Sur", "Leyte", "Maguindanao", "Marinduque", "Masbate", "Metro Manila", "Misamis Occidental", "Misamis Oriental",
+            "Mountain Province", "Negros Occidental", "Negros Oriental", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Occidental Mindoro",
+            "Oriental Mindoro", "Palawan", "Pampanga", "Pangasinan", "Quezon", "Quirino", "Rizal", "Romblon", "Samar", "Sarangani", "Siquijor",
+            "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao del Norte", "Surigao del Sur", "Tarlac",
+            "Tawi-Tawi", "Zambales", "Zamboanga del Norte", "Zamboanga del Sur", "Zamboanga Sibugay"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_registration);
-
-
 
         editTextBizName = findViewById(R.id.txt_biz_name_shelter);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter);
@@ -87,30 +94,8 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         editTextCity = findViewById(R.id.txt_city_shelter);
 
         //PROVINCES
-        json_string= loadJSONFromAsset();
         ddProvince = findViewById(R.id.dd_province_shelter);
-        ArrayList<String> provinces = new ArrayList<String>();
-        {
-
-            try {
-                jsonObj =new JSONObject(json_string);
-                jsonArray =jsonObj.getJSONArray("provinces");
-                String province;
-                for (int i = 0; i < jsonArray.length(); i++){
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    province= jObj.getString("name");
-                    provinces.add(province);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, provinces);
-        Spinner ddProvince = (Spinner)findViewById(R.id.dd_province_shelter);
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -123,7 +108,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
             }
         });
-
 
         editTextCountry = findViewById(R.id.txt_country_shelter);
         editTextCountry.setEnabled(false);
@@ -139,6 +123,13 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                 Intent intent = new Intent(ShelterRegistration.this,ActivityUserType.class);
                 startActivity(intent);
 
+            }
+        });
+        cancelBtn = (Button) findViewById(R.id.shelterRegisterCancel);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showcancelDialog();
             }
         });
     }
@@ -167,6 +158,27 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         return json;
     }
 
+    private void showcancelDialog() {
+        final Dialog cancelDialog  = new Dialog(this);
+        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        cancelDialog.show();
+        Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+        yesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(ShelterRegistration.this, LoginActivity.class));
+                cancelDialog.dismiss();
+            }
+        });
+        Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+        noBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                cancelDialog.dismiss();
+            }
+        });
+    }
     private void registerShelter() {
         String bizName = editTextBizName.getText().toString().trim();
         String owner = editTextOwner.getText().toString().trim();
@@ -180,6 +192,11 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         String city = editTextCity.getText().toString().trim();
         String country = "Philippines";
 
+        int contactNumCount = 0;
+        for(int i = 0; i < contact.length(); i++){
+            if(contact.charAt(i) != ' ')
+                contactNumCount++;
+        }
 
         if(bizName.isEmpty()){
             editTextBizName.setError("Business Name Required.");
@@ -249,7 +266,12 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
             editTextContact.setError("Contact Number Required.");
             editTextContact.requestFocus();
             return;
+        }else if (contactNumCount < 11 || contactNumCount > 11) {
+            editTextContact.setError("Contact number must be 11 digits.");
+            editTextContact.requestFocus();
+            return;
         }
+
 
         if(street.isEmpty()){
             editTextStreet.setError("Street Address Required.");

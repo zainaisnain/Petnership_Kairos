@@ -30,6 +30,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout6"
                         android:layout_width="match_parent"
                         android:layout_height="360dp"
                         android:background="@drawable/top_bg"
@@ -41,20 +42,22 @@
 
                     <ImageView
                         android:id="@+id/per_cat_image"
-                        android:layout_width="198dp"
-                        android:layout_height="188dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginTop="@dimen/_50sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/cat"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteY="34dp" />
+                        tools:ignore="MissingConstraints" />
 
                     <TextView
                         android:id="@+id/per_cat_name_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:fontFamily="@font/montserrat_reg"
+                        android:fontFamily="@font/playfairdisplayblack"
                         android:text="APPLICATION"
                         android:textColor="@color/white"
                         android:textSize="32dp"
@@ -67,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="24dp"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="30dp"
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/white_perpetprofile"
                         android:elevation="3dp"
@@ -86,14 +89,16 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            >
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_margin="15dp"
-                                android:fontFamily="@font/marmelad_regular"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:textStyle="bold"
                                 android:text="Pet Information"
                                 android:textColor="#371576"
                                 android:textSize="25sp" />
@@ -213,10 +218,11 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="15dp"
-                            android:fontFamily="@font/marmelad_regular"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:textStyle="bold"
                             android:text="Adoption Form Summary"
                             android:textColor="#371576"
-                            android:textSize="25sp" />
+                            android:textSize="23sp" />
                     </LinearLayout>
 
                 </LinearLayout>

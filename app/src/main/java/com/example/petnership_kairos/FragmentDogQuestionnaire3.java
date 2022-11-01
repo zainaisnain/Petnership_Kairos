@@ -23,7 +23,7 @@ public class FragmentDogQuestionnaire3 extends Fragment {
         return new FragmentDogQuestionnaire3();
     }
 
-    ImageButton popup3;
+    ImageButton popup3, backBtn;
     SeekBar seekBar15, seekBar16, seekBar17, seekBar18, seekBar19, seekBar20,seekBar21;
     TextView rate15, rate16, rate17, rate18, rate19, rate20, rate21;
     MCDMAnswersViewModel mViewModel;
@@ -42,20 +42,20 @@ public class FragmentDogQuestionnaire3 extends Fragment {
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
         System.out.println("Test: " + mViewModel.getAnswer(1));
 
-        seekBar15 = (SeekBar) getView().findViewById(R.id.seekBar15);
-        seekBar16 = (SeekBar) getView().findViewById(R.id.seekBar16);
-        seekBar17 = (SeekBar) getView().findViewById(R.id.seekBar17);
-        seekBar18 = (SeekBar) getView().findViewById(R.id.seekBar18);
-        seekBar19 = (SeekBar) getView().findViewById(R.id.seekBar19);
-        seekBar20 = (SeekBar) getView().findViewById(R.id.seekBar20);
-        seekBar21 = (SeekBar) getView().findViewById(R.id.seekBar21);
-        rate15 = (TextView) getView().findViewById(R.id.rating15);
-        rate16 = (TextView) getView().findViewById(R.id.rating16);
-        rate17 = (TextView) getView().findViewById(R.id.rating17);
-        rate18 = (TextView) getView().findViewById(R.id.rating18);
-        rate19 = (TextView) getView().findViewById(R.id.rating19);
-        rate20 = (TextView) getView().findViewById(R.id.rating20);
-        rate21 = (TextView) getView().findViewById(R.id.rating21);
+        seekBar15 = getView().findViewById(R.id.seekBar15);
+        seekBar16 = getView().findViewById(R.id.seekBar16);
+        seekBar17 = getView().findViewById(R.id.seekBar17);
+        seekBar18 = getView().findViewById(R.id.seekBar18);
+        seekBar19 = getView().findViewById(R.id.seekBar19);
+        seekBar20 = getView().findViewById(R.id.seekBar20);
+        seekBar21 = getView().findViewById(R.id.seekBar21);
+        rate15 = getView().findViewById(R.id.rating15);
+        rate16 = getView().findViewById(R.id.rating16);
+        rate17 = getView().findViewById(R.id.rating17);
+        rate18 = getView().findViewById(R.id.rating18);
+        rate19 = getView().findViewById(R.id.rating19);
+        rate20 = getView().findViewById(R.id.rating20);
+        rate21 = getView().findViewById(R.id.rating21);
 
         // bring back previous progress if any
       //  if (mViewModel.getDogAnswer(8) != null){
@@ -183,71 +183,56 @@ public class FragmentDogQuestionnaire3 extends Fragment {
         });
 
         popup3 = getView().findViewById(R.id.instructionsBTN3);
-        popup3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
+        popup3.setOnClickListener(view1 -> showDialog());
+
+        Button proceedBtn = getView().findViewById(R.id.proceed_ques3);
+        proceedBtn.setOnClickListener(v -> {
+            // save answers
+            mViewModel.setAnswer(15, seekBar15.getProgress());
+            mViewModel.setAnswer(16, seekBar16.getProgress());
+            mViewModel.setAnswer(17, seekBar17.getProgress());
+            mViewModel.setAnswer(18, seekBar18.getProgress());
+            mViewModel.setAnswer(19, seekBar19.getProgress());
+            mViewModel.setAnswer(20, seekBar20.getProgress());
+            mViewModel.setAnswer(21, seekBar21.getProgress());
+
+            // change screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            FragmentDogQuestionnaire4 dog4Fragment = new FragmentDogQuestionnaire4();
+            transaction.replace(R.id.nav_host_fragment,dog4Fragment);
+            transaction.addToBackStack("dogQuestionnaire4");
+            transaction.commit();
         });
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
-        Button proceedBtn = (Button) getView().findViewById(R.id.proceed_ques3);
-        proceedBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // save answers
-                mViewModel.setAnswer(15, seekBar15.getProgress());
-                mViewModel.setAnswer(16, seekBar16.getProgress());
-                mViewModel.setAnswer(17, seekBar17.getProgress());
-                mViewModel.setAnswer(18, seekBar18.getProgress());
-                mViewModel.setAnswer(19, seekBar19.getProgress());
-                mViewModel.setAnswer(20, seekBar20.getProgress());
-                mViewModel.setAnswer(21, seekBar21.getProgress());
-
-                // change screen
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                FragmentDogQuestionnaire4 dog4Fragment = new FragmentDogQuestionnaire4();
-                transaction.replace(R.id.nav_host_fragment,dog4Fragment);
-                transaction.addToBackStack("dogQuestionnaire4");
-                transaction.commit();
-            }
+            getParentFragmentManager().popBackStack();
         });
-
 
     }
 
     private void setSeekText(int i, TextView j) {
         if(i == 0 ||  i == 16 ||  i == 1 || i == 15 ){
-            j.setText("Extremely Important");
+            j.setText(R.string.seekTextExtremely);
         }
         else if(i == 2 || i == 14 || i == 3 || i == 13){
-            j.setText("Significantly Important");
+            j.setText(R.string.seekTextSignificantly);
         }
         else if(i == 4 || i == 12 || i == 5 || i == 11){
-            j.setText("Moderately Important");
+            j.setText(R.string.seekTextModerately);
         }
         else if( i == 7 || i == 9 ||  i == 6 || i == 10){
-            j.setText("Slightly Important");
+            j.setText(R.string.seekTextSlightly);
         }
         else {
-            j.setText("Equally Important");
+            j.setText(R.string.seekTextEqually);
         }
     }
     private void showDialog() {
-        HelpPopup helpDialog3 = new HelpPopup();
-        helpDialog3.show(getParentFragmentManager(), "Help Popup");
-        /*
-        final Dialog helpDialog10 = new Dialog(this);
-        helpDialog10.setContentView(R.layout.help_popup);
-        helpDialog10.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog10.show();
-        ImageButton closeBTN = (ImageButton) helpDialog10.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog10.dismiss();
+        HelpPopup helpDialog = new HelpPopup("Dog", "Main");
+        helpDialog.show(getParentFragmentManager(), "Help Popup");
 
-            }
-        });*/
     }
 
 

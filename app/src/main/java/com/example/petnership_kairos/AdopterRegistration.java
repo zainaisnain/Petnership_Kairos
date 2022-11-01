@@ -2,11 +2,15 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -59,7 +63,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     DatePickerDialog.OnDateSetListener setListener;
     String datePicked;
 
-    private Button submit, uploadBtn;
+    private Button submit, uploadBtn, cancelBtn;
     private FirebaseAuth mAuth;
     private ImageButton backBtn;
 
@@ -82,11 +86,16 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     String[] ddSexValues = {"Female", "Male"};
 
     String sex, adopterProvince;
-
-
-    String json_string;
-    JSONObject jsonObj;
-    JSONArray jsonArray;
+    private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
+            "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
+            "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
+            "Davao del Norte", "Davao del Sur", "Davao Occidental", "Davao Oriental", "Dinagat Islands", "Eastern Samar",
+            "Guimaras", "Ifugao", "Ilocos Norte", "Ilocos Sur", "Iloilo", "Isabela", "Kalinga", "La Union", "Laguna", "Lanao del Norte",
+            "Lanao del Sur", "Leyte", "Maguindanao", "Marinduque", "Masbate", "Metro Manila", "Misamis Occidental", "Misamis Oriental",
+            "Mountain Province", "Negros Occidental", "Negros Oriental", "Northern Samar", "Nueva Ecija", "Nueva Vizcaya", "Occidental Mindoro",
+            "Oriental Mindoro", "Palawan", "Pampanga", "Pangasinan", "Quezon", "Quirino", "Rizal", "Romblon", "Samar", "Sarangani", "Siquijor",
+            "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao del Norte", "Surigao del Sur", "Tarlac",
+            "Tawi-Tawi", "Zambales", "Zamboanga del Norte", "Zamboanga del Sur", "Zamboanga Sibugay"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,31 +115,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         editTextCity = findViewById(R.id.txt_city_adopter);
 
         //PROVINCES
-        json_string= loadJSONFromAsset();
         ddProvince = findViewById(R.id.adopter_province_dd);
-        ArrayList<String> provinces = new ArrayList<String>();
-        {
-
-            try {
-                jsonObj =new JSONObject(json_string);
-                jsonArray =jsonObj.getJSONArray("provinces");
-                String province;
-                for (int i = 0; i < jsonArray.length(); i++){
-                    JSONObject jObj = jsonArray.getJSONObject(i);
-                    province= jObj.getString("name");
-                    provinces.add(province);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-        }
-
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, provinces);
-
-        Spinner ddProvince = (Spinner)findViewById(R.id.adopter_province_dd);
+        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -169,16 +155,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-//
-//        setListener = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-//                month = month + 1;
-//                String date = month + "/" + day + "/" + year;
-//                editTextBirthday.setText(date);
-//            }
-//        };
-
         editTextBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -223,23 +199,14 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
 
-    }
+        cancelBtn = (Button) findViewById(R.id.adopterRegisterCancel);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showcancelDialog();
+            }
+        });
 
-
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = getAssets().open("provinces.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
     }
 
     private void selectUserType()
@@ -259,6 +226,27 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         }
     }
 
+    private void showcancelDialog() {
+        final Dialog cancelDialog  = new Dialog(this);
+        cancelDialog.setContentView(R.layout.activity_cancel_dialog);
+        cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        cancelDialog.show();
+        Button yesBTN = (Button) cancelDialog.findViewById(R.id.buttonYes);
+        yesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                startActivity(new Intent(AdopterRegistration.this, LoginActivity.class));
+                cancelDialog.dismiss();
+            }
+        });
+        Button noBTN = (Button) cancelDialog.findViewById(R.id.buttonNo);
+        noBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                cancelDialog.dismiss();
+            }
+        });
+    }
     private void registerAdopter() {
         String fname = editTextFname.getText().toString().trim();
         String lname = editTextLname.getText().toString().trim();
@@ -269,11 +257,15 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
         String city = editTextCity.getText().toString().trim();
-//        String province = editTextProvince.getText().toString().trim();
         String country = "Philippines";
-//        String gender = editTextGender.getText().toString().trim();
         String birthday = editTextBirthday.getText().toString().trim();
         String user_type = "adopter";
+
+        int contactNumCount = 0;
+        for(int i = 0; i < contact.length(); i++){
+            if(contact.charAt(i) != ' ')
+                contactNumCount++;
+        }
 
 
         if(fname.isEmpty()){
@@ -338,6 +330,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             editTextContact.setError("Contact Number Required.");
             editTextContact.requestFocus();
             return;
+        }else if (contactNumCount < 11 || contactNumCount > 11) {
+            editTextContact.setError("Contact number must be 11 digits.");
+            editTextContact.requestFocus();
+            return;
         }
 
         if(street.isEmpty()){
@@ -372,8 +368,9 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
+                                                        boolean answeredQuestionnaire = false;
                                                         Adopter adopter = new Adopter(fname, lname, email, username,
-                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName);
+                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
 
                                                         databaseReference.child("Adopters").child(username).setValue(adopter);
 

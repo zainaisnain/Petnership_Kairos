@@ -16,13 +16,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="745dp"
                 android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
+                    android:background="#0000"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.953"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:tint="@color/black"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
@@ -42,7 +57,7 @@
                         android:layout_width="297dp"
                         android:layout_height="30dp"
                         android:fontFamily="@font/playfairdisplayblack"
-                        android:text="Pet Adopter Questionnaire"
+                        android:text="@string/heading_adopter_questionnaire"
                         android:textAlignment="center"
                         android:textColor="#371576"
                         android:textSize="22sp"
@@ -67,7 +82,8 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.014"
                         app:srcCompat="@drawable/info_icon"
-                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                        android:contentDescription="@string/inst_button" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -75,94 +91,62 @@
                         android:layout_height="47dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Sociabilty"
+                        android:text="@string/sociability"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView16"
                         app:layout_constraintStart_toStartOf="@+id/textView16"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.146" />
+                        app:layout_constraintVertical_bias="0.159" />
 
                     <TextView
                         android:id="@+id/textView17"
-                        android:layout_width="79dp"
+                        android:layout_width="85dp"
                         android:layout_height="42dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Litterbox Comfortability + Adjustment"
+                        android:text="@string/litterbox_comfortability_adjustment"
                         android:textColor="#371576"
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView33"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="@+id/textView33"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.393" />
+                        app:layout_constraintVertical_bias="0.489" />
 
                     <TextView
                         android:id="@+id/textView33"
-                        android:layout_width="79dp"
+                        android:layout_width="85dp"
                         android:layout_height="42dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Litterbox Comfortability + Adjustment"
+                        android:text="@string/litterbox_comfortability_adjustment"
                         android:textColor="#371576"
-                        android:textSize="10sp"
+                        android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView19"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/textView19"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.505" />
+                        app:layout_constraintVertical_bias="0.66" />
 
                     <TextView
                         android:id="@+id/textView19"
-                        android:layout_width="69dp"
+                        android:layout_width="85dp"
                         android:layout_height="39dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Healthy Grooming"
+                        android:text="@string/litterbox_comfortability_adjustment"
                         android:textColor="#371576"
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/textView20"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView20"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.63" />
-
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="67dp"
-                        android:layout_height="33dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:gravity="center"
-                        android:text="Healthy Grooming"
-                        android:textColor="#371576"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/textView21"
-                        app:layout_constraintHorizontal_bias="0.583"
-                        app:layout_constraintStart_toStartOf="@+id/textView21"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.741" />
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="79dp"
-                        android:layout_height="43dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:gravity="center"
-                        android:text="Age / Life Expectancy"
-                        android:textColor="#371576"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/cseekBar27"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.014"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.857" />
+                        app:layout_constraintVertical_bias="0.825" />
 
                     <TextView
                         android:id="@+id/textView16"
@@ -170,21 +154,22 @@
                         android:layout_height="54dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Litterbox Comfortability + Adjustment"
+                        android:text="@string/sociability"
                         android:textColor="#371576"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView17"
+                        app:layout_constraintHorizontal_bias="0.833"
                         app:layout_constraintStart_toStartOf="@+id/textView17"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.25" />
+                        app:layout_constraintVertical_bias="0.32" />
 
                     <SeekBar
-                        android:id="@+id/cseekBar22"
+                        android:id="@+id/cseekBar21"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="24dp"
+                        android:layout_marginTop="32dp"
                         android:max="17"
                         android:progress="9"
                         android:progressDrawable="@android:color/transparent"
@@ -194,15 +179,30 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
                     <SeekBar
-                        android:id="@+id/cseekBar23"
+                        android:id="@+id/cseekBar22"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="25dp"
                         android:max="17"
                         android:progress="9"
                         android:progressDrawable="@android:color/transparent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cseekBar21" />
+
+                    <SeekBar
+                        android:id="@+id/cseekBar23"
+                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                        android:layout_width="200dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="30dp"
+                        android:max="17"
+                        android:progress="9"
+                        android:progressDrawable="@android:color/transparent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cseekBar22" />
 
@@ -211,12 +211,12 @@
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="30dp"
                         android:max="17"
                         android:progress="9"
                         android:progressDrawable="@android:color/transparent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cseekBar23" />
 
@@ -225,51 +225,14 @@
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="200dp"
                         android:layout_height="60dp"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="30dp"
                         android:max="17"
                         android:progress="9"
                         android:progressDrawable="@android:color/transparent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/cseekBar24" />
-
-                    <SeekBar
-                        android:id="@+id/cseekBar26"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="4dp"
-                        android:max="17"
-                        android:progress="9"
-                        android:progressDrawable="@android:color/transparent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cseekBar25" />
-
-                    <SeekBar
-                        android:id="@+id/cseekBar27"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="4dp"
-                        android:max="17"
-                        android:progress="9"
-                        android:progressDrawable="@android:color/transparent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cseekBar26" />
-
-                    <SeekBar
-                        android:id="@+id/cseekBar28"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="200dp"
-                        android:layout_height="60dp"
-                        android:max="17"
-                        android:progress="9"
-                        android:progressDrawable="@android:color/transparent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cseekBar27" />
 
                     <Button
                         android:id="@+id/cproceed_ques4"
@@ -277,16 +240,16 @@
                         android:layout_height="46dp"
                         android:background="@drawable/button1"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="PROCEED"
+                        android:text="@string/proceed"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         app:backgroundTint="@null"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintHorizontal_bias="0.496"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cseekBar27"
-                        app:layout_constraintVertical_bias="0.813"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.969"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
                     <TextView
@@ -295,7 +258,7 @@
                         android:layout_height="42dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Popularity"
+                        android:text="@string/age_life_expectancy"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -303,7 +266,7 @@
                         app:layout_constraintHorizontal_bias="0.666"
                         app:layout_constraintStart_toStartOf="@+id/textView26"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.143" />
+                        app:layout_constraintVertical_bias="0.162" />
 
                     <TextView
                         android:id="@+id/textView25"
@@ -311,31 +274,15 @@
                         android:layout_height="42dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Popularity"
+                        android:text="@string/age_life_expectancy"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView30"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_bias="0.333"
                         app:layout_constraintStart_toStartOf="@+id/textView30"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.505" />
-
-                    <TextView
-                        android:id="@+id/textView29"
-                        android:layout_width="77dp"
-                        android:layout_height="48dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:gravity="center"
-                        android:text="Popularity"
-                        android:textColor="#371576"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/textView28"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView28"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.75" />
+                        app:layout_constraintVertical_bias="0.658" />
 
                     <TextView
                         android:id="@+id/textView26"
@@ -343,7 +290,7 @@
                         android:layout_height="46dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Healthy Grooming"
+                        android:text="@string/popularity"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -351,23 +298,7 @@
                         app:layout_constraintHorizontal_bias="0.555"
                         app:layout_constraintStart_toStartOf="@+id/textView27"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.261" />
-
-                    <TextView
-                        android:id="@+id/textView28"
-                        android:layout_width="79dp"
-                        android:layout_height="37dp"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:gravity="center"
-                        android:text="Popularity"
-                        android:textColor="#371576"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@+id/cseekBar27"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.857" />
+                        app:layout_constraintVertical_bias="0.320" />
 
                     <TextView
                         android:id="@+id/textView27"
@@ -375,14 +306,15 @@
                         android:layout_height="41dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Age / Life Expectancy"
+                        android:text="@string/healthy_grooming"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/textView25"
+                        app:layout_constraintHorizontal_bias="0.666"
                         app:layout_constraintStart_toStartOf="@+id/textView25"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.391" />
+                        app:layout_constraintVertical_bias="0.488" />
 
                     <TextView
                         android:id="@+id/textView30"
@@ -390,106 +322,85 @@
                         android:layout_height="69dp"
                         android:fontFamily="@font/montserrat_bold"
                         android:gravity="center"
-                        android:text="Age / Life Expectancy"
+                        android:text="@string/popularity"
                         android:textColor="#371576"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/textView29"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toStartOf="@+id/textView29"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.632" />
+                        app:layout_constraintVertical_bias="0.845" />
+
+                    <TextView
+                        android:id="@+id/crating21"
+                        android:layout_width="180dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_black"
+                        android:gravity="center"
+                        android:text="@string/seekTextEqually"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.110" />
 
                     <TextView
                         android:id="@+id/crating22"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="180dp"
+                        android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
+                        android:gravity="center"
+                        android:text="@string/seekTextEqually"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.125" />
+                        app:layout_constraintVertical_bias="0.265" />
 
                     <TextView
                         android:id="@+id/crating23"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="180dp"
+                        android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
+                        android:gravity="center"
+                        android:text="@string/seekTextEqually"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.242" />
+                        app:layout_constraintVertical_bias="0.426" />
 
                     <TextView
                         android:id="@+id/crating24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="180dp"
+                        android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
+                        android:gravity="center"
+                        android:text="@string/seekTextEqually"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.355" />
+                        app:layout_constraintVertical_bias="0.587" />
 
                     <TextView
                         android:id="@+id/crating25"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="180dp"
+                        android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
+                        android:gravity="center"
+                        android:text="@string/seekTextEqually"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintHorizontal_bias="0.497"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.471" />
-
-                    <TextView
-                        android:id="@+id/crating26"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.583" />
-
-                    <TextView
-                        android:id="@+id/crating27"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.7" />
-
-                    <TextView
-                        android:id="@+id/crating28"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/montserrat_black"
-                        android:text="Equally Important"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.504"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.807" />
+                        app:layout_constraintVertical_bias="0.748" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -508,7 +419,8 @@
         app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+        android:contentDescription="@string/burger" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

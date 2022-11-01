@@ -201,7 +201,6 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                 q10 = adapterView.getItemAtPosition(i).toString();
                 if(q10.equals("Other")){
                     etOtherBreed.setEnabled(true);
-                    q10 = etOtherBreed.getText().toString().trim().toLowerCase();
                     System.out.println("q10 seton == " + q10);
                 }else{
                     etOtherBreed.setText("");
@@ -228,7 +227,9 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("q10 click  == " + q10);
+                if(q10.equals("Other")){
+                    q10 = etOtherBreed.getText().toString().trim().toLowerCase();
+                }
                 //Validate answers
                 if(q1==0){
                     tvQ1.requestFocus();
