@@ -91,7 +91,6 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
                     catIntent.putExtra("petID", registeredPetDataList.getPetID());
                     view.getContext().startActivity(catIntent);
                 }
-
             }
         });
 
