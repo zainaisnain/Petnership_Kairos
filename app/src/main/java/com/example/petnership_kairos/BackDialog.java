@@ -35,11 +35,8 @@ public class BackDialog extends DialogFragment {
         btnYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
-                transaction.replace(R.id.add_pet_frag, shelterRegisterPets);
-                transaction.commit();
-                BackDialog.this.dismiss();
+                getParentFragmentManager().popBackStack();
+                dismiss();
             }
         });
 

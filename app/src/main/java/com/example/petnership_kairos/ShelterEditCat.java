@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -43,7 +44,8 @@ import java.util.UUID;
 public class ShelterEditCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
-    private Button proceedBtn, uploadBtn, back, backBtn;
+    private Button proceedBtn, uploadBtn, back;
+    private ImageButton backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -165,6 +167,16 @@ public class ShelterEditCat extends Fragment {
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
             }
 
+        });
+
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
+                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+            }
         });
 
         //Set value for Dropdown Sex

@@ -33,10 +33,8 @@ public class ActiveAdopters extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.active_adopters_frag, shelterHomeDashboard);
-                transaction.commit();
+
+                getParentFragmentManager().popBackStack();
             }
         });
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewAdopters);

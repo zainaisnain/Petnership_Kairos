@@ -48,6 +48,7 @@ public class AddCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetDescription;
     private Button proceedBtn, uploadBtn, backBtn;
+    private ImageButton backBtn2;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -102,14 +103,23 @@ public class AddCat extends Fragment {
             }
 
             private void showDialog() {
-                View rootview = inflater.inflate(R.layout.fragment_back_dialog, container, false);
                 BackDialog backDialog = new BackDialog();
                 backDialog.show(getParentFragmentManager(), "Back Dialog");
 
             }
         });
+
+        backBtn2 = view.findViewById(R.id.btnBack);
+        backBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BackDialog backDialog = new BackDialog();
+                backDialog.show(getParentFragmentManager(), "Back Dialog");
+            }
+        });
         return view;
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

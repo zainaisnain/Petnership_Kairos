@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -44,7 +45,8 @@ import java.util.UUID;
 public class ShelterEditDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
-    private Button proceedBtn, uploadBtn, backBtn;
+    private Button proceedBtn, uploadBtn, back;
+    private ImageButton backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -158,8 +160,8 @@ public class ShelterEditDog extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
 
-        backBtn = view.findViewById(R.id.petinfo_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        back = view.findViewById(R.id.petinfo_back);
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
@@ -198,6 +200,16 @@ public class ShelterEditDog extends Fragment {
 //                transaction.commit();
 //            }
 //        });
+
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
+                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+            }
+        });
 
 
         //UPLOAD IMAGE
