@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +14,9 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 
 import com.google.android.material.navigation.NavigationView;
@@ -55,7 +60,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
          */
         if(savedInstanceState == null) {
             getSupportFragmentManager().
-                    beginTransaction().replace(R.id.nav_host_fragment,new AdopterHomeDashboard()).commit();
+                    beginTransaction().replace(R.id.nav_host_fragment,new AdopterHomeDashboard()).addToBackStack("Adopter Home").commit();
         }
 
         /**
@@ -65,10 +70,6 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view_adopter);
         toolbar = findViewById(R.id.main_toolbar);
 
-        /**
-         * Tool bar
-         */
-//        setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -77,20 +78,31 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.menu_open,R.string.menu_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-//        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_adoptHome);
     }
 
 
     @Override
     public void onBackPressed() {
+
         if(drawerLayout.isDrawerOpen((GravityCompat.START)))
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else
         {
-            super.onBackPressed();
+            //TODO: FIX ONBACKPRESSED
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count <= 0) {
+
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+
+            } else {
+                System.out.println("Popped");
+                getSupportFragmentManager().popBackStack();
+            }
         }
 
     }
@@ -100,30 +112,47 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
      * Navigation fragments
      */
 
+    // TODO: FIX NAVIGATION!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch(item.getItemId())
         {
             case R.id.nav_adoptHome:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new AdopterHomeDashboard()).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                AdopterHomeDashboard adopterHome = new AdopterHomeDashboard();
+                transaction.replace(R.id.nav_host_fragment,adopterHome);
+                transaction.addToBackStack("Adopter Home");
+                transaction.commit();
+
+
                 break;
 
             case R.id.nav_appHistory:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new PetProfileDogs()).commit();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-//                        new ApplicationHistoryFragment()).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
+                transaction.replace(R.id.nav_host_fragment,applicationHistory);
+                transaction.addToBackStack("Application History");
+                transaction.commit();
                 break;
 
             case R.id.nav_adoptAPet:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new AdoptionForm()).commit();
+                /*
+                startActivity(new Intent(this, StartOfQuestionnaire.class));
+                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);*/
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                FragmentQuestionnaireWelcome startOfQuestionnaire = new FragmentQuestionnaireWelcome();
+                transaction.replace(R.id.nav_host_fragment,startOfQuestionnaire);
+                transaction.addToBackStack("Start of Questionnaire");
+                transaction.commit();
                 break;
 
             case R.id.nav_browseAnimals:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ApplicationForm()).commit();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                BrowseAnimals browseAnimals = new BrowseAnimals();
+                transaction.replace(R.id.nav_host_fragment,browseAnimals);
+                transaction.addToBackStack("Browse Animals");
+                transaction.commit();
                 break;
 
             case R.id.nav_logout:

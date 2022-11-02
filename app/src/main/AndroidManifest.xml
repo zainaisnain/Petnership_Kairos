@@ -94,17 +94,14 @@
         <activity
             android:name=".StartOfQuestionnaire"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".AdopterDashboard">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
 
-            <!-- TODO: REMOVE THIS AFTER -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ShelterPerDogProfile"
@@ -158,7 +155,16 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
+            android:exported="true" >
+
+
+            <!-- TODO: REMOVE THIS AFTER -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ShelterRegistration"
             android:exported="true" />
@@ -170,22 +176,14 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
-            android:parentActivityName=".MainActivity">
-
-            <!-- TODO: REMOVE THIS AFTER -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="true">
         </activity>
         <activity
             android:name=".ActivityUserType"
             android:exported="true" />
         <activity
             android:name=".AdopterDashboard"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ShelterDashboard"
             android:exported="true" />

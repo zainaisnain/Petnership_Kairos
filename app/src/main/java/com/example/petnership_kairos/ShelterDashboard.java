@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class ShelterDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +39,9 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
     ActionBarDrawerToggle actionBarDrawerToggle;
     Button logout, cancelLogout;
     Dialog dialog;
+    static boolean atHome = true;
+    String fragName;
+    boolean popHome = false;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,7 +72,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
          */
         if(savedInstanceState == null) {
             getSupportFragmentManager().
-                    beginTransaction().replace(R.id.nav_host_fragment,new ShelterHomeDashboard()).commit();
+                    beginTransaction().replace(R.id.nav_host_fragment,new ShelterHomeDashboard()).addToBackStack("Shelter Home").commit();
         }
 
         /**
@@ -78,10 +82,6 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.main_toolbar);
 
-        /**
-         * Tool bar
-         */
-       // setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -97,13 +97,28 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onBackPressed() {
+        FragmentManager fm = getSupportFragmentManager();
+        int backCount = fm.getBackStackEntryCount();
+        System.out.println("Backstack entry count: " + fm.getBackStackEntryCount());
+        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+            System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
+        }
         if(drawerLayout.isDrawerOpen((GravityCompat.START)))
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else
         {
-            super.onBackPressed();
+            int count = getSupportFragmentManager().getBackStackEntryCount();
+            if (count <= 1) {
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+
+            }
+            else {
+                    System.out.println("Popped");
+                    getSupportFragmentManager().popBackStack();
+                }
         }
 
     }
@@ -115,29 +130,48 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentManager fm = getSupportFragmentManager();
+        int backCount = fm.getBackStackEntryCount();
+
         switch(item.getItemId())
         {
 
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterHomeDashboard()).commit();
+
+                if (fm.getBackStackEntryAt(backCount-1).getName().equalsIgnoreCase("Shelter Home")) break;
+                fm.popBackStackImmediate(fm.getBackStackEntryAt(1).getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                break;
 
             case R.id.nav_reg_pets:
-                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                if (fm.getBackStackEntryAt(backCount-1).getName().equalsIgnoreCase("Shelter Register Pets")) break;
+
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
-                transaction1.replace(R.id.nav_host_fragment, shelterRegisterPets);
-                transaction1.commit();
-//                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
-//                        new ShelterRegisterPets()).commit();
+                transaction.replace(R.id.nav_host_fragment, shelterRegisterPets);
+                transaction.addToBackStack("Shelter Register Pets");
+                transaction.commit();
+                atHome = false;
                 break;
 
             case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterListOfPetsFragment()).commit();
+                if (fm.getBackStackEntryAt(backCount-1).getName().equalsIgnoreCase("Shelter Registered Pets")) break;
+
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                ShelterListOfPetsFragment shelterRegisteredPets = new ShelterListOfPetsFragment();
+                transaction.replace(R.id.nav_host_fragment, shelterRegisteredPets);
+                transaction.addToBackStack("Shelter Registered Pets");
+                transaction.commit();
+                atHome = false;
                 break;
 
             case R.id.nav_shelter_edit_info:
+
                 startActivity(new Intent(ShelterDashboard.this, ShelterEditInfo.class));
+                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+
+                atHome = false;
                 break;
 
             case R.id.nav_logout:
@@ -173,6 +207,10 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 break;
         }
 
+        System.out.println("END OF ONNAV Backstack entry count: " + fm.getBackStackEntryCount());
+        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+            System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
