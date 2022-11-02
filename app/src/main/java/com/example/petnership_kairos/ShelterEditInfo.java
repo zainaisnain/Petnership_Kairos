@@ -148,8 +148,7 @@ public class ShelterEditInfo extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShelterEditInfo.this, ShelterHomeDashboard.class);
-                startActivity(intent);
+                showcancelDialog();
 
             }
         });
@@ -259,9 +258,7 @@ public class ShelterEditInfo extends AppCompatActivity {
             yesBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                    fragmentTransaction.replace(R.id.sheltereditInfo, shelterHomeDashboard).commit();
+                    finish();
                     cancelDialog.dismiss();
                 }
             });

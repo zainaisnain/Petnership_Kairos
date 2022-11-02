@@ -174,6 +174,13 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 atHome = false;
                 break;
 
+            case R.id.nav_shelter_change_password:
+                FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
+                UserChangePassword userChangePassword = new UserChangePassword();
+                transaction4.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction4.commit();
+                break;
+
             case R.id.nav_logout:
                 MyLogoutDialog logoutDialog = new MyLogoutDialog();
                 logoutDialog.show(getSupportFragmentManager(), "My Fragment");

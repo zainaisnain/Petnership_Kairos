@@ -123,6 +123,7 @@ public class ShelterHomeDashboard extends Fragment {
 //        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
 //                ActiveAdopters activeadptrs = new ActiveAdopters();
 //                transaction.replace(R.id.nav_host_fragment, activeadptrs);
+//                transaction.addToBackStack("activeAdopters");
 //                transaction.commit();
 //            }
 //        });
@@ -179,12 +180,17 @@ public class ShelterHomeDashboard extends Fragment {
 //                                System.out.println("shelterImageName1 == " + shelterImageName);
 
                                 //DISPLAY IMAGE TO IMAGE VIEW
-                                storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-                                    }
-                                });
+                                if(shelterImageName.isEmpty() || shelterImageName == null){
+                                    return;
+                                }else{
+                                    storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
+                                        }
+                                    });
+
+                                }
 
                             }
 
