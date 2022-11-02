@@ -36,14 +36,9 @@ public class MyLogoutDialog extends DialogFragment{
             @Override
             public void onClick(View v) {
                 //FRAGMENT to FRAGMENT
-//                ShelterDashboard shelterDashboard = new ShelterDashboard();
-//                shelterDashboard.userLogout();
-//                startActivity(intent);
-//                dismiss();
                 auth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
-//                dismiss();
             }
         });
 
