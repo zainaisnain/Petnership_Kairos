@@ -24,8 +24,8 @@ public class FragmentCatQuestionnaire5 extends Fragment {
     }
 
     ImageButton cpopup5;
-    SeekBar cseekBar29, cseekBar30, cseekBar31, cseekBar32;
-    TextView crate29, crate30, crate31, crate32;
+    SeekBar cseekBar26, cseekBar27, cseekBar28, cseekBar29;
+    TextView crate26, crate27, crate28, crate29;
     MCDMAnswersViewModel mViewModel;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,17 +41,65 @@ public class FragmentCatQuestionnaire5 extends Fragment {
 
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
 
+        cseekBar26= getView().findViewById(R.id.cseekBar26);
+        cseekBar27 = getView().findViewById(R.id.cseekBar27);
+        cseekBar28 = getView().findViewById(R.id.cseekBar28);
         cseekBar29 = getView().findViewById(R.id.cseekBar29);
-        cseekBar30 = getView().findViewById(R.id.cseekBar30);
-        cseekBar31 = getView().findViewById(R.id.cseekBar31);
-        cseekBar32 = getView().findViewById(R.id.cseekBar32);
+        crate26 = getView().findViewById(R.id.crating26);
+        crate27 = getView().findViewById(R.id.crating27);
+        crate28 = getView().findViewById(R.id.crating28);
         crate29 = getView().findViewById(R.id.crating29);
-        crate30 = getView().findViewById(R.id.crating30);
-        crate31 = getView().findViewById(R.id.crating31);
-        crate32 = getView().findViewById(R.id.crating32);
 
 
 
+
+        cseekBar26.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar cseekBar26, int i, boolean b) {
+                setSeekText(i, crate26);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar cseekBar26) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar cseekBar26) {
+
+            }
+        });
+
+        cseekBar27.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar cseekBar27, int i, boolean b) {
+                setSeekText(i, crate27);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar cseekBar27) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar cseekBar27) {
+
+            }
+        });
+
+        cseekBar28.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar cseekBar28, int i, boolean b) {
+                setSeekText(i, crate28);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar cseekBar28) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar cseekBar28) {
+
+            }
+        });
 
         cseekBar29.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
@@ -70,63 +118,15 @@ public class FragmentCatQuestionnaire5 extends Fragment {
             }
         });
 
-        cseekBar30.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar cseekBar30, int i, boolean b) {
-                setSeekText(i, crate30);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar cseekBar30) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar cseekBar30) {
-
-            }
-        });
-
-        cseekBar31.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar cseekBar31, int i, boolean b) {
-                setSeekText(i, crate31);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar cseekBar31) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar cseekBar31) {
-
-            }
-        });
-
-        cseekBar32.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar4, int i, boolean b) {
-                setSeekText(i, crate32);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar cseekBar32) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar cseekBar32) {
-
-            }
-        });
-
         cpopup5 = getView().findViewById(R.id.cinstructionsBTN5);
         cpopup5.setOnClickListener(view1 -> showDialog());
         Button proceedBtn = getView().findViewById(R.id.cproceed_ques5);
         proceedBtn.setOnClickListener(v -> {
             // save answers
+            mViewModel.setAnswer(26, cseekBar26.getProgress());
+            mViewModel.setAnswer(27, cseekBar27.getProgress());
+            mViewModel.setAnswer(28, cseekBar28.getProgress());
             mViewModel.setAnswer(29, cseekBar29.getProgress());
-            mViewModel.setAnswer(30, cseekBar30.getProgress());
-            mViewModel.setAnswer(31, cseekBar31.getProgress());
-            mViewModel.setAnswer(32, cseekBar32.getProgress());
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
@@ -136,7 +136,11 @@ public class FragmentCatQuestionnaire5 extends Fragment {
             transaction.addToBackStack("catQuestionnaire6");
             transaction.commit();
         });
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
+        });
 
     }
 
@@ -161,20 +165,7 @@ public class FragmentCatQuestionnaire5 extends Fragment {
     private void showDialog() {
         HelpPopup helpDialog = new HelpPopup("Cat", "Main");
         helpDialog.show(getParentFragmentManager(), "Help Popup");
-        /*
-                final Dialog helpDialog = new Dialog();
-        helpDialog.setContentView(R.layout.help_popup);
-        helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog.show();
-        ImageButton closeBTN = (ImageButton) helpDialog.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog.dismiss();
 
-            }
-        });
-         */
     }
 
 

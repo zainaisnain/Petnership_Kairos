@@ -24,8 +24,8 @@ public class FragmentCatQuestionnaire3 extends Fragment {
     }
 
     ImageButton cpopup3;
-    SeekBar cseekBar15, cseekBar16, cseekBar17, cseekBar18, cseekBar19, cseekBar20,cseekBar21;
-    TextView crate15, crate16, crate17, crate18, crate19, crate20, crate21;
+    SeekBar cseekBar15, cseekBar16, cseekBar17, cseekBar18, cseekBar19, cseekBar20;
+    TextView crate15, crate16, crate17, crate18, crate19, crate20;
     MCDMAnswersViewModel mViewModel;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -47,14 +47,12 @@ public class FragmentCatQuestionnaire3 extends Fragment {
         cseekBar18 = getView().findViewById(R.id.cseekBar18);
         cseekBar19 = getView().findViewById(R.id.cseekBar19);
         cseekBar20 = getView().findViewById(R.id.cseekBar20);
-        cseekBar21 = getView().findViewById(R.id.cseekBar21);
         crate15 = getView().findViewById(R.id.crating15);
         crate16 = getView().findViewById(R.id.crating16);
         crate17 = getView().findViewById(R.id.crating17);
         crate18 = getView().findViewById(R.id.crating18);
         crate19 = getView().findViewById(R.id.crating19);
         crate20 = getView().findViewById(R.id.crating20);
-        crate21 = getView().findViewById(R.id.crating21);
 
 
 
@@ -155,21 +153,6 @@ public class FragmentCatQuestionnaire3 extends Fragment {
             }
         });
 
-        cseekBar21.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar cseekBar21, int i, boolean b) {
-                setSeekText(i, crate21);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar cseekBar21) {
-
-            }
-            @Override
-            public void onStopTrackingTouch(SeekBar cseekBar21) {
-
-            }
-        });
 
         cpopup3 = getView().findViewById(R.id.cinstructionsBTN3);
         cpopup3.setOnClickListener(view1 -> showDialog());
@@ -182,7 +165,6 @@ public class FragmentCatQuestionnaire3 extends Fragment {
             mViewModel.setAnswer(18, cseekBar18.getProgress());
             mViewModel.setAnswer(19, cseekBar19.getProgress());
             mViewModel.setAnswer(20, cseekBar20.getProgress());
-            mViewModel.setAnswer(21, cseekBar21.getProgress());
 
             // change screen
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
@@ -193,7 +175,11 @@ public class FragmentCatQuestionnaire3 extends Fragment {
             transaction.commit();
         });
 
+        ImageButton backBtn = getView().findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
+        });
     }
 
     private void setSeekText(int i, TextView j) {
@@ -217,20 +203,7 @@ public class FragmentCatQuestionnaire3 extends Fragment {
     private void showDialog() {
         HelpPopup helpDialog = new HelpPopup("Cat", "Main");
         helpDialog.show(getParentFragmentManager(), "Help Popup");
-        /*
-                final Dialog helpDialog = new Dialog();
-        helpDialog.setContentView(R.layout.help_popup);
-        helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog.show();
-        ImageButton closeBTN = (ImageButton) helpDialog.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog.dismiss();
 
-            }
-        });
-         */
     }
 
 

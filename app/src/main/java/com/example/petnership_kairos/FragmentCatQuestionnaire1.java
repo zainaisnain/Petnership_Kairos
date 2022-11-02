@@ -224,19 +224,7 @@ public class FragmentCatQuestionnaire1 extends Fragment {
     private void showDialog() {
         HelpPopup helpDialog = new HelpPopup("Cat", "Main");
         helpDialog.show(getParentFragmentManager(), "Help Popup");
-        /*
-                final Dialog helpDialog = new Dialog();
-        helpDialog.setContentView(R.layout.help_popup);
-        helpDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        helpDialog.show();
-        ImageButton closeBTN = (ImageButton) helpDialog.findViewById(R.id.closeBTN);
-        closeBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                helpDialog.dismiss();
 
-            }
-        }); */
 
     }
 
