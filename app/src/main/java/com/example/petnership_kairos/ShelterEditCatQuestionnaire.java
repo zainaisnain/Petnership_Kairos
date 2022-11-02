@@ -53,13 +53,16 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
 
     private String shelterUsername;
 
-    private String petName, petAge, petSex, petStatus, petDesc, petID, imageName;
+    private String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, imageName;
 
     //JANNEL
     String[] catBreed =
-            {"Other", "Abyssinian", "American Curl", "American Shorthair", "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese", "Burmilla", "Chartreux",
-                    "Exotic Shorthair", "Himalayan", "Maine Coon", "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin", "Ragdoll", "Russian Blue", "Scottish Fold",
-                    "Siamese", "Siberian", "Snowshoe", "Sphynx", "Tonkinese", "Turkish Angora", "Turkish Van"};
+            {"Other", "Puspin", "Abyssinian", "American Curl", "American Shorthair",
+                    "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese",
+                    "Burmilla", "Chartreux", "Exotic Shorthair", "Himalayan", "Maine Coon",
+                    "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin", "Ragdoll",
+                    "Russian Blue", "Scottish Fold", "Siamese", "Siberian", "Snowshoe",
+                    "Sphynx", "Tonkinese", "Turkish Angora", "Turkish Van"};
 
     Spinner catBreedTxt;
 
@@ -89,6 +92,8 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
 
         ShelterEditCat editCatInfo = new ShelterEditCat();
         petName = editCatInfo.petName;
+        petAgeNum = editCatInfo.petAgeNum;
+        petAgeDD = editCatInfo.petAgeDD;
         petAge = editCatInfo.petAge;
         petSex = editCatInfo.petSex;
         petStatus = editCatInfo.petStatus;
@@ -165,7 +170,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         //Q9
         catBreedTxt = view.findViewById(R.id.catType);
         //What dog breed
-        ArrayAdapter<String> catBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, catBreed);
+        catBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, catBreed);
         catBreedTxt.setAdapter(catBreedAdapter);
         etOtherBreed = view.findViewById(R.id.cat_breed_other_et);
         etOtherBreed.setEnabled(false);
@@ -201,32 +206,33 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                 if(q9.equals("Other")){
                     q9 = etOtherBreed.getText().toString().trim().toLowerCase();
                 }
-                CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
-                Bundle bundle = new Bundle();
-                bundle.putInt("q1", q1);
-                bundle.putInt("q2", q2);
-                bundle.putInt("q3", q3);
-                bundle.putInt("q4", q4);
-                bundle.putInt("q5", q5);
-                bundle.putInt("q6", q6);
-                bundle.putInt("q7", q7);
-                bundle.putInt("q8", q8);
-                bundle.putString("q9", q9);
-                catPetProfileSummary.setArguments(bundle);
+                if(q9.isEmpty()){
+                    etOtherBreed.requestFocus();
+                    Toast.makeText(getActivity(), "Please set cat's breed.", Toast.LENGTH_LONG).show();
+                    return;
+                }else {
+                    CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("q1", q1);
+                    bundle.putInt("q2", q2);
+                    bundle.putInt("q3", q3);
+                    bundle.putInt("q4", q4);
+                    bundle.putInt("q5", q5);
+                    bundle.putInt("q6", q6);
+                    bundle.putInt("q7", q7);
+                    bundle.putInt("q8", q8);
+                    bundle.putString("q9", q9);
+                    catPetProfileSummary.setArguments(bundle);
 
-                String petType = "cat";
-                CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus,
-                        petDesc, imageName,petID, q1,q2,q3,q4,q5,
-                        q6,q7,q8,q9, petType);
-                petsCatsDBRef.child(petID).setValue(catAnswers);
-                allPetsDBRef.child(petID).setValue(catAnswers);
-                addToShelterDB();
-                startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
-
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-////                    CatPetProfileSummary  catPetProfileSummary = new CatPetProfileSummary();
-//                transaction.replace(R.id.nav_host_fragment, catPetProfileSummary);
-//                transaction.commit();
+                    String petType = "cat";
+                    CatAnswers catAnswers = new CatAnswers(shelter, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
+                            petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                            q6,q7,q8,q9, petType);
+                    petsCatsDBRef.child(petID).setValue(catAnswers);
+                    allPetsDBRef.child(petID).setValue(catAnswers);
+                    addToShelterDB();
+                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
+                }
             }
         });
 
@@ -364,6 +370,8 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                 }
 
                 q9 = (String) snapshot.child("q9").getValue();
+                int q9Position = catBreedAdapter.getPosition(q9);
+                catBreedTxt.setSelection(q9Position);
 
             }
 
@@ -547,7 +555,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, imageName, petID);
+                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
                                     snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");
