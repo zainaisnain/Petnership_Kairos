@@ -374,7 +374,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
                                                         databaseReference.child("Adopters").child(username).setValue(adopter);
 
-                                                        User user = new User(email, username, "adopter");
+                                                        boolean manuallyVerified = false;
+                                                        User user = new User(email, username, "adopter", manuallyVerified);
 
                                                         databaseReference.child("Users").child(username).setValue(user);
 
