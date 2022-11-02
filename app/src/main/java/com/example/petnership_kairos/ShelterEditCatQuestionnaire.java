@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+
 public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClickListener {
 
     private CatPetProfileViewModel mViewModel;
@@ -370,9 +372,13 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                 }
 
                 q9 = (String) snapshot.child("q9").getValue();
-                int q9Position = catBreedAdapter.getPosition(q9);
-                catBreedTxt.setSelection(q9Position);
 
+                if(!Arrays.asList(catBreed).contains(q9)){
+                    etOtherBreed.setText(q9);
+                }else{
+                    int q9Position = catBreedAdapter.getPosition(q9);
+                    catBreedTxt.setSelection(q9Position);
+                }
             }
 
             @Override

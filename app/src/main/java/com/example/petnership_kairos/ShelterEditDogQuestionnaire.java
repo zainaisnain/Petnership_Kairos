@@ -30,6 +30,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+
 public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClickListener{
 
     private DogPetProfileViewModel mViewModel;
@@ -402,8 +404,13 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                 }
 
                 q10 = (String) snapshot.child("q10").getValue();
-                int q10Position = dogBreedAdapter.getPosition(q10);
-                dogBreedTxt.setSelection(q10Position);
+                if(!Arrays.asList(dogBreed).contains(q10)){
+                    etOtherBreed.setText(q10);
+                }else{
+                    int q10Position = dogBreedAdapter.getPosition(q10);
+                    dogBreedTxt.setSelection(q10Position);
+                }
+
 
                 q11 = (int) snapshot.child("q11").getValue(Integer.class);
                 if(q11==1){
