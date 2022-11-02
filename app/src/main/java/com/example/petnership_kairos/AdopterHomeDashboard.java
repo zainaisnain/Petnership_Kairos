@@ -240,16 +240,12 @@ public class AdopterHomeDashboard extends Fragment {
                                 snapshot.child(adopterID).child("country").getValue();
 
 
-
-//                System.out.println("shelterUsername " + shelterUsername);
-
                         adoptersDBRef.child(adopterID).child("imageName").
                                 addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                         adopterImageName = String.valueOf(snapshot.getValue());
-//                                System.out.println("shelterImageName1 == " + shelterImageName);
 
                                         if(adopterImageName.isEmpty() || adopterImageName == null){
                                             return;
