@@ -55,7 +55,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterUsername, petName, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String shelterUsername, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
 
     //JANNEL
     String[] dogBreed =
@@ -95,6 +95,8 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
 
         AddDog addDogInfo = new AddDog();
         petName = addDogInfo.petName;
+        petAgeNum = addDogInfo.petAgeNum;
+        petAgeDD = addDogInfo.petAgeDD;
         petAge = addDogInfo.petAge;
         petSex = addDogInfo.petSex;
         petStatus = addDogInfo.petStatus;
@@ -292,7 +294,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                     dogPetProfileSummary.setArguments(bundle);
 
                     String petType = "dog";
-                    DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
+                    DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
                             q6,q7,q8,q9,q10,q11,petType);
                     petsDogsDBRef.child(petID).setValue(dogAnswers);
                     allPetsDBRef.child(petID).setValue(dogAnswers);
@@ -536,7 +538,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, petImage, petID);
+                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
                                     snapshot.child(shelterUsername).child("Dogs").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

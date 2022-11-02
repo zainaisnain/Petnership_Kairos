@@ -44,9 +44,7 @@ public class  AddDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetDescription;
     private Button proceedBtn, uploadBtn, backBtn;
-    protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
-    private String petAgeNum, petAgeDD;
-
+    protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
 
