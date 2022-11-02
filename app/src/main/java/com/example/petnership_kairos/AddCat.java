@@ -375,6 +375,7 @@ public class AddCat extends Fragment {
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                         ShelterCatQuestionnaire ShelterCatQuestionnaire = new ShelterCatQuestionnaire();
                         transaction.replace(R.id.nav_host_fragment, ShelterCatQuestionnaire);
+                        transaction.addToBackStack("addCat");
                         transaction.commit();
                     }
                 }
