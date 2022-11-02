@@ -149,10 +149,10 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_shelter_change_password:
-                FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
                 UserChangePassword userChangePassword = new UserChangePassword();
-                transaction2.replace(R.id.nav_host_fragment, userChangePassword);
-                transaction2.commit();
+                transaction4.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction4.commit();
                 break;
 
             case R.id.nav_logout:
