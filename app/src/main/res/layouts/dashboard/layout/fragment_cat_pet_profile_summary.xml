@@ -320,71 +320,104 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.026" />
 
-                        <TextView
-                            android:id="@+id/catcateg10"
-                            android:layout_width="75dp"
-                            android:layout_height="43dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:text="toward humans:"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.213"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.506" />
-
-                        <TextView
-                            android:id="@+id/catcateg11"
-                            android:layout_width="75dp"
-                            android:layout_height="43dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:text="toward pets:"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.213"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="1.0" />
-
-                        <TextView
-                            android:id="@+id/catlevel4a"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:id="@+id/catcateglinear4a"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_black"
-                            android:text="LEVEL"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.89"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.504" />
+                            app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:id="@+id/catlevel4b"
-                            android:layout_width="wrap_content"
+                            <TextView
+                                android:id="@+id/catcateg10"
+                                android:layout_width="70dp"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center"
+                                android:text="toward humans:"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.213"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.506" />
+
+                            <TextView
+                                android:id="@+id/catlevel4a"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="6dp"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/montserrat_black"
+                                android:text="LEVEL"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.89"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.504" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/catcateglinear4b"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat_black"
-                            android:text="LEVEL"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
+                            android:layout_margin="5dp"
+                            android:orientation="horizontal"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.89"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.844" />
+                            app:layout_constraintEnd_toEndOf="@+id/catcateglinear4a"
+                            app:layout_constraintStart_toStartOf="@+id/catcateglinear4a"
+                            app:layout_constraintTop_toBottomOf="@+id/catcateglinear4a">
+
+
+                            <TextView
+                                android:id="@+id/catcateg11"
+                                android:layout_width="70dp"
+                                android:layout_height="40dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center"
+                                android:text="toward pets:"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.213"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="1.0" />
+
+                            <TextView
+                                android:id="@+id/catlevel4b"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/montserrat_black"
+                                android:paddingLeft="6dp"
+                                android:text="LEVEL"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.89"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.844" />
+
+
+                        </LinearLayout>
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

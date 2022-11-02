@@ -181,8 +181,7 @@ public class AdopterEditInfo extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
+                showcancelDialog();
             }
         });
 
@@ -263,8 +262,7 @@ public class AdopterEditInfo extends AppCompatActivity {
         yesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.adopterEdit, new AdopterHomeDashboard()).commit();
+                onBackPressed();
                 cancelDialog.dismiss();
             }
         });

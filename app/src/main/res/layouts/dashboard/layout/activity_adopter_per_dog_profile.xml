@@ -300,72 +300,100 @@
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.092" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg"
-                                android:layout_width="75dp"
-                                android:layout_height="43dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="obedience:"
-                                android:textColor="@color/white"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.186"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.506" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg2"
-                                android:layout_width="85dp"
-                                android:layout_height="39dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="adaptability:"
-                                android:textColor="@color/white"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.061"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.855" />
-
-                            <TextView
-                                android:id="@+id/adopter_doglevel4b2"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:id="@+id/dogcateglinear"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.89"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.805" />
+                                app:layout_constraintTop_toTopOf="parent">
 
-                            <TextView
-                                android:id="@+id/adopter_doglevel4a2"
-                                android:layout_width="wrap_content"
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg"
+                                    android:layout_width="75dp"
+                                    android:layout_height="43dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="obedience:"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.186"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.506" />
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel4a2"
+                                    android:layout_width="70dp"
+                                    android:paddingLeft="5dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.89"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.514" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.89"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.514" />
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="@+id/dogcateglinear"
+                                app:layout_constraintEnd_toEndOf="@+id/dogcateglinear"
+                                app:layout_constraintStart_toStartOf="@+id/dogcateglinear"
+                                app:layout_constraintTop_toBottomOf="@+id/dogcateglinear">
+
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg2"
+                                    android:layout_width="75dp"
+                                    android:layout_height="39dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="adaptability:"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.061"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.855" />
+
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel4b2"
+                                    android:layout_width="70dp"
+                                    android:paddingLeft="5dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.89"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.805" />
+
+                            </LinearLayout>
+
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -478,72 +506,6 @@
 
 
                             <TextView
-                                android:id="@+id/adopter_doglevel4a3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.89"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.504" />
-
-                            <TextView
-                                android:id="@+id/adopter_doglevel4b3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.89"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.805" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg3"
-                                android:layout_width="84dp"
-                                android:layout_height="36dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="non-drooling:"
-                                android:textColor="@color/white"
-                                android:textSize="11sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.061"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.855" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg4"
-                                android:layout_width="75dp"
-                                android:layout_height="43dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="non-shedding:"
-                                android:textColor="@color/white"
-                                android:textSize="10sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.173"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.506" />
-
-                            <TextView
                                 android:id="@+id/adopter_dogcat2"
                                 android:layout_width="123dp"
                                 android:layout_height="46dp"
@@ -560,7 +522,103 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.092" />
 
+                            <LinearLayout
+                                android:id="@+id/dogcateglinear2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg4"
+                                    android:layout_width="70dp"
+                                    android:layout_height="43dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="non - shedding:"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.173"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.506" />
+
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel4a3"
+                                    android:layout_width="70dp"
+                                    android:paddingLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.89"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.504" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="@+id/dogcateglinear2"
+                                app:layout_constraintEnd_toEndOf="@+id/dogcateglinear2"
+                                app:layout_constraintStart_toStartOf="@+id/dogcateglinear2"
+                                app:layout_constraintTop_toBottomOf="@+id/dogcateglinear2">
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg3"
+                                    android:layout_width="70dp"
+                                    android:layout_height="36dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="non - drooling:"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:layout_marginTop="15dp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.061"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.855" />
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel4b3"
+                                    android:layout_width="70dp"
+                                    android:paddingLeft="5dp"
+                                    android:layout_marginTop="25dp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.89"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.805" />
+
+                            </LinearLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -624,106 +682,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.672">
 
-
-                            <TextView
-                                android:id="@+id/adopter_doglevel5c"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.843"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.951" />
-
-                            <TextView
-                                android:id="@+id/adopter_doglevel5a"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.843"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.417" />
-
-                            <TextView
-                                android:id="@+id/adopter_doglevel5b"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/montserrat_black"
-                                android:text="LEVEL"
-                                android:textColor="@color/white"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.843"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.679" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg5"
-                                android:layout_width="103dp"
-                                android:layout_height="39dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="toward humans:"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.123"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.402" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg6"
-                                android:layout_width="96dp"
-                                android:layout_height="37dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="toward pets:"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.187"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="0.705" />
-
-                            <TextView
-                                android:id="@+id/adopter_dogdogeg7"
-                                android:layout_width="96dp"
-                                android:layout_height="37dp"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:gravity="center"
-                                android:text="environment:"
-                                android:textColor="@color/white"
-                                android:textSize="12sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="0.148"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintVertical_bias="1.0" />
-
                             <TextView
                                 android:id="@+id/adopter_dogcat5"
                                 android:layout_width="123dp"
@@ -740,6 +698,143 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintVertical_bias="0.0" />
 
+                            <LinearLayout
+                                android:id="@+id/dogcateglinear5a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg5"
+                                    android:layout_width="150dp"
+                                    android:layout_height="39dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="toward humans:"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.123"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.402" />
+                                <TextView
+                                    android:id="@+id/adopter_doglevel5a"
+                                    android:layout_width="wrap_content"
+                                    android:paddingLeft="@dimen/_60sdp"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.843"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.417" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/adopter_dogcateglinear5b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="@id/dogcateglinear5a"
+                                app:layout_constraintEnd_toEndOf="@id/dogcateglinear5a"
+                                app:layout_constraintStart_toStartOf="@id/dogcateglinear5a"
+                                app:layout_constraintTop_toBottomOf="@+id/dogcateglinear5a">
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg6"
+                                    android:layout_width="150dp"
+                                    android:layout_height="37dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="toward pets:"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.187"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.705" />
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel5b"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:paddingLeft="@dimen/_60sdp"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.843"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.679" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/adopter_dogcateglinear5c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/dogcateglinear5a">
+
+                                <TextView
+                                    android:id="@+id/adopter_dogdogeg7"
+                                    android:layout_width="150dp"
+                                    android:layout_height="37dp"
+                                    android:fontFamily="@font/montserrat_reg"
+                                    android:gravity="center"
+                                    android:text="environment:"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.148"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="1.0" />
+
+                                <TextView
+                                    android:id="@+id/adopter_doglevel5c"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_black"
+                                    android:paddingLeft="@dimen/_60sdp"
+                                    android:text="LEVEL"
+                                    android:textColor="@color/white"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.843"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.951" />
+                            </LinearLayout>
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -791,6 +886,8 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -822,8 +919,11 @@
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/adopter_per_dog_back_btn"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="@drawable/button2"
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
