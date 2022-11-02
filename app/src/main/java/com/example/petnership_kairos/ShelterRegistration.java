@@ -184,7 +184,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         String owner = editTextOwner.getText().toString().trim();
         String email = editTextEmail.getText().toString().toLowerCase();
         String username = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString();
+        String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
         String website = editTextWebsite.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();

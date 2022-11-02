@@ -252,7 +252,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         String lname = editTextLname.getText().toString().trim();
         String email = editTextEmail.getText().toString().toLowerCase();
         String username = editTextUsername.getText().toString().trim();
-        String password = editTextPassword.getText().toString();
+        String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();
         String street = editTextStreet.getText().toString().trim();
