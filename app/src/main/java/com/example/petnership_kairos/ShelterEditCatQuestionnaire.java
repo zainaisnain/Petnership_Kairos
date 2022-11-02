@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Arrays;
+
 public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClickListener {
 
     private CatPetProfileViewModel mViewModel;
@@ -224,12 +226,6 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     bundle.putString("q9", q9);
                     catPetProfileSummary.setArguments(bundle);
 
-                    String petType = "cat";
-                    CatAnswers catAnswers = new CatAnswers(shelter, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
-                            petDesc, imageName,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9, petType);
-                    petsCatsDBRef.child(petID).setValue(catAnswers);
-                    allPetsDBRef.child(petID).setValue(catAnswers);
                     addToShelterDB();
                     startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
@@ -370,9 +366,13 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                 }
 
                 q9 = (String) snapshot.child("q9").getValue();
-                int q9Position = catBreedAdapter.getPosition(q9);
-                catBreedTxt.setSelection(q9Position);
 
+                if(!Arrays.asList(catBreed).contains(q9)){
+                    etOtherBreed.setText(q9);
+                }else{
+                    int q9Position = catBreedAdapter.getPosition(q9);
+                    catBreedTxt.setSelection(q9Position);
+                }
             }
 
             @Override
@@ -540,6 +540,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
     }
 
     public void addToShelterDB(){
+
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -549,6 +550,12 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                             shelterUsername = ds.getKey();
                         }
 
+                        String petType = "cat";
+                        CatAnswers catAnswers = new CatAnswers(shelter, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
+                                petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                                q6,q7,q8,q9, petType);
+                        petsCatsDBRef.child(petID).setValue(catAnswers);
+                        allPetsDBRef.child(petID).setValue(catAnswers);
                         System.out.println("shelterUsername (ShelterEditCatQuestionnaire) --- " + shelterUsername);
 
                         sheltersDBRef.addValueEventListener(new ValueEventListener() {

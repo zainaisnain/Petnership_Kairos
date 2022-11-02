@@ -247,7 +247,7 @@ public class ShelterEditCat extends Fragment {
                 petAgeNum = etPetAge.getText().toString().trim();
                 petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
-                petImage = imageName;
+//                petImage = imageName;
 
 
                 System.out.println("PET ID == " + petID);
@@ -331,7 +331,8 @@ public class ShelterEditCat extends Fragment {
     // UploadImage method
     private void uploadImage()
     {
-        imageName = UUID.randomUUID().toString();
+//        imageName = UUID.randomUUID().toString();
+        petImage = UUID.randomUUID().toString();
         if (filePath != null) {
 
             // Code for showing progressDialog while uploading
@@ -345,7 +346,7 @@ public class ShelterEditCat extends Fragment {
                     = storageReference
                     .child(
                             "Pets/"
-                                    + imageName);
+                                    + petImage);
 
             // adding listeners on upload
             // or failure of image
@@ -436,14 +437,20 @@ public class ShelterEditCat extends Fragment {
                 petDesc = String.valueOf(snapshot.child("petDesc").getValue());
                 etPetDescription.setText(petDesc);
 
-                imageName = String.valueOf(snapshot.child("imageName").getValue());
-                storageReference.child("Pets/").child(imageName).getDownloadUrl()
-                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
-                            }
-                        });
+                petImage = String.valueOf(snapshot.child("imageName").getValue());
+
+                if(petImage.isEmpty() || petImage == null){
+                    return;
+                }else{
+                    storageReference.child("Pets/").child(petImage).getDownloadUrl()
+                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
+                                }
+                            });
+                }
+
             }
 
             @Override
