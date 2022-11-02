@@ -90,23 +90,23 @@ public class UserChangePassword extends Fragment {
                                 confirmNewPasswordET.setError("Password should be at least 6 characters.");
                                 confirmNewPasswordET.requestFocus();
                                 return;
-                            } else if(newPassword.equals(confirmNewPassword)){
-
-                                user.updatePassword(newPassword)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    Log.d(TAG, "User password updated.");
-                                                }
-                                            }
-                                        });
                             } else if (!newPassword.equals(confirmNewPassword)){
                                 newPasswordET.setError("Password do not match.");
                                 newPasswordET.requestFocus();
                                 confirmNewPasswordET.setError("Passwords do not match.");
                                 confirmNewPasswordET.requestFocus();
                                 return;
+                            } else if(newPassword.equals(confirmNewPassword)) {
+                                user.updatePassword(newPassword)
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    //TODO: INSERT DIALOG HERE
+                                                    Log.d(TAG, "User password updated.");
+                                                }
+                                            }
+                                        });
                             }
                         }else {
                             currentPasswordET.setError("Incorrect Current Password");
