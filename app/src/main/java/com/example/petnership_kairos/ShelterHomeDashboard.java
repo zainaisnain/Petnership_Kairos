@@ -173,12 +173,17 @@ public class ShelterHomeDashboard extends Fragment {
 //                                System.out.println("shelterImageName1 == " + shelterImageName);
 
                                 //DISPLAY IMAGE TO IMAGE VIEW
-                                storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
-                                    }
-                                });
+                                if(shelterImageName.isEmpty() || shelterImageName == null){
+                                    return;
+                                }else{
+                                    storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
+                                        }
+                                    });
+
+                                }
 
                             }
 
