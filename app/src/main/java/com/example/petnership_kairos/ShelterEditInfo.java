@@ -242,7 +242,9 @@ public class ShelterEditInfo extends AppCompatActivity {
             public void onClick(View arg0) {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                fragmentTransaction.replace(R.id.sheltereditInfo, shelterHomeDashboard).commit();
+                fragmentTransaction.replace(R.id.sheltereditInfo, shelterHomeDashboard);
+                fragmentTransaction.addToBackStack("shelterEditInfo");
+                fragmentTransaction.commit();
                 saveDialog.dismiss();
 
             }
