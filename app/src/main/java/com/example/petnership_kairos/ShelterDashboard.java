@@ -182,6 +182,7 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
                 UserChangePassword userChangePassword = new UserChangePassword();
                 transaction4.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction4.addToBackStack("changePassword");
                 transaction4.commit();
                 break;
 

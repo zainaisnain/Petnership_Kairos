@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class UserChangePassword extends Fragment {
     private String currentPassword, newPassword, confirmNewPassword;
 
     private Button changePasswordBtn;
+    private ImageButton backBtn;
 
     public UserChangePassword() {
         // Required empty public constructor
@@ -51,7 +53,14 @@ public class UserChangePassword extends Fragment {
         currentPasswordET = view.findViewById(R.id.user_current_password_et);
         newPasswordET = view.findViewById(R.id.user_new_password_et);
         confirmNewPasswordET = view.findViewById(R.id.user_confirm_new_password_et);
-
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
+                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+            }
+        });
         changePasswordBtn = view.findViewById(R.id.user_change_password_btn);
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
