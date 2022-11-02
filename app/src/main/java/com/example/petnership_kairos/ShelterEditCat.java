@@ -43,7 +43,7 @@ import java.util.UUID;
 public class ShelterEditCat extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
-    private Button proceedBtn, uploadBtn, backBtn;
+    private Button proceedBtn, uploadBtn, back, backBtn;
     protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
     private String petAgeNum, petAgeDD;
 
@@ -89,7 +89,9 @@ public class ShelterEditCat extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_pet, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+
+        return view;
 
     }
     @Override
@@ -135,6 +137,36 @@ public class ShelterEditCat extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
 
+        back = view.findViewById(R.id.petinfo_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                getParentFragmentManager().beginTransaction().addToBackStack("currentCatProfile").commit();
+                MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
+                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag,cancelDialog2);
+
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
+            }
+
+        });
+
         //Set value for Dropdown Sex
         ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -162,16 +194,16 @@ public class ShelterEditCat extends Fragment {
 
         System.out.println("petStatus outside: " + petStatus);
 
-        backBtn = view.findViewById(R.id.petinfo_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfCatsFragment shelterRegisteredCats = new ShelterListOfCatsFragment();
-                transaction.replace(R.id.nav_host_fragment,shelterRegisteredCats);
-                transaction.commit();
-            }
-        });
+//        backBtn = view.findViewById(R.id.petinfo_back);
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterListOfCatsFragment shelterRegisteredCats = new ShelterListOfCatsFragment();
+//                transaction.replace(R.id.nav_host_fragment,shelterRegisteredCats);
+//                transaction.commit();
+//            }
+//        });
 
         //UPLOAD IMAGE
         ivPetInfo = view.findViewById(R.id.pet_info_profile_pic_iv);

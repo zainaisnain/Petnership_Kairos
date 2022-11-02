@@ -161,13 +161,43 @@ public class ShelterEditDog extends Fragment {
         backBtn = view.findViewById(R.id.petinfo_back);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfDogsFragment shelterRegisteredDogs = new ShelterListOfDogsFragment();
-                transaction.replace(R.id.nav_host_fragment,shelterRegisteredDogs);
-                transaction.commit();
+            public void onClick(View v) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
+//                transaction.addToBackStack("currentCatProfile");
+//                transaction.commit();
+
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                getParentFragmentManager().beginTransaction().addToBackStack("currentCatProfile").commit();
+                MyCancelDialogEdit myCancelDialogEdit = new MyCancelDialogEdit();
+                myCancelDialogEdit.show(getParentFragmentManager(), "My Fragment");
+//                transaction.replace(R.id.add_pet_frag,cancelDialog2);
+
+//                transaction.commit();
+//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
+//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
             }
+
         });
+
+//        backBtn = view.findViewById(R.id.petinfo_back);
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterListOfDogsFragment shelterRegisteredDogs = new ShelterListOfDogsFragment();
+//                transaction.replace(R.id.nav_host_fragment,shelterRegisteredDogs);
+//                transaction.commit();
+//            }
+//        });
 
 
         //UPLOAD IMAGE
