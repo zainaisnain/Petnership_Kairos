@@ -174,10 +174,15 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 atHome = false;
                 break;
 
+            case R.id.nav_shelter_update_email:
+                startActivity(new Intent(ShelterDashboard.this, UpdateEmail.class));
+                break;
+
             case R.id.nav_shelter_change_password:
                 FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
                 UserChangePassword userChangePassword = new UserChangePassword();
                 transaction4.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction4.addToBackStack("changePassword");
                 transaction4.commit();
                 break;
 

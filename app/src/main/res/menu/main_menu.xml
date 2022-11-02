@@ -27,7 +27,10 @@
             android:id="@+id/nav_shelter_edit_info"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="Edit Shelter Information" />
-
+        <item
+            android:id="@+id/nav_shelter_update_email"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Update Email" />
         <item
             android:id="@+id/nav_shelter_change_password"
             android:icon="@drawable/ic_baseline_settings_24"

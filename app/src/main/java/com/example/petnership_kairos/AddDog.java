@@ -377,6 +377,7 @@ public class  AddDog extends Fragment {
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     ShelterDogQuestionnaire ShelterDogQuestionnaire = new ShelterDogQuestionnaire();
                     transaction.replace(R.id.nav_host_fragment, ShelterDogQuestionnaire);
+                    transaction.addToBackStack("addDog");
                     transaction.commit();
                 }
             }

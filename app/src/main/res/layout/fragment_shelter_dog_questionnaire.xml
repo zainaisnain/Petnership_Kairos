@@ -12,28 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <ImageButton
-            android:id="@+id/imageBurgerMenu"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_burger_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="#0000"
-            app:tint="@color/black" />
-
-        <ImageButton
-            android:id="@+id/btnBackDog"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            android:layout_marginTop="@dimen/_4sdp"
-            android:src="@drawable/ic_back"
-            android:background="#0000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
-
         <!--    <TextView-->
         <!--        android:id="@+id/ASChoosePetTitle"-->
         <!--        android:layout_width="0dp"-->
@@ -60,7 +38,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/pet_profile"
                 android:fontFamily="@font/playfairdisplayblack"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="80dp"
                 android:textSize="30sp"
                 android:textAlignment="center"
                 android:textColor="@color/secondary_purple"
@@ -788,7 +766,7 @@
                             android:fontFamily="@font/montserrat_reg"
                             android:background="@drawable/round_darkpurple"
                             android:textAllCaps="false"
-                            android:text="prefers"
+                            android:text="The dog is reluctant to be friends with other pets or prefers to be alone."
                             android:textColor="@color/white" />
                     </GridLayout>
 
