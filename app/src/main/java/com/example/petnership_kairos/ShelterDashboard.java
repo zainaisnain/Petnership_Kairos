@@ -119,21 +119,29 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
         {
 
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterHomeDashboard()).commit();
+                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+                transaction1.replace(R.id.nav_host_fragment, shelterHomeDashboard);
+                transaction1.addToBackStack("shelterHomeDashBoard");
+                transaction1.commit();
+                break;
 
             case R.id.nav_reg_pets:
-                FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+                FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
                 ShelterRegisterPets shelterRegisterPets = new ShelterRegisterPets();
-                transaction1.replace(R.id.nav_host_fragment, shelterRegisterPets);
-                transaction1.commit();
+                transaction2.replace(R.id.nav_host_fragment, shelterRegisterPets);
+                transaction2.addToBackStack("shelterRegisterPets");
+                transaction2.commit();
 //                getSupportFragmentManager().beginTransaction().replace(R.id.shelter_dashboard_frag,
 //                        new ShelterRegisterPets()).commit();
                 break;
 
             case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new ShelterListOfPetsFragment()).commit();
+                FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
+                ShelterListOfPetsFragment shelterListOfPets = new ShelterListOfPetsFragment();
+                transaction3.replace(R.id.nav_host_fragment, shelterListOfPets);
+                transaction3.addToBackStack("shelterListOfPets");
+                transaction3.commit();
                 break;
 
             case R.id.nav_shelter_edit_info:

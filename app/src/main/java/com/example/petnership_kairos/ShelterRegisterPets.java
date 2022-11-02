@@ -46,6 +46,7 @@ public class ShelterRegisterPets extends Fragment {
 //                transaction.replace(R.id.nav_host_fragment,ShelterDogQuestionnaire);
                 AddDog addDog = new AddDog();
                 transaction.replace(R.id.nav_host_fragment,addDog);
+                transaction.addToBackStack("addDog");
                 transaction.commit();
             }
         });
@@ -58,18 +59,14 @@ public class ShelterRegisterPets extends Fragment {
 //                transaction.replace(R.id.nav_host_fragment,catPetProfile);
                 AddCat AddCatInfo = new AddCat();
                 transaction.replace(R.id.nav_host_fragment,AddCatInfo);
+                transaction.addToBackStack("addCat");
                 transaction.commit();
             }
         });
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                ShelterCatQuestionnaire catPetProfile = new ShelterCatQuestionnaire();
-//                transaction.replace(R.id.nav_host_fragment,catPetProfile);
-                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.shelterregisterpets, shelterHomeDashboard);
-                transaction.commit();
+                getParentFragmentManager().popBackStack();
             }
         });
 

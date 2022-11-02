@@ -73,8 +73,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewPets"
-            android:layout_width="375dp"
-            android:layout_height="559dp"
+            android:layout_width="377dp"
+            android:layout_height="570dp"
             android:layout_margin="2dp" />
 
     </androidx.cardview.widget.CardView>

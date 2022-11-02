@@ -87,6 +87,7 @@ public class ShelterHomeDashboard extends Fragment {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterListOfPetsFragment shelterRegisteredPets = new ShelterListOfPetsFragment();
                 transaction.replace(R.id.nav_host_fragment,shelterRegisteredPets);
+                transaction.addToBackStack("shelterListOfPets");
                 transaction.commit();
             }
         });
@@ -98,6 +99,7 @@ public class ShelterHomeDashboard extends Fragment {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
                 transaction.replace(R.id.nav_host_fragment,PetDogs);
+                transaction.addToBackStack("shelterListOfDogs");
                 transaction.commit();
             }
         });
@@ -109,6 +111,7 @@ public class ShelterHomeDashboard extends Fragment {
                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                ShelterListOfCatsFragment PetCats = new ShelterListOfCatsFragment();
                transaction.replace(R.id.nav_host_fragment,PetCats);
+               transaction.addToBackStack("shelterListOfCats");
                transaction.commit();
             }
         });
@@ -120,6 +123,7 @@ public class ShelterHomeDashboard extends Fragment {
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                ActiveAdopters activeadptrs = new ActiveAdopters();
 //                transaction.replace(R.id.nav_host_fragment, activeadptrs);
+//                transaction.addToBackStack("activeAdopters");
 //                transaction.commit();
 //            }
 //        });
@@ -130,6 +134,7 @@ public class ShelterHomeDashboard extends Fragment {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             ApplicantsReviewFragment appreviewfrag = new ApplicantsReviewFragment();
             transaction.replace(R.id.nav_host_fragment, appreviewfrag);
+            transaction.addToBackStack("applicantsToReview");
             transaction.commit();
 //                startActivity(new Intent(getActivity(), ShelterToReviewApplication.class));
         }
@@ -142,6 +147,7 @@ public class ShelterHomeDashboard extends Fragment {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 ShelterRegisterPets ShelterRegisterPets = new ShelterRegisterPets();
                 transaction.replace(R.id.nav_host_fragment,ShelterRegisterPets);
+                transaction.addToBackStack("shelterRegisterPets");
                 transaction.commit();
             }
         });

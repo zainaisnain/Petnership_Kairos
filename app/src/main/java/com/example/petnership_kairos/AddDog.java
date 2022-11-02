@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -44,7 +45,10 @@ public class  AddDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetDescription;
     private Button proceedBtn, uploadBtn, backBtn;
+
+    private ImageButton backBtn2;
     protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
 
@@ -102,6 +106,14 @@ public class  AddDog extends Fragment {
                 BackDialog backDialog = new BackDialog();
                 backDialog.show(getParentFragmentManager(), "Back Dialog");
 
+            }
+        });
+        backBtn2 = view.findViewById(R.id.btnBack);
+        backBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BackDialog backDialog = new BackDialog();
+                backDialog.show(getParentFragmentManager(), "Back Dialog");
             }
         });
         return view;
