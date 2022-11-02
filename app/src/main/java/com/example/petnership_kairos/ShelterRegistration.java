@@ -65,7 +65,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
     //DROPDOWNS
     Spinner ddProvince;
     private String shelterProvince;
-
+    String shelterID;
     private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
             "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
             "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
@@ -293,7 +293,8 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         }
 
         mAuth = FirebaseAuth.getInstance();
-        databaseReference.child("Shelters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        shelterID =  databaseReference.child("Shelters").push().getKey();
+        databaseReference.child("Shelters").child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
@@ -307,16 +308,16 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                        @Override
                                                                        public void onComplete(@NonNull Task<Void> task) {
-
                                                                            if(task.isSuccessful()){
-                                                                               Shelter shelter = new Shelter(bizName, owner, email, username,
+
+                                                                               Shelter shelter = new Shelter(shelterID, bizName, owner, email, username,
                                                                                        website, contact, street, city, shelterProvince, country);
 
-                                                                               databaseReference.child("Shelters").child(username).setValue(shelter);
+                                                                               databaseReference.child("Shelters").child(shelterID).setValue(shelter);
 
-                                                                               User user = new User(email, username, "shelter", false);
+                                                                               User user = new User(shelterID, email, username, "shelter", false);
 
-                                                                               databaseReference.child("Users").child(username).setValue(user);
+                                                                               databaseReference.child("Users").child(shelterID).setValue(user);
 
                                                                                startActivity(new Intent(ShelterRegistration.this, UserVerifyEmailDialog.class));
                                                                            }

@@ -1,11 +1,12 @@
 package com.example.petnership_kairos;
 public class Adopter {
-    public String fname, lname, email, username,
+    public String adopterID, fname, lname, email, username,
             contact, street, city, province, country, gender, birthday, imageName;
 
     boolean answeredQuestionnaire;
 
-    public Adopter(String fname, String lname, String email, String username, String contact, String street, String city, String province, String country, String gender, String birthday, String imageName, boolean answeredQuestionnaire) {
+    public Adopter(String adopterID, String fname, String lname, String email, String username, String contact, String street, String city, String province, String country, String gender, String birthday, String imageName, boolean answeredQuestionnaire) {
+        this.adopterID = adopterID;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
