@@ -148,6 +148,13 @@ public class ShelterDashboard extends AppCompatActivity implements NavigationVie
                 startActivity(new Intent(ShelterDashboard.this, ShelterEditInfo.class));
                 break;
 
+            case R.id.nav_shelter_change_password:
+                FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
+                UserChangePassword userChangePassword = new UserChangePassword();
+                transaction2.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction2.commit();
+                break;
+
             case R.id.nav_logout:
                 MyLogoutDialog logoutDialog = new MyLogoutDialog();
                 logoutDialog.show(getSupportFragmentManager(), "My Fragment");

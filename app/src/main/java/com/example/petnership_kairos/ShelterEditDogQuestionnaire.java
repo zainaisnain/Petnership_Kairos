@@ -53,11 +53,11 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterUsername, petName, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String shelterUsername, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
 
     //JANNEL
     String[] dogBreed =
-            {"Other", "Airedale Terriers", "Akitas", "Alaskan Malamutes", "American Staffordshire Terriers", "Anatolian Shepherd Dogs", "Australian Cattle Dogs", "Australian Shepherds", "Basenjis", "Basset Hounds", "Beagles",
+            {"Other", "Aspin", "Airedale Terriers", "Akitas", "Alaskan Malamutes", "American Staffordshire Terriers", "Anatolian Shepherd Dogs", "Australian Cattle Dogs", "Australian Shepherds", "Basenjis", "Basset Hounds", "Beagles",
                     "Belgian Malinois", "Bernese Mountain Dogs", "Bichons Frises", "Biewer Terriers", "Bloodhounds", "Border Collies", "Border Terriers", "Boston Terriers", "Boxers", "Brittanys", "Brussels Griffons", "Bulldogs",
                     "Bullmastiffs", "Bull Terriers", "Cairn Terriers", "Cane Corso", "Cardigan Welsh Corgi", "Cavalier King Charles Spaniels", "Chihuahuas", "Chinese Crested", "Chinese Shar-Pei", "Chow Chows","Collies", "Coton de Tulear",
                     "Dachshunds", "Dalmatians", "Doberman Pinschers", "Dogo Argentinos", "Dogues de Bordeaux", "Fox Terriers (Wire)", "French Bulldogs", "German Shepherd", "Giant Schnauzers", "Great Danes", "Great Pyrenees",
@@ -93,6 +93,8 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
 
         ShelterEditDog editDogInfo = new ShelterEditDog();
         petName = editDogInfo.petName;
+        petAgeNum = editDogInfo.petAgeNum;
+        petAgeDD = editDogInfo.petAgeDD;
         petAge = editDogInfo.petAge;
         petSex = editDogInfo.petSex;
         petStatus = editDogInfo.petStatus;
@@ -177,9 +179,9 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         //Q10
         dogBreedTxt = view.findViewById(R.id.dogType);
         //What dog breed
-        ArrayAdapter<String> dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
+        dogBreedAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, dogBreed);
         dogBreedTxt.setAdapter(dogBreedAdapter);
-        etOtherBreed = view.findViewById(R.id.cat_breed_other_et);
+        etOtherBreed = view.findViewById(R.id.dog_breed_other_et);
         etOtherBreed.setEnabled(false);
 
         dogBreedTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -219,31 +221,35 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                 if(q10.equals("Other")){
                     q10 = etOtherBreed.getText().toString().trim().toLowerCase();
                 }
-                DogPetProfileSummary dogPetProfileSummary = new DogPetProfileSummary();
-                Bundle bundle = new Bundle();
-                bundle.putInt("q1", q1);
-                bundle.putInt("q2", q2);
-                bundle.putInt("q3", q3);
-                bundle.putInt("q4", q4);
-                bundle.putInt("q5", q5);
-                bundle.putInt("q6", q6);
-                bundle.putInt("q7", q7);
-                bundle.putInt("q8", q8);
-                bundle.putInt("q9", q9);
-                bundle.putString("q10", q10);
-                bundle.putInt("q11", q11);
-                dogPetProfileSummary.setArguments(bundle);
 
-                String petType = "dog";
-                DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
-                        q6,q7,q8,q9,q10,q11,petType);
-                petsDogsDBRef.child(petID).setValue(dogAnswers);
-                allPetsDBRef.child(petID).setValue(dogAnswers);
-                addToShelterDB();
-                startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
-//                transaction.commit();
+                if(q10.isEmpty()){
+                    etOtherBreed.requestFocus();
+                    Toast.makeText(getActivity(), "Please set dog's breed.", Toast.LENGTH_LONG).show();
+                    return;
+                }else{
+                    DogPetProfileSummary dogPetProfileSummary = new DogPetProfileSummary();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("q1", q1);
+                    bundle.putInt("q2", q2);
+                    bundle.putInt("q3", q3);
+                    bundle.putInt("q4", q4);
+                    bundle.putInt("q5", q5);
+                    bundle.putInt("q6", q6);
+                    bundle.putInt("q7", q7);
+                    bundle.putInt("q8", q8);
+                    bundle.putInt("q9", q9);
+                    bundle.putString("q10", q10);
+                    bundle.putInt("q11", q11);
+                    dogPetProfileSummary.setArguments(bundle);
+
+                    String petType = "dog";
+                    DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
+                            q6,q7,q8,q9,q10,q11,petType);
+                    petsDogsDBRef.child(petID).setValue(dogAnswers);
+                    allPetsDBRef.child(petID).setValue(dogAnswers);
+                    addToShelterDB();
+                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
+                }
             }
         });
 
@@ -396,6 +402,8 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                 }
 
                 q10 = (String) snapshot.child("q10").getValue();
+                int q10Position = dogBreedAdapter.getPosition(q10);
+                dogBreedTxt.setSelection(q10Position);
 
                 q11 = (int) snapshot.child("q11").getValue(Integer.class);
                 if(q11==1){
@@ -642,7 +650,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, petImage, petID);
+                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
                                     snapshot.child(shelterUsername).child("Dogs").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

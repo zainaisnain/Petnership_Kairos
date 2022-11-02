@@ -45,10 +45,11 @@ import java.util.UUID;
 public class ShelterEditDog extends Fragment {
 
     private EditText etPetName, etPetAge, etPetSex, etPetDescription;
+
     private Button proceedBtn, uploadBtn, back;
     private ImageButton backBtn;
-    protected static String petName, petAge, petSex, petStatus, petDesc, petID, petImage;
-    private String petAgeNum, petAgeDD;
+
+    protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -73,14 +74,17 @@ public class ShelterEditDog extends Fragment {
     //DROPDOWN AGE
     Spinner ddAge;
     String[] ddAgeValues = {" Week(s)", " Month(s)", " Year(s)"};
+    ArrayAdapter<String> ageAdapter;
 
     //DROPDOWN SEX
     Spinner ddSex;
     String[] ddSexValues = {"Female", "Male"};
+    ArrayAdapter<String> sexAdapter;
 
     //DROPDOWN STATUS
     Spinner ddStatus;
     String[] ddStatusValues = {"Available", "Not Available"};
+    ArrayAdapter<String> statusAdapter;
 
     public ShelterEditDog() {}
 
@@ -114,17 +118,17 @@ public class ShelterEditDog extends Fragment {
         //AGE
         etPetAge = view.findViewById(R.id.pet_age_et);
         ddAge = view.findViewById(R.id.pet_age_dd);
-        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
+        ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
         ddAge.setAdapter(ageAdapter);
 
         //SEX
         ddSex = view.findViewById(R.id.pet_sex_dd);
-        ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
+        sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
         ddSex.setAdapter(sexAdapter);
 
         //STATUS
         ddStatus = view.findViewById(R.id.shelter_adoption_application_status);
-        ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
+        statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
         ddStatus.setAdapter(statusAdapter);
 
         //DESCRIPTION
@@ -403,7 +407,20 @@ public class ShelterEditDog extends Fragment {
 
                 petAge = String.valueOf(snapshot.child("petAge").getValue());
 
-                petSex = String.valueOf(snapshot.child("petSex").getValue());
+                petAgeNum = (String) snapshot.child("petAgeNum").getValue();
+                etPetAge.setText(petAgeNum);
+
+                petAgeDD = (String) snapshot.child("petAgeDD").getValue();
+                int agePosition = ageAdapter.getPosition(petAgeDD);
+                ddAge.setSelection(agePosition);
+
+                petSex = (String) snapshot.child("petSex").getValue();
+                int sexPosition = sexAdapter.getPosition(petSex);
+                ddSex.setSelection(sexPosition);
+
+                petStatus = (String) snapshot.child("petStatus").getValue();
+                int statusPosition = statusAdapter.getPosition(petStatus);
+                ddStatus.setSelection(statusPosition);
 
                 petDesc = String.valueOf(snapshot.child("petDesc").getValue());
                 etPetDescription.setText(petDesc);

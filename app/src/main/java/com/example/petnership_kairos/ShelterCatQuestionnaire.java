@@ -57,14 +57,15 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
 
     private String shelterUsername;
 
-    private String petName, petAge, petSex, petStatus, petDesc, petID, imageName;
+    private String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, imageName;
 
     //JANNEL
     String[] catBreed =
-            {"Other", "Abyssinian", "American Curl", "American Shorthair", "Bengal", "Birman", "Bombay",
-                    "British Shorthair", "Burmese", "Burmilla", "Chartreux", "Exotic Shorthair",
-                    "Himalayan", "Maine Coon", "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin",
-                    "Ragdoll", "Russian Blue", "Scottish Fold", "Siamese", "Siberian", "Snowshoe",
+            {"Other", "Puspin", "Abyssinian", "American Curl", "American Shorthair",
+                    "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese",
+                    "Burmilla", "Chartreux", "Exotic Shorthair", "Himalayan", "Maine Coon",
+                    "Nebelung", "Norwegian Forest", "Persian", "Ragamuffin", "Ragdoll",
+                    "Russian Blue", "Scottish Fold", "Siamese", "Siberian", "Snowshoe",
                     "Sphynx", "Tonkinese", "Turkish Angora", "Turkish Van"};
 
     Spinner catBreedTxt;
@@ -94,6 +95,8 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
 
         AddCat addCatInfo = new AddCat();
         petName = addCatInfo.petName;
+        petAgeNum = addCatInfo.petAgeNum;
+        petAgeDD = addCatInfo.petAgeDD;
         petAge = addCatInfo.petAge;
         petSex = addCatInfo.petSex;
         petStatus = addCatInfo.petStatus;
@@ -266,7 +269,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                     catPetProfileSummary.setArguments(bundle);
 
                     String petType = "cat";
-                    CatAnswers catAnswers = new CatAnswers(shelter,petName, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                    CatAnswers catAnswers = new CatAnswers(shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
                             q6,q7,q8,q9, petType);
                     petsCatsDBRef.child(petID).setValue(catAnswers);
                     allPetsDBRef.child(petID).setValue(catAnswers);
@@ -467,7 +470,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterUsername)){
-                                    Pet pet = new Pet(petName, petAge, petSex, petStatus, petDesc, imageName, petID);
+                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
                                     snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

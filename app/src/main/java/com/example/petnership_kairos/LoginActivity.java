@@ -101,7 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
-                                        if (mAuth.getCurrentUser().isEmailVerified()){
+                                        boolean manuallyVerified = (boolean) snapshot.child(username).child("manuallyVerified").getValue();
+                                        if(manuallyVerified){
                                             usersDbRef.child(username).child("userType")
                                                     .addListenerForSingleValueEvent(new ValueEventListener() {
                                                         @Override
@@ -121,7 +122,28 @@ public class LoginActivity extends AppCompatActivity {
                                                         }
                                                     });
                                         }else{
-                                            startActivity(new Intent(LoginActivity.this, UserVerifyEmailDialog.class));
+                                            if (mAuth.getCurrentUser().isEmailVerified()){
+                                                usersDbRef.child(username).child("userType")
+                                                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                            @Override
+                                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                                String userType = snapshot.getValue(String.class);
+
+                                                                if(userType.equals("adopter")){
+                                                                    startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                                                }else if(userType.equals("shelter")) {
+                                                                    startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
+                                                                }
+                                                            }
+
+                                                            @Override
+                                                            public void onCancelled(@NonNull DatabaseError error) {
+                                                                System.out.println("on cancelled");
+                                                            }
+                                                        });
+                                            }else{
+                                                startActivity(new Intent(LoginActivity.this, UserVerifyEmailDialog.class));
+                                            }
                                         }
                                     }
                                     else
