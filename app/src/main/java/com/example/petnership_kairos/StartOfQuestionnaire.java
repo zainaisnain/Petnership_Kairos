@@ -37,7 +37,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_drawer);
+        setContentView(R.layout.activity_drawer_adopter);
 
 
 //        if(currUser == null)
@@ -60,14 +60,10 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         /**
          * Hooks
          */
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout_adopter);
+        navigationView = findViewById(R.id.nav_view_adopter);
         toolbar = findViewById(R.id.main_toolbar);
 
-        /**
-         * Tool bar
-         */
-        setSupportActionBar(toolbar);
 
         /**
          * Navigation Drawer Menu
@@ -77,7 +73,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_home);
+        navigationView.setCheckedItem(R.id.nav_adoptHome);
     }
 
 
@@ -98,7 +94,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
                 AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
                 transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
                 transaction.commit();
-                //super.onBackPressed();
+                super.onBackPressed();
             } else {
                 getSupportFragmentManager().popBackStack();
             }
@@ -113,20 +109,40 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch(item.getItemId())
         {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new home()).commit();
+
+            case R.id.nav_adoptHome:
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                AdopterHomeDashboard adopterHome = new AdopterHomeDashboard();
+                transaction.replace(R.id.nav_host_fragment,adopterHome);
+                transaction.commit();
                 break;
 
-            case R.id.nav_reg_my_pets:
-                getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                        new PetProfileDogs()).commit();
+            case R.id.nav_appHistory:
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
+                transaction.replace(R.id.nav_host_fragment,applicationHistory);
+                transaction.commit();
+                break;
+
+            case R.id.nav_adoptAPet:
+                startActivity(new Intent(this, StartOfQuestionnaire.class));
+                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+                break;
+
+            case R.id.nav_browseAnimals:
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                BrowseAnimals browseAnimals = new BrowseAnimals();
+                transaction.replace(R.id.nav_host_fragment,browseAnimals);
+                transaction.commit();
                 break;
 
             case R.id.nav_logout:
-                userLogout();
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+//                userLogout();
                 break;
 
 
