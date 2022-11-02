@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -56,6 +57,12 @@ public class UserChangePassword extends Fragment {
         changePasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+//                FragmentTransaction openDialog = getParentFragmentManager().beginTransaction();
+//                PasswordChangeSavedDialog passwordChangeSavedDialog = new PasswordChangeSavedDialog();
+//                openDialog.replace(R.id.user_change_password_frag, passwordChangeSavedDialog);
+//                openDialog.commit();
+
                 currentPassword = currentPasswordET.getText().toString().trim();
                 newPassword = newPasswordET.getText().toString().trim();
                 confirmNewPassword = confirmNewPasswordET.getText().toString().trim();
@@ -103,6 +110,8 @@ public class UserChangePassword extends Fragment {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
                                                     //TODO: INSERT DIALOG HERE
+                                                    PasswordChangeSavedDialog passwordChangeSavedDialog = new PasswordChangeSavedDialog();
+                                                    passwordChangeSavedDialog.show(getParentFragmentManager(), "My Fragment");
                                                     Log.d(TAG, "User password updated.");
                                                 }
                                             }
@@ -116,6 +125,7 @@ public class UserChangePassword extends Fragment {
                     }
                 });
             }
+
         });
     }
 
