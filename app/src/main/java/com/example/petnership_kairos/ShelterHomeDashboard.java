@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -81,39 +82,37 @@ public class ShelterHomeDashboard extends Fragment {
         ivShelterImage = view.findViewById(R.id.adopterImage);
 
         card1 = view.findViewById(R.id.registeredPets);
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfPetsFragment shelterRegisteredPets = new ShelterListOfPetsFragment();
-                transaction.replace(R.id.nav_host_fragment,shelterRegisteredPets);
-                transaction.addToBackStack("shelterListOfPets");
-                transaction.commit();
-            }
+        card1.setOnClickListener(v -> {
+            FragmentManager fm = getParentFragmentManager();
+
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            ShelterListOfPetsFragment shelterRegisteredPets = new ShelterListOfPetsFragment();
+            transaction.replace(R.id.nav_host_fragment, shelterRegisteredPets);
+            transaction.addToBackStack("Shelter Registered Pets");
+            transaction.commit();
         });
 
         card2 = view.findViewById(R.id.dogs);
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
-                transaction.replace(R.id.nav_host_fragment,PetDogs);
-                transaction.addToBackStack("shelterListOfDogs");
-                transaction.commit();
-            }
+        card2.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            ShelterListOfDogsFragment PetDogs = new ShelterListOfDogsFragment();
+            transaction.replace(R.id.nav_host_fragment,PetDogs);
+            transaction.addToBackStack("Shelter Dogs");
+            transaction.commit();
+            ShelterDashboard.atHome = false;
         });
 
         card3 = view.findViewById(R.id.cats);
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-               ShelterListOfCatsFragment PetCats = new ShelterListOfCatsFragment();
-               transaction.replace(R.id.nav_host_fragment,PetCats);
-               transaction.addToBackStack("shelterListOfCats");
-               transaction.commit();
-            }
+        card3.setOnClickListener(v -> {
+           FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+           ShelterListOfCatsFragment PetCats = new ShelterListOfCatsFragment();
+           transaction.replace(R.id.nav_host_fragment,PetCats);
+            transaction.addToBackStack("Shelter Cats");
+           transaction.commit();
+            ShelterDashboard.atHome = false;
         });
 
         card4 = view.findViewById(R.id.activeAdopters);
@@ -121,6 +120,7 @@ public class ShelterHomeDashboard extends Fragment {
 //            @Override
 //            public void onClick(View v) {
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
 //                ActiveAdopters activeadptrs = new ActiveAdopters();
 //                transaction.replace(R.id.nav_host_fragment, activeadptrs);
 //                transaction.addToBackStack("activeAdopters");
@@ -129,26 +129,27 @@ public class ShelterHomeDashboard extends Fragment {
 //        });
 
         card5 = view.findViewById(R.id.toReview);
-        card5.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v) {
+        card5.setOnClickListener(v -> {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             ApplicantsReviewFragment appreviewfrag = new ApplicantsReviewFragment();
             transaction.replace(R.id.nav_host_fragment, appreviewfrag);
-            transaction.addToBackStack("applicantsToReview");
+            transaction.addToBackStack("Shelter Review Applications");
             transaction.commit();
 //                startActivity(new Intent(getActivity(), ShelterToReviewApplication.class));
-        }
-    });
+        });
 
         fabAddBtn = view.findViewById(R.id.fabAdd);
         fabAddBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 ShelterRegisterPets ShelterRegisterPets = new ShelterRegisterPets();
                 transaction.replace(R.id.nav_host_fragment,ShelterRegisterPets);
-                transaction.addToBackStack("shelterRegisterPets");
+                transaction.addToBackStack("Shelter Add Pet");
                 transaction.commit();
+                ShelterDashboard.atHome = false;
             }
         });
 
