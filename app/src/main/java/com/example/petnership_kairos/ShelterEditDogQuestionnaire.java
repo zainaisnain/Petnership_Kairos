@@ -246,7 +246,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
 
                     addToDB();
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.shelter_dog_ques_frag, dogPetProfileSummary);
+                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
                     transaction.commit();
 //                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
