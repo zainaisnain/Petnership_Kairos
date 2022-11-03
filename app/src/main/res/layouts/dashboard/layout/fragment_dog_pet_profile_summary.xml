@@ -38,8 +38,8 @@
 
                     <TextView
                         android:id="@+id/petprofile_title"
-                        android:layout_width="297dp"
-                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/playfairdisplayblack"
                         android:text="Pet Profile Summary"
                         android:textAlignment="center"
@@ -689,6 +689,8 @@
                     android:textSize="20sp"
                     app:backgroundTint="@null"
                     android:layout_marginTop="20dp"
+
+                    android:layout_marginBottom="20dp"
                     android:layout_gravity="center" />
 
                 <Button
@@ -702,6 +704,7 @@
                     android:textSize="20sp"
                     app:backgroundTint="@null"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="50dp"
                     android:layout_gravity="center" />
 

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -226,7 +227,13 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     catPetProfileSummary.setArguments(bundle);
 
                     addToDB();
-                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
+//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
+//                    transaction.commit();
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
+                    transaction.commit();
+
                 }
             }
         });
@@ -235,7 +242,9 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ShelterDashboard.class));
+                MyCancelDialogQuestionnaire myCancelDialogQuestionnaire = new MyCancelDialogQuestionnaire();
+                myCancelDialogQuestionnaire.show(getParentFragmentManager(), "My Fragment");
+//                startActivity(new Intent(getActivity(), ShelterDashboard.class));
             }
         });
     }

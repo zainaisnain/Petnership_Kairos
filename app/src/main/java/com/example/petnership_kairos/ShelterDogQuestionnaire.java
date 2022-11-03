@@ -295,6 +295,9 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
 
                     addToDB();
 
+//                    SavePetProfileDialog savePetProfileDialog = new SavePetProfileDialog();
+//                    savePetProfileDialog.show(getParentFragmentManager(), "My Fragment");
+
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
                     transaction.commit();
@@ -307,7 +310,9 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
             @Override
             public void onClick(View view) {
                 //FRAGMENT TO ACTIVITY
-                startActivity(new Intent(getActivity(), ShelterDashboard.class));
+                MyCancelDialogQuestionnaire myCancelDialogQuestionnaire = new MyCancelDialogQuestionnaire();
+                myCancelDialogQuestionnaire.show(getParentFragmentManager(), "My Fragment");
+//                startActivity(new Intent(getActivity(), ShelterDashboard.class));
             }
         });
     }

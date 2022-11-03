@@ -269,12 +269,9 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
 
 
                     addToDB();
-////                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                    CatPetProfileSummary  catPetProfileSummary = new CatPetProfileSummary();
                     transaction.replace(R.id.nav_host_fragment, catPetProfileSummary);
                     transaction.commit();
-
                 }
             }
         });
@@ -283,7 +280,9 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ShelterDashboard.class));
+                MyCancelDialogQuestionnaire myCancelDialogQuestionnaire = new MyCancelDialogQuestionnaire();
+                myCancelDialogQuestionnaire.show(getParentFragmentManager(), "My Fragment");
+//                startActivity(new Intent(getActivity(), ShelterDashboard.class));
             }
         });
     }

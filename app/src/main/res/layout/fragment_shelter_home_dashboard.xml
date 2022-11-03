@@ -13,56 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-
-        <!--    <com.makeramen.roundedimageview.RoundedImageView-->
-        <!--        android:id="@+id/imageProfile"-->
-        <!--        android:layout_width="100dp"-->
-        <!--        android:layout_height="100dp"-->
-        <!--        android:layout_marginStart="140dp"-->
-        <!--        android:src="@drawable/profile"-->
-        <!--        app:layout_constraintEnd_toEndof="parent"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomof="@id/ASDashboardTitle"-->
-        <!--        app:riv_oval="true"-->
-        <!--        tools:ignore="MissingClass,MissingConstraints"-->
-        <!--        tools:layout_editor_absoluteY="52dp" />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/username"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:fontFamily="@font/marmelad_regular"-->
-        <!--        android:text="Welcome Animal Shelter!"-->
-        <!--        android:textColor="@color/black"-->
-        <!--        android:textSize="18sp"-->
-        <!--        android:textStyle="bold"-->
-        <!--        android:layout_marginTop="50dp"-->
-        <!--        app:layout_constraintEnd_toEndof="parent"-->
-        <!--        app:layout_constraintStart_toStartof="parent"-->
-        <!--        app:layout_constraintTop_toBottomof="@id/imageProfile"-->
-        <!--        tools:ignore="MissingConstraints" />-->
-
-
-
-        <!--
-                <TextView
-                    android:id="@+id/ASDashboardTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:fontFamily="@font/playfairdisplayblack"
-                    android:gravity="center"
-                    android:text="@string/animal_shelter"
-                    android:textColor="@color/secondary_purple"
-                    android:textSize="25sp"
-                    app:layout_constraintBottom_toBottomOf="@id/imageBurgerMenu"
-                    app:layout_constraintEnd_toStartOf="@id/imageAdd"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@id/imageBurgerMenu"
-                    app:layout_constraintTop_toTopOf="@id/imageBurgerMenu"
-                    app:layout_constraintVertical_bias="0.0" /> -->
-
                 <ImageView
                     android:id="@+id/adopterImage"
                     android:layout_width="100dp"
@@ -283,6 +233,6 @@
 
         </androidx.cardview.widget.CardView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
+</ScrollView>
