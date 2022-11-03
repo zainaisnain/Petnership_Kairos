@@ -210,18 +210,60 @@ public class ShelterHomeDashboard extends Fragment {
         });
     }
     private void getNumOfRegPets() {
-        //TODO: parang something wrong dito. pets ba to under current shelter
-        petsDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        //SUM OF ALL PETS
+        int sum = catsCount+dogsCount;
+        if (sum > 0){
+            String total = String.valueOf(sum);
+            tvNumOfPets.setText(total);
+        }else{
+            tvNumOfPets.setText("0");
+        }
+
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int sum = catsCount+dogsCount;
-                if (sum > 0){
-                    String total = String.valueOf(sum);
-                    tvNumOfPets.setText(total);
-                }else{
-                    tvNumOfPets.setText("0");
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
                 }
+                petsCatsDBRef.orderByChild("shelter").equalTo(shelterID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        numOfCats = (int) snapshot.getChildrenCount();
+                        if(numOfCats>0){
+                            String cats = String.valueOf(numOfCats);
+                            catsCount = numOfCats;
+                            tvNumOfCats.setText(cats + " cats");
+                        }else{
+                            tvNumOfCats.setText("0 cats");
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                petsDogsDBRef.orderByChild("shelter").equalTo(shelterID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                numOfDogs = (int) snapshot.getChildrenCount();
+                                if(numOfDogs>0){
+                                    dogsCount = numOfDogs;
+                                    String dogs = String.valueOf(numOfDogs);
+                                    tvNumOfDogs.setText(dogs + " dogs");
+                                }else{
+                                    tvNumOfDogs.setText("0 dogs");
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
             }
 
             @Override
@@ -229,46 +271,6 @@ public class ShelterHomeDashboard extends Fragment {
 
             }
         });
-
-        petsCatsDBRef.orderByChild("shelter").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                numOfCats = (int) snapshot.getChildrenCount();
-                if(numOfCats>0){
-                    String cats = String.valueOf(numOfCats);
-                    catsCount = numOfCats;
-                    tvNumOfCats.setText(cats + " cats");
-                }else{
-                    tvNumOfCats.setText("0 cats");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                numOfDogs = (int) snapshot.getChildrenCount();
-                if(numOfDogs>0){
-                    dogsCount = numOfDogs;
-                    String dogs = String.valueOf(numOfDogs);
-                    tvNumOfDogs.setText(dogs + " dogs");
-                }else{
-                    tvNumOfDogs.setText("0 dogs");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
     }
 
     private void getNumOfAdopters(){
@@ -297,10 +299,10 @@ public class ShelterHomeDashboard extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()) {
-                    shelterUsername = ds.getKey();
+                    shelterID = ds.getKey();
                 }
 
-                sheltersDBRef.child(shelterUsername).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         numOfForReview = (int) snapshot.getChildrenCount();
