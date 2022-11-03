@@ -225,11 +225,14 @@ public class AddCat extends Fragment {
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
                     return;
-//                }else if(filePath==null){
-//                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else{
-                    uploadImage();
-                    addPet();
+                    if(filePath != null){
+                        uploadImage();
+                        addPet();
+                    }else{
+                        addPet();
+                    }
+
                     Toast.makeText(getActivity(), "Proceed to Questionnaire", Toast.LENGTH_LONG).show();
                 }
             }

@@ -65,18 +65,16 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredPetData registeredPetDataList = PetsData[position];
 
-        storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
-                    }
-                });
-
-        holder.tvPetName.setText(registeredPetDataList.getPetName());
-        holder.tvPetAge.setText(registeredPetDataList.getPetAge());
-        holder.tvPetSex.setText(registeredPetDataList.getPetSex());
-        holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
+        System.out.println(registeredPetDataList.getPetName() +  "'s  registeredPetDataList.getImageName() === " + registeredPetDataList.getImageName());
+        if(registeredPetDataList.getImageName() != null){
+            storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
+                        }
+                    });
+        }
 
         holder.cvPet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,12 +92,19 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
             }
         });
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), registeredPetDataList.getPetName(),Toast.LENGTH_SHORT).show();
-            }
-        });
+        holder.tvPetName.setText(registeredPetDataList.getPetName());
+        holder.tvPetAge.setText(registeredPetDataList.getPetAge());
+        holder.tvPetSex.setText(registeredPetDataList.getPetSex());
+        holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
+
+
+        holder.setIsRecyclable(false);
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(view.getContext(), registeredPetDataList.getPetName(),Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override
