@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ShelterToReviewApplication extends Fragment {
 
-    String[] statusApp = {"In progress", "Rejected", "Approved"};
+    String[] statusApp = {"Pending", "In progress", "Rejected", "Approved"};
 
     Spinner statusAppTxt;
 
@@ -55,6 +55,9 @@ public class ShelterToReviewApplication extends Fragment {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
 
+    private EditText shelterReasonET;
+    private String shelterReason;
+
     public static ShelterToReviewApplication newInstance() {
         return new ShelterToReviewApplication();
     }
@@ -77,7 +80,7 @@ public class ShelterToReviewApplication extends Fragment {
         shelterEmail = firebaseUser.getEmail();
 
         statusAppTxt = view.findViewById(R.id.shelter_adoption_application_status);
-        ArrayAdapter<String> statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, statusApp);
+        statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, statusApp);
         statusAppTxt.setAdapter(statusAdapter);
 
         statusAppTxt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -114,6 +117,7 @@ public class ShelterToReviewApplication extends Fragment {
 //        petName= getArguments().getString("petName");
 //        dateApplied= getArguments().getString("dateApplied");
 
+        shelterReasonET = view.findViewById(R.id.reasonForStatus_shelter);
 
         populateTextViews();
 
@@ -129,6 +133,7 @@ public class ShelterToReviewApplication extends Fragment {
         saveApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                shelterReason = shelterReasonET.getText().toString();
                 //UPDATE DBS
                 updateApplicationStatusOnDBs();
 //                MyCustomDialog submitDialog = new MyCustomDialog();
@@ -185,32 +190,13 @@ public class ShelterToReviewApplication extends Fragment {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                                dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
-//                                        adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
-                                                adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
+                                                applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
+                                                int statusPosition = statusAdapter.getPosition(applicationStatus);
+                                                statusAppTxt.setSelection(statusPosition);
 
-//                                        adoptersDBRef.child(adopterID).addListenerForSingleValueEvent(new ValueEventListener() {
-//                                            @Override
-//                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                                adopterEmail = (String) snapshot.child(applicationID).child("email").getValue();
-//                                                adopterContact = (String) snapshot.child(applicationID).child("email").getValue();
-//                                                String street  = (String) snapshot.child(applicationID).child("street").getValue();
-//                                                String city = (String) snapshot.child(applicationID).child("city").getValue();
-//                                                String province = (String) snapshot.child(applicationID).child("province").getValue();
-//                                                String country = (String) snapshot.child(applicationID).child("country").getValue();
-//                                                adopterAddress = street + ", " +  city + ", " + province + ", " + country;
-//
-//                                                tvAdopterEmail.setText(adopterEmail);
-//                                                tvAdopterMobile.setText(adopterContact);
-//                                                tvAdopterAddress.setText(adopterAddress);
-//
-//                                            }
-//
-//                                            @Override
-//                                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                            }
-//                                        });
+                                                dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
+                                                adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
+                                                adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
 
                                                 petType = (String) snapshot.child(applicationID).child("petType").getValue();
                                                 petName = (String) snapshot.child(applicationID).child("petName").getValue();
@@ -256,7 +242,9 @@ public class ShelterToReviewApplication extends Fragment {
         adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                System.out.println("snapshot applicationStatus ==  " + snapshot.child("applicationStatus").getValue());
+                snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                //insert reason
+                snapshot.child("shelterReason").getRef().setValue(shelterReason);
 
                 String sID = (String) snapshot.child("shelterID").getValue();
                 sheltersDBRef.child(sID).child("ForReviewApplicants").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {

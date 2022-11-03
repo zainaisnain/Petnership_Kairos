@@ -81,7 +81,6 @@ public class ApplicantsReviewFragment extends Fragment {
                 if(sheltersSnapshot.exists()){
                     for(DataSnapshot ds : sheltersSnapshot.getChildren()) {
                         shelterID = ds.getKey();
-                        System.out.println("shelterID = ds.getKey() === " + shelterID);
                     }
 
                     if(sheltersSnapshot.child(shelterID).hasChild("ForReviewApplicants")){
@@ -94,6 +93,7 @@ public class ApplicantsReviewFragment extends Fragment {
 
                                     adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
                                     adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
+                                    System.out.println("adopterName ApplicantsReviewFrag getFromDB == " + adopterName);
                                     petID = (String) snapshot.child(applicationID).child("petID").getValue();
                                     petName = (String) snapshot.child(applicationID).child("petName").getValue();
                                     applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
