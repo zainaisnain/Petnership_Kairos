@@ -86,6 +86,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     String[] ddSexValues = {"Female", "Male"};
 
     String sex, adopterProvince;
+
+    String adopterID;
     private String[] ddProvincesValues = {"Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao", "Aurora",
             "Basilan", "Bataan", "Batanes", "Batangas", "Benguet", "Biliran", "Bohol", "Bukidnon", "Bulacan", "Cagayan", "Camarines Norte",
             "Camarines Sur", "Camiguin", "Capiz", "Catanduanes", "Cavite", "Cebu", "Cotabato", "Davao de Oro (Compostela Valley)",
@@ -354,7 +356,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        databaseReference.child("Adopters").child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        adopterID = databaseReference.child("Adopters").push().getKey();
+        databaseReference.child("Adopters").child(adopterID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -369,15 +372,15 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if(task.isSuccessful()){
                                                         boolean answeredQuestionnaire = false;
-                                                        Adopter adopter = new Adopter(fname, lname, email, username,
+                                                        Adopter adopter = new Adopter(adopterID, fname, lname, email, username,
                                                                 contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
 
-                                                        databaseReference.child("Adopters").child(username).setValue(adopter);
+                                                        databaseReference.child("Adopters").child(adopterID).setValue(adopter);
 
-                                                        boolean manuallyVerified = false;
-                                                        User user = new User(email, username, "adopter", manuallyVerified);
 
-                                                        databaseReference.child("Users").child(username).setValue(user);
+                                                        User user = new User(adopterID, email, username, "adopter", false);
+
+                                                        databaseReference.child("Users").child(adopterID).setValue(user);
 
                                                         startActivity(new Intent(AdopterRegistration.this, UserVerifyEmailDialog.class));
                                                     }

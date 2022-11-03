@@ -50,6 +50,8 @@ public class ShelterListOfDogsFragment extends Fragment {
 
     private ImageButton backBtn;
 
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    private String shelterID;
     public static ShelterListOfDogsFragment newInstance() {
         return new ShelterListOfDogsFragment();
     }
@@ -85,37 +87,51 @@ public class ShelterListOfDogsFragment extends Fragment {
 
     private void withFirebase(RecyclerView recyclerView) {
 
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
+                }
 
-        petsDogsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for(DataSnapshot ds : snapshot.getChildren()) {
-                            petID = ds.getKey();
-                            petIDs.add(petID);
+                petsDogsDBRef.orderByChild("shelter").equalTo(shelterID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot ds : snapshot.getChildren()) {
+                                    petID = ds.getKey();
+                                    petIDs.add(petID);
 
-                            petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
-                            petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-                            petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
-                            petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
-                            petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
-                            ALregisteredDogData.add( new RegisteredDogData(petID, petImageName, petName, petAge, petSex, petBreed));
-                        }
-                        registeredDogData = ALregisteredDogData.toArray(new RegisteredDogData[ALregisteredDogData.size()]);
+                                    petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
+                                    petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
+                                    petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                                    petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
+                                    petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
+                                    ALregisteredDogData.add( new RegisteredDogData(petID, petImageName, petName, petAge, petSex, petBreed));
+                                }
+                                registeredDogData = ALregisteredDogData.toArray(new RegisteredDogData[ALregisteredDogData.size()]);
 //                        for (RegisteredDogData element: registeredDogData) {
 //                            System.out.println("zaina: "+element.getImageName());
 //                        }
 
-                        RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogsFragment.this);
-                        recyclerView.setAdapter(registeredDogsAdapter);
+                                RegisteredDogsAdapter registeredDogsAdapter = new RegisteredDogsAdapter(registeredDogData, ShelterListOfDogsFragment.this);
+                                recyclerView.setAdapter(registeredDogsAdapter);
 
-                    }
+                            }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                            }
+                        });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
 

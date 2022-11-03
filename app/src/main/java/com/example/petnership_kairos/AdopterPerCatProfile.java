@@ -241,7 +241,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                         petAge = (String) snapshot.child("petAge").getValue();
                                         petSex = (String) snapshot.child("petSex").getValue();
                                         petDescription = (String) snapshot.child("petDesc").getValue();
-                                        shelterEmail = (String) snapshot.child("shelter").getValue();
+                                        shelterID = (String) snapshot.child("shelter").getValue();
 
                                         petType = (String) snapshot.child("petType").getValue();
                                         if(petType.equals("dog")){
@@ -257,37 +257,18 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                         tvPetSex.setText(petSex);
                                         tvPetDescription.setText(petDescription);
 
-                                        System.out.println("shelterEmail == " + shelterEmail);
-                                        sheltersDBRef.orderByChild("email").equalTo(shelterEmail)
-                                                .addListenerForSingleValueEvent(new ValueEventListener() {
-                                                    @Override
-                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                        if(snapshot.exists()) {
-                                                            for (DataSnapshot ds : snapshot.getChildren()) {
-                                                                shelterID = ds.getKey();
-                                                            }
+                                        sheltersDBRef.child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                shelterEmail = (String) snapshot.child("email").getValue();
+                                                petShelter = (String) snapshot.child("bizName").getValue();
+                                            }
 
-                                                            //get shelter's name
-                                                            sheltersDBRef.child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
-                                                                @Override
-                                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                                    petShelter = String.valueOf(snapshot.child("bizName").getValue());
-                                                                    System.out.println("petShelter inside dbref " + petShelter);
-                                                                }
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                                                @Override
-                                                                public void onCancelled(@NonNull DatabaseError error) {
-
-                                                                }
-                                                            });
-                                                        }
-                                                    }
-
-                                                    @Override
-                                                    public void onCancelled(@NonNull DatabaseError error) {
-
-                                                    }
-                                                });
+                                            }
+                                        });
 
                                     }
 

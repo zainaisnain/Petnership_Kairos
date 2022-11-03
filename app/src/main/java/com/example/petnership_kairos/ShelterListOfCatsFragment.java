@@ -47,6 +47,9 @@ public class ShelterListOfCatsFragment extends Fragment {
     private ImageButton backBtn;
     private ShelterListOfCatsViewModel mViewModel;
 
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    private String shelterID;
+
     public static ShelterListOfCatsFragment newInstance() {
         return new ShelterListOfCatsFragment();
     }
@@ -80,37 +83,53 @@ public class ShelterListOfCatsFragment extends Fragment {
     }
 
     private void withFirebase(RecyclerView recyclerView) {
-        petsCatsDBRef.orderByChild("shelter").equalTo(shelterEmail)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            for(DataSnapshot ds : snapshot.getChildren()) {
-                petID = ds.getKey();
-                petIDs.add(petID);
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
+                }
+                petsCatsDBRef.orderByChild("shelter").equalTo(shelterID)
+                        .addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
-                petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-                petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
-                petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
-                petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
-                ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));
+                                for(DataSnapshot ds : snapshot.getChildren()) {
+                                    petID = ds.getKey();
+                                    petIDs.add(petID);
+
+                                    petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
+                                    petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
+                                    petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                                    petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
+                                    petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
+                                    ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));
+                                }
+                                registeredCatData = ALregisteredCatData.toArray(new RegisteredCatData[ALregisteredCatData.size()]);
+                                System.out.println("size nya: " + registeredCatData.length);
+                                for (RegisteredCatData element: registeredCatData) {
+                                    System.out.println("zaina: "+element.getImageName());
+                                }
+                                RegisteredCatsAdapter registeredCatsAdapter = new RegisteredCatsAdapter(registeredCatData, ShelterListOfCatsFragment.this);
+                                recyclerView.setAdapter(registeredCatsAdapter);
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
             }
-            registeredCatData = ALregisteredCatData.toArray(new RegisteredCatData[ALregisteredCatData.size()]);
-            System.out.println("size nya: " + registeredCatData.length);
-            for (RegisteredCatData element: registeredCatData) {
-                System.out.println("zaina: "+element.getImageName());
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
-            RegisteredCatsAdapter registeredCatsAdapter = new RegisteredCatsAdapter(registeredCatData, ShelterListOfCatsFragment.this);
-            recyclerView.setAdapter(registeredCatsAdapter);
+        });
 
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-
-        }
-    });
     }
 
 

@@ -55,7 +55,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterUsername, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String shelterID, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
 
     //JANNEL
     String[] dogBreed =
@@ -293,12 +293,7 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
                     bundle.putInt("q11", q11);
                     dogPetProfileSummary.setArguments(bundle);
 
-                    String petType = "dog";
-                    DogAnswers dogAnswers = new DogAnswers(shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9,q10,q11,petType);
-                    petsDogsDBRef.child(petID).setValue(dogAnswers);
-                    allPetsDBRef.child(petID).setValue(dogAnswers);
-                    addToShelterDB();
+                    addToDB();
 
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
@@ -522,24 +517,28 @@ public class ShelterDogQuestionnaire extends Fragment implements View.OnClickLis
         }
     }
 
-    public void addToShelterDB(){
+    public void addToDB(){
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot ds : snapshot.getChildren()) {
-                            shelterUsername = ds.getKey();
+                            shelterID = ds.getKey();
                         }
 
-                        System.out.println("shelterUsername --- " + shelterUsername);
+                        String petType = "dog";
+                        DogAnswers dogAnswers = new DogAnswers(shelterID,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
+                                q6,q7,q8,q9,q10,q11,petType);
+                        petsDogsDBRef.child(petID).setValue(dogAnswers);
+                        allPetsDBRef.child(petID).setValue(dogAnswers);
 
                         sheltersDBRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(shelterUsername)){
+                                if(snapshot.hasChild(shelterID)){
                                     Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
-                                    snapshot.child(shelterUsername).child("Dogs").child(petID).getRef().setValue(pet);
+                                    snapshot.child(shelterID).child("Dogs").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");
                                 }
