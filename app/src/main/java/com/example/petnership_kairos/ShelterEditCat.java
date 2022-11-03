@@ -147,28 +147,8 @@ public class ShelterEditCat extends Fragment {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-////                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
-//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
-//                transaction.addToBackStack("currentCatProfile");
-//                transaction.commit();
-//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
-//                cancelDialog2.show(getParentFragmentManager(), "My Fragment");
-//                transaction.replace(R.id.add_pet_frag, cancelDialog2);
-//                transaction.addToBackStack("currentCatProfile");
-//                transaction.commit();
-
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransction();
-//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                getParentFragmentManager().beginTransaction().addToBackStack("currentCatProfile").commit();
                 MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
                 cancelDialog2.show(getParentFragmentManager(), "My Fragment");
-//                transaction.replace(R.id.add_pet_frag,cancelDialog2);
-
-//                transaction.commit();
-//                MyCancelDialog2 cancelDialog2 = new MyCancelDialog2();
-//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.add_pet_frag, cancelDialog2).commit();
             }
 
         });
