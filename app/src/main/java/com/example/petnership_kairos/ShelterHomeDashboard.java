@@ -162,45 +162,54 @@ public class ShelterHomeDashboard extends Fragment {
     }
 
     private void setUpProfilePic() {
-        //retrieve imageName
         sheltersDBRef.orderByChild("email").equalTo(shelterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                System.out.println("snapshot setUpProfilePic === " + snapshot);
                 for(DataSnapshot ds : snapshot.getChildren()) {
                     shelterUsername = ds.getKey();
                 }
 
-//                System.out.println("shelterUsername " + shelterUsername);
-
-                sheltersDBRef.child(shelterUsername).child("imageName").
-                        addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                shelterImageName = String.valueOf(snapshot.getValue());
+                //CHECK IF IMAGENAME EXISTS
+                sheltersDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            sheltersDBRef.child(shelterUsername).child("imageName").
+                                    addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            shelterImageName = String.valueOf(snapshot.getValue());
 //                                System.out.println("shelterImageName1 == " + shelterImageName);
 
-                                //DISPLAY IMAGE TO IMAGE VIEW
-                                if(shelterImageName.isEmpty() || shelterImageName == null){
-                                    return;
-                                }else{
-                                    storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            //DISPLAY IMAGE TO IMAGE VIEW
+                                            if(shelterImageName.isEmpty() || shelterImageName == null){
+                                                return;
+                                            }else{
+                                                storageReference.child("Shelters/").child(shelterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
+                                                    }
+                                                });
+
+                                            }
+
+                                        }
+
                                         @Override
-                                        public void onSuccess(Uri uri) {
-                                            Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivShelterImage);
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
                                         }
                                     });
+                        }
+                    }
 
-                                }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
+                    }
+                });
             }
 
             @Override
@@ -302,16 +311,28 @@ public class ShelterHomeDashboard extends Fragment {
                     shelterID = ds.getKey();
                 }
 
-                sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                sheltersDBRef.orderByKey().equalTo("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        numOfForReview = (int) snapshot.getChildrenCount();
-                        if(numOfForReview>0){
-                            String forReview = String.valueOf(numOfForReview);
-                            forReviewCount = numOfForReview;
-                            tvNumOfForReview.setText(forReview);
-                        }else{
-                            tvNumOfForReview.setText("0");
+                        if(snapshot.exists()){
+                            sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    numOfForReview = (int) snapshot.getChildrenCount();
+                                    if(numOfForReview>0){
+                                        String forReview = String.valueOf(numOfForReview);
+                                        forReviewCount = numOfForReview;
+                                        tvNumOfForReview.setText(forReview);
+                                    }else{
+                                        tvNumOfForReview.setText("0");
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
                         }
                     }
 
