@@ -72,25 +72,41 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.056" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/card"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Name"
+                        android:textSize="20sp" />
+
+
                     <EditText
                         android:id="@+id/per_pet_name_title"
-                        android:layout_width="280dp"
+                        android:layout_width="188dp"
                         android:layout_height="48dp"
-                        android:layout_marginTop="10dp"
+
+                        android:layout_marginLeft="30dp"
                         android:autofillHints=""
                         android:background="@drawable/edit_text_bg"
                         android:ems="10"
                         android:fontFamily="@font/montserrat_reg"
-                        android:hint="Name"
                         android:inputType="textPersonName"
-                        android:padding="@dimen/_12sdp"
-                        android:textColorHint="#757575"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.528"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.159" />
+                        android:padding="10dp"
+                        android:textColorHint="#757575"/>
+                </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -102,7 +118,6 @@
                         app:layout_constraintBottom_toTopOf="@+id/pet_desc"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
-
 
                         <EditText
                             android:id="@+id/pet_age_et"
@@ -226,6 +241,15 @@
                             app:layout_constraintVertical_bias="0.376" />
                     </LinearLayout>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/montserrat_reg"
+                        android:text="Description"
+                        android:textSize="20sp"/>
+
                     <EditText
                         android:id="@+id/pet_desc"
                         android:layout_width="279dp"
@@ -234,7 +258,6 @@
                         android:background="@drawable/edit_text_bg"
                         android:fontFamily="@font/montserrat_reg"
                         android:gravity="top"
-                        android:hint=" Description"
                         android:inputType="text|textMultiLine"
                         android:padding="@dimen/_12sdp"
                         android:textColorHint="#757575"

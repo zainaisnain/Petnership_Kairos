@@ -260,7 +260,9 @@ public class ShelterEditInfo extends AppCompatActivity {
             yesBTN.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0) {
-                    onBackPressed();
+                    Intent intent = new Intent(ShelterEditInfo.this, ShelterDashboard.class);
+                    startActivity(intent);
+//                    onBackPressed();
                     cancelDialog.dismiss();
                 }
             });
