@@ -116,6 +116,7 @@ public class ShelterListOfPetsFragment extends Fragment {
 
                                     petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                                     petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
+                                    System.out.println(petName + "'s petImagename == "  + petImageName);
                                     petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
                                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
 

@@ -63,17 +63,16 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredDogData registeredDogDataList = dogsData[position];
 
-        System.out.println("registeredDogDataList.getImageName()) TOP STORAGEREF" + registeredDogDataList.getImageName());
-        storageReference.child("Pets/").child(registeredDogDataList.getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        System.out.println("registeredDogDataList.getImageName()) ONSUCCES" + registeredDogDataList.getImageName());
-                        Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.dog_image));
-                    }
-                });
-
-        System.out.println("petImageName OUTSIDE" + petImageName);
+        if(registeredDogDataList.getImageName() != null){
+            storageReference.child("Pets/").child(registeredDogDataList.getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            System.out.println("registeredDogDataList.getImageName()) ONSUCCES" + registeredDogDataList.getImageName());
+                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.dog_image));
+                        }
+                    });
+        }
 
         holder.cvDog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +94,8 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
                 Toast.makeText(view.getContext(), registeredDogDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.setIsRecyclable(false);
     }
 
     @Override
