@@ -29,10 +29,7 @@ public class AdopterNotAnsweredQuestionnaire extends AppCompatActivity {
         cancelAnsweringBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BrowseAnimals browseAnimals = new BrowseAnimals();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_not_answered, browseAnimals);
-                transaction.commit();
+                getSupportFragmentManager().popBackStack();
             }
         });
     }
