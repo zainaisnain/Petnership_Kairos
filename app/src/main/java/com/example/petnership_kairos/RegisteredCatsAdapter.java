@@ -61,16 +61,16 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredCatData registeredCatDataList = petsData[position];
 
-        storageReference.child("Pets/").child(registeredCatDataList.getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        System.out.println("registeredCatDataList.getImageName() ::: " + registeredCatDataList.getImageName());
-                        Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.cat_image));
-                    }
-                });
-
-        System.out.println("registeredCatDataList.getImageName() OUTSIDE ::: " + registeredCatDataList.getImageName());
+        if(registeredCatDataList.getImageName() != null){
+            storageReference.child("Pets/").child(registeredCatDataList.getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            System.out.println("registeredCatDataList.getImageName() ::: " + registeredCatDataList.getImageName());
+                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.cat_image));
+                        }
+                    });
+        }
 
         holder.cvCat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +93,7 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
                 Toast.makeText(view.getContext(), registeredCatDataList.getPetName(),Toast.LENGTH_SHORT).show();
             }
         });
+        holder.setIsRecyclable(false);
     }
 
     @Override
