@@ -228,12 +228,25 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                 .addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        petImageName = (String) snapshot.child("imageName").getValue();
 
-                                        storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        snapshot.getRef().orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
-                                            public void onSuccess(Uri uri) {
-                                                Glide.with(AdopterPerCatProfile.this).load(uri.toString()).into(ivPetImage);
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(snapshot.exists()){
+                                                    petImageName = (String) snapshot.child("imageName").getValue();
+
+                                                    storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                        @Override
+                                                        public void onSuccess(Uri uri) {
+                                                            Glide.with(AdopterPerCatProfile.this).load(uri.toString()).into(ivPetImage);
+                                                        }
+                                                    });
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
                                             }
                                         });
 
