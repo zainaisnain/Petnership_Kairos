@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,7 +54,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterUsername;
+    private String shelterID;
 
     private String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, imageName;
 
@@ -268,11 +267,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                     bundle.putString("q9", q9);
                     catPetProfileSummary.setArguments(bundle);
 
-                    String petType = "cat";
-                    CatAnswers catAnswers = new CatAnswers(shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
-                            q6,q7,q8,q9, petType);
-                    petsCatsDBRef.child(petID).setValue(catAnswers);
-                    allPetsDBRef.child(petID).setValue(catAnswers);
+
                     addToShelterDB();
 ////                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
@@ -461,17 +456,23 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot ds : snapshot.getChildren()) {
-                            shelterUsername = ds.getKey();
+                            shelterID = ds.getKey();
                         }
 
-                        System.out.println("shelterUsername --- " + shelterUsername);
+                        System.out.println("shelterUsername --- " + shelterID);
+
+                        String petType = "cat";
+                        CatAnswers catAnswers = new CatAnswers(shelterID,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                                q6,q7,q8,q9, petType);
+                        petsCatsDBRef.child(petID).setValue(catAnswers);
+                        allPetsDBRef.child(petID).setValue(catAnswers);
 
                         sheltersDBRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(shelterUsername)){
+                                if(snapshot.hasChild(shelterID)){
                                     Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
-                                    snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
+                                    snapshot.child(shelterID).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");
                                 }
