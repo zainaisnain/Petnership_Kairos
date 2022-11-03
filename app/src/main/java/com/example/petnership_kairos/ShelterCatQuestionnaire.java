@@ -268,7 +268,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                     catPetProfileSummary.setArguments(bundle);
 
 
-                    addToShelterDB();
+                    addToDB();
 ////                    startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                    CatPetProfileSummary  catPetProfileSummary = new CatPetProfileSummary();
@@ -449,7 +449,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         }
     }
 
-    public void addToShelterDB(){
+    public void addToDB(){
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
                 .addListenerForSingleValueEvent(new ValueEventListener() {

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +52,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterUsername;
+    private String shelterID;
 
     private String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, imageName;
 
@@ -226,7 +225,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     bundle.putString("q9", q9);
                     catPetProfileSummary.setArguments(bundle);
 
-                    addToShelterDB();
+                    addToDB();
                     startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
             }
@@ -539,7 +538,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         }
     }
 
-    public void addToShelterDB(){
+    public void addToDB(){
 
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
@@ -547,23 +546,21 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot ds : snapshot.getChildren()) {
-                            shelterUsername = ds.getKey();
+                            shelterID = ds.getKey();
                         }
 
                         String petType = "cat";
-                        CatAnswers catAnswers = new CatAnswers(shelter, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
+                        CatAnswers catAnswers = new CatAnswers(shelterID, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
                                 petDesc, imageName,petID, q1,q2,q3,q4,q5,
                                 q6,q7,q8,q9, petType);
                         petsCatsDBRef.child(petID).setValue(catAnswers);
                         allPetsDBRef.child(petID).setValue(catAnswers);
-                        System.out.println("shelterUsername (ShelterEditCatQuestionnaire) --- " + shelterUsername);
-
                         sheltersDBRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(shelterUsername)){
+                                if(snapshot.hasChild(shelterID)){
                                     Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
-                                    snapshot.child(shelterUsername).child("Cats").child(petID).getRef().setValue(pet);
+                                    snapshot.child(shelterID).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");
                                 }
