@@ -108,6 +108,7 @@ public class AdopterHomeDashboard extends Fragment {
                 transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
                 transaction.replace(R.id.nav_host_fragment,applicationHistory);
+                transaction.addToBackStack("applicationHistory");
                 transaction.commit();
             }
         });
@@ -125,9 +126,10 @@ public class AdopterHomeDashboard extends Fragment {
             public void onClick(View view) {
 
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                //transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 BrowseAnimals browseAnimals = new BrowseAnimals();
                 transaction.replace(R.id.nav_host_fragment,browseAnimals);
+                transaction.addToBackStack("browseAnimals");
                 transaction.commit();
             }
         });

@@ -17,7 +17,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="720dp">
+                android:layout_height="736dp">
 
                 <ImageButton
                     android:id="@+id/btnBack"
@@ -30,7 +30,7 @@
                     app:layout_constraintHorizontal_bias="0.953"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.093"
+                    app:layout_constraintVertical_bias="0.125"
                     app:tint="@color/black"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -42,34 +42,35 @@
                     android:fontFamily="@font/playfairdisplayblack"
                     android:text="Active Adopters"
                     android:textColor="@color/secondary_purple"
-                    android:textSize="30sp"
+                    android:textSize="35sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintHorizontal_bias="0.437"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.797"
+                    app:layout_constraintVertical_bias="0.817"
                     tools:ignore="TextContrastCheck" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/applicant_cv"
-                    android:layout_width="379dp"
-                    android:layout_height="570dp"
+                    android:layout_width="346dp"
+                    android:layout_height="548dp"
                     android:layout_margin="5dp"
                     app:cardBackgroundColor="#C3B1E1"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.489"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.832">
+                    app:layout_constraintVertical_bias="0.794">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerViewAdopters"
-                        android:layout_width="379dp"
-                        android:layout_height="570dp"
+                        android:layout_width="335dp"
+                        android:layout_height="548dp"
                         android:layout_margin="2dp" />
 
                 </androidx.cardview.widget.CardView>

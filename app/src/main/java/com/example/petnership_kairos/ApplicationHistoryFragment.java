@@ -105,10 +105,7 @@ public class ApplicationHistoryFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-                transaction.commit();
+                getParentFragmentManager().popBackStack();
             }
         });
 
