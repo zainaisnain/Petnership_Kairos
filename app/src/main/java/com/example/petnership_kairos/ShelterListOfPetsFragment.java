@@ -57,6 +57,8 @@ public class ShelterListOfPetsFragment extends Fragment {
 
     private ShelterListOfPetsViewModel mViewModel;
 
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    private String shelterID;
     public static ShelterListOfPetsFragment newInstance() {
         return new ShelterListOfPetsFragment();
     }
@@ -96,9 +98,15 @@ public class ShelterListOfPetsFragment extends Fragment {
     }
     private void withFirebase(RecyclerView recyclerView) {
 
-        //WITH ALLPETS CHILD
-        //might need to add petType to differentiate between cats and dogs for breed type
-        allPetsDBRef.orderByChild("shelter").equalTo(shelterEmail)
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
+                }
+                //WITH ALLPETS CHILD
+                //might need to add petType to differentiate between cats and dogs for breed type
+                allPetsDBRef.orderByChild("shelter").equalTo(shelterID)
                         .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -133,6 +141,14 @@ public class ShelterListOfPetsFragment extends Fragment {
 
                             }
                         });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }
 

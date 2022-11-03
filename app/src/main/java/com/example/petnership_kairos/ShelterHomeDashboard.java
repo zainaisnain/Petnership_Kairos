@@ -55,6 +55,8 @@ public class ShelterHomeDashboard extends Fragment {
     // instance for firebase storage and StorageReference
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    private String shelterID;
     public static ShelterHomeDashboard newInstance() {
         return new ShelterHomeDashboard();
     }
