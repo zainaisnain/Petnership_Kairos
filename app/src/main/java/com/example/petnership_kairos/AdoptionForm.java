@@ -88,8 +88,6 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
         adopterAddress = getArguments().getString("adopterAddress");
         dateApplied = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
         timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
-        System.out.println("adopterID   == " + adopterID);
-        System.out.println("petBreed   == " + petBreed);
 
         agreeCb = view.findViewById(R.id.agree_terms_adoption_cb);
         agreeCb.setOnClickListener(new View.OnClickListener() {
@@ -97,10 +95,8 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
             public void onClick(View view) {
                 if(agreeCb.isChecked()){
                     adopterAgreed = true;
-                    System.out.println("adopterAgreed == " + adopterAgreed);
                 }else{
                     adopterAgreed = false;
-                    System.out.println("adopterAgreed == " + adopterAgreed);
                 }
             }
         });
