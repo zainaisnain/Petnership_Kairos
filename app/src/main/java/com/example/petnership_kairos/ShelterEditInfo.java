@@ -148,15 +148,16 @@ public class ShelterEditInfo extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showcancelDialog();
-
+                MyCancelDialogShelterEdit myCancelDialogShelterEdit = new MyCancelDialogShelterEdit();
+                myCancelDialogShelterEdit.show(getSupportFragmentManager(), "My Fragment");
             }
         });
         cancelBtn = (Button) findViewById(R.id.btn_cancel_shelter_edit);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showcancelDialog();
+                MyCancelDialogShelterEdit myCancelDialogShelterEdit = new MyCancelDialogShelterEdit();
+                myCancelDialogShelterEdit.show(getSupportFragmentManager(), "My Fragment");
             }
         });
         // on pressing btnSelect SelectImage() is called
@@ -225,7 +226,6 @@ public class ShelterEditInfo extends AppCompatActivity {
                 }else{
                     uploadImage();
                     editShelterInfo();
-                    showsaveDialog();
                 }
 
             }
@@ -444,6 +444,8 @@ public class ShelterEditInfo extends AppCompatActivity {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
+                                    MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
+                                    mySaveDialogShelter.show(getSupportFragmentManager(), "My Fragment");
                                     Toast
                                             .makeText(ShelterEditInfo.this,
                                                     "Image Uploaded!!",

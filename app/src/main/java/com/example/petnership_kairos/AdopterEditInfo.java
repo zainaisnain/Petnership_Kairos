@@ -181,7 +181,8 @@ public class AdopterEditInfo extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showcancelDialog();
+                MyCancelDialogShelterEdit myCancelDialogShelterEdit = new MyCancelDialogShelterEdit();
+                myCancelDialogShelterEdit.show(getSupportFragmentManager(), "My Fragment");
             }
         });
 
@@ -189,7 +190,8 @@ public class AdopterEditInfo extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showcancelDialog();
+                MyCancelDialogAdopterEdit myCancelDialogAdopterEdit = new MyCancelDialogAdopterEdit();
+                myCancelDialogAdopterEdit.show(getSupportFragmentManager(), "My Fragment");
             }
         });
 
@@ -244,7 +246,6 @@ public class AdopterEditInfo extends AppCompatActivity {
                 } else{
                     uploadImage();
                     editAdopterInfo();
-                    showsaveDialog();
                 }
             }
 
@@ -383,6 +384,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
+                                    MySaveDialogAdopter mySaveDialogAdopter = new MySaveDialogAdopter();
+                                    mySaveDialogAdopter.show(getSupportFragmentManager(), "My Fragment");
                                     Toast
                                             .makeText(AdopterEditInfo.this,
                                                     "Image Uploaded!!",

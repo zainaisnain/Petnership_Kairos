@@ -24,8 +24,9 @@
                 android:layout_height="wrap_content">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="409dp"
-                    android:layout_height="730dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -95,7 +96,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="420dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="30dp"
                         android:layout_marginEnd="24dp"
@@ -266,8 +267,8 @@
 
                         <TextView
                             android:id="@+id/petprofile_title"
-                            android:layout_width="297dp"
-                            android:layout_height="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:fontFamily="@font/playfairdisplayblack"
                             android:text="Pet Profile Summary"
                             android:textAlignment="center"

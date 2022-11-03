@@ -179,7 +179,9 @@ public class CatPetProfileSummary extends Fragment {
         proceedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
+                SavePetProfileDialog savePetProfileDialog = new SavePetProfileDialog();
+                savePetProfileDialog.show(getParentFragmentManager(), "My Fragment");
+//                startActivity(new Intent(getActivity(), SuccessfullyAddedPet.class));
             }
         });
     }

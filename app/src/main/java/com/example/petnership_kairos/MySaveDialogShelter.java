@@ -1,21 +1,16 @@
 package com.example.petnership_kairos;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
 
-public class MySaveDialog extends DialogFragment {
+public class MySaveDialogShelter extends DialogFragment {
 
     Button btnOk;
 
@@ -29,10 +24,13 @@ public class MySaveDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.adoptionFormFrag, shelterHomeDashboard);
-                transaction.commit();
+                Intent intent = new Intent(getActivity(), ShelterDashboard.class);
+                startActivity(intent);
+                dismiss();
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+//                transaction.replace(R.id.adoptionFormFrag, shelterHomeDashboard);
+//                transaction.commit();
             }
         });
         return view;
