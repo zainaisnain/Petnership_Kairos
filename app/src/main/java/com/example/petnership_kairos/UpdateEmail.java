@@ -2,6 +2,7 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -45,8 +46,23 @@ public class UpdateEmail extends AppCompatActivity {
 
         pwdET = findViewById(R.id.update_email_pass_et);
         newEmailET = findViewById(R.id.update_new_email_et);
-        updateEmailBtn = findViewById(R.id.update_email_proceed_btn);
         authenticateInfoTV = findViewById(R.id.authenticate_info_tv);
+        updateEmailBtn = findViewById(R.id.update_email_proceed_btn);
+
+        Button btnBack = findViewById(R.id.update_email_back_btn);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                MyCancelDialogEmail shelterHomeDashboard = new MyCancelDialogEmail();
+//                transaction.replace(R.id.user_change_email,shelterHomeDashboard);
+//                transaction.addToBackStack("Adopter Home");
+//                transaction.commit();
+                MyCancelDialogEmail myCancelDialogEmail = new MyCancelDialogEmail();
+                myCancelDialogEmail.show(getSupportFragmentManager(), "My Fragment");
+            }
+        });
 
         updateEmailBtn.setEnabled(false);
         newEmailET.setEnabled(false);
@@ -85,8 +101,10 @@ public class UpdateEmail extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task){
                             if(task.isSuccessful()){
                                 {
-                                    Toast.makeText(UpdateEmail.this, "Password has been verified." +
-                                            "You can enter new desired email now.", Toast.LENGTH_LONG).show();
+                                    EmailAuthenticatedDialog emailAuthenticatedDialog = new EmailAuthenticatedDialog();
+                                    emailAuthenticatedDialog.show(getSupportFragmentManager(), "My Fragment");
+//                                    Toast.makeText(UpdateEmail.this, "Password has been verified." +
+//                                            "You can enter new desired email now.", Toast.LENGTH_LONG).show();
 
                                     authenticateInfoTV.setText("You are now authenticated. Please proceed to set your new email.");
 
@@ -130,24 +148,34 @@ public class UpdateEmail extends AppCompatActivity {
     }
 
     private void updateEmail(FirebaseUser firebaseUser) {
-        firebaseUser.updateEmail(userNewEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+        updateEmailBtn = findViewById(R.id.update_email_proceed_btn);
+//        updateEmailBtn.setEnabled(false);
+        updateEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isComplete()){
-                    //Verify email
-                    firebaseUser.sendEmailVerification();
-                    updateDB();
-                    Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
-                }else{
-                    try{
-                        throw task.getException();
-                    }catch (Exception e){
-                        Toast.makeText(UpdateEmail.this, e.getMessage(),Toast.LENGTH_SHORT).show();
-                    }
+            public void onClick(View v) {
+                firebaseUser.updateEmail(userNewEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isComplete()){
+                            //Verify email
+                            firebaseUser.sendEmailVerification();
+                            updateDB();
+                            EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
+                            emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
+//                            Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
+                        }else{
+                            try{
+                                throw task.getException();
+                            }catch (Exception e){
+                                Toast.makeText(UpdateEmail.this, e.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
 
-                }
+                        }
+                    }
+                });
             }
         });
+
     }
 
     private void updateDB(){

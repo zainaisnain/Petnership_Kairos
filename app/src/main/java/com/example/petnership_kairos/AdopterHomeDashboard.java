@@ -244,32 +244,45 @@ public class AdopterHomeDashboard extends Fragment {
                                 snapshot.child(adopterID).child("country").getValue();
 
 
-                        adoptersDBRef.child(adopterID).child("imageName").
-                                addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                                        adopterImageName = String.valueOf(snapshot.getValue());
-
-                                        if(adopterImageName.isEmpty() || adopterImageName == null){
-                                            return;
-                                        }else{
-                                            //DISPLAY IMAGE TO IMAGE VIEW
-                                            storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        adoptersDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    adoptersDBRef.child(adopterID).child("imageName").
+                                            addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
-                                                public void onSuccess(Uri uri) {
-                                                    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
-                                                    //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                                    adopterImageName = String.valueOf(snapshot.getValue());
+
+                                                    if(adopterImageName.isEmpty() || adopterImageName == null){
+                                                        return;
+                                                    }else{
+                                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                                        storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                            @Override
+                                                            public void onSuccess(Uri uri) {
+                                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
+                                                                //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                                            }
+                                                        });
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
                                                 }
                                             });
-                                        }
-                                    }
+                                }
+                            }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
+                            }
+                        });
+
 
                     }
 
