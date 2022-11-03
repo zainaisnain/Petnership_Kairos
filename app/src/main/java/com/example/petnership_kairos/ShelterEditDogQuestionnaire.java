@@ -245,9 +245,11 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                     dogPetProfileSummary.setArguments(bundle);
 
                     addToDB();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
-                    transaction.commit();
+//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
+//                    transaction.commit();
+                    MySaveDialogEdit mySaveDialogEdit = new MySaveDialogEdit();
+                    mySaveDialogEdit.show(getParentFragmentManager(), "My Fragment");
 //                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
             }
