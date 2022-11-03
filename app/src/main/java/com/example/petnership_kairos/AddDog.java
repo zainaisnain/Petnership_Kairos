@@ -226,8 +226,12 @@ public class  AddDog extends Fragment {
 //                }else if(filePath==null){
 //                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else{
+                    if(filePath != null){
                         uploadImage();
                         addPet();
+                    }else{
+                        addPet();
+                    }
                 }
             }
         });
