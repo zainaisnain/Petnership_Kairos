@@ -18,15 +18,16 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="140dp">
+            android:layout_height="160dp">
 
             <ImageView
                 android:id="@+id/dog_image"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:background="#DA8EE7"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:padding="@dimen/_10sdp"
                 android:src="@drawable/dog" />
             <LinearLayout
                 android:layout_weight="1"
@@ -128,7 +129,7 @@
                 <TextView
                     android:id="@+id/dog_breed"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_alignParentBottom="true"
 
                     android:fontFamily="@font/montserrat_reg"

@@ -57,7 +57,7 @@
                         android:id="@+id/per_cat_image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:background="#FFFFFF"
                         android:layout_marginTop="@dimen/_50sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
