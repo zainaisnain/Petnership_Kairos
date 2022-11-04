@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
         import android.content.Context;
+        import android.content.Intent;
         import android.net.Uri;
         import android.os.Bundle;
         import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ package com.example.petnership_kairos;
         import android.widget.Toast;
         import androidx.cardview.widget.CardView;
         import androidx.annotation.NonNull;
+        import androidx.fragment.app.FragmentTransaction;
         import androidx.recyclerview.widget.RecyclerView;
 
         import com.bumptech.glide.Glide;
@@ -85,8 +87,9 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
                 bundle.putString("applicantDateApplied",ApplicationHistoryDataList.getApplicantDateApplied());
                 applicationHistoryIndiv.setArguments(bundle);
 
-                ((context.getActivity())).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.appication_history_frag, applicationHistoryIndiv).addToBackStack(null).commit();
+
+               ((context.getActivity())).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.appication_history_frag, applicationHistoryIndiv).addToBackStack("ApplicationHistory").commit();
             }
         });
 

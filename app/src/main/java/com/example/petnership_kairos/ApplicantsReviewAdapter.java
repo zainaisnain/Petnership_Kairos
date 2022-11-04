@@ -30,7 +30,6 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private ApplicantsReviewFragment contextA;
-    Context context;
     ApplicantsReviewData[] applicantsReviewData;
     String imageName;
 
