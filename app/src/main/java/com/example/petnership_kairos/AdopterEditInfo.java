@@ -181,8 +181,8 @@ public class AdopterEditInfo extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyCancelDialogShelterEdit myCancelDialogShelterEdit = new MyCancelDialogShelterEdit();
-                myCancelDialogShelterEdit.show(getSupportFragmentManager(), "My Fragment");
+                MyCancelDialogAdopterEdit myCancelDialogAdopterEdit = new MyCancelDialogAdopterEdit();
+                myCancelDialogAdopterEdit.show(getSupportFragmentManager(), "My Fragment");
             }
         });
 

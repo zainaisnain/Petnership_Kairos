@@ -39,8 +39,6 @@ public class ApplicationHistoryFragment extends Fragment {
     ApplicationHistoryData[] applicationHistoryData;
     private ArrayList<ApplicationHistoryData> ALApplicationHistoryData = new ArrayList<>();
     private ApplicationHistoryViewModel mViewModel;
-    View view;
-    RecyclerView recyclerView;
     ImageButton backBtn;
 
     private TextView tvDoglvl1, tvDoglvl2, tvDoglvl3, tvDoglvl4, tvDoglvl5,
@@ -77,7 +75,7 @@ public class ApplicationHistoryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_application_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_application_history, container, false);
         return view;
     }
 

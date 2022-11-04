@@ -28,14 +28,14 @@ package com.example.petnership_kairos;
 public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationHistoryAdapter.ViewHolder> {
 
     ApplicationHistoryData[] applicationHistoryData;
-    ApplicationHistoryFragment context;
+    ApplicationHistoryFragment contextA;
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     String imageName;
 
     public ApplicationHistoryAdapter(ApplicationHistoryData[] applicationHistoryData, ApplicationHistoryFragment activity){
         this.applicationHistoryData = applicationHistoryData;
-        this.context = activity;
+        this.contextA = activity;
     }
     @Override
     public ViewHolder onCreateViewHolder (ViewGroup parent, int viewType){
@@ -63,7 +63,7 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
                         .addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
+                                Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
                             }
                         });
             }
@@ -88,8 +88,10 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
                 applicationHistoryIndiv.setArguments(bundle);
 
 
-               ((context.getActivity())).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.appication_history_frag, applicationHistoryIndiv).addToBackStack("ApplicationHistory").commit();
+               ((contextA.getActivity())).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.appication_history_frag, applicationHistoryIndiv, "ApplicationHistoryIndiv").addToBackStack(null).commit();
+
+
             }
         });
 
@@ -115,10 +117,10 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
         CardView appHistoCV;
         public ViewHolder(View itemView) {
             super(itemView);
+            appHistoCV = itemView.findViewById(R.id.applicant_cv);
             apphistoImage = itemView.findViewById(R.id.adoptee_image);
             apphistoName = itemView.findViewById(R.id.adoptee_name);
             apphistoStatus = itemView.findViewById(R.id.adoptee_status);
-            appHistoCV = itemView.findViewById(R.id.applicant_cv);
         }
     }
 

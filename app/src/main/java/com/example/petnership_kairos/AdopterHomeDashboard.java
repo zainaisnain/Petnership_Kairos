@@ -88,7 +88,6 @@ public class AdopterHomeDashboard extends Fragment {
         ivAdopterImage = view.findViewById(R.id.adopterImage);
         ivCvAdopterImage = view.findViewById(R.id.cvAdopterImage);
         cvAdopterInfo = view.findViewById(R.id.adopter_info_cv);
-        cvApplicationHistory = view.findViewById(R.id.adopterIntAppHistory);
         cvAdoptPet =  view.findViewById(R.id.adopterIntBrowseShelter);
         cvBrowseAnimals = view.findViewById(R.id.adopterIntBrowseAnimal);
 
@@ -101,16 +100,14 @@ public class AdopterHomeDashboard extends Fragment {
             }
         });
 
-        cvApplicationHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        cvApplicationHistory = view.findViewById(R.id.adopterIntAppHistory);
+        cvApplicationHistory.setOnClickListener(v -> {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
                 transaction.replace(R.id.nav_host_fragment,applicationHistory);
                 transaction.addToBackStack("applicationHistory");
                 transaction.commit();
-            }
         });
 
         cvAdoptPet.setOnClickListener(new View.OnClickListener() {

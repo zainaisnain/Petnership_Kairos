@@ -91,6 +91,7 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
                         .replace(R.id.applicants_for_review_frag, shelterToReviewApplication,"ShelterToReviewApplication").addToBackStack(null).commit();
             }
         });
+        holder.setIsRecyclable(false);
 
     }
 

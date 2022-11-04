@@ -35,7 +35,6 @@ public class MyCancelDialogAdopterEdit extends DialogFragment{
 //                transaction.replace(R.id.user_change_email, shelterDashboard);
 //                transaction.commit();
 //                getParentFragmentManager().popBackStack();
-                dismiss();
 //
             }
         });

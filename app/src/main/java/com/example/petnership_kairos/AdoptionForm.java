@@ -156,8 +156,9 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
         cancelForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialog cancelDialog = new MyCancelDialog();
-                cancelDialog.show(getParentFragmentManager(), "My Fragment");
+
+                MyCancelDialogAdopterEdit myCancelDialogAdopterEdit = new MyCancelDialogAdopterEdit();
+                myCancelDialogAdopterEdit.show(getParentFragmentManager(), "My Fragment");
             }
         });
 

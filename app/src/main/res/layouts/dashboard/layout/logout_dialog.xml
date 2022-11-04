@@ -52,17 +52,6 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
-        <Button
-            android:id="@+id/buttonCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/black"
-            android:text="CANCEL"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
         <Button
             android:id="@+id/buttonOk"
@@ -71,6 +60,17 @@
             android:layout_margin="10dp"
             android:layout_marginTop="16dp"
             android:text="OK"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/black"
+            android:text="CANCEL"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
