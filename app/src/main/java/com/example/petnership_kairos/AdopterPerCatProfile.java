@@ -87,10 +87,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         backBtnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BrowseAnimals browseAnimals= new BrowseAnimals();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_per_cat_profile_container, browseAnimals);
-                transaction.commit();
+                onBackPressed();
             }
         });
 
@@ -100,10 +97,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BrowseAnimals browseAnimals= new BrowseAnimals();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_per_cat_profile_container, browseAnimals);
-                transaction.commit();
+                onBackPressed();
             }
         });
 
@@ -156,6 +150,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                                 //Go to next screen
                                                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                                                 transaction.replace(R.id.adopter_per_cat_profile_container, adoptionForm);
+                                                transaction.addToBackStack("Adopter Pet Cat");
                                                 transaction.commit();
                                             }
                                         });

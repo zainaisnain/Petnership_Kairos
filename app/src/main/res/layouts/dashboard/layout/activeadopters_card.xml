@@ -27,9 +27,12 @@
 
             <ImageView
                 android:id="@+id/applicant_image"
-                android:layout_width="115dp"
-                android:layout_height="103dp"
-                android:scaleType="centerCrop"
+
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:background="#DA8EE7"
+                android:layout_marginLeft="@dimen/_10sdp"
                 android:src="@drawable/profile" />
 
             <LinearLayout
@@ -46,20 +49,20 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_applicant_name"
+                        android:id="@+id/label_adopter_name"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="Applicant:"
+                        android:text="Adopter:"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/applicant_name"
+                        android:id="@+id/adopter_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="Applicant Name" />
+                        android:text="Adopter Name" />
                 </LinearLayout>
 
             </LinearLayout>

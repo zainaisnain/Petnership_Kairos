@@ -71,16 +71,13 @@ public class BrowseAnimals extends Fragment {
         withFirebase(recyclerView);
 
 
-//        backBtn = view.findViewById(R.id.bac);
-//        backBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-//                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-//                transaction.commit();
-//            }
-//        });
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getParentFragmentManager().popBackStack();
+            }
+        });
     }
 
     private void withFirebase(RecyclerView recyclerView) {

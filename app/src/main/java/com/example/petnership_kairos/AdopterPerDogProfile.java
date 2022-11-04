@@ -108,10 +108,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         backBtnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BrowseAnimals browseAnimals= new BrowseAnimals();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_per_dog_profile_container, browseAnimals);
-                transaction.commit();
+                onBackPressed();
             }
         });
 
@@ -121,10 +118,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BrowseAnimals browseAnimals= new BrowseAnimals();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.adopter_per_dog_profile_container, browseAnimals);
-                transaction.commit();
+                onBackPressed();
             }
         });
 
@@ -178,6 +172,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                                 //Go to next screen
                                                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                                                 transaction.replace(R.id.adopter_per_dog_profile_container, adoptionForm);
+                                                transaction.addToBackStack("Adopter Pet Dog");
                                                 transaction.commit();
                                             }
                                         });

@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/application_history_indiv"
+    tools:context=".ApplicationHistoryIndiv"
     android:background="#f5f5f5"
-    tools:context=".PerPetProfileCats"
     >
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="-365dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,13 +37,27 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
+                        <ImageButton
+                            android:id="@+id/btnBack"
+                            android:layout_width="70dp"
+                            android:layout_height="45dp"
+                            android:background="#0000"
+                            android:src="@drawable/ic_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.046"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.231"
+                            app:tint="@color/black"
+                            tools:ignore="SpeakableTextPresentCheck" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
                         android:id="@+id/per_cat_image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:scaleType="centerCrop"
+                        android:background="#FFFFFF"
                         android:layout_marginTop="@dimen/_50sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -399,7 +412,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_submit_adopter"
+                android:id="@+id/btn_back_adopter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"

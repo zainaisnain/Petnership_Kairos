@@ -17,66 +17,68 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="745dp"
                 android:orientation="vertical">
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:background="#0000"
-        android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134"
-        app:tint="@color/black"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/playfairdisplayblack"
-        android:text="List of Dogs"
-        android:textColor="@color/secondary_purple"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825"
-        tools:ignore="TextContrastCheck" />
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
+                    android:background="#0000"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.953"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.137"
+                    app:tint="@color/black"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/applicant_cv"
-        android:layout_width="364dp"
-        android:layout_height="548dp"
-        android:layout_margin="5dp"
-        app:cardBackgroundColor="#C3B1E1"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="List of Dogs"
+                    android:textColor="@color/secondary_purple"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.900"
+                    tools:ignore="TextContrastCheck" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewDogs"
-            android:layout_width="364dp"
-            android:layout_height="527dp"
-            android:layout_margin="2dp" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/applicant_cv"
+                    android:layout_width="341dp"
+                    android:layout_height="545dp"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#C3B1E1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.775">
 
-    </androidx.cardview.widget.CardView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewDogs"
+                        android:layout_width="341dp"
+                        android:layout_height="545dp"
+                        android:layout_margin="2dp" />
+
+                </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
