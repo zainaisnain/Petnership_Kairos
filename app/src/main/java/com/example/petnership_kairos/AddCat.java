@@ -246,13 +246,6 @@ public class AddCat extends Fragment {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.putExtra("crop", true);
-        intent.putExtra("scale", true);
-        intent.putExtra("outputX", 500);
-        intent.putExtra("outputY", 500);
-        intent.putExtra("scale", true);
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
         startActivityForResult(
                 Intent.createChooser(
                         intent,
