@@ -60,6 +60,7 @@ public class ApplicantsReviewFragment extends Fragment {
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
 
+        System.out.println("hello from ApplicantsReviewFragment");
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,15 +75,19 @@ public class ApplicantsReviewFragment extends Fragment {
     }
 
     private void getFromDB(RecyclerView recyclerView){
-
+        System.out.println("enterdgetFromDB");
+        System.out.println("shelterEmail == " + shelterEmail);
         sheltersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot sheltersSnapshot) {
+                System.out.println("entered onDataChange");
+                System.out.println("sheltersSnapshot  == " + sheltersSnapshot);
                 if(sheltersSnapshot.exists()){
                     for(DataSnapshot ds : sheltersSnapshot.getChildren()) {
                         shelterID = ds.getKey();
                     }
 
+                    System.out.println("shelterID ARF === " + shelterID);
                     if(sheltersSnapshot.child(shelterID).hasChild("ForReviewApplicants")){
                         sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -90,6 +95,7 @@ public class ApplicantsReviewFragment extends Fragment {
 
                                 for(DataSnapshot ds : snapshot.getChildren()) {
                                     applicationID = ds.getKey();
+                                    System.out.println("applicationID ARF === " + applicationID);
 
                                     adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
                                     adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
@@ -121,16 +127,5 @@ public class ApplicantsReviewFragment extends Fragment {
 
             }
         });
-//        ApplicantsReviewData[] applicantsreviewData = new ApplicantsReviewData[]{
-//                new ApplicantsReviewData("Juan Dela Cruz","Brownie",R.drawable.profile),
-//                new ApplicantsReviewData("Maria Dela Cruz","Beauty",R.drawable.profile),
-//                new ApplicantsReviewData("Jose Dela Cruz","Bruno",R.drawable.profile)
-//
-//        };
-//
-//        ApplicantsReviewAdapter applicantsReviewAdapter = new ApplicantsReviewAdapter(applicantsreviewData,ApplicantsReviewFragment.this);
-//        recyclerView.setAdapter(applicantsReviewAdapter);
-
     }
-
 }

@@ -136,6 +136,8 @@ public class ShelterToReviewApplication extends Fragment {
                 shelterReason = shelterReasonET.getText().toString();
                 //UPDATE DBS
                 updateApplicationStatusOnDBs();
+                MySaveDialogShelterToReview mySaveDialogShelterToReview = new MySaveDialogShelterToReview();
+                mySaveDialogShelterToReview.show(getParentFragmentManager(), "My Fragment");
 //                MyCustomDialog submitDialog = new MyCustomDialog();
 //                submitDialog.show(getParentFragmentManager(), "My Fragment");
             }
@@ -145,8 +147,8 @@ public class ShelterToReviewApplication extends Fragment {
         cancelApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialog cancelDialog = new MyCancelDialog();
-                cancelDialog.show(getParentFragmentManager(), "My Fragment");
+                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
+                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
@@ -193,6 +195,22 @@ public class ShelterToReviewApplication extends Fragment {
                                                 applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
                                                 int statusPosition = statusAdapter.getPosition(applicationStatus);
                                                 statusAppTxt.setSelection(statusPosition);
+
+                                                sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID)
+                                                        .orderByKey().equalTo("shelterReason").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        if(snapshot.exists()){
+                                                            shelterReason = (String) snapshot.child("shelterReason").getValue();
+                                                            shelterReasonET.setText(shelterReason);
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
 
                                                 dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
                                                 adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
@@ -251,6 +269,7 @@ public class ShelterToReviewApplication extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                        snapshot.child("shelterReason").getRef().setValue(shelterReason);
                     }
 
                     @Override
