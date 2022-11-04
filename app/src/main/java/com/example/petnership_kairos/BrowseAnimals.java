@@ -101,16 +101,30 @@ public class BrowseAnimals extends Fragment {
                                                 petIDs.add(petID);
 
                                                 String valAppliedToAdopt = (String) snapshot.child(petID).child("appliedToAdopt").getValue();
-                                                System.out.println(valAppliedToAdopt);
 
                                                 if(valAppliedToAdopt.equals("not yet")){
+
+//                                                    adoptersDBRef.child("AdopterAllPets").child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+//                                                        @Override
+//                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                                            if(snapshot.exists()){
+//                                                                petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
+//                                                            }
+//                                                        }
+//
+//                                                        @Override
+//                                                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                                        }
+//                                                    });
+
                                                     petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                                                     petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
+                                                    System.out.println(petName + "'s imageName == " + petImageName);
                                                     petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
                                                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
 
                                                     String petType = String.valueOf(snapshot.child(petID).child("petType").getValue());
-                                                    System.out.println("BrowseAnimals petType" + petType);
                                                     if(petType.equals("dog")){
                                                         petBreed = String.valueOf(snapshot.child(petID).child("q10").getValue());
                                                     }else if(petType.equals("cat")){

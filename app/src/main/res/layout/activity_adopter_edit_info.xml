@@ -222,30 +222,24 @@
                 android:paddingLeft="10dp"
                 android:text = "Philippines"/>
 
-
-            <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/card"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
                 android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toTopOf="@+id/txt_birthday_adopter_edit">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="@font/montserrat_reg"
-                    android:gravity="center"
-                    android:text=" Sex"
-                    android:textSize="20sp" />
+                android:text="Sex"
+                android:textSize="20sp" />
 
                 <Spinner
                     android:id="@+id/adopter_sex_dd_edit"
-                    android:layout_width="188dp"
+                    android:layout_width="350dp"
                     android:layout_height="48dp"
                     android:layout_marginLeft="30dp"
+                    android:width="200dp"
+                    android:height="40dp"
                     android:autofillHints=""
                     android:background="@drawable/textfield"
                     android:ems="10"
@@ -260,7 +254,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.376" />
-            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"

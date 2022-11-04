@@ -93,6 +93,8 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
             }
         });
 
+        holder.setIsRecyclable(false);
+
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {

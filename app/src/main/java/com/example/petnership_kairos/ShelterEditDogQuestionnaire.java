@@ -1,6 +1,7 @@
 package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -244,7 +245,10 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                     dogPetProfileSummary.setArguments(bundle);
 
                     addToDB();
-                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
+                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                    transaction.replace(R.id.shelter_dog_ques_frag, dogPetProfileSummary);
+                    transaction.commit();
+//                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
             }
         });
@@ -253,7 +257,11 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ShelterDashboard.class));
+//                getParentFragmentManager().popBackStack();
+//                dismiss();
+                MyCancelDialogEdit myCancelDialogEdit = new MyCancelDialogEdit();
+                myCancelDialogEdit.show(getParentFragmentManager(), "My Fragment");
+//                startActivity(new Intent(getActivity(), ShelterDashboard.class));
             }
         });
     }

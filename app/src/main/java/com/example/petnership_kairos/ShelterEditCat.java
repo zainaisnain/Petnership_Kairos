@@ -346,6 +346,8 @@ public class ShelterEditCat extends Fragment {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
+                                    MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
+                                    mySaveDialogShelter.show(getParentFragmentManager(), "My Fragment");
                                     Toast
                                             .makeText(getActivity(),
                                                     "Image Uploaded!!",
