@@ -196,6 +196,22 @@ public class ShelterToReviewApplication extends Fragment {
                                                 int statusPosition = statusAdapter.getPosition(applicationStatus);
                                                 statusAppTxt.setSelection(statusPosition);
 
+                                                sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID)
+                                                        .orderByKey().equalTo("shelterReason").addListenerForSingleValueEvent(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        if(snapshot.exists()){
+                                                            shelterReason = (String) snapshot.child("shelterReason").getValue();
+                                                            shelterReasonET.setText(shelterReason);
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
+
                                                 dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
                                                 adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
                                                 adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
@@ -253,6 +269,7 @@ public class ShelterToReviewApplication extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                        snapshot.child("shelterReason").getRef().setValue(shelterReason);
                     }
 
                     @Override
