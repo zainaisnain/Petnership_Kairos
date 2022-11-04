@@ -148,31 +148,24 @@ public class UpdateEmail extends AppCompatActivity {
     }
 
     private void updateEmail(FirebaseUser firebaseUser) {
-        updateEmailBtn = findViewById(R.id.update_email_proceed_btn);
-//        updateEmailBtn.setEnabled(false);
-        updateEmailBtn.setOnClickListener(new View.OnClickListener() {
+        firebaseUser.updateEmail(userNewEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onClick(View v) {
-                firebaseUser.updateEmail(userNewEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isComplete()){
-                            //Verify email
-                            firebaseUser.sendEmailVerification();
-                            updateDB();
-                            EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
-                            emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
-//                            Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
-                        }else{
-                            try{
-                                throw task.getException();
-                            }catch (Exception e){
-                                Toast.makeText(UpdateEmail.this, e.getMessage(),Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isComplete()){
+                    //Verify email
+                    firebaseUser.sendEmailVerification();
+                    updateDB();
+//                    EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
+//                    emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
+                            Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
+                }else{
+                    try{
+                        throw task.getException();
+                    }catch (Exception e){
+                        Toast.makeText(UpdateEmail.this, e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
-                });
+
+                }
             }
         });
 

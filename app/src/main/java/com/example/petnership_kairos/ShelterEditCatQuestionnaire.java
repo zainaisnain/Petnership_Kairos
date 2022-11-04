@@ -227,12 +227,15 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     catPetProfileSummary.setArguments(bundle);
 
                     addToDB();
+
+                    MySaveDialogEdit mySaveDialogEdit = new MySaveDialogEdit();
+                    mySaveDialogEdit.show(getParentFragmentManager(), "My Fragment");
 //                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
 //                    transaction.commit();
-                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
-                    transaction.commit();
+//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
+//                    transaction.commit();
 
                 }
             }
