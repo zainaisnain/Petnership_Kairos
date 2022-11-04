@@ -136,6 +136,8 @@ public class ShelterToReviewApplication extends Fragment {
                 shelterReason = shelterReasonET.getText().toString();
                 //UPDATE DBS
                 updateApplicationStatusOnDBs();
+                MySaveDialogShelterToReview mySaveDialogShelterToReview = new MySaveDialogShelterToReview();
+                mySaveDialogShelterToReview.show(getParentFragmentManager(), "My Fragment");
 //                MyCustomDialog submitDialog = new MyCustomDialog();
 //                submitDialog.show(getParentFragmentManager(), "My Fragment");
             }
@@ -145,8 +147,8 @@ public class ShelterToReviewApplication extends Fragment {
         cancelApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialog cancelDialog = new MyCancelDialog();
-                cancelDialog.show(getParentFragmentManager(), "My Fragment");
+                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
+                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
