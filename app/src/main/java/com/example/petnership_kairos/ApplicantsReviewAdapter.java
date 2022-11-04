@@ -93,6 +93,7 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
             }
         });
 
+        holder.setIsRecyclable(false);
     }
 
     @Override
