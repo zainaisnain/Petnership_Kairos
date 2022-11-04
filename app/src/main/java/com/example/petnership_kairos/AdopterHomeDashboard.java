@@ -162,7 +162,6 @@ public class AdopterHomeDashboard extends Fragment {
                                                 .child(existingPetID).child("appliedToAdopt").getRef().setValue("not yet");
                                     }
                                 }
-                                System.out.println("existingPetIDs == " + existingPetIDs);
 
                                 //ADD the updated pet
                                 allPetsDBRef.addValueEventListener(new ValueEventListener() {
@@ -172,12 +171,9 @@ public class AdopterHomeDashboard extends Fragment {
                                             allPetsID = ds.getKey();
                                             allPetsIDs.add(allPetsID);
                                         }
-                                        System.out.println("allPetsIDs === " + allPetsIDs);
-
                                         allPetsIDs.removeAll(existingPetIDs);
 
                                         for(String petID: allPetsIDs){
-                                            System.out.println("allPetsID AFTER === " + petID);
                                             adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(petID)
                                                     .getRef().setValue(snapshot.child(petID).getValue());
                                         }
@@ -226,7 +222,6 @@ public class AdopterHomeDashboard extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                System.out.println("snapshot setUpProfilePic === " + snapshot);
                         for(DataSnapshot ds : snapshot.getChildren()) {
                             adopterID = ds.getKey();
                         }
