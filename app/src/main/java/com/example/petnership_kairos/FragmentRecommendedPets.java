@@ -134,32 +134,37 @@ public class FragmentRecommendedPets extends Fragment {
         recommendedPet3 = view.findViewById(R.id.rec3_card);
 
         // onClickListeners
-        recommendedPet1.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewModel.setCurrentResultView(0);
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet1.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(0);
+
+
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
-        recommendedPet2.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewModel.setCurrentResultView(1);
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet2.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(1);
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
 
-        recommendedPet3.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mViewModel.setCurrentResultView(2);
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet3.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(2);
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
     }
