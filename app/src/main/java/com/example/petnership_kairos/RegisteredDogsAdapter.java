@@ -63,15 +63,20 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final RegisteredDogData registeredDogDataList = dogsData[position];
 
-        if(registeredDogDataList.getImageName() != null){
-            storageReference.child("Pets/").child(registeredDogDataList.getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            System.out.println("registeredDogDataList.getImageName()) ONSUCCES" + registeredDogDataList.getImageName());
-                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.dog_image));
-                        }
-                    });
+        if(registeredDogDataList.getImageName()  != null){
+            if(!registeredDogDataList.getImageName() .isEmpty()){
+                if(registeredDogDataList.getImageName()  != ""){
+                    //DISPLAY IMAGE TO IMAGE VIEW
+                    storageReference.child("Pets/").child(registeredDogDataList.getImageName()).getDownloadUrl()
+                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    System.out.println("registeredDogDataList.getImageName()) ONSUCCES" + registeredDogDataList.getImageName());
+                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.dog_image));
+                                }
+                            });
+                }
+            }
         }
 
         holder.cvDog.setOnClickListener(new View.OnClickListener() {
