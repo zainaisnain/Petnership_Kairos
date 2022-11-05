@@ -236,7 +236,7 @@ public class AdopterHomeDashboard extends Fragment {
                                 snapshot.child(adopterID).child("country").getValue();
 
 
-                        adoptersDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                        adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.exists()){
@@ -246,10 +246,8 @@ public class AdopterHomeDashboard extends Fragment {
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                                     adopterImageName = String.valueOf(snapshot.getValue());
-
-                                                    if(adopterImageName.isEmpty() || adopterImageName == null){
-                                                        return;
-                                                    }else{
+                                                    System.out.println("adopterImageName == " + adopterImageName);
+                                                    if(adopterImageName != null){
                                                         //DISPLAY IMAGE TO IMAGE VIEW
                                                         storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                             @Override
