@@ -92,6 +92,15 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         });
 
         adoptMeBtn = findViewById(R.id.adopter_per_cat_adopt_me_btn);
+//        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                TermsAndConditions termsAndConditions= new TermsAndConditions();
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.adopter_per_cat_profile_container, termsAndConditions);
+//                transaction.commit();
+//            }
+//        });
 
         backBtn = findViewById(R.id.adopter_per_cat_back_btn);
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -144,13 +153,13 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                                 bundle.putString("adopterContact", adopterContact);
                                                 bundle.putString("adopterAddress", adopterAddress);
 
-                                                AdoptionForm adoptionForm = new AdoptionForm();
-                                                adoptionForm.setArguments(bundle);
+                                                TermsAndConditions termsAndConditions = new TermsAndConditions();
+                                                termsAndConditions.setArguments(bundle);
 
                                                 //Go to next screen
                                                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                                transaction.replace(R.id.adopter_per_cat_profile_container, adoptionForm);
-                                                transaction.addToBackStack("Adopter Pet Cat");
+                                                transaction.replace(R.id.adopter_per_cat_profile_container, termsAndConditions);
+                                                //transaction.addToBackStack("Adopter Pet Cat");
                                                 transaction.commit();
                                             }
                                         });
