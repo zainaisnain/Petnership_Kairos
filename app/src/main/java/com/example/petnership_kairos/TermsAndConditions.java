@@ -111,31 +111,29 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-//                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-//                myCancelDialogGoToDogProfile.show(getParentFragmentManager(), "My Fragment");
-                if(petType.equals("dog")){
-//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-////                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                    MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-//                    transaction.replace(R.id.adoptionForm_TAndC,myCancelDialogGoToDogProfile);
-//                    transaction.addToBackStack("TermsAndConditions");
-//                    transaction.commit();
-
-
-//                    MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-//                    myCancelDialogGoToDogProfile.show(getParentFragmentManager(), "My Fragment");
-//                    getParentFragmentManager().popBackStack();
-                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
-                    dogIntent.putExtra("PetID", petID);
-                    view.getContext().startActivity(dogIntent);
-                }else{
-                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
-                    catIntent.putExtra("PetID", petID);
-                    view.getContext().startActivity(catIntent);
-                }
+            public void onClick(View v) {
+//                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
+//                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
+                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+                myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
             }
         });
+
+//        backBtn = view.findViewById(R.id.btnBack);
+//        backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(petType.equals("dog")){
+//                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
+//                    dogIntent.putExtra("PetID", petID);
+//                    view.getContext().startActivity(dogIntent);
+//                }else{
+//                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
+//                    catIntent.putExtra("PetID", petID);
+//                    view.getContext().startActivity(catIntent);
+//                }
+//            }
+//        });
 
 
         //BUTTONS
