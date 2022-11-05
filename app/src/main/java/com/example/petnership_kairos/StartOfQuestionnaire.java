@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -74,6 +76,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.nav_adoptHome);
+
     }
 
 
@@ -89,12 +92,10 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
             //TODO: FIX ONBACKPRESSED
             int count = getSupportFragmentManager().getBackStackEntryCount();
             if (count <= 1) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-                transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-                transaction.commit();
-                super.onBackPressed();
+
+                DialogQuestionnaireCancel checkCancel = new DialogQuestionnaireCancel();
+                checkCancel.show(getSupportFragmentManager(), "Questionnaire Cancel");
+
             } else {
                 getSupportFragmentManager().popBackStack();
             }
