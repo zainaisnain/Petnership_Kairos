@@ -62,16 +62,20 @@ public class RegisteredCatsAdapter extends RecyclerView.Adapter<RegisteredCatsAd
         final RegisteredCatData registeredCatDataList = petsData[position];
 
         if(registeredCatDataList.getImageName() != null){
-            storageReference.child("Pets/").child(registeredCatDataList.getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            System.out.println("registeredCatDataList.getImageName() ::: " + registeredCatDataList.getImageName());
-                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.cat_image));
-                        }
-                    });
+            if(!registeredCatDataList.getImageName().isEmpty()){
+                if(registeredCatDataList.getImageName() != ""){
+                    //DISPLAY IMAGE TO IMAGE VIEW
+                    storageReference.child("Pets/").child(registeredCatDataList.getImageName()).getDownloadUrl()
+                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    System.out.println("registeredCatDataList.getImageName() ::: " + registeredCatDataList.getImageName());
+                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.cat_image));
+                                }
+                            });
+                }
+            }
         }
-
         holder.cvCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

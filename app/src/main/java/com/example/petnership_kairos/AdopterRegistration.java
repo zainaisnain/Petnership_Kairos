@@ -44,6 +44,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.WordUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,10 +55,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
-
+import org.apache.commons.*;
 public class AdopterRegistration extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText editTextFname, editTextLname, editTextEmail, editTextUsername,
+    private EditText editTextFname, editTextLname, editTextEmail,
             editTextPassword, editTextConfirmPassword, editTextContact, editTextStreet,
             editTextCity, editTextCountry, editTextGender, editTextBirthday;
 
@@ -109,7 +111,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         editTextFname = findViewById(R.id.txt_fname_adopter);
         editTextLname = findViewById(R.id.txt_lname_adopter);
         editTextEmail = findViewById(R.id.txt_email_adopter);
-        editTextUsername = findViewById(R.id.txt_username_adopter);
         editTextPassword = findViewById(R.id.txt_password_adopter);
         editTextConfirmPassword = findViewById(R.id.txt_confirmpassword_adopter);
         editTextContact = findViewById(R.id.txt_contact_adopter);
@@ -250,18 +251,22 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         });
     }
     private void registerAdopter() {
-        String fname = editTextFname.getText().toString().trim();
-        String lname = editTextLname.getText().toString().trim();
+        String fname = WordUtils.capitalizeFully(editTextFname.getText().toString().trim());
+        String lname = WordUtils.capitalizeFully(editTextLname.getText().toString().trim());
         String email = editTextEmail.getText().toString().toLowerCase();
-        String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();
-        String street = editTextStreet.getText().toString().trim();
-        String city = editTextCity.getText().toString().trim();
+        String street = WordUtils.capitalizeFully(editTextStreet.getText().toString().trim());
+        String city = WordUtils.capitalizeFully(editTextCity.getText().toString().trim());
         String country = "Philippines";
         String birthday = editTextBirthday.getText().toString().trim();
         String user_type = "adopter";
+
+        System.out.println(fname);
+        System.out.println(lname);
+        System.out.println(street);
+        System.out.println(city);
 
         int contactNumCount = 0;
         for(int i = 0; i < contact.length(); i++){
@@ -291,16 +296,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             editTextEmail.setError("Please provide valid email.");
             editTextEmail.requestFocus();
-            return;
-        }
-
-        if(username.isEmpty()){
-            editTextUsername.setError("Username Required.");
-            editTextUsername.requestFocus();
-            return;
-        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
-            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
-            editTextUsername.requestFocus();
             return;
         }
 
@@ -357,49 +352,35 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         }
 
         adopterID = databaseReference.child("Adopters").push().getKey();
-        databaseReference.child("Adopters").child(adopterID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    Toast.makeText(AdopterRegistration.this, "Username already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                }else{
-                    mAuth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(task -> {
-                                if(task.isSuccessful()){
-                                    mAuth.getCurrentUser().sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if(task.isSuccessful()){
-                                                        boolean answeredQuestionnaire = false;
-                                                        Adopter adopter = new Adopter(adopterID, fname, lname, email, username,
-                                                                contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        mAuth.getCurrentUser().sendEmailVerification()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            boolean answeredQuestionnaire = false;
+                                            Adopter adopter = new Adopter(adopterID, fname, lname, email,
+                                                    contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
 
-                                                        databaseReference.child("Adopters").child(adopterID).setValue(adopter);
+                                            databaseReference.child("Adopters").child(adopterID).setValue(adopter);
 
 
-                                                        User user = new User(adopterID, email, username, "adopter", false);
+                                            User user = new User(adopterID, email, "adopter", false);
 
-                                                        databaseReference.child("Users").child(adopterID).setValue(user);
+                                            databaseReference.child("Users").child(adopterID).setValue(user);
 
-                                                        startActivity(new Intent(AdopterRegistration.this, UserVerifyEmailDialog.class));
-                                                    }
+                                            startActivity(new Intent(AdopterRegistration.this, UserVerifyEmailDialog.class));
+                                        }
 
-                                                }
-                                            });
-                                }else {
-                                    System.out.println(task.getException().getMessage());
-                                    Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+                                    }
+                                });
+                    }else {
+                        System.out.println(task.getException().getMessage());
+                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                    }
+                });
 
     }
 }

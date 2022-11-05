@@ -52,20 +52,37 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
         holder.applicantPet.setText(ApplicantsReviewDataList.getApplicantPetName());
 
         String adopterID = ApplicantsReviewDataList.getApplicantID();
-        adoptersDBRef.child(adopterID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+
+        adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                imageName = (String) snapshot.getValue();
-
-                storageReference.child("Adopters/").child(imageName).getDownloadUrl()
-                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.applicant_image));
+                if(snapshot.exists()){
+                    adoptersDBRef.child(adopterID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            imageName = (String) snapshot.getValue();
+                            if(imageName != null){
+                                if(!imageName.isEmpty()){
+                                    if(imageName != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.applicant_image));
+                                                    }
+                                                });
+                                    }
+                                }
                             }
-                        });
+                        }
 
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
 
             @Override
@@ -73,6 +90,7 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
 
             }
         });
+
 
         holder.cvApplicant.setOnClickListener(new View.OnClickListener() {
             @Override

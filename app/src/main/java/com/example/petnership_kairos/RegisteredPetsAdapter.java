@@ -66,14 +66,20 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
         final RegisteredPetData registeredPetDataList = PetsData[position];
 
         System.out.println(registeredPetDataList.getPetName() +  "'s  registeredPetDataList.getImageName() === " + registeredPetDataList.getImageName());
+
         if(registeredPetDataList.getImageName() != null){
-            storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
-                        }
-                    });
+            if(!registeredPetDataList.getImageName().isEmpty()){
+                if(registeredPetDataList.getImageName() != ""){
+                    //DISPLAY IMAGE TO IMAGE VIEW
+                    storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
+                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
+                                }
+                            });
+                }
+            }
         }
 
         holder.cvPet.setOnClickListener(new View.OnClickListener() {

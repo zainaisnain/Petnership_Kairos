@@ -81,7 +81,7 @@ public class AdopterEditInfo extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
 
-    private String adopterEmail, adopterUsername;
+    private String adopterEmail, adopterID;
 
     //DROPDOWNS
     Spinner ddSex, ddProvince;
@@ -439,17 +439,17 @@ public class AdopterEditInfo extends AppCompatActivity {
                         adoptersDBRef.addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(adopterUsername)){
+                                if(snapshot.hasChild(adopterID)){
                                     String contact = etContact.getText().toString();
-                                    snapshot.child(adopterUsername).getRef().child("contact").setValue(contact);
+                                    snapshot.child(adopterID).getRef().child("contact").setValue(contact);
 
                                     String city = etCity.getText().toString();
-                                    snapshot.child(adopterUsername).getRef().child("city").setValue(city);
+                                    snapshot.child(adopterID).getRef().child("city").setValue(city);
 
                                     String country = etCountry.getText().toString();
-                                    snapshot.child(adopterUsername).getRef().child("country").setValue(country);
+                                    snapshot.child(adopterID).getRef().child("country").setValue(country);
 
-                                    snapshot.child(adopterUsername).getRef().child("imageName").setValue(imageName);
+                                    snapshot.child(adopterID).getRef().child("imageName").setValue(imageName);
                                 }
                             }
 
@@ -478,46 +478,59 @@ public class AdopterEditInfo extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()) {
-                    adopterUsername = ds.getKey();
+                    adopterID = ds.getKey();
                 }
                 adoptersDBRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String fname = String.valueOf(snapshot.child(adopterUsername).child("fname").getValue());
+                        String fname = String.valueOf(snapshot.child(adopterID).child("fname").getValue());
                         System.out.println(fname);
                         etFname.setText(fname);
                         etFname.setEnabled(false);
 
-                        String lname = String.valueOf(snapshot.child(adopterUsername).child("lname").getValue());
+                        String lname = String.valueOf(snapshot.child(adopterID).child("lname").getValue());
                         System.out.println(lname);
                         etLname.setText(lname);
                         etLname.setEnabled(false);
 
-                        String username = String.valueOf(snapshot.child(adopterUsername).child("username").getValue());
+                        String username = String.valueOf(snapshot.child(adopterID).child("username").getValue());
                         etUsername.setText(username);
                         etUsername.setEnabled(false);
 
-                        etContact.setText(String.valueOf(snapshot.child(adopterUsername).child("contact").getValue()));
-                        etStreet.setText(String.valueOf(snapshot.child(adopterUsername).child("street").getValue()));
-                        etCity.setText(String.valueOf(snapshot.child(adopterUsername).child("city").getValue()));
-                        etCountry.setText(String.valueOf(snapshot.child(adopterUsername).child("country").getValue()));
-                        etBirthday.setText(String.valueOf(snapshot.child(adopterUsername).child("birthday").getValue()));
+                        etContact.setText(String.valueOf(snapshot.child(adopterID).child("contact").getValue()));
+                        etStreet.setText(String.valueOf(snapshot.child(adopterID).child("street").getValue()));
+                        etCity.setText(String.valueOf(snapshot.child(adopterID).child("city").getValue()));
+                        etCountry.setText(String.valueOf(snapshot.child(adopterID).child("country").getValue()));
+                        etBirthday.setText(String.valueOf(snapshot.child(adopterID).child("birthday").getValue()));
 
-                        imageName = String.valueOf(snapshot.child(adopterUsername).child("imageName").getValue());
-                        System.out.println("imageName AdopterEditInfo" + imageName);
-
-                        if(imageName.isEmpty() || imageName == null){
-                            return;
-                        }else{
-                            storageReference.child("Adopters/").child(imageName).getDownloadUrl()
-                                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
+                        adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    imageName = String.valueOf(snapshot.child(adopterID).child("imageName").getValue());
+                                    System.out.println("imageName AdopterEditInfo" + imageName);
+                                    if(imageName != null){
+                                        if(!imageName.isEmpty()){
+                                            if(imageName != ""){
+                                                //DISPLAY IMAGE TO IMAGE VIEW
+                                                storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                            @Override
+                                                            public void onSuccess(Uri uri) {
+                                                                Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
+                                                            }
+                                                        });
+                                            }
                                         }
-                                    });
-                        }
+                                    }
+                                }
+                            }
 
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
 
                     @Override

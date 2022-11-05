@@ -63,14 +63,20 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             imageName = (String) snapshot.getValue();
                             System.out.println(ApplicationHistoryDataList.getPetName()+"'s imageName == " + imageName);
-
-                            storageReference.child("Pets/").child(imageName).getDownloadUrl()
-                                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                        @Override
-                                        public void onSuccess(Uri uri) {
-                                            Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
-                                        }
-                                    });
+                            if(imageName != null){
+                                if(!imageName.isEmpty()){
+                                    if(imageName != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Pets/").child(imageName).getDownloadUrl()
+                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
+                                                    }
+                                                });
+                                    }
+                                }
+                            }
                         }
 
                         @Override
