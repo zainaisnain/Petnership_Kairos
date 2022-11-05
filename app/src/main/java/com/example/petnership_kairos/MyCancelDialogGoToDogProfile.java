@@ -1,62 +1,53 @@
 package com.example.petnership_kairos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-public class MyCancelDialogGoToDogProfile extends DialogFragment {
+import com.google.firebase.auth.FirebaseAuth;
 
-    Button btnOk, btnCancel;
-//    private String petID;
-//
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        petID = getArguments().getString("petID");
-//    }
+public class MyCancelDialogGoToDogProfile extends DialogFragment{
 
+    Button btnBack, btnCancel;
+
+    FirebaseAuth auth = FirebaseAuth.getInstance();
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.activity_cancel_dialog, container, false);
+        View view = inflater.inflate(R.layout.cancel2_dialog, container, false);
 
-        btnOk = view.findViewById(R.id.buttonYes);
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        btnBack = view.findViewById(R.id.buttonOk);
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //FRAGMENT to FRAGMENT
-//                Intent dogIntent = new Intent(getActivity(), AdopterPerDogProfile.class);
-//                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
-//                dogIntent.putExtra("PetID", petID);
-//                view.getContext().startActivity(dogIntent);
+            public void onClick(View v) {
+                //FRAGMENT to ACTIVITY
+//                getChildFragmentManager().popBackStack();
                 getParentFragmentManager().popBackStack();
-//                startActivity(dogIntent);
                 dismiss();
-//                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
-//                dogIntent.putExtra("PetID", petID);
-//                view.getContext().startActivity(dogIntent);
+//                Fragment fragment = new ShelterEditDog();
+//
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                BrowseAnimals browseAnimals = new BrowseAnimals();
-//                transaction.replace(R.id.adoptionForm_TAndC, browseAnimals);
-//                transaction.commit();
-//                dismiss();
+//                transaction.replace(R.id.adoptionForm_TAndC, fragment).addToBackStack(null).commit();
+
             }
         });
 
-        btnCancel = view.findViewById(R.id.buttonNo);
+        btnCancel = view.findViewById(R.id.buttonCancel);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 dismiss();
             }
         });
         return view;
     }
 }
+
+
