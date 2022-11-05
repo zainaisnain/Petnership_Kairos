@@ -345,6 +345,56 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Do you have work?"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_yesWork"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="Yes"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_noWork"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="No"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

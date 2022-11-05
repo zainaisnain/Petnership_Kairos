@@ -52,7 +52,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
     CheckBox agreeCb;
     EditText intentionsTv;
 
-    private AppCompatRadioButton hasPet, hasNoPet, ownHome, rentHome;
+    private AppCompatRadioButton hasPet, hasNoPet, ownHome, rentHome, hasWork, hasNoWork;
 
     String adopterIntentions, appliedToAdopt;
     boolean adopterAgreed;
@@ -85,8 +85,11 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         ownHome = view.findViewById(R.id.adopter_ownHome);
         ownHome.setOnClickListener((View.OnClickListener) this);
 
-        rentHome = view.findViewById(R.id.adopter_rentHome);
-        rentHome.setOnClickListener((View.OnClickListener) this);
+        hasWork = view.findViewById(R.id.adopter_yesWork);
+        hasWork.setOnClickListener((View.OnClickListener) this);
+
+        hasNoWork = view.findViewById(R.id.adopter_noWork);
+        hasNoWork.setOnClickListener((View.OnClickListener) this);
 
         //Get adopter's infos
         //get pet infos
@@ -241,6 +244,14 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
             case R.id.adopter_rentHome:
                 rentHome.setBackgroundColor(R.drawable.round_lightpurple);
                 ownHome.setBackgroundColor(Color.GRAY);
+                break;
+            case R.id.adopter_yesWork:
+                hasWork.setBackgroundColor(R.drawable.round_lightpurple);
+                hasNoWork.setBackgroundColor(Color.GRAY);
+                break;
+            case R.id.adopter_noWork:
+                hasNoWork.setBackgroundColor(R.drawable.round_lightpurple);
+                hasWork.setBackgroundColor(Color.GRAY);
                 break;
         }
     }
