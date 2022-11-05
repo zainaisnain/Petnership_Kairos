@@ -9,6 +9,17 @@
     tools:context=".ApplicationHistoryFragment"
     android:id="@+id/appication_history_frag">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="731dp">
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="70dp"
@@ -63,5 +74,7 @@
             android:layout_margin="2dp" />
 
     </androidx.cardview.widget.CardView>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

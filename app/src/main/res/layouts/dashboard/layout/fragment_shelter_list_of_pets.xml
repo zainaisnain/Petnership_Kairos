@@ -25,59 +25,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="745dp"
                 android:orientation="vertical">
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="70dp"
-        android:layout_height="45dp"
-        android:background="#0000"
-        android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.926"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.113"
-        app:tint="@color/black"
-        tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/playfairdisplayblack"
-        android:text="List of Pets"
-        android:textColor="@color/secondary_purple"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.825"
-        tools:ignore="TextContrastCheck" />
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
+                    android:background="#0000"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.953"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.138"
+                    app:tint="@color/black"
+                    tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/applicant_cv"
-        android:layout_width="377dp"
-        android:layout_height="570dp"
-        android:layout_margin="5dp"
-        app:cardBackgroundColor="#C3B1E1"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.844">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="List of Pets"
+                    android:textColor="@color/secondary_purple"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/applicant_cv"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.900"
+                    tools:ignore="TextContrastCheck" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPets"
-            android:layout_width="377dp"
-            android:layout_height="570dp"
-            android:layout_margin="2dp" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/applicant_cv"
+                    android:layout_width="345dp"
+                    android:layout_height="544dp"
+                    android:layout_margin="5dp"
+                    app:cardBackgroundColor="#C3B1E1"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.771">
 
-    </androidx.cardview.widget.CardView>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewPets"
+                        android:layout_width="345dp"
+                        android:layout_height="544dp"
+                        android:layout_margin="2dp" />
+
+                </androidx.cardview.widget.CardView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

@@ -29,10 +29,10 @@ public class MyCustomDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-                transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
-                transaction.commit();
+              //  FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                //AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
+                //transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
+                //transaction.commit();
             }
         });
         return view;

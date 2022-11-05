@@ -30,7 +30,6 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     private ApplicantsReviewFragment contextA;
-    Context context;
     ApplicantsReviewData[] applicantsReviewData;
     String imageName;
 
@@ -92,6 +91,7 @@ public class ApplicantsReviewAdapter extends RecyclerView.Adapter<ApplicantsRevi
                         .replace(R.id.applicants_for_review_frag, shelterToReviewApplication,"ShelterToReviewApplication").addToBackStack(null).commit();
             }
         });
+        holder.setIsRecyclable(false);
 
         holder.setIsRecyclable(false);
     }
