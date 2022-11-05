@@ -229,7 +229,7 @@
                             android:layout_margin="10dp">
 
                             <TextView
-                                android:id="@+id/label_adoptionForm_email"
+                                android:id="@+id/label_adoptionForm_shelter"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -237,7 +237,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_email"
+                                android:id="@+id/adoptionForm_shelter"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -253,7 +253,7 @@
                             android:layout_margin="10dp">
 
                             <TextView
-                                android:id="@+id/label_adoptionForm_mobile"
+                                android:id="@+id/label_adoptionForm_shelterReason"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -261,7 +261,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_mobile"
+                                android:id="@+id/adoptionForm_shelter_reason"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

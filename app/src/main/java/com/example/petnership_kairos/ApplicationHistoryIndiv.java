@@ -17,8 +17,11 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ApplicationHistoryIndiv extends Fragment {
 
@@ -35,14 +38,15 @@ public class ApplicationHistoryIndiv extends Fragment {
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
+
     String shelterEmail;
-    String applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
-            petID, petType, petName, petBreed, petAge, petDescription, shelterID;
+    String applicationID, dateApplied, adopterID, adopterName,
+            petID, petName, petBreed, petAge, petDescription, shelterID,
+            shelterReason, shelterBizName, applicationStatus;
     String adopterEmail, adopterContact, adopterAddress;
 
-    private TextView tvAdoptionFormDate, tvAdopterName, tvAdopterEmail,
-            tvAdopterMobile, tvAdopterAddress, tvPetType, tvBreed,
-            tvPetName, tvPetAge, tvPetDesc;
+    private TextView petNameTV, petAgeTV, petBreedTV,
+            applicationStatusTV, dateAppliedTV, shelterBizNameTV, shelterReasonTV;
 
     public static ApplicationHistoryIndiv newInstance() {
         return new ApplicationHistoryIndiv();
@@ -77,8 +81,89 @@ public class ApplicationHistoryIndiv extends Fragment {
         getActivity();
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
-        shelterEmail = firebaseUser.getEmail();
+        adopterEmail = firebaseUser.getEmail();
+
+        applicationID = getArguments().getString("applicationID");
+        petID = getArguments().getString("petID");
+        petName = getArguments().getString("petName");
+        applicationStatus = getArguments().getString("applicationStatus");
+        dateApplied = getArguments().getString("applicantDateApplied");
+
+        petNameTV = view.findViewById(R.id.per_pet_name);
+        petNameTV.setText(petName);
+        petAgeTV = view.findViewById(R.id.per_pet_age);
+        petBreedTV = view.findViewById(R.id.per_cat_breed);
+        applicationStatusTV = view.findViewById(R.id.adoptionForm_petStatus);
+        applicationStatusTV.setText(applicationStatus);
+        dateAppliedTV = view.findViewById(R.id.adoptionForm_petDate);
+        dateAppliedTV.setText(dateApplied);
+        shelterBizNameTV = view.findViewById(R.id.adoptionForm_shelter);
+        shelterReasonTV = view.findViewById(R.id.adoptionForm_shelter_reason);
+
+        populateTextViews();
     }
+
+    private void populateTextViews(){
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    adopterID = ds.getKey();
+                }
+                adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        snapshot.getRef().orderByKey().equalTo("shelterReason").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()){
+                                    adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            shelterReason = (String) snapshot.child("shelterReason").getValue();
+                                            shelterReasonTV.setText(shelterReason);
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                        shelterID = (String) snapshot.child("shelterID").getValue();
+                        sheltersDBRef.child(shelterID).child("bizName").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                shelterBizName = (String) snapshot.getValue();
+                                shelterBizNameTV.setText(shelterBizName);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

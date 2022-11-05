@@ -101,8 +101,8 @@ public class ShelterToReviewApplication extends Fragment {
         mEditTextMessage = view.findViewById(R.id.shelter_bodyEmailToAdopter);
         tvAdoptionFormDate = view.findViewById(R.id.adoptionForm_petDate);
         tvAdopterName = view.findViewById(R.id.adoptionForm_adopterName);
-        tvAdopterEmail = view.findViewById(R.id.adoptionForm_email);
-        tvAdopterMobile = view.findViewById(R.id.adoptionForm_mobile);
+        tvAdopterEmail = view.findViewById(R.id.adoptionForm_shelter);
+        tvAdopterMobile = view.findViewById(R.id.adoptionForm_shelter_reason);
         tvAdopterAddress = view.findViewById(R.id.adoptionForm_address);
         tvPetType = view.findViewById(R.id.adoptionForm_petType);
         tvBreed = view.findViewById(R.id.adoptionForm_petBreed);
