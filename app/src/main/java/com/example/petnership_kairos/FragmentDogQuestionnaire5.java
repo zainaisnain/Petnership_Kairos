@@ -49,9 +49,10 @@ public class FragmentDogQuestionnaire5 extends Fragment {
 
 
         // bring back previous progress if any
-     //   if (mViewModel.getDogAnswer(8) != null){
-       //     seekBar32.setProgress(mViewModel.getDogAnswer(8));
-        //}
+        if (mViewModel.getAnswer(27) != null) seekBar27.setProgress(mViewModel.getAnswer(27));
+        if (mViewModel.getAnswer(28) != null) seekBar28.setProgress(mViewModel.getAnswer(28));
+        if (mViewModel.getAnswer(29) != null) seekBar29.setProgress(mViewModel.getAnswer(29));
+
 
 
         showInstructions();

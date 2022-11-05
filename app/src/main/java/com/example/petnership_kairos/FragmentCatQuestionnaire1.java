@@ -60,6 +60,9 @@ public class FragmentCatQuestionnaire1 extends Fragment {
         crate7 = getView().findViewById(R.id.crating7);
 
 
+
+
+
         cseekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
