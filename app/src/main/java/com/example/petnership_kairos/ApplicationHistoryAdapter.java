@@ -54,18 +54,31 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
 
         String petID = ApplicationHistoryDataList.getPetID();
 
-        allPetsDBRef.child(petID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+        allPetsDBRef.child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                imageName = (String) snapshot.getValue();
+                if(snapshot.exists()){
+                    allPetsDBRef.child(petID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            imageName = (String) snapshot.getValue();
+                            System.out.println(ApplicationHistoryDataList.getPetName()+"'s imageName == " + imageName);
 
-                storageReference.child("Pets/").child(imageName).getDownloadUrl()
-                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
-                            }
-                        });
+                            storageReference.child("Pets/").child(imageName).getDownloadUrl()
+                                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                        @Override
+                                        public void onSuccess(Uri uri) {
+                                            Glide.with(contextA).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.adoptee_image));
+                                        }
+                                    });
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
 
             @Override
@@ -73,7 +86,6 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
 
             }
         });
-
         holder.appHistoCV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
