@@ -155,6 +155,18 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
                 transaction.commit();
                 break;
 
+            case R.id.nav_adopter_update_email:
+                startActivity(new Intent(AdopterDashboard.this, UpdateEmail.class));
+                break;
+
+            case R.id.nav_adopter_change_password:
+                FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
+                UserChangePassword userChangePassword = new UserChangePassword();
+                transaction4.replace(R.id.nav_host_fragment, userChangePassword);
+                transaction4.addToBackStack("changePassword");
+                transaction4.commit();
+                break;
+
             case R.id.nav_logout:
                 MyLogoutDialog logoutDialog = new MyLogoutDialog();
                 logoutDialog.show(getSupportFragmentManager(), "My Fragment");
