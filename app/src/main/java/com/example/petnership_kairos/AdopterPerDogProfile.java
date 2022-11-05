@@ -172,12 +172,12 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                                 bundle.putString("adopterContact", adopterContact);
                                                 bundle.putString("adopterAddress", adopterAddress);
 
-                                                AdoptionForm adoptionForm = new AdoptionForm();
-                                                adoptionForm.setArguments(bundle);
+                                                TermsAndConditions termsAndConditions = new TermsAndConditions();
+                                                termsAndConditions.setArguments(bundle);
 
                                                 //Go to next screen
                                                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                                transaction.replace(R.id.adopter_per_dog_profile_container, adoptionForm);
+                                                transaction.replace(R.id.adopter_per_dog_profile_container, termsAndConditions);
                                                 transaction.commit();
                                             }
                                         });
