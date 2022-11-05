@@ -40,6 +40,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.apache.commons.text.WordUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,7 +52,7 @@ import java.util.UUID;
 
 public class ShelterRegistration extends AppCompatActivity implements View.OnClickListener  {
 
-    private EditText editTextBizName, editTextOwner, editTextEmail, editTextUsername,
+    private EditText editTextBizName, editTextOwner, editTextEmail,
             editTextPassword, editTextConfirmPassword, editTextWebsite, editTextContact, editTextStreet,
             editTextCity, editTextCountry;
 
@@ -85,7 +86,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         editTextBizName = findViewById(R.id.txt_biz_name_shelter);
         editTextOwner = findViewById(R.id.txt_biz_owner_shelter);
         editTextEmail = findViewById(R.id.txt_email_shelter);
-        editTextUsername = findViewById(R.id.txt_username_shelter);
         editTextPassword = findViewById(R.id.txt_password_shelter);
         editTextConfirmPassword = findViewById(R.id.txt_confirmpassword_shelter);
         editTextWebsite = findViewById(R.id.txt_website_shelter);
@@ -180,16 +180,15 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         });
     }
     private void registerShelter() {
-        String bizName = editTextBizName.getText().toString().trim();
-        String owner = editTextOwner.getText().toString().trim();
+        String bizName = WordUtils.capitalizeFully(editTextBizName.getText().toString().trim());
+        String owner = WordUtils.capitalizeFully(editTextOwner.getText().toString().trim());
         String email = editTextEmail.getText().toString().toLowerCase();
-        String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
         String website = editTextWebsite.getText().toString().trim();
         String contact = editTextContact.getText().toString().trim();
-        String street = editTextStreet.getText().toString().trim();
-        String city = editTextCity.getText().toString().trim();
+        String street = WordUtils.capitalizeFully(editTextStreet.getText().toString().trim());
+        String city = WordUtils.capitalizeFully(editTextCity.getText().toString().trim());
         String country = "Philippines";
 
         int contactNumCount = 0;
@@ -219,16 +218,6 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             editTextEmail.setError("Please provide valid email.");
             editTextEmail.requestFocus();
-            return;
-        }
-
-        if(username.isEmpty()){
-            editTextUsername.setError("Username Required.");
-            editTextUsername.requestFocus();
-            return;
-        }else if(username.contains(".") || username.contains("#") || username.contains("$") || username.contains("[") ||username.contains("]")){
-            editTextUsername.setError("Username must not contain '.', '#', '$', '[', or ']' ");
-            editTextUsername.requestFocus();
             return;
         }
 
@@ -294,48 +283,34 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
 
         mAuth = FirebaseAuth.getInstance();
         shelterID =  databaseReference.child("Shelters").push().getKey();
-        databaseReference.child("Shelters").child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    Toast.makeText(ShelterRegistration.this, "Username already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
-                } else {
-                    mAuth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(task -> {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
 
-                                if(task.isSuccessful()){
-                                    mAuth.getCurrentUser().sendEmailVerification()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                                       @Override
-                                                                       public void onComplete(@NonNull Task<Void> task) {
-                                                                           if(task.isSuccessful()){
+                    if(task.isSuccessful()){
+                        mAuth.getCurrentUser().sendEmailVerification()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
 
-                                                                               Shelter shelter = new Shelter(shelterID, bizName, owner, email, username,
-                                                                                       website, contact, street, city, shelterProvince, country);
+                                            Shelter shelter = new Shelter(shelterID, bizName, owner, email,
+                                                    website, contact, street, city, shelterProvince, country);
 
-                                                                               databaseReference.child("Shelters").child(shelterID).setValue(shelter);
+                                            databaseReference.child("Shelters").child(shelterID).setValue(shelter);
 
-                                                                               User user = new User(shelterID, email, username, "shelter", false);
+                                            User user = new User(shelterID, email, "shelter", false);
 
-                                                                               databaseReference.child("Users").child(shelterID).setValue(user);
+                                            databaseReference.child("Users").child(shelterID).setValue(user);
 
-                                                                               startActivity(new Intent(ShelterRegistration.this, UserVerifyEmailDialog.class));
-                                                                           }
-                                                                       }
-                                                                   });
+                                            startActivity(new Intent(ShelterRegistration.this, UserVerifyEmailDialog.class));
+                                        }
+                                    }
+                                });
 
-                                }else {
-                                    Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
-                                }
-                            });
-                }
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+                    }else {
+                        Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 
 }
