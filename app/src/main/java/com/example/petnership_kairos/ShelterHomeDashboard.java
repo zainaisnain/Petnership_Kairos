@@ -311,7 +311,7 @@ public class ShelterHomeDashboard extends Fragment {
                     shelterID = ds.getKey();
                 }
 
-                sheltersDBRef.orderByKey().equalTo("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                sheltersDBRef.child(shelterID).orderByKey().equalTo("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){

@@ -42,9 +42,6 @@ public class AdopterHomeDashboard extends Fragment {
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
-
-    private int numOfCats, numOfDogs, catsCount, dogsCount;
-    private TextView tvAdopterName, tvAdopterContact, tvAdopterAddress;
     private String adopterEmail, adopterID, adopterImageName, adopterName, adopterContact, adopterAddress, petID, existingPetID, allPetsID;
     private ImageView ivAdopterImage, ivCvAdopterImage;
     private CardView cvAdopterInfo;
@@ -162,7 +159,6 @@ public class AdopterHomeDashboard extends Fragment {
                                                 .child(existingPetID).child("appliedToAdopt").getRef().setValue("not yet");
                                     }
                                 }
-                                System.out.println("existingPetIDs == " + existingPetIDs);
 
                                 //ADD the updated pet
                                 allPetsDBRef.addValueEventListener(new ValueEventListener() {
@@ -172,12 +168,9 @@ public class AdopterHomeDashboard extends Fragment {
                                             allPetsID = ds.getKey();
                                             allPetsIDs.add(allPetsID);
                                         }
-                                        System.out.println("allPetsIDs === " + allPetsIDs);
-
                                         allPetsIDs.removeAll(existingPetIDs);
 
                                         for(String petID: allPetsIDs){
-                                            System.out.println("allPetsID AFTER === " + petID);
                                             adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(petID)
                                                     .getRef().setValue(snapshot.child(petID).getValue());
                                         }
@@ -226,22 +219,11 @@ public class AdopterHomeDashboard extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                System.out.println("snapshot setUpProfilePic === " + snapshot);
                         for(DataSnapshot ds : snapshot.getChildren()) {
                             adopterID = ds.getKey();
                         }
 
-                        adopterName = snapshot.child(adopterID).child("fname").getValue() + " "
-                                + snapshot.child(adopterID).child("lname").getValue();
-
-                        adopterContact = (String) snapshot.child(adopterID).child("contact").getValue();
-                        adopterAddress = snapshot.child(adopterID).child("street").getValue() + ", "
-                                + snapshot.child(adopterID).child("city").getValue() + ", " +
-                                snapshot.child(adopterID).child("province").getValue() + ", " +
-                                snapshot.child(adopterID).child("country").getValue();
-
-
-                        adoptersDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                        adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.exists()){
@@ -251,10 +233,8 @@ public class AdopterHomeDashboard extends Fragment {
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                                     adopterImageName = String.valueOf(snapshot.getValue());
-
-                                                    if(adopterImageName.isEmpty() || adopterImageName == null){
-                                                        return;
-                                                    }else{
+                                                    System.out.println("adopterImageName == " + adopterImageName);
+                                                    if(adopterImageName != null){
                                                         //DISPLAY IMAGE TO IMAGE VIEW
                                                         storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                             @Override

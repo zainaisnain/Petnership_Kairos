@@ -235,7 +235,8 @@
                             android:textStyle="bold"
                             android:text="Adoption Form Summary"
                             android:textColor="#371576"
-                            android:textSize="23sp" />
+                            android:textSize="23sp"
+                            android:gravity="center"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -295,15 +296,15 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_adoptionForm_adopterName"
+                        android:id="@+id/label_adoptionForm_shelter"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Name:"
+                        android:text="Shelter:"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/adoptionForm_adopterName"
+                        android:id="@+id/adoptionForm_shelter"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -319,88 +320,15 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_adoptionForm_email"
+                        android:id="@+id/label_adoptionForm_shelterReason"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Email:"
+                        android:text="Shelter's Reason:"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/adoptionForm_email"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="placeholder"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/label_adoptionForm_mobile"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Mobile:"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/adoptionForm_mobile"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="placeholder"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/label_adoptionForm_petType"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Type:"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/adoptionForm_petType"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="placeholder"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/label_adoptionForm_petDescription"
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Description:"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/adoptionForm_petDescription"
+                        android:id="@+id/adoptionForm_shelter_reason"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

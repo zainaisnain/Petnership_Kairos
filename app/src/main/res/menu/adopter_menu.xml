@@ -23,6 +23,15 @@
             android:icon="@drawable/cat_dog"
             android:title="Browse Animals" />
 
+        <item
+            android:id="@+id/nav_adopter_update_email"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Update Email" />
+        <item
+            android:id="@+id/nav_adopter_change_password"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Change Password" />
+
     </group>
 
 <!--    <item android:title="Social Media" >-->
