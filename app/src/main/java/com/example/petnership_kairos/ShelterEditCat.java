@@ -157,7 +157,6 @@ public class ShelterEditCat extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 MyCancelDialogEdit cancelDialog2 = new MyCancelDialogEdit();
                 cancelDialog2.show(getParentFragmentManager(), "My Fragment");
             }

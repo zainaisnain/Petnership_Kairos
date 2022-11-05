@@ -114,17 +114,24 @@ public class ShelterPerCatProfile extends AppCompatActivity {
         petsCatsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                petsCatsDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                petsCatsDBRef.child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             petImageName = (String) snapshot.child("imageName").getValue();
-                            storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Glide.with(ShelterPerCatProfile.this).load(uri.toString()).into(ivPetImage);
+                            if(petImageName != null){
+                                if(!petImageName.isEmpty()){
+                                    if(petImageName != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Glide.with(ShelterPerCatProfile.this).load(uri.toString()).into(ivPetImage);
+                                            }
+                                        });
+                                    }
                                 }
-                            });
+                            }
                         }
                     }
 

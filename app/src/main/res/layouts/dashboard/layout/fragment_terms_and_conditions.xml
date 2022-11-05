@@ -39,15 +39,502 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tandctitle"
+                android:id="@+id/adoptionform_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adoption Terms and Conditions"
+                android:text="Adoption Form"
                 android:fontFamily="@font/playfairdisplayblack"
                 android:textSize="25sp"
                 android:textColor="#371576"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Name of adopter"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_name_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Age"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_age_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Name of the pet"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/adopter_petName_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Email"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_email_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Contact number"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_contact_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Street Address"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_streetAddress_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="City"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_city_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Province"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_province_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Country"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/adopter_country_adoptionForm"
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="10dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edit_text_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColorHint="#757575"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Do you have work?"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_yesWork"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="Yes"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_noWork"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="No"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/card"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:text="Do you own a pet?"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/adopter_yesPet"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:button="@android:color/transparent"
+                    android:text="Yes"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_type"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/playfairdisplayblack"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/adopter_noPet"
+                    android:layout_width="100dp"
+                    android:layout_height="48dp"
+                    android:button="@android:color/transparent"
+                    android:text="No"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/radio_button_type"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/playfairdisplayblack"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:text="Do you own or rent your home?"
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center">
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_ownHome"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="Own"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adopter_rentHome"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:button="@android:color/transparent"
+                        android:text="Rent"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:text="Reason(s) for adopting"
+                android:layout_marginTop="20dp"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/intentions_adopter"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tandctitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Terms and Conditions"
+                    android:fontFamily="@font/playfairdisplayblack"
+                    android:textSize="25sp"
+                    android:textColor="#371576"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:id="@+id/tandc1"
@@ -94,19 +581,6 @@ overall well-being."
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Agree"/>
-
-
-            <EditText
-                android:id="@+id/intentions_adopter"
-                android:layout_width="350dp"
-                android:layout_height="120dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:width="200dp"
-                android:height="40dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Reason for adopting"
-                android:paddingLeft="10dp" />
 
             <Button
                 android:id="@+id/btn_submit_adopter"

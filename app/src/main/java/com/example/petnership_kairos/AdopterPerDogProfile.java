@@ -250,12 +250,20 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                                         if(snapshot.exists()){
                                                             petImageName = (String) snapshot.child("imageName").getValue();
 
-                                                            storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                                @Override
-                                                                public void onSuccess(Uri uri) {
-                                                                    Glide.with(AdopterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
+
+                                                            if(petImageName != null){
+                                                                if(!petImageName.isEmpty()){
+                                                                    if(petImageName != ""){
+                                                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                                                        storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                            @Override
+                                                                            public void onSuccess(Uri uri) {
+                                                                                Glide.with(AdopterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
+                                                                            }
+                                                                        });
+                                                                    }
                                                                 }
-                                                            });
+                                                            }
                                                         }
                                                     }
 
