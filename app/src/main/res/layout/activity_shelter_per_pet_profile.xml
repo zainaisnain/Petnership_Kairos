@@ -67,7 +67,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
-                        android:id="@+id/per_pet_image"
+                        android:id="@+id/indiv_pet_image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:scaleType="centerCrop"
@@ -88,9 +88,9 @@
                         android:textColor="@color/white"
                         android:textSize="32dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/per_pet_image"
-                        app:layout_constraintStart_toStartOf="@+id/per_pet_image"
-                        app:layout_constraintTop_toBottomOf="@+id/per_pet_image" />
+                        app:layout_constraintEnd_toEndOf="@+id/indiv_pet_image"
+                        app:layout_constraintStart_toStartOf="@+id/indiv_pet_image"
+                        app:layout_constraintTop_toBottomOf="@+id/indiv_pet_image" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/label_pet_name"
+                                android:id="@+id/pet_name_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -160,7 +160,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_pet_breed"
+                                android:id="@+id/pet_breed_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -186,7 +186,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_pet_age"
+                                android:id="@+id/pet_age_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -212,7 +212,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_pet_sex"
+                                android:id="@+id/pet_sex_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

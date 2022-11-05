@@ -1,24 +1,40 @@
 package com.example.petnership_kairos;
 
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProvider;
-
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.Locale;
 
 public class RecommendedPetIndiv extends Fragment {
 
-    Button toAdopt, notForMe;
+    Button adoptBtn, notForMeBtn;
+    ImageButton backBtn;
+    MCDMAnswersViewModel mViewModel;
+    MCDMAlternative currentAlternative;
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
-    private RecommendedPetIndivViewModel mViewModel;
+    // View Declarations
+    TextView tvName, tvAge, tvBreed, tvSex, tvMatch, tvDescription, tvTitle;
+    TextView tvAttrib1, tvAttrib2, tvAttrib3, tvAttrib4, tvAttrib5, tvAttrib6, tvAttrib7, tvAttrib8, tvAttrib9, tvAttrib10, tvAttrib11;
+    ImageView ivImage;
 
     public static RecommendedPetIndiv newInstance() {
         return new RecommendedPetIndiv();
@@ -27,27 +43,107 @@ public class RecommendedPetIndiv extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recommended_pet_indiv, container, false);
 
-        toAdopt = view.findViewById(R.id.recommendedPet_toAdopt);
-        toAdopt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdoptionForm adoptionForm = new AdoptionForm();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, adoptionForm).commit();
-            }
 
+        mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
+        currentAlternative = mViewModel.getCurrentAlternative();
+        View view;
+        if (mViewModel.getAnimalType().equalsIgnoreCase("Dog")) {
+
+            view = inflater.inflate(R.layout.fragment_recommended_pet_indiv_dog, container, false);
+        }
+        else {
+            view = inflater.inflate(R.layout.fragment_recommended_pet_indiv_cat, container, false);
+        }
+
+        // find Views
+        tvTitle = view.findViewById(R.id.indiv_pet_title);
+        ivImage = view.findViewById(R.id.indiv_pet_image);
+
+        tvName = view.findViewById(R.id.pet_name_value);
+        tvAge = view.findViewById(R.id.pet_age_value);
+        tvBreed = view.findViewById(R.id.pet_breed_value);
+        tvSex = view.findViewById(R.id.pet_sex_value);
+        tvMatch = view.findViewById(R.id.pet_match_value);
+        tvDescription = view.findViewById(R.id.pet_description_value);
+
+        if (mViewModel.getAnimalType().equalsIgnoreCase("Dog")) {
+            tvAttrib1 = view.findViewById(R.id.pet_dog_summary_value_1);
+            tvAttrib2 = view.findViewById(R.id.pet_dog_summary_value_2);
+            tvAttrib3 = view.findViewById(R.id.pet_dog_summary_value_3);
+            tvAttrib4 = view.findViewById(R.id.pet_dog_summary_value_4);
+            tvAttrib5 = view.findViewById(R.id.pet_dog_summary_value_5);
+            tvAttrib6 = view.findViewById(R.id.pet_dog_summary_value_6);
+            tvAttrib7 = view.findViewById(R.id.pet_dog_summary_value_7);
+            tvAttrib8 = view.findViewById(R.id.pet_dog_summary_value_8);
+            tvAttrib9 = view.findViewById(R.id.pet_dog_summary_value_9);
+            tvAttrib10 = view.findViewById(R.id.pet_dog_summary_value_10);
+            tvAttrib11 = view.findViewById(R.id.pet_dog_summary_value_11);
+        }
+        else {
+            tvAttrib1 = view.findViewById(R.id.pet_cat_summary_value_1);
+            tvAttrib2 = view.findViewById(R.id.pet_cat_summary_value_2);
+            tvAttrib3 = view.findViewById(R.id.pet_cat_summary_value_3);
+            tvAttrib4 = view.findViewById(R.id.pet_cat_summary_value_4);
+            tvAttrib5 = view.findViewById(R.id.pet_cat_summary_value_5);
+            tvAttrib6 = view.findViewById(R.id.pet_cat_summary_value_6);
+            tvAttrib7 = view.findViewById(R.id.pet_cat_summary_value_7);
+            tvAttrib8 = view.findViewById(R.id.pet_cat_summary_value_8);
+            tvAttrib9 = view.findViewById(R.id.pet_cat_summary_value_9);
+
+
+        }
+
+        // load image
+        if(mViewModel.getTopThree()[0].getImageName() != null) {
+            storageReference.child("Pets/").child(currentAlternative.getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(uri -> {
+                        System.out.println("Successful image grab" + mViewModel.getTopThree()[0].getImageName());
+                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.indiv_pet_image));
+                    });
+        }
+
+        // change values
+        tvName.setText(currentAlternative.getName());
+        tvAge.setText(currentAlternative.getAge());
+        tvBreed.setText(currentAlternative.getBreed());
+        tvSex.setText(currentAlternative.getSex());
+        tvDescription.setText(currentAlternative.getDesc());
+        tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", currentAlternative.getCalculatedPerformanceScore()*100));
+
+        tvAttrib1.setText(currentAlternative.getCriteriaValues().get(0).intensityLevelToString());
+        tvAttrib2.setText(currentAlternative.getCriteriaValues().get(1).intensityLevelToString());
+        tvAttrib3.setText(currentAlternative.getCriteriaValues().get(2).intensityLevelToString());
+        tvAttrib4.setText(currentAlternative.getCriteriaValues().get(3).intensityLevelToString());
+        tvAttrib5.setText(currentAlternative.getCriteriaValues().get(4).intensityLevelToString());
+        tvAttrib6.setText(currentAlternative.getCriteriaValues().get(5).intensityLevelToString());
+        tvAttrib7.setText(currentAlternative.getCriteriaValues().get(6).intensityLevelToString());
+        tvAttrib8.setText(currentAlternative.getCriteriaValues().get(7).intensityLevelToString());
+        tvAttrib9.setText(currentAlternative.getCriteriaValues().get(8).intensityLevelToString());
+
+        if (mViewModel.getAnimalType().equalsIgnoreCase("Dog")) {
+            tvAttrib10.setText(currentAlternative.getCriteriaValues().get(9).intensityLevelToString());
+            tvAttrib11.setText(currentAlternative.getCriteriaValues().get(10).intensityLevelToString());
+        }
+
+
+
+        adoptBtn = view.findViewById(R.id.recommendedPet_toAdopt);
+        adoptBtn.setOnClickListener(v -> {
+            AdoptionForm adoptionForm = new AdoptionForm();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, adoptionForm).commit();
         });
 
-        notForMe = view.findViewById(R.id.recommendedPet_notToAdopt);
-        notForMe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //TO-DO
+        notForMeBtn = view.findViewById(R.id.recommendedPet_notToAdopt);
+        notForMeBtn.setOnClickListener(v -> {
+            //TO-DO
 //                RecommendedPets recommendedPets = new RecommendedPets();
 //                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, recommendedPets).commit();
-            }
+        });
+        backBtn = view.findViewById(R.id.btnBack);
+        backBtn.setOnClickListener(view12 -> {
 
+            getParentFragmentManager().popBackStack();
         });
 
         return view;
@@ -59,11 +155,6 @@ public class RecommendedPetIndiv extends Fragment {
         getActivity().setTitle("Recommended Pets");
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(RecommendedPetIndivViewModel.class);
-        // TODO: Use the ViewModel
-    }
+
 
 }

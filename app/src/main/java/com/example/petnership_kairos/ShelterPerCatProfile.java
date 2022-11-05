@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -66,11 +65,11 @@ public class ShelterPerCatProfile extends AppCompatActivity {
         petID = getIntent().getStringExtra("petID");
         ivPetImage = findViewById(R.id.per_cat_image);
         tvPetTitle = findViewById(R.id.per_pet_name_title);
-        tvPetName = findViewById(R.id.per_cat_name);
+        tvPetName = findViewById(R.id.pet_name_value);
         tvPetBreed = findViewById(R.id.per_cat_breed);
         tvPetAge = findViewById(R.id.per_cat_age);
         tvPetSex = findViewById(R.id.per_cat_sex);
-        tvPetDescription = findViewById(R.id.per_cat_description);
+        tvPetDescription = findViewById(R.id.pet_description_value);
         editCatInfoBtn = findViewById(R.id.edit_cat_info_btn);
         backBtn = findViewById(R.id.per_cat_back_btn);
 

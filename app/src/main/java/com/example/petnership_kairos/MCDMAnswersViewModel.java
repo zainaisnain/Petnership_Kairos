@@ -20,6 +20,8 @@ public class MCDMAnswersViewModel extends ViewModel {
     private final int CAT_SUBCRITERIA_ANSWERS = 1;
     private final int CAT_INTENSITY_ANSWERS = 27;
 
+    private int currentResultView = 0;
+
     public static String[] dogCodes = {
             "",
             "DA0101", "DA0102", "DA0103", "DA0104", "DA0105", "DA0106",
@@ -115,14 +117,19 @@ public class MCDMAnswersViewModel extends ViewModel {
         }
 
     }
-/*
-    public Integer getCatAnswer(int label) {
-        return this.catAnswersDict.get(catCodes[label]);
+
+    public int getCurrentResultView() {
+        return currentResultView;
     }
-    public void setCatAnswer(int label, int answer) {
-        this.catAnswersDict.put(catCodes[label], answer);
+
+    public void setCurrentResultView(int currentResultView) {
+        this.currentResultView = currentResultView;
     }
-*/
+    public MCDMAlternative getCurrentAlternative() {
+        return topThree[getCurrentResultView()];
+    }
+
+
     public int getMainAnswer(int val) {
         return this.mainAnswers[val];
     }
