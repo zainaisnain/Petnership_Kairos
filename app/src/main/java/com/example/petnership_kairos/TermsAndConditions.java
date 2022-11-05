@@ -3,7 +3,10 @@ package com.example.petnership_kairos;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -112,8 +115,17 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
 //                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
 //                myCancelDialogGoToDogProfile.show(getParentFragmentManager(), "My Fragment");
                 if(petType.equals("dog")){
+//                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+////                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                    MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+//                    transaction.replace(R.id.adoptionForm_TAndC,myCancelDialogGoToDogProfile);
+//                    transaction.addToBackStack("TermsAndConditions");
+//                    transaction.commit();
+
+
 //                    MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
 //                    myCancelDialogGoToDogProfile.show(getParentFragmentManager(), "My Fragment");
+//                    getParentFragmentManager().popBackStack();
                     Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
                     dogIntent.putExtra("PetID", petID);
                     view.getContext().startActivity(dogIntent);
@@ -152,6 +164,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
                     updateDBs();
 
                     MySaveDialogAdoptionForm mySaveDialogAdoptionForm = new MySaveDialogAdoptionForm();
+                    mySaveDialogAdoptionForm.setCancelable(false);
                     mySaveDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
                 }
             }

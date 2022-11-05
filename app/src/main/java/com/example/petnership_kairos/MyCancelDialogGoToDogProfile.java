@@ -25,18 +25,19 @@ public class MyCancelDialogGoToDogProfile extends DialogFragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.cancel2_dialog, container, false);
+        View view = inflater.inflate(R.layout.activity_cancel_dialog, container, false);
 
-        btnOk = view.findViewById(R.id.buttonOk);
+        btnOk = view.findViewById(R.id.buttonYes);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
+//                Intent dogIntent = new Intent(getActivity(), AdopterPerDogProfile.class);
 //                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
 //                dogIntent.putExtra("PetID", petID);
 //                view.getContext().startActivity(dogIntent);
-//                startActivity(dogIntent);
                 getParentFragmentManager().popBackStack();
+//                startActivity(dogIntent);
                 dismiss();
 //                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
 //                dogIntent.putExtra("PetID", petID);
@@ -45,11 +46,11 @@ public class MyCancelDialogGoToDogProfile extends DialogFragment {
 //                BrowseAnimals browseAnimals = new BrowseAnimals();
 //                transaction.replace(R.id.adoptionForm_TAndC, browseAnimals);
 //                transaction.commit();
-                dismiss();
+//                dismiss();
             }
         });
 
-        btnCancel = view.findViewById(R.id.buttonCancel);
+        btnCancel = view.findViewById(R.id.buttonNo);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
