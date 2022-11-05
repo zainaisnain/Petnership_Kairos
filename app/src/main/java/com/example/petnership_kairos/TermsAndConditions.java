@@ -1,5 +1,7 @@
 package com.example.petnership_kairos;
 
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -50,6 +52,8 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
     CheckBox agreeCb;
     EditText intentionsTv;
 
+    private AppCompatRadioButton hasPet, hasNoPet, ownHome, rentHome;
+
     String adopterIntentions, appliedToAdopt;
     boolean adopterAgreed;
     private TermsAndConditionsViewModel mViewModel;
@@ -70,6 +74,19 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Adoption Form");
+
+        //radio buttons
+        hasPet = view.findViewById(R.id.adopter_yesPet);
+        hasPet.setOnClickListener((View.OnClickListener) this);
+
+        hasNoPet = view.findViewById(R.id.adopter_noPet);
+        hasNoPet.setOnClickListener((View.OnClickListener) this);
+
+        ownHome = view.findViewById(R.id.adopter_ownHome);
+        ownHome.setOnClickListener((View.OnClickListener) this);
+
+        rentHome = view.findViewById(R.id.adopter_rentHome);
+        rentHome.setOnClickListener((View.OnClickListener) this);
 
         //Get adopter's infos
         //get pet infos
@@ -206,7 +223,27 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View v) {}
+    public void onClick(View v) {
+        switch (v.getId()) {
+            //Q1
+            case R.id.adopter_yesPet:
+                hasPet.setBackgroundColor(R.drawable.round_lightpurple);
+                hasNoPet.setBackgroundColor(Color.GRAY);
+                break;
+            case R.id.adopter_noPet:
+                hasNoPet.setBackgroundColor(R.drawable.round_lightpurple);
+                hasNoPet.setBackgroundColor(Color.GRAY);
+                break;
+            case R.id.adopter_ownHome:
+                ownHome.setBackgroundColor(R.drawable.round_lightpurple);
+                rentHome.setBackgroundColor(Color.GRAY);
+                break;
+            case R.id.adopter_rentHome:
+                rentHome.setBackgroundColor(R.drawable.round_lightpurple);
+                ownHome.setBackgroundColor(Color.GRAY);
+                break;
+        }
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

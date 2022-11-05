@@ -75,7 +75,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -108,7 +108,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -140,7 +140,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -173,7 +173,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -206,7 +206,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -239,7 +239,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -272,7 +272,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -305,7 +305,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -338,7 +338,7 @@
                     android:autofillHints=""
                     android:background="@drawable/edit_text_bg"
                     android:ems="10"
-                    android:fontFamily="@font/montserrat_reg"
+                    android:fontFamily="@font/playfairdisplayblack"
                     android:inputType="textPersonName"
                     android:padding="10dp"
                     android:textColorHint="#757575"/>
@@ -462,6 +462,7 @@
                 android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
+                android:fontFamily="@font/playfairdisplayblack"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp" />
 
