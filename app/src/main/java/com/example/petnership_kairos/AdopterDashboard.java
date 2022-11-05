@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +13,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -85,21 +85,25 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onBackPressed() {
-
+        FragmentManager fm = getSupportFragmentManager();
+        int backCount = fm.getBackStackEntryCount();
+        System.out.println("Backstack entry count: " + fm.getBackStackEntryCount());
+        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+            System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
+        }
         if(drawerLayout.isDrawerOpen((GravityCompat.START)))
         {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else
         {
-            //TODO: FIX ONBACKPRESSED
             int count = getSupportFragmentManager().getBackStackEntryCount();
-            if (count <= 0) {
-
+            if (count <= 1) {
                 MyLogoutDialog logoutDialog = new MyLogoutDialog();
                 logoutDialog.show(getSupportFragmentManager(), "My Fragment");
 
-            } else {
+            }
+            else {
                 System.out.println("Popped");
                 getSupportFragmentManager().popBackStack();
             }
