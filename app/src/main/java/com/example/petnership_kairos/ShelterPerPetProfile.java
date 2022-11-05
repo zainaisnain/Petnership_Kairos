@@ -35,6 +35,7 @@ public class ShelterPerPetProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_per_pet_profile);
+        System.out.println("Entered ShelterPerPetProfile");
 
         petID = getIntent().getStringExtra("PetID");
         ivPetImage = findViewById(R.id.per_pet_image);
@@ -65,15 +66,20 @@ public class ShelterPerPetProfile extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 petImageName = (String) snapshot.child("imageName").getValue();
-
                 System.out.println("PDP petImageName BEFORE STORAGE" + petImageName);
-                storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Glide.with(ShelterPerPetProfile.this).load(uri.toString()).into(ivPetImage);
+                if(petImageName != null){
+                    if(!petImageName.isEmpty()){
+                        if(petImageName != ""){
+                            //DISPLAY IMAGE TO IMAGE VIEW
+                            storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(ShelterPerPetProfile.this).load(uri.toString()).into(ivPetImage);
+                                }
+                            });
+                        }
                     }
-                });
-
+                }
                 petName = (String) snapshot.child("petName").getValue();
                 petBreed = (String) snapshot.child("q10").getValue();
                 petAge = (String) snapshot.child("petAge").getValue();

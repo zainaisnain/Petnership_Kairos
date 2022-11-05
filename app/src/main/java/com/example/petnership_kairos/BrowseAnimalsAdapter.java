@@ -43,13 +43,18 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         final RegisteredPetData registeredPetDataList = PetsData[position];
 
         if(registeredPetDataList.getImageName() != null){
-            storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
-                        }
-                    });
+            if(!registeredPetDataList.getImageName().isEmpty()){
+                if(registeredPetDataList.getImageName() != ""){
+                    //DISPLAY IMAGE TO IMAGE VIEW
+                    storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
+                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
+                                }
+                            });
+                }
+            }
         }
 
         holder.tvPetName.setText(registeredPetDataList.getPetName());

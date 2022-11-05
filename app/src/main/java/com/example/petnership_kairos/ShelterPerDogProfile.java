@@ -71,6 +71,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_per_dog_profile);
 
+        System.out.println("Entered ShelterPerDogProfile");
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
@@ -130,17 +131,24 @@ public class ShelterPerDogProfile extends AppCompatActivity {
         petsDogsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                petsDogsDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                petsDogsDBRef.child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             petImageName = (String) snapshot.child("imageName").getValue();
-                            storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Glide.with(ShelterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
+                            if(petImageName != null){
+                                if(!petImageName.isEmpty()){
+                                    if(petImageName != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                            @Override
+                                            public void onSuccess(Uri uri) {
+                                                Glide.with(ShelterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
+                                            }
+                                        });
+                                    }
                                 }
-                            });
+                            }
                         }
                     }
 
@@ -174,7 +182,6 @@ public class ShelterPerDogProfile extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int q1 = Math.toIntExact((Long) snapshot.child("q1").getValue());
-                System.out.println("AdopterPerDogProfile q1 === " + q1);
                 int q2 = Math.toIntExact((Long) snapshot.child("q2").getValue());
                 int q3 = Math.toIntExact((Long) snapshot.child("q3").getValue());
                 int q4 = Math.toIntExact((Long) snapshot.child("q4").getValue());

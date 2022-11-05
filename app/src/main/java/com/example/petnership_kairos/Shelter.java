@@ -2,14 +2,14 @@ package com.example.petnership_kairos;
 
 public class Shelter {
 
-    public String shelterID, bizName, owner, email, username,
+    public String shelterID, bizName, owner, email,
             website, contact, street, city, province, country;
 
     public Shelter(){
 
     }
 
-    public Shelter(String shelterID, String bizName, String owner, String email, String username, String website,
+    public Shelter(String shelterID, String bizName, String owner, String email, String website,
                    String contact, String street, String city, String province,
                    String country){
 
@@ -17,7 +17,6 @@ public class Shelter {
         this.bizName = bizName;
         this.owner = owner;
         this.email = email;
-        this.username = username;
         this.website = website;
         this.contact = contact;
         this.street = street;

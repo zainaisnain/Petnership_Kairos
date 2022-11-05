@@ -1,16 +1,15 @@
 package com.example.petnership_kairos;
 public class Adopter {
-    public String adopterID, fname, lname, email, username,
+    public String adopterID, fname, lname, email,
             contact, street, city, province, country, gender, birthday, imageName;
 
     boolean answeredQuestionnaire;
 
-    public Adopter(String adopterID, String fname, String lname, String email, String username, String contact, String street, String city, String province, String country, String gender, String birthday, String imageName, boolean answeredQuestionnaire) {
+    public Adopter(String adopterID, String fname, String lname, String email, String contact, String street, String city, String province, String country, String gender, String birthday, String imageName, boolean answeredQuestionnaire) {
         this.adopterID = adopterID;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
-        this.username = username;
         this.contact = contact;
         this.street = street;
         this.city = city;
@@ -44,14 +43,6 @@ public class Adopter {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getContact() {

@@ -231,18 +231,21 @@ public class AdopterHomeDashboard extends Fragment {
                                             addListenerForSingleValueEvent(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                                     adopterImageName = String.valueOf(snapshot.getValue());
                                                     System.out.println("adopterImageName == " + adopterImageName);
                                                     if(adopterImageName != null){
-                                                        //DISPLAY IMAGE TO IMAGE VIEW
-                                                        storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                            @Override
-                                                            public void onSuccess(Uri uri) {
-                                                                Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
-                                                                //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                                        if(!adopterImageName.isEmpty()){
+                                                            if(adopterImageName != ""){
+                                                                //DISPLAY IMAGE TO IMAGE VIEW
+                                                                storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                    @Override
+                                                                    public void onSuccess(Uri uri) {
+                                                                        Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivCvAdopterImage);
+                                                                        //    Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(ivAdopterImage);
+                                                                    }
+                                                                });
                                                             }
-                                                        });
+                                                        }
                                                     }
                                                 }
 
