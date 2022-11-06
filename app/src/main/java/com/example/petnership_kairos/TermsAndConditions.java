@@ -1,16 +1,9 @@
 package com.example.petnership_kairos;
 
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatRadioButton;
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -78,19 +71,19 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         getActivity().setTitle("Adoption Form");
 
         //radio buttons
-        hasPet = view.findViewById(R.id.adopter_yesPet);
+        hasPet = view.findViewById(R.id.adoption_answer_yesPet);
         hasPet.setOnClickListener((View.OnClickListener) this);
 
-        hasNoPet = view.findViewById(R.id.adopter_noPet);
+        hasNoPet = view.findViewById(R.id.adoption_answer_noPet);
         hasNoPet.setOnClickListener((View.OnClickListener) this);
 
-        ownHome = view.findViewById(R.id.adopter_ownHome);
+        ownHome = view.findViewById(R.id.adoption_home_ownHome);
         ownHome.setOnClickListener((View.OnClickListener) this);
 
-        hasWork = view.findViewById(R.id.adopter_yesWork);
+        hasWork = view.findViewById(R.id.adoption_answer_yesWork);
         hasWork.setOnClickListener((View.OnClickListener) this);
 
-        hasNoWork = view.findViewById(R.id.adopter_noWork);
+        hasNoWork = view.findViewById(R.id.adoption_answer_noWork);
         hasNoWork.setOnClickListener((View.OnClickListener) this);
 
         //Get adopter's infos
@@ -221,27 +214,27 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             //Q1
-            case R.id.adopter_yesPet:
+            case R.id.adoption_answer_yesPet:
                 hasPet.setBackgroundColor(R.drawable.round_lightpurple);
                 hasNoPet.setBackgroundColor(Color.GRAY);
                 break;
-            case R.id.adopter_noPet:
+            case R.id.adoption_answer_noPet:
                 hasNoPet.setBackgroundColor(R.drawable.round_lightpurple);
                 hasNoPet.setBackgroundColor(Color.GRAY);
                 break;
-            case R.id.adopter_ownHome:
+            case R.id.adoption_home_ownHome:
                 ownHome.setBackgroundColor(R.drawable.round_lightpurple);
                 rentHome.setBackgroundColor(Color.GRAY);
                 break;
-            case R.id.adopter_rentHome:
+            case R.id.adoption_home_rentHome:
                 rentHome.setBackgroundColor(R.drawable.round_lightpurple);
                 ownHome.setBackgroundColor(Color.GRAY);
                 break;
-            case R.id.adopter_yesWork:
+            case R.id.adoption_answer_yesWork:
                 hasWork.setBackgroundColor(R.drawable.round_lightpurple);
                 hasNoWork.setBackgroundColor(Color.GRAY);
                 break;
-            case R.id.adopter_noWork:
+            case R.id.adoption_answer_noWork:
                 hasNoWork.setBackgroundColor(R.drawable.round_lightpurple);
                 hasWork.setBackgroundColor(Color.GRAY);
                 break;
