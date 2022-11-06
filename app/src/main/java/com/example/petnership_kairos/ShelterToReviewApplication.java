@@ -48,7 +48,7 @@ public class ShelterToReviewApplication extends Fragment {
     String applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
     petID, petType, petName, petBreed, petAge, petDescription, shelterID;
     String adopterEmail, adopterContact, adopterAddress;
-    //DB REF
+    //DB REFs
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
