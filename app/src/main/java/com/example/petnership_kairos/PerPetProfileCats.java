@@ -37,6 +37,7 @@ public class PerPetProfileCats extends Fragment {
                 ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
                 transaction.replace(R.id.per_pet_profile_cats_frag, shelterHomeDashboard);
                 transaction.commit();
+
             }
         });
         return view;

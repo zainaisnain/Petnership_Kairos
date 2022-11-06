@@ -33,6 +33,7 @@ public class MySaveDialogShelterToReview extends DialogFragment {
 //                transaction.replace(R.id.nav_host_fragment, shelterToReviewApplication);
 //                transaction.commit();
                 getParentFragmentManager().popBackStack();
+                setCancelable(false);
                 dismiss();
             }
         });

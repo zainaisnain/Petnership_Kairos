@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -41,6 +42,7 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
     Spinner statusAppTxt;
 
     Button saveApplication, cancelApplication;
+    ImageButton backBtn;
 
     ArrayAdapter<String> statusAdapter;
     protected static String applicationStatus;
@@ -165,12 +167,19 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
             }
         });
 
+        backBtn = view.findViewById(R.id.per_cat_back_btn2);
+        backBtn.setOnClickListener(v -> {
+            MyCancelDialogGoToApprovedAdopters myCancelDialogGoToApprovedAdopters = new MyCancelDialogGoToApprovedAdopters();
+            myCancelDialogGoToApprovedAdopters.show(getParentFragmentManager(), "My Fragment");
+        });
+
+
         cancelApplication = view.findViewById(R.id.btn_cancel_adoptionForm);
         cancelApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
-                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
+                MyCancelDialogGoToApprovedAdopters myCancelDialogGoToApprovedAdopters = new MyCancelDialogGoToApprovedAdopters();
+                myCancelDialogGoToApprovedAdopters.show(getParentFragmentManager(), "My Fragment");
             }
         });
 

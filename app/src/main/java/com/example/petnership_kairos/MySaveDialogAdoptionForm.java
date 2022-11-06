@@ -32,6 +32,7 @@ public class MySaveDialogAdoptionForm extends DialogFragment {
                 BrowseAnimals browseAnimals = new BrowseAnimals();
                 transaction.replace(R.id.adoptionForm_TAndC, browseAnimals);
                 transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });

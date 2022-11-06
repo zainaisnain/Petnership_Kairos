@@ -29,6 +29,7 @@ public class MyCancelDialogAdopterEdit extends DialogFragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AdopterDashboard.class);
                 startActivity(intent);
+                setCancelable(false);
                 dismiss();
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                ShelterDashboard shelterDashboard = new ShelterDashboard();

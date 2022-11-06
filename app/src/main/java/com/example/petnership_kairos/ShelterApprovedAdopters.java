@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ShelterApprovedAdopters extends Fragment {
+public class  ShelterApprovedAdopters extends Fragment {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
