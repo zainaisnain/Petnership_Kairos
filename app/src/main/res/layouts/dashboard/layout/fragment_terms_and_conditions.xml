@@ -161,7 +161,7 @@
                                 android:text="Sex"
                                 android:textStyle="bold"/>
                             <TextView
-                                android:id="@+id/pet_sex"
+                                android:id="@+id/adoption_pet_sex_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
@@ -468,7 +468,8 @@
                     android:orientation="horizontal"
                     android:layout_gravity="center"
                     android:layout_marginStart="5dp"
-                    android:layout_marginEnd="20dp">
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/radio_home">
                     <androidx.appcompat.widget.AppCompatRadioButton
                         android:id="@+id/adoption_home_ownHome"
                         android:layout_width="100dp"
@@ -1272,7 +1273,7 @@
                     android:layout_marginEnd="10dp"
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center_vertical"
-                    android:text="If you have to leave town, emergently or planned, where would your pet stay?"
+                    android:text="If you have to leave town, emergency or planned, where would your pet stay?"
                     android:textColor="#8A6DC3"
                     android:textSize="13sp" />
                 <EditText
