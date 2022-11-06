@@ -113,9 +113,9 @@ public class AdopterEditInfo extends AppCompatActivity {
         // initializing our object class variables.
         etFname = findViewById(R.id.txt_fname_adopter_edit);
         etLname = findViewById(R.id.txt_lname_adopter_edit);
-        etUsername = findViewById(R.id.txt_username_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etStreet = findViewById(R.id.txt_street_adopter_edit);
+        etCity = findViewById(R.id.txt_city_adopter_edit);
         //PROVINCES
         ddProvince = findViewById(R.id.adopter_province_dd_edit);
         ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
@@ -493,12 +493,9 @@ public class AdopterEditInfo extends AppCompatActivity {
                         etLname.setText(lname);
                         etLname.setEnabled(false);
 
-                        String username = String.valueOf(snapshot.child(adopterID).child("username").getValue());
-                        etUsername.setText(username);
-                        etUsername.setEnabled(false);
-
                         etContact.setText(String.valueOf(snapshot.child(adopterID).child("contact").getValue()));
                         etStreet.setText(String.valueOf(snapshot.child(adopterID).child("street").getValue()));
+                        System.out.println("city === "+ snapshot.child(adopterID).child("city").getValue());
                         etCity.setText(String.valueOf(snapshot.child(adopterID).child("city").getValue()));
                         etCountry.setText(String.valueOf(snapshot.child(adopterID).child("country").getValue()));
                         etBirthday.setText(String.valueOf(snapshot.child(adopterID).child("birthday").getValue()));
@@ -507,22 +504,32 @@ public class AdopterEditInfo extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.exists()){
-                                    imageName = String.valueOf(snapshot.child(adopterID).child("imageName").getValue());
-                                    System.out.println("imageName AdopterEditInfo" + imageName);
-                                    if(imageName != null){
-                                        if(!imageName.isEmpty()){
-                                            if(imageName != ""){
-                                                //DISPLAY IMAGE TO IMAGE VIEW
-                                                storageReference.child("Adopters/").child(imageName).getDownloadUrl()
-                                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                            @Override
-                                                            public void onSuccess(Uri uri) {
-                                                                Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
-                                                            }
-                                                        });
+                                    adoptersDBRef.child(adopterID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            imageName = String.valueOf(snapshot.getValue());
+                                            System.out.println("imageName AdopterEditInfo" + imageName);
+                                            if(imageName != null){
+                                                if(!imageName.isEmpty()){
+                                                    if(imageName != ""){
+                                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                                        storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                    @Override
+                                                                    public void onSuccess(Uri uri) {
+                                                                        Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
+                                                                    }
+                                                                });
+                                                    }
+                                                }
                                             }
                                         }
-                                    }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                                 }
                             }
 
