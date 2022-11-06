@@ -3,6 +3,7 @@ package com.example.petnership_kairos;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -103,7 +104,18 @@ public class ApplicationHistoryFragment extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getParentFragmentManager().popBackStack();
+
+                int count = getParentFragmentManager().getBackStackEntryCount();
+                System.out.println("BACKSTACK COUNT: " + count);
+                if (count <= 1) {
+                    getParentFragmentManager().popBackStackImmediate();
+                    getParentFragmentManager().
+                            beginTransaction().replace(R.id.nav_host_fragment,new AdopterHomeDashboard()).addToBackStack("Adopter Home").commit();
+
+                } else {
+
+                    getParentFragmentManager().popBackStack();
+                }
             }
         });
 

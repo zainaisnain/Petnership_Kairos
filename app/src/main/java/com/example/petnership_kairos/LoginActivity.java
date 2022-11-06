@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -110,7 +111,10 @@ public class LoginActivity extends AppCompatActivity {
                                                             String userType = snapshot.getValue(String.class);
 
                                                             if(userType.equals("adopter")){
-                                                                startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                                                Intent intent = new Intent(LoginActivity.this, AdopterDashboard.class);
+                                                                intent.putExtra("com.example.petnership_kairos.fragment", "Home");
+
+                                                                startActivity(intent);
                                                             }else if(userType.equals("shelter")) {
                                                                 startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
                                                             }
@@ -130,7 +134,12 @@ public class LoginActivity extends AppCompatActivity {
                                                                 String userType = snapshot.getValue(String.class);
 
                                                                 if(userType.equals("adopter")){
-                                                                    startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
+                                                                    Intent intent = new Intent(LoginActivity.this, AdopterDashboard.class);
+                                                                    intent.putExtra("com.example.petnership_kairos.fragment", "Home");
+
+                                                                    startActivity(intent);
+
+                                                                    //startActivity(new Intent(LoginActivity.this, AdopterDashboard.class));
                                                                 }else if(userType.equals("shelter")) {
                                                                     startActivity(new Intent(LoginActivity.this, ShelterDashboard.class));
                                                                 }

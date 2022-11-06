@@ -75,7 +75,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_adoptHome);
+        navigationView.setCheckedItem(R.id.nav_adoptAPet);
 
     }
 
@@ -115,34 +115,51 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         {
 
             case R.id.nav_adoptHome:
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+
+
+                DialogQuestionnaireCancel checkCancelHome = new DialogQuestionnaireCancel();
+                checkCancelHome.show(getSupportFragmentManager(), "Cancel Home");
+                /*transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 AdopterHomeDashboard adopterHome = new AdopterHomeDashboard();
                 transaction.replace(R.id.nav_host_fragment,adopterHome);
                 transaction.commit();
+
+                 */
                 break;
 
             case R.id.nav_appHistory:
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
-                transaction.replace(R.id.nav_host_fragment,applicationHistory);
-                transaction.commit();
+
+
+                DialogQuestionnaireCancel checkCancelHistory = new DialogQuestionnaireCancel();
+                checkCancelHistory.show(getSupportFragmentManager(), "Cancel History");
+
                 break;
 
             case R.id.nav_adoptAPet:
-                startActivity(new Intent(this, StartOfQuestionnaire.class));
-                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+      //          getSupportFragmentManager().popBackStackImmediate("x", );
                 break;
 
             case R.id.nav_browseAnimals:
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                BrowseAnimals browseAnimals = new BrowseAnimals();
-                transaction.replace(R.id.nav_host_fragment,browseAnimals);
-                transaction.commit();
+                DialogQuestionnaireCancel checkCancelBrowse = new DialogQuestionnaireCancel();
+                checkCancelBrowse.show(getSupportFragmentManager(), "Cancel Browse");
+
+
+                break;
+
+
+            case R.id.nav_adopter_update_email:
+                DialogQuestionnaireCancel checkCancelUpdateEmail = new DialogQuestionnaireCancel();
+                checkCancelUpdateEmail.show(getSupportFragmentManager(), "Cancel Update Email");
+                break;
+
+            case R.id.nav_adopter_change_password:
+                DialogQuestionnaireCancel checkCancelChangePassword = new DialogQuestionnaireCancel();
+                checkCancelChangePassword.show(getSupportFragmentManager(), "Cancel Change Password");
                 break;
 
             case R.id.nav_logout:
-                MyLogoutDialog logoutDialog = new MyLogoutDialog();
-                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+                DialogQuestionnaireCancel checkCancelOut = new DialogQuestionnaireCancel();
+                checkCancelOut.show(getSupportFragmentManager(), "Cancel Out");
 //                userLogout();
                 break;
 
