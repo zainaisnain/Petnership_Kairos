@@ -124,6 +124,8 @@ public class FragmentRecommendedPets extends Fragment {
         recommendedPet2 = view.findViewById(R.id.rec2_card);
         recommendedPet3 = view.findViewById(R.id.rec3_card);
 
+
+
         // onClickListeners
         recommendedPet1.setOnClickListener (v -> {
             mViewModel.setCurrentResultView(0);
@@ -133,7 +135,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 
@@ -143,7 +145,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 
@@ -154,7 +156,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 

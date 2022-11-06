@@ -35,6 +35,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class TermsAndConditions extends Fragment implements View.OnClickListener{
 
@@ -103,6 +104,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         adopterContact = getArguments().getString("adopterContact");
         adopterBirthday = getArguments().getString("adopterBirthday");
         adopterAddress = getArguments().getString("adopterAddress");
+        matchPercentage = getArguments().getDouble("match");
 
         //radio buttons
         rbYesPet = view.findViewById(R.id.adoption_answer_yesPet);
@@ -186,12 +188,13 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         tvPetAge.setText(petAge);
         tvPetSex.setText(petSex);
         tvPetBreed.setText(petBreed);
-        tvMatch.setText("44.00"); // TODO: FIX MATCH
         tvAdopterName.setText(adopterName);
         tvAdopterBirthday.setText(adopterBirthday);
         tvAdopterEmail.setText(adopterEmail);
         tvAdopterContact.setText(adopterContact);
         tvAdopterAddress.setText(adopterAddress);
+
+        tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100)); // TODO: FIX MATCH
 
 
 

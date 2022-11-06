@@ -1,11 +1,13 @@
 package com.example.petnership_kairos;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
@@ -18,6 +20,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -29,7 +38,18 @@ public class RecommendedPetIndiv extends Fragment {
     ImageButton backBtn;
     MCDMAnswersViewModel mViewModel;
     MCDMAlternative currentAlternative;
+    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress, adopterBirthday;
+    protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
+    double match;
+    // database declarations
+    private FirebaseAuth authProfile;
+    private FirebaseUser firebaseUser;
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
 
     // View Declarations
     TextView tvName, tvAge, tvBreed, tvSex, tvMatch, tvDescription, tvTitle;
@@ -66,6 +86,9 @@ public class RecommendedPetIndiv extends Fragment {
         tvSex = view.findViewById(R.id.pet_sex_value);
         tvMatch = view.findViewById(R.id.pet_match_value);
         tvDescription = view.findViewById(R.id.pet_description_value);
+
+
+
 
         if (mViewModel.getAnimalType().equalsIgnoreCase("Dog")) {
             tvAttrib1 = view.findViewById(R.id.pet_dog_summary_value_1);
@@ -127,11 +150,121 @@ public class RecommendedPetIndiv extends Fragment {
         }
 
 
+        // save values
+
+        petID = currentAlternative.getId();
+        petType = currentAlternative.getType();
+        petImageName = currentAlternative.getImageName();
+        petName = currentAlternative.getName();
+        petBreed = currentAlternative.getBreed();
+        petAge = currentAlternative.getAge();
+        petSex = currentAlternative.getSex();
+        petDescription = currentAlternative.getDesc();
+
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        adopterEmail = firebaseUser.getEmail();
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                adopterID = ds.getKey();
+                            }
+                            adoptersDBRef.child(adopterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    String fname = (String) snapshot.child("fname").getValue();
+                                    String lname = (String) snapshot.child("lname").getValue();
+                                    adopterName = fname + " " + lname;
+                                    adopterContact = (String) snapshot.child("contact").getValue();
+                                    adopterBirthday = (String) snapshot.child("birthday").getValue();
+                                    String street = (String) snapshot.child("street").getValue();
+                                    String city = (String) snapshot.child("city").getValue();
+                                    String province = (String) snapshot.child("province").getValue();
+                                    String country = (String) snapshot.child("country").getValue();
+                                    adopterAddress = street + ", " + city + ", " + province + ", " + country;
+                                    System.out.println("adopterName   == " + adopterName);
+                                    System.out.println("adopterContact   == " + adopterContact);
+                                    System.out.println("adopterAddress   == " + adopterAddress);
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                            adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID)
+                                    .addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                            shelterID = (String) snapshot.child("shelter").getValue();
+
+                                            sheltersDBRef.child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    shelterEmail = (String) snapshot.child("email").getValue();
+                                                    petShelter = (String) snapshot.child("bizName").getValue();
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+                                        }
+                                    });
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         adoptBtn = view.findViewById(R.id.recommendedPet_toAdopt);
         adoptBtn.setOnClickListener(v -> {
-            AdoptionForm adoptionForm = new AdoptionForm();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, adoptionForm).commit();
+
+
+            //pass the pet's info to next screen (fragment)
+            Bundle bundle = new Bundle();
+            bundle.putString("petID", petID);
+            bundle.putString("petType", petType);
+            bundle.putString("petImageName", petImageName);
+            bundle.putString("petName", petName);
+            bundle.putString("petBreed", petBreed);
+            bundle.putString("petAge", petAge);
+            bundle.putString("petSex", petSex);
+            bundle.putString("petDescription", petDescription);
+            bundle.putString("petShelter", petShelter);
+            bundle.putString("shelterID", shelterID);
+            bundle.putString("shelterEmail", shelterEmail);
+            bundle.putString("adopterID", adopterID);
+            bundle.putString("adopterEmail", adopterEmail);
+            bundle.putString("adopterName", adopterName);
+            bundle.putString("adopterContact", adopterContact);
+            bundle.putString("adopterAddress", adopterAddress);
+            bundle.putString("adopterBirthday", adopterBirthday);
+            bundle.putDouble("match", currentAlternative.getCalculatedPerformanceScore());
+
+            TermsAndConditions termsAndConditions = new TermsAndConditions();
+            termsAndConditions.setArguments(bundle);
+
+            //Go to next screen
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            transaction.replace(R.id.recommendedPets, termsAndConditions);
+            transaction.addToBackStack("Adopter");
+            transaction.commit();
+
         });
 
         notForMeBtn = view.findViewById(R.id.recommendedPet_notToAdopt);
