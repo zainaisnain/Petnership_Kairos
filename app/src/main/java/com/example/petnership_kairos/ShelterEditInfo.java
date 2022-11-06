@@ -224,6 +224,8 @@ public class ShelterEditInfo extends AppCompatActivity {
                         editShelterInfo();
                     }else{
                         editShelterInfo();
+                        MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
+                        mySaveDialogShelter.show(getSupportFragmentManager(), "My Fragment");
                     }
                 }
 
