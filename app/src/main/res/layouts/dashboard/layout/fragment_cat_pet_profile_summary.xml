@@ -543,7 +543,7 @@
                     android:id="@+id/cat_summary_proceed_btn"
                     android:layout_width="150dp"
                     android:layout_height="63dp"
-                    android:background="@drawable/button1"
+                    android:background="@drawable/button"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Proceed"
                     android:textColor="#FFFFFF"

@@ -84,7 +84,7 @@
             android:id="@+id/successmsg"
             android:layout_width="279dp"
             android:layout_height="63dp"
-            android:background="@drawable/button1"
+            android:background="@drawable/button"
             app:backgroundTint="@null"
             android:fontFamily="@font/montserrat_reg"
             android:text="LOGIN"

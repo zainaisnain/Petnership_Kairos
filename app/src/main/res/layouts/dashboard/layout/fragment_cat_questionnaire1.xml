@@ -400,7 +400,7 @@
                         android:id="@+id/cproceed_ques1"
                         android:layout_width="236dp"
                         android:layout_height="46dp"
-                        android:background="@drawable/button1"
+                        android:background="@drawable/button"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="PROCEED"
                         android:textColor="#FFFFFF"
