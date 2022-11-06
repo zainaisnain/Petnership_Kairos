@@ -115,8 +115,9 @@
                                 android:id="@+id/adopter_per_dog_name"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_reg"
                                 android:layout_weight="1"
-                                android:text="PERCY"
+                                android:text=""
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -141,8 +142,9 @@
                                 android:id="@+id/adopter_per_dog_breed"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_reg"
                                 android:layout_weight="1"
-                                android:text="SIAMESE DOG"
+                                android:text=""
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -168,7 +170,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="age"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:text=""
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -194,7 +197,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="sex"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:text=""
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -220,7 +224,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="lorem ipsum dolor zzzzzz"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:text=""
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 

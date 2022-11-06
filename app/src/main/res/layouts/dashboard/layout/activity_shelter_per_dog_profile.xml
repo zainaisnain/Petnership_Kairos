@@ -128,7 +128,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="PERCY"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -154,7 +155,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="SIAMESE DOG"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -180,7 +182,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="age"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -206,7 +209,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="sex"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
@@ -232,7 +236,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="lorem ipsum dolor zzzzzz"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 

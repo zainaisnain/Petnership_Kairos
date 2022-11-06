@@ -67,6 +67,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"
                 android:inputType="none"/>
 
@@ -88,6 +89,7 @@
                 android:layout_gravity="center"
                 android:width="200dp"
                 android:height="40dp"
+                android:fontFamily="@font/montserrat_reg"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
                 android:inputType="none"/>
@@ -100,7 +102,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/montserrat_reg"
                 android:gravity="center"
-                android:text="Userame"
+                android:text="Username"
                 android:textSize="20sp" />
 
             <EditText
@@ -135,6 +137,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"/>
 
             <TextView
@@ -156,6 +159,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"/>
 
             <TextView
@@ -177,6 +181,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"/>
 
             <TextView
@@ -198,6 +203,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"/>
 
             <TextView
@@ -219,6 +225,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"
                 android:text = "Philippines"/>
 
@@ -276,6 +283,7 @@
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
+                android:fontFamily="@font/montserrat_reg"
                 android:paddingLeft="10dp"
                 android:hint="MM/DD/YYYY"
                 android:inputType="date" />
