@@ -28,6 +28,7 @@ public class MyCancelDialogShelter extends DialogFragment {
                 ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
                 transaction.replace(R.id.to_review_application_shelter, shelterToReviewApplication);
                 transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });

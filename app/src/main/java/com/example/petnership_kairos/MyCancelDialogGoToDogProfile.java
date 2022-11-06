@@ -31,6 +31,7 @@ public class MyCancelDialogGoToDogProfile extends DialogFragment{
                 //FRAGMENT to ACTIVITY
                 Intent intent = new Intent(getActivity(), AdopterDashboard.class);
                 startActivity(intent);
+                setCancelable(false);
 //                getParentFragmentManager().popBackStack();
 //                getParentFragmentManager().popBackStack();
 //                dismiss();

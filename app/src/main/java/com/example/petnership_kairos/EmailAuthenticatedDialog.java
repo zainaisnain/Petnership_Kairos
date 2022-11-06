@@ -28,6 +28,7 @@ public class EmailAuthenticatedDialog extends DialogFragment {
 //                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
 //                transaction.replace(R.id.user_change_password_frag, shelterHomeDashboard);
 //                transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="400dp"
-    android:layout_height="310dp"
+    android:layout_height="330dp"
     android:background="@drawable/card">
 
     <androidx.cardview.widget.CardView
@@ -31,11 +31,12 @@
                 android:id="@+id/textView10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/marmelad_regular"
                 android:text="Thank you! Your application is now under review."
                 android:textAlignment="center"
-                android:fontFamily="@font/marmelad_regular"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

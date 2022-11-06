@@ -31,6 +31,7 @@ public class EmailChangeSavedDialog extends DialogFragment {
 //                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
 //                transaction.replace(R.id.user_change_email, shelterHomeDashboard);
 //                transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });
