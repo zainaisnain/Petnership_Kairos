@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#f5f5f5"
     android:id="@+id/to_review_application_shelter"
-    tools:context=".ShelterToReviewApplication"
+    tools:context=".ShelterApprovedAdoptersIndiv"
     >
 
     <ScrollView

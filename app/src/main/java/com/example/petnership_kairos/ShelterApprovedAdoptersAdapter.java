@@ -92,7 +92,7 @@ public class ShelterApprovedAdoptersAdapter extends RecyclerView.Adapter<Shelter
         holder.cvApplicant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
+                ShelterApprovedAdoptersIndiv shelterApprovedAdoptersIndiv = new ShelterApprovedAdoptersIndiv();
                 Bundle bundle = new Bundle();
                 bundle.putString("applicationID", shelterApprovedAdoptersDataList.getApplicationID());
                 bundle.putString("adopterID", shelterApprovedAdoptersDataList.getApplicantID());
@@ -100,10 +100,10 @@ public class ShelterApprovedAdoptersAdapter extends RecyclerView.Adapter<Shelter
                 bundle.putString("petID", shelterApprovedAdoptersDataList.getApplicantPetID());
                 bundle.putString("petName", shelterApprovedAdoptersDataList.getApplicantPetName());
                 bundle.putString("dateApplied", shelterApprovedAdoptersDataList.getApplicantDateApplied());
-                shelterToReviewApplication.setArguments(bundle);
+                shelterApprovedAdoptersIndiv.setArguments(bundle);
 
                 ((context.getActivity())).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.shelter_approved_adopters_frag, shelterToReviewApplication,"ShelterToReviewApplication").addToBackStack(null).commit();
+                        .replace(R.id.shelter_approved_adopters_frag, shelterApprovedAdoptersIndiv,"ShelterApprovedAdoptersIndiv").addToBackStack(null).commit();
             }
         });
         holder.setIsRecyclable(false);
@@ -131,6 +131,4 @@ public class ShelterApprovedAdoptersAdapter extends RecyclerView.Adapter<Shelter
             applicantPet = itemView.findViewById(R.id.applicant_pet);
         }
     }
-
-
 }
