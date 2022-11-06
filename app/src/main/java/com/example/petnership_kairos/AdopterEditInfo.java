@@ -115,6 +115,7 @@ public class AdopterEditInfo extends AppCompatActivity {
         etLname = findViewById(R.id.txt_lname_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etStreet = findViewById(R.id.txt_street_adopter_edit);
+        etCity = findViewById(R.id.txt_city_adopter_edit);
         //PROVINCES
         ddProvince = findViewById(R.id.adopter_province_dd_edit);
         ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
@@ -492,6 +493,7 @@ public class AdopterEditInfo extends AppCompatActivity {
 
                         etContact.setText(String.valueOf(snapshot.child(adopterID).child("contact").getValue()));
                         etStreet.setText(String.valueOf(snapshot.child(adopterID).child("street").getValue()));
+                        System.out.println("city === "+ snapshot.child(adopterID).child("city").getValue());
                         etCity.setText(String.valueOf(snapshot.child(adopterID).child("city").getValue()));
                         etCountry.setText(String.valueOf(snapshot.child(adopterID).child("country").getValue()));
                         etBirthday.setText(String.valueOf(snapshot.child(adopterID).child("birthday").getValue()));
