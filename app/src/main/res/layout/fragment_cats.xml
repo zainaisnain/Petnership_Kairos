@@ -59,7 +59,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Cat's Name"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -84,7 +84,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Cat's Age"
-                    android:textSize="15sp"/>
+                    android:textSize="13sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Cat's Sex"
-                    android:textSize="15sp"/>
+                    android:textSize="13sp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -132,7 +132,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Breed"
-                    android:textSize="15sp"/>
+                    android:textSize="13sp"/>
                 </LinearLayout>
             </LinearLayout>
 
