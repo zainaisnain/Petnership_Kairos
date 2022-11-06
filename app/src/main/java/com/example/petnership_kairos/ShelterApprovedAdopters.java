@@ -87,6 +87,7 @@ public class ShelterApprovedAdopters extends Fragment {
                                     applicationID = ds.getKey();
                                     System.out.println("inside heloo == " + applicationID);
                                     adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
+                                    System.out.println("inside ShelterApprovedAdopters AdopterID == " + adopterID);
                                     adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
                                     System.out.println("adopterName ApplicantsReviewFrag getFromDB == " + adopterName);
                                     petID = (String) snapshot.child(applicationID).child("petID").getValue();
