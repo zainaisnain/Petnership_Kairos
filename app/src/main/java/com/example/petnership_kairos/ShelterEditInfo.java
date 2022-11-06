@@ -218,14 +218,13 @@ public class ShelterEditInfo extends AppCompatActivity {
                     editTextCity.setError("City is Required.");
                     editTextCity.requestFocus();
                     return;
-                }else if (filePath == null) {
-                    Toast.makeText(ShelterEditInfo.this,
-                                    "Please select image to upload.",
-                                    Toast.LENGTH_SHORT)
-                            .show();
                 }else{
-                    uploadImage();
-                    editShelterInfo();
+                    if(filePath != null){
+                        uploadImage();
+                        editShelterInfo();
+                    }else{
+                        editShelterInfo();
+                    }
                 }
 
             }

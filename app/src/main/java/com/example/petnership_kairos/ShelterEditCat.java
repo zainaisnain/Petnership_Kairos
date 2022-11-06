@@ -227,8 +227,6 @@ public class ShelterEditCat extends Fragment {
                 petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
 //                petImage = imageName;
-
-
                 System.out.println("PET ID == " + petID);
 
                 if(petName.isEmpty()){
@@ -345,8 +343,8 @@ public class ShelterEditCat extends Fragment {
                                     // Image uploaded successfully
                                     // Dismiss dialog
                                     progressDialog.dismiss();
-                                    MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
-                                    mySaveDialogShelter.show(getParentFragmentManager(), "My Fragment");
+                                    //MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
+                                    //mySaveDialogShelter.show(getParentFragmentManager(), "My Fragment");
                                     Toast
                                             .makeText(getActivity(),
                                                     "Image Uploaded!!",
@@ -422,22 +420,24 @@ public class ShelterEditCat extends Fragment {
                 petDesc = String.valueOf(snapshot.child("petDesc").getValue());
                 etPetDescription.setText(petDesc);
 
-                petsCatsDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                petsCatsDBRef.child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             petImage = String.valueOf(snapshot.child("imageName").getValue());
-
-                            if(petImage.isEmpty() || petImage == null){
-                                return;
-                            }else{
-                                storageReference.child("Pets/").child(petImage).getDownloadUrl()
-                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                            @Override
-                                            public void onSuccess(Uri uri) {
-                                                Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
-                                            }
-                                        });
+                            if(petImage != null){
+                                if(!petImage.isEmpty()){
+                                    if(petImage != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Pets/").child(petImage).getDownloadUrl()
+                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
+                                                    }
+                                                });
+                                    }
+                                }
                             }
                         }
                     }
