@@ -84,12 +84,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         tvCatlvl9 = findViewById(R.id.adopter_catlevel8);
 
         backBtnUp = findViewById(R.id.adopter_per_cat_back_btn_up);
-        backBtnUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backBtnUp.setOnClickListener(view -> onBackPressed());
 
         adoptMeBtn = findViewById(R.id.adopter_per_cat_adopt_me_btn);
 //        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
@@ -103,16 +98,24 @@ public class AdopterPerCatProfile extends AppCompatActivity {
 //        });
 
         backBtn = findViewById(R.id.adopter_per_cat_back_btn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backBtn.setOnClickListener(view -> onBackPressed());
 
         checkIfAdopterAnsweredQuestionnaire();
         setUpPetImage();
         setUpSummary();
+    }
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        if (count > 0) {
+            MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+            myCancelDialogGoToDogProfile.show(getSupportFragmentManager(), "Cat");
+
+        }
+        else {
+            finishAfterTransition();
+        }
+
     }
 
     private void checkIfAdopterAnsweredQuestionnaire(){
@@ -130,47 +133,39 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                     answeredQuestionnaire = (boolean) snapshot.getValue();
                                     if(answeredQuestionnaire){
                                         adoptMeBtn.setEnabled(true);
-                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
+                                        adoptMeBtn.setOnClickListener(view -> {
 
-                                                //pass the pet's info to next screen (fragment)
-                                                Bundle bundle = new Bundle();
-                                                bundle.putString("petID", petID);
-                                                bundle.putString("petType", petType);
-                                                bundle.putString("petImageName", petImageName);
-                                                bundle.putString("petName", petName);
-                                                bundle.putString("petBreed", petBreed);
-                                                bundle.putString("petAge", petAge);
-                                                bundle.putString("petSex", petSex);
-                                                bundle.putString("petDescription", petDescription);
-                                                bundle.putString("petShelter", petShelter);
-                                                bundle.putString("shelterID", shelterID);
-                                                bundle.putString("shelterEmail", shelterEmail);
-                                                bundle.putString("adopterID", adopterID);
-                                                bundle.putString("adopterEmail", adopterEmail);
-                                                bundle.putString("adopterName", adopterName);
-                                                bundle.putString("adopterContact", adopterContact);
-                                                bundle.putString("adopterAddress", adopterAddress);
+                                            //pass the pet's info to next screen (fragment)
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("petID", petID);
+                                            bundle.putString("petType", petType);
+                                            bundle.putString("petImageName", petImageName);
+                                            bundle.putString("petName", petName);
+                                            bundle.putString("petBreed", petBreed);
+                                            bundle.putString("petAge", petAge);
+                                            bundle.putString("petSex", petSex);
+                                            bundle.putString("petDescription", petDescription);
+                                            bundle.putString("petShelter", petShelter);
+                                            bundle.putString("shelterID", shelterID);
+                                            bundle.putString("shelterEmail", shelterEmail);
+                                            bundle.putString("adopterID", adopterID);
+                                            bundle.putString("adopterEmail", adopterEmail);
+                                            bundle.putString("adopterName", adopterName);
+                                            bundle.putString("adopterContact", adopterContact);
+                                            bundle.putString("adopterAddress", adopterAddress);
 
-                                                TermsAndConditions termsAndConditions = new TermsAndConditions();
-                                                termsAndConditions.setArguments(bundle);
+                                            TermsAndConditions termsAndConditions = new TermsAndConditions();
+                                            termsAndConditions.setArguments(bundle);
 
-                                                //Go to next screen
-                                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                                transaction.replace(R.id.adopter_per_cat_profile_container, termsAndConditions);
-                                                //transaction.addToBackStack("Adopter Pet Cat");
-                                                transaction.commit();
-                                            }
+                                            //Go to next screen
+                                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                            transaction.replace(R.id.adopter_per_cat_profile_container, termsAndConditions);
+                                            transaction.addToBackStack("Adopter Pet Cat");
+                                            transaction.commit();
                                         });
                                     }else{
                                         adoptMeBtn.setEnabled(true);
-                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                startActivity(new Intent(AdopterPerCatProfile.this, AdopterNotAnsweredQuestionnaire.class));
-                                            }
-                                        });
+                                        adoptMeBtn.setOnClickListener(view -> startActivity(new Intent(AdopterPerCatProfile.this, AdopterNotAnsweredQuestionnaire.class)));
 
                                     }
                                 }

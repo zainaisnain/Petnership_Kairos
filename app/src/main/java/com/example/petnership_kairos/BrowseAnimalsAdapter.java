@@ -47,12 +47,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
                 if(registeredPetDataList.getImageName() != ""){
                     //DISPLAY IMAGE TO IMAGE VIEW
                     storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
-                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
-                                }
-                            });
+                            .addOnSuccessListener(uri -> Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image)));
                 }
             }
         }
@@ -63,21 +58,18 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
         String petType = registeredPetDataList.getPetType();
 
-        holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        holder.cvAnimal.setOnClickListener(view -> {
 
-                if(petType.equals("dog")){
-                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
-                    dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
-                    view.getContext().startActivity(dogIntent);
-                }else{
-                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
-                    catIntent.putExtra("PetID", registeredPetDataList.getPetID());
-                    view.getContext().startActivity(catIntent);
-                }
-
+            if(petType.equals("dog")){
+                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
+                dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(dogIntent);
+            }else{
+                Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
+                catIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(catIntent);
             }
+
         });
 
         holder.setIsRecyclable(false);
