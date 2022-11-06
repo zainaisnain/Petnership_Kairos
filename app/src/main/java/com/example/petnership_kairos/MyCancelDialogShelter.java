@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MyCancelDialogShelter extends DialogFragment {
 
-    Button btnOk, btnCancel;
+    Button btnOk;
 
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,18 +24,11 @@ public class MyCancelDialogShelter extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
-                //FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                //ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
-                //transaction.replace(R.id.to_review_application_shelter, shelterToReviewApplication);
-                //transaction.commit();
-                getParentFragmentManager().popBackStack();
-                dismiss();
-            }
-        });
-        btnCancel = view.findViewById(R.id.buttonCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                ShelterToReviewApplication shelterToReviewApplication = new ShelterToReviewApplication();
+                transaction.replace(R.id.to_review_application_shelter, shelterToReviewApplication);
+                transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });

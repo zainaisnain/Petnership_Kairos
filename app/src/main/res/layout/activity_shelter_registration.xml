@@ -47,140 +47,240 @@
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Business Name"
+                android:textSize="20sp" />
+
             <EditText
                 android:id="@+id/txt_biz_name_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
                 android:width="200dp"
                 android:height="40dp"
+                android:fontFamily="@font/montserrat_reg"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Business Name"/>
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Owner Name"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_biz_owner_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Owner Name" />
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Email"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_email_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Email" />
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Password"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_password_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Password"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Confirm Password"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_confirmpassword_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:hint="Confirm Password"
                 android:inputType="textPassword"
                 android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Website"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_website_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Website" />
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Contact Number"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_contact_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Contact Number" />
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Street Address"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_street_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Street Address" />
+                android:paddingLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="City"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_city_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="City" />
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Province"
+                android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/dd_province_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
                 android:background="@drawable/edit_text_bg"
-                android:paddingLeft="10dp"
-                android:hint="Province" />
+                android:paddingLeft="10dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:gravity="center"
+                android:text="Country"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/txt_country_shelter"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:width="200dp"
                 android:height="40dp"
+                android:fontFamily="@font/montserrat_reg"
                 android:background="@drawable/edit_text_bg"
                 android:paddingLeft="10dp"
-                android:hint="Country"
                 android:text = "Philippines"/>
 
             <Button

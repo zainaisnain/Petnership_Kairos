@@ -29,6 +29,7 @@ public class MyCancelDialogQuestionnaire extends DialogFragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ShelterDashboard.class);
                 startActivity(intent);
+                setCancelable(false);
                 dismiss();
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                ShelterDashboard shelterDashboard = new ShelterDashboard();
