@@ -779,7 +779,7 @@
                                 android:id="@+id/recommendedPet_toAdopt"
                                 android:layout_width="280dp"
                                 android:layout_height="50dp"
-                                android:background="@drawable/button1"
+                                android:background="@drawable/button"
                                 app:backgroundTint="@null"
                                 android:fontFamily="@font/montserrat_reg"
                                 android:text="ADOPT ME"
@@ -806,8 +806,7 @@
                                 android:layout_gravity="center"
                                 android:padding="12dp"
                                 android:minHeight="50dp"
-                                android:text="NOT FOR ME"
-                                android:textColor="@color/black" />
+                                android:text="NOT FOR ME"/>
 
                         </GridLayout>
 
