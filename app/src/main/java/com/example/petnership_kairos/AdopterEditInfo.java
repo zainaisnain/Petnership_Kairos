@@ -502,22 +502,32 @@ public class AdopterEditInfo extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.exists()){
-                                    imageName = String.valueOf(snapshot.child(adopterID).child("imageName").getValue());
-                                    System.out.println("imageName AdopterEditInfo" + imageName);
-                                    if(imageName != null){
-                                        if(!imageName.isEmpty()){
-                                            if(imageName != ""){
-                                                //DISPLAY IMAGE TO IMAGE VIEW
-                                                storageReference.child("Adopters/").child(imageName).getDownloadUrl()
-                                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                            @Override
-                                                            public void onSuccess(Uri uri) {
-                                                                Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
-                                                            }
-                                                        });
+                                    adoptersDBRef.child(adopterID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            imageName = String.valueOf(snapshot.getValue());
+                                            System.out.println("imageName AdopterEditInfo" + imageName);
+                                            if(imageName != null){
+                                                if(!imageName.isEmpty()){
+                                                    if(imageName != ""){
+                                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                                        storageReference.child("Adopters/").child(imageName).getDownloadUrl()
+                                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                                    @Override
+                                                                    public void onSuccess(Uri uri) {
+                                                                        Glide.with(AdopterEditInfo.this).load(uri.toString()).into(imageView);
+                                                                    }
+                                                                });
+                                                    }
+                                                }
                                             }
                                         }
-                                    }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
                                 }
                             }
 
