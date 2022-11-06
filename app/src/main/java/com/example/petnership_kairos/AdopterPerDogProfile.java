@@ -33,7 +33,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
     private FirebaseUser firebaseUser;
 
     protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
-    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
+    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress, adopterBirthday;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage;
     private ImageButton backBtnUp;
@@ -164,7 +164,6 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             bundle.putString("petSex", petSex);
                                             bundle.putString("petDescription", petDescription);
                                             bundle.putString("petShelter", petShelter);
-                                            System.out.println("shelterID AdopterPDP bundle" + shelterID);
                                             bundle.putString("shelterID", shelterID);
                                             bundle.putString("shelterEmail", shelterEmail);
                                             bundle.putString("adopterID", adopterID);
@@ -172,6 +171,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             bundle.putString("adopterName", adopterName);
                                             bundle.putString("adopterContact", adopterContact);
                                             bundle.putString("adopterAddress", adopterAddress);
+                                            bundle.putString("adopterBirthday", adopterBirthday);
 
                                             TermsAndConditions termsAndConditions = new TermsAndConditions();
                                             termsAndConditions.setArguments(bundle);
@@ -222,6 +222,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             String lname = (String) snapshot.child("lname").getValue();
                                             adopterName = fname + " " + lname;
                                             adopterContact = (String) snapshot.child("contact").getValue();
+                                            adopterBirthday = (String) snapshot.child("birthday").getValue();
                                             String street = (String) snapshot.child("street").getValue();
                                             String city = (String) snapshot.child("city").getValue();
                                             String province = (String) snapshot.child("province").getValue();
