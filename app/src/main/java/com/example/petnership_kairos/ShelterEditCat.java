@@ -420,22 +420,24 @@ public class ShelterEditCat extends Fragment {
                 petDesc = String.valueOf(snapshot.child("petDesc").getValue());
                 etPetDescription.setText(petDesc);
 
-                petsCatsDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                petsCatsDBRef.child(petID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
                             petImage = String.valueOf(snapshot.child("imageName").getValue());
-
-                            if(petImage.isEmpty() || petImage == null){
-                                return;
-                            }else{
-                                storageReference.child("Pets/").child(petImage).getDownloadUrl()
-                                        .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                            @Override
-                                            public void onSuccess(Uri uri) {
-                                                Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
-                                            }
-                                        });
+                            if(petImage != null){
+                                if(!petImage.isEmpty()){
+                                    if(petImage != ""){
+                                        //DISPLAY IMAGE TO IMAGE VIEW
+                                        storageReference.child("Pets/").child(petImage).getDownloadUrl()
+                                                .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
+                                                    }
+                                                });
+                                    }
+                                }
                             }
                         }
                     }

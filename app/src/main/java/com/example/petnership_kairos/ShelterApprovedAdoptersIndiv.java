@@ -3,6 +3,7 @@ package com.example.petnership_kairos;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +31,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ShelterApprovedAdoptersIndiv extends Fragment {
 
@@ -61,6 +67,10 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
     private EditText shelterReasonET;
     private String shelterReason;
 
+    private ImageView adopterIV;
+    private String adopterImageName;
+    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
     public static ShelterApprovedAdoptersIndiv newInstance() {
         return new ShelterApprovedAdoptersIndiv();
     }
@@ -81,6 +91,8 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
+
+        adopterIV = view.findViewById(R.id.per_cat_image);
 
         statusAppTxt = view.findViewById(R.id.shelter_adoption_application_status);
         statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, statusApp);
@@ -179,13 +191,47 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
                 String country = (String) snapshot.child("country").getValue();
                 adopterAddress = street + ", " +  city + ", " + province + ", " + country;
 
-                System.out.println(adopterEmail);
-                System.out.println(adopterContact);
-                System.out.println(adopterAddress);
-
                 tvAdopterEmail.setText(adopterEmail);
                 tvAdopterMobile.setText(adopterContact);
                 tvAdopterAddress.setText(adopterAddress);
+
+                //check if there's image
+                adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            adoptersDBRef.child(adopterID).child("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    adopterImageName = String.valueOf(snapshot.getValue());
+                                    if(adopterImageName != null){
+                                        if(!adopterImageName.isEmpty()){
+                                            if(adopterImageName != ""){
+                                                //DISPLAY IMAGE TO IMAGE VIEW
+                                                storageReference.child("Adopters/").child(adopterImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                    @Override
+                                                    public void onSuccess(Uri uri) {
+                                                        Glide.with(getActivity().getApplicationContext()).load(uri.toString()).into(adopterIV);
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot usersSnapshot) {
