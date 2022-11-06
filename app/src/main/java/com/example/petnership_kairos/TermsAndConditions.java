@@ -116,14 +116,11 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
         agreeCb = view.findViewById(R.id.agree_terms_adoption_cb);
-        agreeCb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(agreeCb.isChecked()){
-                    adopterAgreed = true;
-                }else{
-                    adopterAgreed = false;
-                }
+        agreeCb.setOnClickListener(view1 -> {
+            if(agreeCb.isChecked()){
+                adopterAgreed = true;
+            }else{
+                adopterAgreed = false;
             }
         });
 
@@ -131,34 +128,11 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         intentionsTv = view.findViewById(R.id.intentions_adopter);
 
         backBtn = view.findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                FragmentManager fm = getParentFragmentManager();
-//                int backCount = fm.getBackStackEntryCount();
-//                System.out.println("Backstack entry count: " + fm.getBackStackEntryCount());
-//                for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
-//                    System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
-//                }
-//                int count = getParentFragmentManager().getBackStackEntryCount();
-//                    if (count < 1) {
-//                        MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-//                        myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
-//
-//                    }
-//                    else {
-//                        MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-//                        myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
-////                        System.out.println("Popped");
-////                        getParentFragmentManager().popBackStack();
-//                    }
-//                }
+        backBtn.setOnClickListener(v -> {
 //                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
 //                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
-                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-                myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
-
-            }
+            MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+            myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
         });
 
 
@@ -181,45 +155,38 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
 
         //BUTTONS
         submitForm = view.findViewById(R.id.btn_submit_adopter);
-        submitForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        submitForm.setOnClickListener(v -> {
+            adopterIntentions = intentionsTv.getText().toString();
+            if(!adopterAgreed){
+                Toast.makeText(getContext(),"Please agree to terms and conditions.",Toast.LENGTH_LONG).show();
+                return;
+            }else if (adopterIntentions.isEmpty()){
+                intentionsTv.setError("Please fill this up.");
+                intentionsTv.requestFocus();
+                return;
+            }else{
+
+                //update AdopterAllPets
+                appliedToAdopt = "true";
+                intentionsTv = view.findViewById(R.id.intentions_adopter);
                 adopterIntentions = intentionsTv.getText().toString();
-                if(!adopterAgreed){
-                    Toast.makeText(getContext(),"Please agree to terms and conditions.",Toast.LENGTH_LONG).show();
-                    return;
-                }else if (adopterIntentions.isEmpty()){
-                    intentionsTv.setError("Please fill this up.");
-                    intentionsTv.requestFocus();
-                    return;
-                }else{
+                System.out.println("adopterIntentions === " + adopterIntentions);
+                System.out.println("dateApplied == " +  dateApplied);
+                System.out.println("timeApplied == " +  timeApplied);
 
-                    //update AdopterAllPets
-                    appliedToAdopt = "true";
-                    intentionsTv = view.findViewById(R.id.intentions_adopter);
-                    adopterIntentions = intentionsTv.getText().toString();
-                    System.out.println("adopterIntentions === " + adopterIntentions);
-                    System.out.println("dateApplied == " +  dateApplied);
-                    System.out.println("timeApplied == " +  timeApplied);
+                updateDBs();
 
-                    updateDBs();
-
-                    MySaveDialogAdoptionForm mySaveDialogAdoptionForm = new MySaveDialogAdoptionForm();
-                    mySaveDialogAdoptionForm.setCancelable(false);
-                    mySaveDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
-                }
+                MySaveDialogAdoptionForm mySaveDialogAdoptionForm = new MySaveDialogAdoptionForm();
+                mySaveDialogAdoptionForm.setCancelable(false);
+                mySaveDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
         cancelForm = view.findViewById(R.id.adopterRegisterCancel);
-        cancelForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
-//                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
-                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
-                myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
-            }
+        cancelForm.setOnClickListener(v -> {
+            MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+            myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
+
         });
 
     }

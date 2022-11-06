@@ -1,5 +1,7 @@
 package com.example.petnership_kairos;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -22,12 +24,14 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
 
     RegisteredPetData[] PetsData;
     BrowseAnimals context;
+    Activity mActivity;
 
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
-    public BrowseAnimalsAdapter(RegisteredPetData[] PetsData, BrowseAnimals activity){
+    public BrowseAnimalsAdapter(RegisteredPetData[] PetsData, BrowseAnimals activity, Activity mActivity){
         this.PetsData = PetsData;
         this.context = activity;
+        this.mActivity = mActivity;
     }
 
     @NonNull
@@ -48,12 +52,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
                 if(registeredPetDataList.getImageName() != ""){
                     //DISPLAY IMAGE TO IMAGE VIEW
                     storageReference.child("Pets/").child(registeredPetDataList.getImageName()).getDownloadUrl()
-                            .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image));
-                                }
-                            });
+                            .addOnSuccessListener(uri -> Glide.with(context).load(uri.toString()).into((ImageView) holder.itemView.findViewById(R.id.pet_image)));
                 }
             }
         }
@@ -64,27 +63,20 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
         String petType = registeredPetDataList.getPetType();
 
-        holder.cvAnimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        holder.cvAnimal.setOnClickListener(view -> {
 
-                if(petType.equals("dog")){
-//                    FragmentTransaction transaction = get
-//                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                    ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
-//                    transaction.replace(R.id.nav_host_fragment,applicationHistory);
-//                    transaction.addToBackStack("applicationHistory");
-//                    transaction.commit();
-                    Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
-                    dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
-                    view.getContext().startActivity(dogIntent);
-                }else{
-                    Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
-                    catIntent.putExtra("PetID", registeredPetDataList.getPetID());
-                    view.getContext().startActivity(catIntent);
-                }
-
+            if(petType.equals("dog")){
+                Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
+                dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(dogIntent);
+                mActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
+            }else{
+                Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
+                catIntent.putExtra("PetID", registeredPetDataList.getPetID());
+                view.getContext().startActivity(catIntent);
+                mActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
+
         });
 
         holder.setIsRecyclable(false);
