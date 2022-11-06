@@ -104,7 +104,7 @@
                             android:layout_margin="10dp">
 
                             <TextView
-                                android:id="@+id/label_pet_name"
+                                android:id="@+id/pet_name_label"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

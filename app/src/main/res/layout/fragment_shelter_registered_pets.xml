@@ -46,7 +46,7 @@
 
 
                     <TextView
-                        android:id="@+id/label_pet_name"
+                        android:id="@+id/pet_name_label"
                         android:layout_width="70dp"
                         android:textStyle="bold"
                         android:layout_height="wrap_content"

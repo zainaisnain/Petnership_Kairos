@@ -50,6 +50,12 @@ public class FragmentCatQuestionnaire5 extends Fragment {
         crate28 = getView().findViewById(R.id.crating28);
         crate29 = getView().findViewById(R.id.crating29);
 
+        // bring back previous progress if any
+        if (mViewModel.getAnswer(26) != null) cseekBar26.setProgress(mViewModel.getAnswer(26));
+        if (mViewModel.getAnswer(27) != null) cseekBar27.setProgress(mViewModel.getAnswer(27));
+        if (mViewModel.getAnswer(28) != null) cseekBar28.setProgress(mViewModel.getAnswer(28));
+        if (mViewModel.getAnswer(29) != null) cseekBar29.setProgress(mViewModel.getAnswer(29));
+
 
 
 

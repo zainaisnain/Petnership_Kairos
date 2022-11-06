@@ -33,15 +33,11 @@ import java.util.Locale;
 
 public class FragmentRecommendedPets extends Fragment {
 
-    ImageButton popup10;
     ConstraintLayout recommendedPet1, recommendedPet2, recommendedPet3;
     TextView tvPercentage1, tvName1, tvAge1, tvBreed1, tvSex1;
     TextView tvPercentage2, tvName2, tvAge2, tvBreed2, tvSex2;
     TextView tvPercentage3, tvName3, tvAge3, tvBreed3, tvSex3;
     ImageView ivImage1, ivImage2, ivImage3;
-
-    DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
-    DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     public static FragmentRecommendedPets newInstance() {
@@ -84,32 +80,39 @@ public class FragmentRecommendedPets extends Fragment {
         tvSex3 = view.findViewById(R.id.rec3_sex);
 
         // load images of all three pets
-        storageReference.child("Pets/").child(topThree[0].getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        System.out.println("GETIMAGENAME ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec1_image));
-                    }
-                });
 
-        storageReference.child("Pets/").child(topThree[1].getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        System.out.println("GETIMAGENAME ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec2_image));
-                    }
-                });
+        if(mViewModel.getTopThree()[0].getImageName() != null) {
+            storageReference.child("Pets/").child(topThree[0].getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            System.out.println("GETIMAGENAME1 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec1_image));
+                        }
+                    });
+        }
 
-        storageReference.child("Pets/").child(topThree[2].getImageName()).getDownloadUrl()
-                .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        System.out.println("GETIMAGENAME ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec3_image));
-                    }
-                });
+        if(mViewModel.getTopThree()[1].getImageName() != null) {
+            storageReference.child("Pets/").child(topThree[1].getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            System.out.println("GETIMAGENAME2 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec2_image));
+                        }
+                    });
+        }
+
+        if(mViewModel.getTopThree()[2].getImageName() != null) {
+            storageReference.child("Pets/").child(topThree[2].getImageName()).getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            System.out.println("GETIMAGENAME3 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec3_image));
+                        }
+                    });
+        }
 
         // change values
         tvPercentage1.setText(String.format(Locale.getDefault(), "%.2f%% Match", topThree[0].getCalculatedPerformanceScore()*100));
@@ -131,29 +134,37 @@ public class FragmentRecommendedPets extends Fragment {
         recommendedPet3 = view.findViewById(R.id.rec3_card);
 
         // onClickListeners
-        recommendedPet1.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet1.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(0);
+
+
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
-        recommendedPet2.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet2.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(1);
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
 
-        recommendedPet3.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPets, recommendedPetIndiv).commit();
-            }
+        recommendedPet3.setOnClickListener (v -> {
+            mViewModel.setCurrentResultView(2);
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
+            transaction.addToBackStack("recommendedPet1");
+            transaction.commit();
         });
 
     }

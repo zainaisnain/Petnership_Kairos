@@ -39,4 +39,17 @@ public class MCDMCriteriaValue  {
     public void setIntensityLevel(int intensityLevel) {
         this.intensityLevel = intensityLevel;
     }
+
+    public String intensityLevelToString() {
+        switch (intensityLevel) {
+            case 1:
+                return "High";
+            case 2:
+                return "Medium";
+            case 3:
+                return "Low";
+            default:
+                return "Unknown";
+        }
+    }
 }

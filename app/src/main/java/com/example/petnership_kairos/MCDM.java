@@ -57,7 +57,7 @@ public class MCDM {
     MCDMCriteria criteriaTrainability = new MCDMCriteria("Trainability");
     MCDMCriteria criteriaNonShedding = new MCDMCriteria("Non-Shedding");
     MCDMCriteria criteriaNonDrooling = new MCDMCriteria("Non-Drooling");
-    MCDMCriteria criteriaMaintenance = new MCDMCriteria("Maintenance");
+    MCDMCriteria criteriaEaseOfCare = new MCDMCriteria("Ease of Care");
     MCDMCriteria criteriaFriendliness = new MCDMCriteria("Friendliness");
     MCDMCriteria criteriaToHumans = new MCDMCriteria("To Humans");
     MCDMCriteria criteriaToOtherPets = new MCDMCriteria("To Other Pets");
@@ -189,10 +189,13 @@ public class MCDM {
             "Setters (English)",
             "Fox Terriers (Wire)",
             "Norwegian Elkhounds"};
-    String[] catBreeds1 = {
+    String[] catBreeds1 = {"Maine Coon", "Bengal", "Siamese", "Siberian", "Ragdoll",
+            "British Shorthair", "Persian", "Scottish Fold", "Bombay", "Birman"
 
     };
-    String[] catBreeds2 = {
+    String[] catBreeds2 = {"Snowshoe", "Abyssinian", "Norwegian Forest", "Burmese", "Turkish Angora",
+            "Ragamuffin", "Sphynx", "Nebelung", "Russian Blue", "Burmilla", "Chartreux", "American Shorthair",
+            "Himalayan", "Turkish Van", "Tonkinese"
 
     };
 
@@ -280,7 +283,7 @@ public class MCDM {
                     criteriaValues.add(new MCDMCriteriaValue(criteriaTrainability, q2));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaNonShedding, q3));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaNonDrooling, q4));
-                    criteriaValues.add(new MCDMCriteriaValue(criteriaMaintenance, q5));
+                    criteriaValues.add(new MCDMCriteriaValue(criteriaEaseOfCare, q5));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaFriendliness, q6));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaToHumans, q7));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaToOtherPets, q8));
@@ -288,7 +291,7 @@ public class MCDM {
                     criteriaValues.add(new MCDMCriteriaValue(criteriaPopularity, q10));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaLongevity, q11));
 
-                    alternatives.add(new MCDMAlternative(petName, criteriaValues, petAge, petDesc, petSex, petStatus, petType, petShelter, petImageName, petID));
+                    alternatives.add(new MCDMAlternative(petName, criteriaValues, petAge, petDesc, petSex, petStatus, petType, petShelter, petImageName, petID, animalBreed));
 
 
                     sentinelCounter++;
@@ -358,7 +361,7 @@ public class MCDM {
                     criteriaValues.add(new MCDMCriteriaValue(criteriaAge, q8));
                     criteriaValues.add(new MCDMCriteriaValue(criteriaPopularity, q9));
 
-                    alternatives.add(new MCDMAlternative(petName, criteriaValues, petAge, petDesc, petSex, petStatus, petType, petShelter, petImageName, petID));
+                    alternatives.add(new MCDMAlternative(petName, criteriaValues, petAge, petDesc, petSex, petStatus, petType, petShelter, petImageName, petID, animalBreed));
 
                     sentinelCounter++;
                 }
@@ -860,7 +863,7 @@ public class MCDM {
             // reset value
             allPrioritySum = 0.0;
         } while (!lessThanStopCriterion);
-
+/*
         System.out.println("Printing MATRIX after doing priority values " + derivationCount);
         for (int i = 0; i < matrixDimension; i++) {
             for (int k = 0; k < matrixDimension; k++) {
@@ -873,7 +876,7 @@ public class MCDM {
             System.out.print(mainPriorityVector[i]);
         }
         System.out.println();
-
+*/
     }
     private void deriveSubcriteriaPriorities(int matrixDimension, int matrixIndex) {
 
@@ -945,7 +948,7 @@ public class MCDM {
             // reset value
             allPrioritySum = 0.0;
         } while (!lessThanStopCriterion);
-
+/*
         System.out.println("Printing SUBCRITERIA MATRIX after doing priority values " + derivationCount);
         for (int i = 0; i < matrixDimension; i++) {
             for (int k = 0; k < matrixDimension; k++) {
@@ -958,7 +961,7 @@ public class MCDM {
             System.out.print(subcriteriaPriorityVector[matrixIndex][i]);
         }
         System.out.println();
-
+*/
 
     }
     private void deriveIntensityPriorities(int matrixIndex) {
@@ -997,6 +1000,7 @@ public class MCDM {
                 // reset value
                 tempPrioritySum = 0;
             }
+            /*
             System.out.println("Printing INTENSITY MATRIX while doing priority values " + derivationCount);
             for (int i = 0; i < INTENSITY_COUNT; i++) {
                 for (int k = 0; k < INTENSITY_COUNT; k++) {
@@ -1004,6 +1008,8 @@ public class MCDM {
                 }
                 System.out.println();
             }
+
+             */
 
 
             // normalize priorities
@@ -1030,7 +1036,7 @@ public class MCDM {
             // reset value
             allPrioritySum = 0.0;
         } while (!lessThanStopCriterion);
-
+/*
         System.out.println("Printing INTENSITY MATRIX after doing priority values " + derivationCount);
         for (int i = 0; i < INTENSITY_COUNT; i++) {
             for (int k = 0; k < INTENSITY_COUNT; k++) {
@@ -1043,10 +1049,10 @@ public class MCDM {
             System.out.print(intensityPriorityVector[matrixIndex][i]);
         }
         System.out.println();
-
+*/
 
         idealizedIntensityPriorityVector[matrixIndex] = Arrays.copyOf(idealizePriorities(intensityPriorityVector[matrixIndex]), INTENSITY_COUNT);
-
+/*
         // CHECKING IDEALIZED PRIORITIES:
         System.out.println("Printing IDEALIZED INTENSITY PRIORITY VECTOR for Intensity Matrix " + matrixIndex);
         for (double t : idealizedIntensityPriorityVector[matrixIndex]) {
@@ -1054,7 +1060,7 @@ public class MCDM {
                     new BigDecimal(t).setScale(3, RoundingMode.HALF_UP).doubleValue() + " ");
         }
         System.out.println();
-
+*/
     }
     private double[] idealizePriorities(double[] baseMatrix) {
         double[] idealMatrix = new double[baseMatrix.length];
@@ -1121,13 +1127,31 @@ public class MCDM {
         if(animalType == 1) {
             double populationSum = 0.0;
             populationScoreMatrix = new double[numberOfAlternatives][DOG_INTENSITY_MATRICES_COUNT+3];
+
+
+            for (int i = 0; i < numberOfAlternatives; i++){
+                System.out.println("Alternative: " + alternatives.get(i).getName());
+                for (int j = 0; j < DOG_INTENSITY_MATRICES_COUNT; j++) {
+                    System.out.print("Criteria " + alternatives.get(i).getCriteriaValues().get(j).getCriteria().getName() + ": ");
+                    System.out.print(alternatives.get(i).getCriteriaValues().get(j).getIntensityLevel()+ " ");
+                }
+                System.out.println();
+            }
+
             // COLUMN 0-10 performance score; 11 total score; 12 normalized score, 13 indexNumber
             for (int i =0; i < numberOfAlternatives; i++){
+                System.out.println("ALTERNATIVE: " + alternatives.get(i).getName());
                 for (int j = 0; j < DOG_INTENSITY_MATRICES_COUNT; j++) {
+                    System.out.println("Current Intensity: " + j);
+                    System.out.println("Current Intensity Level: " + (alternatives.get(i).getCriteriaValues().get(j).getIntensityLevel()-1));
+                    System.out.println("idealizedIntensityPriorityVector[][]: " + (idealizedIntensityPriorityVector[j][alternatives.get(i).getCriteriaValues().get(j).getIntensityLevel()-1]));
+                    System.out.println("populationScoreMatrix[][]: " + (populationScoreMatrix[i][j]));
                     populationScoreMatrix[i][j] = idealizedIntensityPriorityVector[j][alternatives.get(i).getCriteriaValues().get(j).getIntensityLevel()-1];
                     populationScoreMatrix[i][j] *= globalPrioritiesVector[j];
                     populationSum += populationScoreMatrix[i][j];
+                    System.out.print("(" + (j+1) + ") " + populationScoreMatrix[i][j] + "  ");
                 }
+                System.out.println();
 
                 // save sum at column 11
                 populationScoreMatrix[i][DOG_INTENSITY_MATRICES_COUNT] = populationSum;

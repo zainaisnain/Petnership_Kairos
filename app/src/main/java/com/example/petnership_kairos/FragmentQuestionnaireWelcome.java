@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -38,21 +39,19 @@ public class FragmentQuestionnaireWelcome extends Fragment {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             FragmentQuestionnaireChooseAnimal chooseFragment = new FragmentQuestionnaireChooseAnimal();
-            transaction.replace(R.id.nav_host_fragment,chooseFragment);
+            transaction.replace(R.id.nav_host_fragment, chooseFragment);
             transaction.addToBackStack("chooseAnimal");
             transaction.commit();
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view1 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-            AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-            transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-            transaction.commit();
+
+            DialogQuestionnaireCancel checkCancelHome = new DialogQuestionnaireCancel();
+            checkCancelHome.show(getParentFragmentManager(), "Cancel Home");
         });
+
+
     }
-
-
 
 
 }

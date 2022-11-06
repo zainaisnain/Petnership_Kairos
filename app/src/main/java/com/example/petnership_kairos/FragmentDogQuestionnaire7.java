@@ -49,11 +49,10 @@ public class FragmentDogQuestionnaire7 extends Fragment {
         rate35 = getView().findViewById(R.id.rating35);
 
 
-
         // bring back previous progress if any
-      //  if (mViewModel.getDogAnswer(8) != null){
-        //    seekBar44.setProgress(mViewModel.getDogAnswer(8));
-        //}
+        if (mViewModel.getAnswer(33) != null) seekBar33.setProgress(mViewModel.getAnswer(33));
+        if (mViewModel.getAnswer(34) != null) seekBar34.setProgress(mViewModel.getAnswer(34));
+        if (mViewModel.getAnswer(35) != null) seekBar35.setProgress(mViewModel.getAnswer(35));
 
         seekBar33.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
