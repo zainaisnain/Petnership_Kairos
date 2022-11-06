@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ public class MyCancelDialogGoToDogProfile extends DialogFragment{
 //                getChildFragmentManager().popBackStack();
             getParentFragmentManager().popBackStack();
             dismiss();
+
 //                Fragment fragment = new ShelterEditDog();
 //
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

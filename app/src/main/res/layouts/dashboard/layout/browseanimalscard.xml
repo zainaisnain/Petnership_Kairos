@@ -18,7 +18,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="140dp">
+            android:layout_height="140dp"
+            android:background="@drawable/card_dashboard">
 =
             <ImageView
                 android:id="@+id/pet_image"

@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +25,13 @@ public class PasswordChangeSavedDialog extends DialogFragment {
             @Override
             public void onClick(View view) {
                 //FRAGMENT to FRAGMENT
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
-                transaction.replace(R.id.user_change_password_frag, shelterHomeDashboard);
-                transaction.commit();
+                Intent intent = new Intent(getActivity(), ShelterDashboard.class);
+                startActivity(intent);
+//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+//                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
+//                transaction.replace(R.id.user_change_password_frag, shelterHomeDashboard);
+//                transaction.commit();
+                setCancelable(false);
                 dismiss();
             }
         });

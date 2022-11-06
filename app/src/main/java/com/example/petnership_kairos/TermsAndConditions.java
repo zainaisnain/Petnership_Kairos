@@ -2,6 +2,8 @@ package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -133,6 +135,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
             myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
         });
 
+
 //        backBtn = view.findViewById(R.id.btnBack);
 //        backBtn.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -183,6 +186,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         cancelForm.setOnClickListener(v -> {
             MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
             myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
+
         });
 
     }
