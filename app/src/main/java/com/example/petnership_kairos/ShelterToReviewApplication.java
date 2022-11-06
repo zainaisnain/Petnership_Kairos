@@ -1,5 +1,7 @@
 package com.example.petnership_kairos;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -7,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,9 +136,15 @@ public class ShelterToReviewApplication extends Fragment {
         saveApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("OnClick applicationStatus == " + applicationStatus);
                 shelterReason = shelterReasonET.getText().toString();
-                //UPDATE DBS
-                updateApplicationStatusOnDBs();
+                if(applicationStatus.equals("Approved")){
+                    addToApprovedAdoptersDB();
+                }else{
+                    //UPDATE DBS
+                    updateApplicationStatusOnDBs();
+                }
+
                 MySaveDialogShelterToReview mySaveDialogShelterToReview = new MySaveDialogShelterToReview();
                 mySaveDialogShelterToReview.show(getParentFragmentManager(), "My Fragment");
 //                MyCustomDialog submitDialog = new MyCustomDialog();
@@ -256,6 +265,73 @@ public class ShelterToReviewApplication extends Fragment {
 
     }
 
+    private void addToApprovedAdoptersDB(){
+
+        adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
+            // Now "DataSnapshot" holds the key and the value at the "fromPath".
+            // Let's move it to the "toPath". This operation duplicates the
+            // key/value pair at the "fromPath" to the "toPath".
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                dataSnapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                //insert reason
+                dataSnapshot.child("shelterReason").getRef().setValue(shelterReason);
+
+                String sID = (String) dataSnapshot.child("shelterID").getValue();
+
+                sheltersDBRef.child(sID).child("ApprovedAdopters").child(applicationID).child(dataSnapshot.getKey())
+                        .setValue(dataSnapshot.getValue(), new DatabaseReference.CompletionListener() {
+                            @Override
+                            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                                if (databaseError == null) {
+                                    Log.i(TAG, "onComplete: success");
+                                    // In order to complete the move, we are going to erase
+                                    // the original copy by assigning null as its value.
+                                    adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).setValue(null);
+                                }
+                                else {
+                                    Log.e(TAG, "onComplete: failure:" + databaseError.getMessage() + ": "
+                                            + databaseError.getDetails());
+                                }
+                            }
+                        });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled: " + databaseError.getMessage() + ": "
+                        + databaseError.getDetails());
+            }
+        });
+        adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                //insert reason
+                snapshot.child("shelterReason").getRef().setValue(shelterReason);
+
+                String sID = (String) snapshot.child("shelterID").getValue();
+                sheltersDBRef.child(sID).child("ApprovedAdopters").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
+                        snapshot.child("shelterReason").getRef().setValue(shelterReason);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
     private void updateApplicationStatusOnDBs(){
         adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -284,8 +360,6 @@ public class ShelterToReviewApplication extends Fragment {
 
             }
         });
-
-
     }
     private void sendMail() {
         String recipientList = mEditTextTo.getText().toString();

@@ -4,7 +4,6 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,8 +43,8 @@ public class ShelterHomeDashboard extends Fragment {
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
-    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount;
-    private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfAdopters, tvNumOfForReview;
+    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount, numOfAproved;
+    private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfApprovedAdopters, tvNumOfForReview;
     private String shelterEmail, shelterUsername, shelterImageName;
     private ImageView ivShelterImage;
 
@@ -79,7 +77,7 @@ public class ShelterHomeDashboard extends Fragment {
         tvNumOfPets = view.findViewById(R.id.num_reg_pets_shelter);
         tvNumOfDogs = view.findViewById(R.id.num_reg_dogs_shelter);
         tvNumOfCats = view.findViewById(R.id.num_reg_cats_shelter);
-        tvNumOfAdopters =  view.findViewById(R.id.num_of_active_adopters);
+        tvNumOfApprovedAdopters =  view.findViewById(R.id.num_of_approved_adopters);
         tvNumOfForReview =  view.findViewById(R.id.num_of_for_review);
         ivShelterImage = view.findViewById(R.id.adopterImage);
 
@@ -117,18 +115,18 @@ public class ShelterHomeDashboard extends Fragment {
             ShelterDashboard.atHome = false;
         });
 
-        card4 = view.findViewById(R.id.activeAdopters);
-//        card4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                ActiveAdopters activeadptrs = new ActiveAdopters();
-//                transaction.replace(R.id.nav_host_fragment, activeadptrs);
-//                transaction.addToBackStack("activeAdopters");
-//                transaction.commit();
-//            }
-//        });
+        card4 = view.findViewById(R.id.approvedAdopters);
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction activeAdoptersTransaction = getParentFragmentManager().beginTransaction();
+                activeAdoptersTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                ShelterApprovedAdopters shelterApprovedAdopters = new ShelterApprovedAdopters();
+                activeAdoptersTransaction.replace(R.id.nav_host_fragment, shelterApprovedAdopters);
+                activeAdoptersTransaction.addToBackStack("Shelter Approved Adopters");
+                activeAdoptersTransaction.commit();
+            }
+        });
 
         card5 = view.findViewById(R.id.toReview);
         card5.setOnClickListener(v -> {
@@ -157,7 +155,7 @@ public class ShelterHomeDashboard extends Fragment {
 
         setUpProfilePic();
         getNumOfRegPets();
-        getNumOfAdopters();
+        getNumOfApprovedAdopters();
         getNumOfForReview();
     }
 
@@ -283,18 +281,44 @@ public class ShelterHomeDashboard extends Fragment {
         });
     }
 
-    private void getNumOfAdopters(){
-        adoptersDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void getNumOfApprovedAdopters(){
+        sheltersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                numOfAdopters = (int) snapshot.getChildrenCount();
-                if(numOfAdopters>0){
-                    adoptersCount = numOfAdopters;
-                    String adopters = String.valueOf(numOfAdopters);
-                    tvNumOfAdopters.setText(adopters);
-                }else{
-                    tvNumOfAdopters.setText("0");
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
                 }
+
+                sheltersDBRef.child(shelterID).orderByKey().equalTo("ApprovedAdopters").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            sheltersDBRef.child(shelterID).child("ApprovedAdopters").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    numOfAproved = (int) snapshot.getChildrenCount();
+                                    if(numOfAproved>0){
+                                        String approved = String.valueOf(numOfAproved);
+                                        forReviewCount = numOfAproved;
+                                        tvNumOfApprovedAdopters.setText(approved);
+                                    }else{
+                                        tvNumOfApprovedAdopters.setText("0");
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override

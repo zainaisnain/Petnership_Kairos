@@ -1,7 +1,5 @@
 package com.example.petnership_kairos;
 
-import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,42 +23,37 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ApplicantsReviewFragment extends Fragment {
+public class ShelterApprovedAdopters extends Fragment {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     String shelterID, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied, applicationStatus;
-    ApplicantsReviewData[] applicantsReviewData;
-    private ArrayList<ApplicantsReviewData> ALApplicantsReviewData = new ArrayList<ApplicantsReviewData>();
 
-    private ApplicantsReviewViewModel mViewModel;
+    ShelterApprovedAdoptersData[] shelterApprovedAdoptersData;
+    private ArrayList<ShelterApprovedAdoptersData> ALShelterApprovedAdoptersData = new ArrayList<ShelterApprovedAdoptersData>();
+
     private ImageButton backBtn;
-    public static ApplicantsReviewFragment newInstance() {
-        return new ApplicantsReviewFragment();
 
+    public ShelterApprovedAdopters newInstance() {
+        // Required empty public constructor
+        return new ShelterApprovedAdopters();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_applicants_review, container, false);
-
-        return view;
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
 
-        System.out.println("Entered ApplicantsReviewFragment");
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,35 +61,31 @@ public class ApplicantsReviewFragment extends Fragment {
                 getParentFragmentManager().popBackStack();
             }
         });
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewApplicants);
+
+        System.out.println("Entered ShelterApprovedAdopters");
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewApprovedAdopters);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         getFromDB(recyclerView);
     }
 
     private void getFromDB(RecyclerView recyclerView){
-        System.out.println("enterdgetFromDB");
-        System.out.println("shelterEmail == " + shelterEmail);
         sheltersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot sheltersSnapshot) {
-                System.out.println("entered onDataChange");
-                System.out.println("sheltersSnapshot  == " + sheltersSnapshot);
                 if(sheltersSnapshot.exists()){
                     for(DataSnapshot ds : sheltersSnapshot.getChildren()) {
                         shelterID = ds.getKey();
                     }
 
-                    System.out.println("shelterID ARF === " + shelterID);
-                    if(sheltersSnapshot.child(shelterID).hasChild("ForReviewApplicants")){
-                        sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                    if(sheltersSnapshot.child(shelterID).hasChild("ApprovedAdopters")){
+                        sheltersDBRef.child(shelterID).child("ApprovedAdopters").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                                 for(DataSnapshot ds : snapshot.getChildren()) {
                                     applicationID = ds.getKey();
-                                    System.out.println("applicationID ARF === " + applicationID);
-
+                                    System.out.println("inside heloo == " + applicationID);
                                     adopterID = (String) snapshot.child(applicationID).child("adopterID").getValue();
                                     adopterName = (String) snapshot.child(applicationID).child("adopterName").getValue();
                                     System.out.println("adopterName ApplicantsReviewFrag getFromDB == " + adopterName);
@@ -105,12 +94,12 @@ public class ApplicantsReviewFragment extends Fragment {
                                     applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
                                     dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
 
-                                    ALApplicantsReviewData.add( new ApplicantsReviewData(applicationID, adopterID, adopterName, petID, petName, applicationStatus, dateApplied));
+                                    ALShelterApprovedAdoptersData.add( new ShelterApprovedAdoptersData(applicationID, adopterID, adopterName, petID, petName, applicationStatus, dateApplied));
                                 }
 
-                                applicantsReviewData = ALApplicantsReviewData.toArray(new ApplicantsReviewData[ALApplicantsReviewData.size()]);
-                                ApplicantsReviewAdapter applicantsReviewAdapter = new ApplicantsReviewAdapter(applicantsReviewData,ApplicantsReviewFragment.this);
-                                recyclerView.setAdapter(applicantsReviewAdapter);
+                                shelterApprovedAdoptersData = ALShelterApprovedAdoptersData.toArray(new ShelterApprovedAdoptersData[ALShelterApprovedAdoptersData.size()]);
+                                ShelterApprovedAdoptersAdapter shelterApprovedAdoptersAdapter = new ShelterApprovedAdoptersAdapter(shelterApprovedAdoptersData,ShelterApprovedAdopters.this);
+                                recyclerView.setAdapter(shelterApprovedAdoptersAdapter);
                             }
 
                             @Override
@@ -128,4 +117,12 @@ public class ApplicantsReviewFragment extends Fragment {
             }
         });
     }
+
+        @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_shelter_approved_adopters, container, false);
+    }
+
 }
