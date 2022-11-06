@@ -293,6 +293,8 @@ public class ShelterEditInfo extends AppCompatActivity {
                                     snapshot.child(shelterUsername).getRef().child("city").setValue(city);
                                     snapshot.child(shelterUsername).getRef().child("province").setValue(shelterProvince);
                                     snapshot.child(shelterUsername).getRef().child("imageName").setValue(imageName);
+                                    MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
+                                    mySaveDialogShelter.show(getSupportFragmentManager(), "My Fragment");
                                 }
                             }
 
