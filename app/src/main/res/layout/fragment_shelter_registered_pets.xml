@@ -62,7 +62,7 @@
                         android:layout_alignParentBottom="true"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Pet's Name"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -88,7 +88,7 @@
                         android:layout_alignParentBottom="true"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Pet's Age"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -112,7 +112,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Breed's Sex"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,8 +135,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
-                    android:text="Pet's Breed"
-                    android:textSize="15sp" />
+                    android:text="American Curl"
+                    android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
