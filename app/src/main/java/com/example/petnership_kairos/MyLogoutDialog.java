@@ -39,6 +39,7 @@ public class MyLogoutDialog extends DialogFragment{
                 auth.getInstance().signOut();
                 Intent intent = new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent);
+                setCancelable(false);
             }
         });
 

@@ -34,6 +34,7 @@ public class MyCancelDialogShelterEdit extends DialogFragment{
 //                transaction.replace(R.id.user_change_email, shelterDashboard);
 //                transaction.commit();
 //                getParentFragmentManager().popBackStack();
+                setCancelable(false);
                 dismiss();
 //
             }

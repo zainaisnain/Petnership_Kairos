@@ -27,6 +27,7 @@ public class MyCancelDialogEdit extends DialogFragment{
             public void onClick(View v) {
                 //FRAGMENT to ACTIVITY
                 getParentFragmentManager().popBackStack();
+                setCancelable(false);
                 dismiss();
 
             }

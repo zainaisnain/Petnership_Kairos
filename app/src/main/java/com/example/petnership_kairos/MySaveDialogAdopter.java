@@ -26,6 +26,7 @@ public class MySaveDialogAdopter extends DialogFragment {
                 //FRAGMENT to FRAGMENT
                 Intent intent = new Intent(getActivity(), AdopterDashboard.class);
                 startActivity(intent);
+                setCancelable(false);
                 dismiss();
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                ShelterHomeDashboard shelterHomeDashboard = new ShelterHomeDashboard();
