@@ -1,10 +1,8 @@
 package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -244,7 +242,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                     bundle.putInt("q11", q11);
                     dogPetProfileSummary.setArguments(bundle);
 
-                    addToDB();
+                    updateDB();
 //                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
 //                    transaction.commit();
@@ -645,7 +643,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         }
     }
 
-    public void addToDB(){
+    public void updateDB(){
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -661,16 +659,14 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                         petsDogsDBRef.child(petID).setValue(dogAnswers);
                         allPetsDBRef.child(petID).setValue(dogAnswers);
 
-                        sheltersDBRef.addValueEventListener(new ValueEventListener() {
+
+                        sheltersDBRef.child(shelterID).child("Dogs").child(petID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(shelterID)){
-                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
-                                    snapshot.child(shelterID).child("Dogs").child(petID).getRef().setValue(pet);
-                                }else{
-                                    System.out.println("no child in SHELTER.... ");
-                                }
+                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
+                                snapshot.getRef().setValue(pet);
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
 

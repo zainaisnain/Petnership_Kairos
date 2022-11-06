@@ -2,14 +2,12 @@ package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -226,7 +224,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     bundle.putString("q9", q9);
                     catPetProfileSummary.setArguments(bundle);
 
-                    addToDB();
+                    updateDB();
 
                     MySaveDialogEdit mySaveDialogEdit = new MySaveDialogEdit();
                     mySaveDialogEdit.show(getParentFragmentManager(), "My Fragment");
@@ -256,7 +254,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         petsCatsDBRef.child(petID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                q1 = (int) snapshot.child("q1").getValue(Integer.class);
+                q1 = Math.toIntExact((Long) snapshot.child("q1").getValue());
                 if(q1==1){
                     q1a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
                     q1a2Btn.setBackgroundColor(Color.GRAY);
@@ -331,7 +329,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     q5a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 }
 
-                q6 = (int) snapshot.child("q6").getValue(Integer.class);
+                q6 = Math.toIntExact((Long) snapshot.child("q6").getValue());
                 if(q6==1){
                     q6a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
                     q6a2Btn.setBackgroundColor(Color.GRAY);
@@ -346,7 +344,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     q6a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 }
 
-                q7 = (int) snapshot.child("q7").getValue(Integer.class);
+                q7 =  Math.toIntExact((Long) snapshot.child("q7").getValue());
                 if(q7==1){
                     q7a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
                     q7a2Btn.setBackgroundColor(Color.GRAY);
@@ -361,7 +359,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     q7a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 }
 
-                q8 = (int) snapshot.child("q8").getValue(Integer.class);
+                q8 =  Math.toIntExact((Long) snapshot.child("q8").getValue());
                 if(q8==1){
                     q8a1Btn.setBackgroundColor(R.drawable.round_lightpurple);
                     q8a2Btn.setBackgroundColor(Color.GRAY);
@@ -551,7 +549,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         }
     }
 
-    public void addToDB(){
+    public void updateDB(){
 
         System.out.println("shelter --- " + shelter);
         usersDBRef.orderByChild("email").equalTo(shelter)
@@ -568,15 +566,11 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                                 q6,q7,q8,q9, petType);
                         petsCatsDBRef.child(petID).setValue(catAnswers);
                         allPetsDBRef.child(petID).setValue(catAnswers);
-                        sheltersDBRef.addValueEventListener(new ValueEventListener() {
+                        sheltersDBRef.child(shelterID).child("Cats").child(petID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if(snapshot.hasChild(shelterID)){
-                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
-                                    snapshot.child(shelterID).child("Cats").child(petID).getRef().setValue(pet);
-                                }else{
-                                    System.out.println("no child in SHELTER.... ");
-                                }
+                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
+                                snapshot.getRef().setValue(pet);
                             }
 
                             @Override
