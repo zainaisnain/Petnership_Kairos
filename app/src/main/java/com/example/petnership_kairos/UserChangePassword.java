@@ -79,60 +79,64 @@ public class UserChangePassword extends Fragment {
                 System.out.println("newPassword == " + newPassword);
                 System.out.println("confirmNewPassword == " + confirmNewPassword);
 
-                AuthCredential credential = EmailAuthProvider
-                        .getCredential(user.getEmail(), currentPassword);
-
-                user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            if(currentPassword.equals(newPassword)){
-                                newPasswordET.setError("New password can't match current password.");
-                                newPasswordET.requestFocus();
-                                return;
-                            }else if(newPassword.isEmpty()){
-                                newPasswordET.setError("Password is Required.");
-                                newPasswordET.requestFocus();
-                                return;
-                            } else if (confirmNewPassword.isEmpty()) {
-                                confirmNewPasswordET.setError("Confirm Password is Required.");
-                                confirmNewPasswordET.requestFocus();
-                                return;
-                            } else if (newPassword.length() < 6) {
-                                newPasswordET.setError("Password should be at least 6 characters.");
-                                newPasswordET.requestFocus();
-                                return;
-                            } else if (confirmNewPassword.length() < 6) {
-                                confirmNewPasswordET.setError("Password should be at least 6 characters.");
-                                confirmNewPasswordET.requestFocus();
-                                return;
-                            } else if (!newPassword.equals(confirmNewPassword)){
-                                newPasswordET.setError("Password do not match.");
-                                newPasswordET.requestFocus();
-                                confirmNewPasswordET.setError("Passwords do not match.");
-                                confirmNewPasswordET.requestFocus();
-                                return;
-                            } else if(newPassword.equals(confirmNewPassword)) {
-                                user.updatePassword(newPassword)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    //TODO: INSERT DIALOG HERE
-                                                    PasswordChangeSavedDialog passwordChangeSavedDialog = new PasswordChangeSavedDialog();
-                                                    passwordChangeSavedDialog.show(getParentFragmentManager(), "My Fragment");
-                                                    Log.d(TAG, "User password updated.");
+                if(currentPassword.isEmpty()){
+                    currentPasswordET.setError("Password is Required.");
+                    currentPasswordET.requestFocus();
+                }else{
+                    AuthCredential credential = EmailAuthProvider
+                            .getCredential(user.getEmail(), currentPassword);
+                    user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                if(currentPassword.equals(newPassword)){
+                                    newPasswordET.setError("New password can't match current password.");
+                                    newPasswordET.requestFocus();
+                                    return;
+                                }else if(newPassword.isEmpty()){
+                                    newPasswordET.setError("Password is Required.");
+                                    newPasswordET.requestFocus();
+                                    return;
+                                } else if (confirmNewPassword.isEmpty()) {
+                                    confirmNewPasswordET.setError("Confirm Password is Required.");
+                                    confirmNewPasswordET.requestFocus();
+                                    return;
+                                } else if (newPassword.length() < 6) {
+                                    newPasswordET.setError("Password should be at least 6 characters.");
+                                    newPasswordET.requestFocus();
+                                    return;
+                                } else if (confirmNewPassword.length() < 6) {
+                                    confirmNewPasswordET.setError("Password should be at least 6 characters.");
+                                    confirmNewPasswordET.requestFocus();
+                                    return;
+                                } else if (!newPassword.equals(confirmNewPassword)){
+                                    newPasswordET.setError("Password do not match.");
+                                    newPasswordET.requestFocus();
+                                    confirmNewPasswordET.setError("Passwords do not match.");
+                                    confirmNewPasswordET.requestFocus();
+                                    return;
+                                } else if(newPassword.equals(confirmNewPassword)) {
+                                    user.updatePassword(newPassword)
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        //TODO: INSERT DIALOG HERE
+                                                        PasswordChangeSavedDialog passwordChangeSavedDialog = new PasswordChangeSavedDialog();
+                                                        passwordChangeSavedDialog.show(getParentFragmentManager(), "My Fragment");
+                                                        Log.d(TAG, "User password updated.");
+                                                    }
                                                 }
-                                            }
-                                        });
+                                            });
+                                }
+                            }else {
+                                currentPasswordET.setError("Incorrect Current Password");
+                                currentPasswordET.requestFocus();
+                                return;
                             }
-                        }else {
-                            currentPasswordET.setError("Incorrect Current Password");
-                            currentPasswordET.requestFocus();
-                            return;
                         }
-                    }
-                });
+                    });
+                }
             }
 
         });
