@@ -2,6 +2,8 @@ package com.example.petnership_kairos;
 
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -132,12 +134,33 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                FragmentManager fm = getParentFragmentManager();
+//                int backCount = fm.getBackStackEntryCount();
+//                System.out.println("Backstack entry count: " + fm.getBackStackEntryCount());
+//                for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+//                    System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
+//                }
+//                int count = getParentFragmentManager().getBackStackEntryCount();
+//                    if (count < 1) {
+//                        MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+//                        myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
+//
+//                    }
+//                    else {
+//                        MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+//                        myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
+////                        System.out.println("Popped");
+////                        getParentFragmentManager().popBackStack();
+//                    }
+//                }
 //                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
 //                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
                 MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
                 myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
+
             }
         });
+
 
 //        backBtn = view.findViewById(R.id.btnBack);
 //        backBtn.setOnClickListener(new View.OnClickListener() {
@@ -192,8 +215,10 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         cancelForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
-                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
+//                MyCancelDialogAdoptionForm myCancelDialogAdoptionForm = new MyCancelDialogAdoptionForm();
+//                myCancelDialogAdoptionForm.show(getParentFragmentManager(), "My Fragment");
+                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+                myCancelDialogGoToDogProfile.show(getActivity().getSupportFragmentManager(), "My Fragment");
             }
         });
 

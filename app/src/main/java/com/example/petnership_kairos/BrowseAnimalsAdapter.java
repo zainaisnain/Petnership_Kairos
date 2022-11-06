@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -68,6 +69,12 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
             public void onClick(View view) {
 
                 if(petType.equals("dog")){
+//                    FragmentTransaction transaction = get
+//                    transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+//                    ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
+//                    transaction.replace(R.id.nav_host_fragment,applicationHistory);
+//                    transaction.addToBackStack("applicationHistory");
+//                    transaction.commit();
                     Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
                     dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
                     view.getContext().startActivity(dogIntent);
