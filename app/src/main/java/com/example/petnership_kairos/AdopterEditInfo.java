@@ -242,8 +242,10 @@ public class AdopterEditInfo extends AppCompatActivity {
                     if(filePath != null){
                         uploadImage();
                         editAdopterInfo();
+                        showsaveDialog();
                     }else{
                         editAdopterInfo();
+
                     }
                 }
             }
@@ -449,6 +451,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                                     snapshot.child(adopterID).getRef().child("country").setValue(country);
 
                                     snapshot.child(adopterID).getRef().child("imageName").setValue(imageName);
+                                    MySaveDialogAdopter mySaveDialogAdopter = new MySaveDialogAdopter();
+                                    mySaveDialogAdopter.show(getSupportFragmentManager(), "My Fragment");
                                 }
                             }
 
