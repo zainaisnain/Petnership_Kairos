@@ -107,25 +107,19 @@ public class AdopterHomeDashboard extends Fragment {
                 transaction.commit();
         });
 
-        cvAdoptPet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), StartOfQuestionnaire.class));
-                getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
-            }
+        cvAdoptPet.setOnClickListener(view1 -> {
+            startActivity(new Intent(getActivity(), StartOfQuestionnaire.class));
+            getActivity().overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
         });
 
-        cvBrowseAnimals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        cvBrowseAnimals.setOnClickListener(view12 -> {
 
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                //transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                BrowseAnimals browseAnimals = new BrowseAnimals();
-                transaction.replace(R.id.nav_host_fragment,browseAnimals);
-                transaction.addToBackStack("browseAnimals");
-                transaction.commit();
-            }
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            BrowseAnimals browseAnimals = new BrowseAnimals();
+            transaction.replace(R.id.nav_host_fragment,browseAnimals);
+            transaction.addToBackStack("browseAnimals");
+            transaction.commit();
         });
 
         setUpProfilePic();

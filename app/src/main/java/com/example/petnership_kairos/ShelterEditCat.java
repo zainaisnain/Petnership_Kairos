@@ -227,8 +227,6 @@ public class ShelterEditCat extends Fragment {
                 petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
 //                petImage = imageName;
-
-
                 System.out.println("PET ID == " + petID);
 
                 if(petName.isEmpty()){

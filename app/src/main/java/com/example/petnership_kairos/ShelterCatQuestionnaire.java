@@ -327,6 +327,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                 q2a2Btn.setBackgroundColor(Color.GRAY);
                 q2a3Btn.setBackgroundColor(R.drawable.round_lightpurple);
                 q2=3;
+                break;
                 //Q3
             case R.id.q3ans1_catprofile:
                 q3a1Btn.setBackgroundColor(R.drawable.round_lightpurple);

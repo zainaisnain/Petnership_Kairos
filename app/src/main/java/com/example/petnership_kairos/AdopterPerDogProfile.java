@@ -2,11 +2,13 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -105,26 +107,33 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         tvDoglvl11 = findViewById(R.id.adopter_doglevel7);
 
         backBtnUp = findViewById(R.id.btnBack);
-        backBtnUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backBtnUp.setOnClickListener(view -> onBackPressed());
+
 
         adoptMeBtn = findViewById(R.id.adopter_per_dog_adopt_me_btn);
 
         backBtn = findViewById(R.id.adopter_per_dog_back_btn);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+        backBtn.setOnClickListener(view -> onBackPressed());
 
         checkIfAdopterAnsweredQuestionnaire();
         setUpPetImage();
         setUpSummary();
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+        String topTag = "";
+        if (count > 0) {
+            MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+            myCancelDialogGoToDogProfile.show(getSupportFragmentManager(), "Dog");
+
+       }
+        else {
+            finishAfterTransition();
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
+        }
+
     }
     private void checkIfAdopterAnsweredQuestionnaire(){
         adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
@@ -142,48 +151,41 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                     System.out.println("answeredQuestionnaire ==== " + answeredQuestionnaire);
                                     if(answeredQuestionnaire){
                                         adoptMeBtn.setEnabled(true);
-                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
+                                        adoptMeBtn.setOnClickListener(view -> {
 
-                                                //pass the pet's info to next screen (fragment)
-                                                Bundle bundle = new Bundle();
-                                                bundle.putString("petID", petID);
-                                                bundle.putString("petType", petType);
-                                                bundle.putString("petImageName", petImageName);
-                                                bundle.putString("petName", petName);
-                                                bundle.putString("petBreed", petBreed);
-                                                bundle.putString("petAge", petAge);
-                                                bundle.putString("petSex", petSex);
-                                                bundle.putString("petDescription", petDescription);
-                                                bundle.putString("petShelter", petShelter);
-                                                System.out.println("shelterID AdopterPDP bundle" + shelterID);
-                                                bundle.putString("shelterID", shelterID);
-                                                bundle.putString("shelterEmail", shelterEmail);
-                                                bundle.putString("adopterID", adopterID);
-                                                bundle.putString("adopterEmail", adopterEmail);
-                                                bundle.putString("adopterName", adopterName);
-                                                bundle.putString("adopterContact", adopterContact);
-                                                bundle.putString("adopterAddress", adopterAddress);
+                                            //pass the pet's info to next screen (fragment)
+                                            Bundle bundle = new Bundle();
+                                            bundle.putString("petID", petID);
+                                            bundle.putString("petType", petType);
+                                            bundle.putString("petImageName", petImageName);
+                                            bundle.putString("petName", petName);
+                                            bundle.putString("petBreed", petBreed);
+                                            bundle.putString("petAge", petAge);
+                                            bundle.putString("petSex", petSex);
+                                            bundle.putString("petDescription", petDescription);
+                                            bundle.putString("petShelter", petShelter);
+                                            System.out.println("shelterID AdopterPDP bundle" + shelterID);
+                                            bundle.putString("shelterID", shelterID);
+                                            bundle.putString("shelterEmail", shelterEmail);
+                                            bundle.putString("adopterID", adopterID);
+                                            bundle.putString("adopterEmail", adopterEmail);
+                                            bundle.putString("adopterName", adopterName);
+                                            bundle.putString("adopterContact", adopterContact);
+                                            bundle.putString("adopterAddress", adopterAddress);
 
-                                                TermsAndConditions termsAndConditions = new TermsAndConditions();
-                                                termsAndConditions.setArguments(bundle);
+                                            TermsAndConditions termsAndConditions = new TermsAndConditions();
+                                            termsAndConditions.setArguments(bundle);
 
-                                                //Go to next screen
-                                                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                                                transaction.replace(R.id.adopter_per_dog_profile_container, termsAndConditions);
-                                                //transaction.addToBackStack("Adopter Pet Dog");
-                                                transaction.commit();
-                                            }
+                                            //Go to next screen
+                                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                                            transaction.replace(R.id.adopter_per_dog_profile_container, termsAndConditions);
+                                            transaction.addToBackStack("Adopter Pet Dog");
+                                            transaction.commit();
                                         });
 
                                     }else{
-                                        adoptMeBtn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                startActivity(new Intent(AdopterPerDogProfile.this, AdopterNotAnsweredQuestionnaire.class));
-                                            }
-                                        });
+                                        adoptMeBtn.setOnClickListener(view -> startActivity(new Intent(AdopterPerDogProfile.this, AdopterNotAnsweredQuestionnaire.class)));
                                     }
                                 }
 

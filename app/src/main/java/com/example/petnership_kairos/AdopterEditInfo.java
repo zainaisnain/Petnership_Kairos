@@ -238,14 +238,13 @@ public class AdopterEditInfo extends AppCompatActivity {
                     etCity.setError("City is Required.");
                     etCity.requestFocus();
                     return;
-                }else if (filePath == null) {
-                    Toast.makeText(AdopterEditInfo.this,
-                                    "Please select image to upload.",
-                                    Toast.LENGTH_SHORT)
-                            .show();
-                } else{
-                    uploadImage();
-                    editAdopterInfo();
+                }else{
+                    if(filePath != null){
+                        uploadImage();
+                        editAdopterInfo();
+                    }else{
+                        editAdopterInfo();
+                    }
                 }
             }
 
