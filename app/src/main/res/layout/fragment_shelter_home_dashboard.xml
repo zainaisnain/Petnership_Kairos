@@ -67,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:padding="16dp"
-                        android:background="@drawable/card">
+                        android:background="@drawable/card_dashboard">
 
                         <TextView
                             android:id="@+id/num_reg_pets_shelter"
@@ -107,7 +107,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="5dp" >
+                        android:padding="5dp"
+                        android:background="@drawable/button">
 
                         <TextView
                             android:id="@+id/num_reg_dogs_shelter"
@@ -137,7 +138,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="5dp" >
+                        android:padding="5dp"
+                        android:background="@drawable/button">
 
                         <TextView
                             android:id="@+id/num_reg_cats_shelter"
@@ -166,7 +168,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="16dp" >
+                        android:padding="16dp"
+                        android:background="@drawable/card_dashboard">
 
                         <TextView
                             android:id="@+id/num_of_active_adopters"
@@ -207,7 +210,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="@drawable/card_dashboard">
 
                 <TextView
                     android:id="@+id/num_of_for_review"

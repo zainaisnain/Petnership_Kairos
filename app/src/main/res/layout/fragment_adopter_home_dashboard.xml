@@ -90,7 +90,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:background="@drawable/card_dashboard">
 
                 <ImageView
                     android:id="@+id/cvAdopterImage"
@@ -126,7 +127,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:background="@drawable/card_dashboard">
 
                 <ImageView
                     android:id="@+id/adopterIntApp"
@@ -162,7 +164,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:background="@drawable/card_dashboard">
 
                 <ImageView
                     android:id="@+id/adopterIntBrowseS"
@@ -198,7 +201,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:background="@drawable/card_dashboard">
 
                 <ImageView
                     android:id="@+id/adopterIntBrowseAnimals"

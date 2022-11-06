@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="10dp"/>
-    <solid android:color="@color/secondary_purple"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/round_lightpurple" android:state_pressed ="true"/>
+
+</selector>
