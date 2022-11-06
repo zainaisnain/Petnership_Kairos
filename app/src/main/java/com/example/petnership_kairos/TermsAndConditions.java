@@ -44,6 +44,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
             petID, petType, petName, petBreed, petAge, petDescription, dateApplied, timeApplied, applicationStatus;
     private double matchPercentage = 0.0;
     private String petPolicy, yard, children, company, position, petNames, petBreeds, vet, convicted, hours, emergency, crate, references;
+    private String ownOrRentHome, hasYard, hasChildren, hasWork, hasPet, hasSurrendered, isConvicted;
     private TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed, tvMatch, tvAdopterName, tvAdopterBirthday, tvAdopterEmail, tvAdopterContact, tvAdopterAddress;
     private EditText etPetPolicy, etYard, etChildren, etCompany, etPosition, etPetNames, etPetBreeds, etVet, etConvicted, etHours, etEmergency, etCrate, etReferences, etIntentions;
 
@@ -102,8 +103,6 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         adopterContact = getArguments().getString("adopterContact");
         adopterBirthday = getArguments().getString("adopterBirthday");
         adopterAddress = getArguments().getString("adopterAddress");
-        dateApplied = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
-        timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
 
         //radio buttons
         rbYesPet = view.findViewById(R.id.adoption_answer_yesPet);
@@ -178,7 +177,6 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         if(petImageName != null) {
             storageReference.child("Pets/").child(petImageName).getDownloadUrl()
                     .addOnSuccessListener(uri -> {
-                        System.out.println("GETIMAGENAME1 ONSUCCESS" + petImageName);
                         Glide.with(getActivity()).load(uri.toString()).into(ivImage);
                     });
         }
@@ -406,11 +404,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
 
             //update AdopterAllPets
 
-            appliedToAdopt = "true";
-            System.out.println("adopterIntentions === " + adopterIntentions);
-            System.out.println("references === " + references);
-            System.out.println("dateApplied == " +  dateApplied);
-            System.out.println("timeApplied == " +  timeApplied);
+            appliedToAdopt = "Yes";
 
             updateDBs();
 
@@ -534,11 +528,22 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
                         applicationStatus = "Pending";
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                         String applicationID = reference.push().getKey();
+
+                        // get date and time
+                        dateApplied = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+                        timeApplied = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
                         System.out.println("applicationID === " + applicationID);
 
+                        ownOrRentHome = (rbRentHome.isActivated() ? "Rented" : "Owned");
+                        hasYard = (rbYesYard.isActivated() ? "Yes" : "No");
+                        hasChildren = (rbYesChildren.isActivated() ? "Yes" : "No");
+                        hasWork = (rbYesWork.isActivated() ? "Yes" : "No");
+                        hasPet = (rbYesPet.isActivated() ? "Yes" : "No");
+                        hasSurrendered = (rbYesSurrender.isActivated() ? "Yes" : "No");
+                        isConvicted = (rbYesConvicted.isActivated() ? "Yes" : "No");
+
                         ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
-                                (applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
-                                        petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
+                                (appliedToAdopt, applicationID, dateApplied, timeApplied, adopterID, adopterName, ownOrRentHome, petPolicy, hasYard, yard, hasChildren, children, hasWork, company, position, hasPet, petNames, petBreeds, hasSurrendered, vet, isConvicted, convicted, hours, emergency, crate, references, adopterIntentions, petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
                         //insert to designated shelter's db
                         sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID).setValue(forReviewApplicantsInfo);
                         //add to adopters application history

@@ -164,7 +164,6 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             bundle.putString("petSex", petSex);
                                             bundle.putString("petDescription", petDescription);
                                             bundle.putString("petShelter", petShelter);
-                                            System.out.println("shelterID AdopterPDP bundle" + shelterID);
                                             bundle.putString("shelterID", shelterID);
                                             bundle.putString("shelterEmail", shelterEmail);
                                             bundle.putString("adopterID", adopterID);
