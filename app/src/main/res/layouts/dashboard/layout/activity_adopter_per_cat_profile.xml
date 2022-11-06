@@ -769,7 +769,7 @@
                     android:textStyle="bold"
                     android:layout_height="50dp"
                     android:background="@drawable/button2"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_gravity="center"

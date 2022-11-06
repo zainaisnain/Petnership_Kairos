@@ -2,6 +2,7 @@ package com.example.petnership_kairos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,30 +26,21 @@ public class MyCancelDialogGoToDogProfile extends DialogFragment{
         View view = inflater.inflate(R.layout.cancel2_dialog, container, false);
 
         btnBack = view.findViewById(R.id.buttonOk);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //FRAGMENT to ACTIVITY
-                Intent intent = new Intent(getActivity(), AdopterDashboard.class);
-                startActivity(intent);
-//                getParentFragmentManager().popBackStack();
-//                getParentFragmentManager().popBackStack();
-//                dismiss();
+        btnBack.setOnClickListener(v -> {
+            //FRAGMENT to ACTIVITY
+//                getChildFragmentManager().popBackStack();
+            getParentFragmentManager().popBackStack();
+            dismiss();
+
 //                Fragment fragment = new ShelterEditDog();
 //
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                transaction.replace(R.id.adoptionForm_TAndC, fragment).addToBackStack(null).commit();
 
-            }
         });
 
         btnCancel = view.findViewById(R.id.buttonCancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        btnCancel.setOnClickListener(v -> dismiss());
         return view;
     }
 }

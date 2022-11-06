@@ -3,6 +3,7 @@ package com.example.petnership_kairos;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -135,7 +136,7 @@ public class BrowseAnimals extends Fragment {
                                             }
 
                                             registeredPetData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-                                            BrowseAnimalsAdapter browseAnimalsAdapter = new BrowseAnimalsAdapter(registeredPetData, BrowseAnimals.this);
+                                            BrowseAnimalsAdapter browseAnimalsAdapter = new BrowseAnimalsAdapter(registeredPetData, BrowseAnimals.this, getActivity());
                                             recyclerView.setAdapter(browseAnimalsAdapter);
 
                                         }
