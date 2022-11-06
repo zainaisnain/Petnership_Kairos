@@ -50,9 +50,11 @@ public class FragmentCatQuestionnaire9 extends Fragment {
         crate41 = getView().findViewById(R.id.crating41);
 
         // bring back previous progress if any
-   //     if (mViewModel.getDogAnswer(8) != null){
-     //       cseekBar56.setProgress(mViewModel.getDogAnswer(8));
-       // }
+        if (mViewModel.getAnswer(39) != null) cseekBar39.setProgress(mViewModel.getAnswer(39));
+        if (mViewModel.getAnswer(40) != null) cseekBar40.setProgress(mViewModel.getAnswer(40));
+        if (mViewModel.getAnswer(41) != null) cseekBar41.setProgress(mViewModel.getAnswer(41));
+
+
 
         cseekBar39.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")

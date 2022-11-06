@@ -28,7 +28,8 @@ public class MyCancelDialogEmail extends DialogFragment{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ShelterDashboard.class);
+                // TODO: IF ELSE FOR SHELTER V. ADOPTER
+                Intent intent = new Intent(getActivity(), AdopterDashboard.class);
                 startActivity(intent);
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                ShelterDashboard shelterDashboard = new ShelterDashboard();

@@ -13,13 +13,14 @@ public class MCDMAlternative {
     private String type;
     private String shelter;
     private String id;
+    private String breed;
 
     private String imageName;
     private List<MCDMCriteriaValue> criteriaValues;
     private double calculatedPerformanceScore;
 
 
-    public MCDMAlternative(String name, List<MCDMCriteriaValue> criteriaValues, String age, String desc, String sex, String status, String type, String shelter, String imageName, String id) {
+    public MCDMAlternative(String name, List<MCDMCriteriaValue> criteriaValues, String age, String desc, String sex, String status, String type, String shelter, String imageName, String id, String breed) {
         super();
         this.name = name;
         this.age = age;
@@ -30,6 +31,7 @@ public class MCDMAlternative {
         this.shelter = shelter;
         this.imageName = imageName;
         this.id = id;
+        this.breed = breed;
         this.criteriaValues = criteriaValues;
     }
 
@@ -143,5 +145,13 @@ public class MCDMAlternative {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
     }
 }

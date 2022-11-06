@@ -32,6 +32,7 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    String intentValue = "";
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,6 +44,10 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_adopter);
+        Bundle intent = getIntent().getExtras();
+        if (intent != null) {
+            intentValue = intent.getString("com.example.petnership_kairos.fragment");
+        }
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser currUser = auth.getCurrentUser();
@@ -61,6 +66,47 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
         if(savedInstanceState == null) {
             getSupportFragmentManager().
                     beginTransaction().replace(R.id.nav_host_fragment,new AdopterHomeDashboard()).addToBackStack("Adopter Home").commit();
+
+            if(intentValue.equalsIgnoreCase("History")) {
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                ApplicationHistoryFragment applicationHistory = new ApplicationHistoryFragment();
+                transaction.replace(R.id.nav_host_fragment,applicationHistory);
+                transaction.addToBackStack("Application History");
+                transaction.commit();
+            }
+            else
+            if(intentValue.equalsIgnoreCase("Browse")) {
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                BrowseAnimals browseAnimalsFragment = new BrowseAnimals();
+                transaction.replace(R.id.nav_host_fragment,browseAnimalsFragment);
+                transaction.addToBackStack("Application History");
+                transaction.commit();
+            }
+            else
+            if(intentValue.equalsIgnoreCase("Logout")) {
+
+                MyLogoutDialog logoutDialog = new MyLogoutDialog();
+                logoutDialog.show(getSupportFragmentManager(), "My Fragment");
+            }
+            else
+            if(intentValue.equalsIgnoreCase("Password")) {
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+                UserChangePassword changePasswordFragment = new UserChangePassword();
+                transaction.replace(R.id.nav_host_fragment,changePasswordFragment);
+                transaction.addToBackStack("Change Password");
+                transaction.commit();
+            }
+            else {
+                getSupportFragmentManager().
+                        beginTransaction().replace(R.id.nav_host_fragment,new AdopterHomeDashboard()).addToBackStack("Adopter Home").commit();
+
+            }
         }
 
         /**
@@ -141,14 +187,9 @@ public class AdopterDashboard extends AppCompatActivity implements NavigationVie
                 break;
 
             case R.id.nav_adoptAPet:
-                /*
+
                 startActivity(new Intent(this, StartOfQuestionnaire.class));
-                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);*/
-                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                FragmentQuestionnaireWelcome startOfQuestionnaire = new FragmentQuestionnaireWelcome();
-                transaction.replace(R.id.nav_host_fragment,startOfQuestionnaire);
-                transaction.addToBackStack("Start of Questionnaire");
-                transaction.commit();
+                this.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
                 break;
 
             case R.id.nav_browseAnimals:

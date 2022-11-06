@@ -1,0 +1,746 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:id="@+id/recommendedPetIndivFrag"
+    tools:context=".RecommendedPetIndiv">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="360dp"
+                        android:layout_marginTop="@dimen/_40sdp"
+                        android:background="@drawable/top_bg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/btnBack"
+                            android:layout_width="70dp"
+                            android:layout_height="45dp"
+                            android:background="#0000"
+                            android:src="@drawable/ic_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.926"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.113"
+                            app:tint="@color/black"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ImageView
+                        android:id="@+id/indiv_pet_image"
+                        android:layout_width="198dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/constraintLayout7"
+                        app:srcCompat="@drawable/cat"
+                        tools:ignore="MissingConstraints" />
+
+                    <TextView
+                        android:id="@+id/indiv_pet_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/playfairdisplayblack"
+                        android:text="PET PROFILE"
+                        android:textColor="@color/white"
+                        android:textSize="32dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/indiv_pet_image"
+                        app:layout_constraintStart_toStartOf="@+id/indiv_pet_image"
+                        app:layout_constraintTop_toBottomOf="@+id/indiv_pet_image" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="60dp"
+                        android:background="@drawable/white_perpetprofile"
+                        android:elevation="3dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/indiv_pet_title">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Basic Information"
+                                android:fontFamily="@font/playfairdisplayblack"
+                                android:textColor="#371576"
+                                android:textSize="30sp"
+                                android:layout_margin="12dp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/pet_name_label"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Name"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/pet_name_value"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:id="@+id/pet_age_label"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Age"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_age_value"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:id="@+id/pet_breed_label"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Breed"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_breed_value"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:id="@+id/pet_sex_label"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Sex"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_sex_value"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="5dp">
+
+                            <TextView
+                                android:id="@+id/pet_match_label"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Match"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_match_value"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="3"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lifestyle &amp; Personality"
+                                android:fontFamily="@font/playfairdisplayblack"
+                                android:textColor="#371576"
+                                android:textSize="25sp"
+                                android:layout_margin="12dp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_1"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="@string/activity_playfulness"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_1"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_2"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="@string/calmness"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_2"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_3"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="@string/non_aggression"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_3"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_4"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="@string/sociability_humans"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_4"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_5"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="@string/sociability_other_pets"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_5"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_6"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="@string/litterbox_comfortability_adjustment"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_6"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_7"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="@string/healthy_grooming"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_7"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_8"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="@string/age_life_expectancy"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_8"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/almost_white"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_label_9"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="@string/popularity"
+                                android:textColor="#8A6DC3"
+                                android:textSize="20sp"/>
+
+                            <TextView
+                                android:id="@+id/pet_cat_summary_value_9"
+                                android:layout_width="50dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pet Description"
+                                android:fontFamily="@font/playfairdisplayblack"
+                                android:textColor="#371576"
+                                android:textSize="30sp"
+                                android:layout_margin="12dp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/pet_description_value"
+                                android:layout_width="0dp"
+                                android:layout_height="100dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+
+
+                        <!--        CANCEL AND SUBMIT BUTTONS -->
+                        <GridLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:columnCount="1"
+                            android:layout_marginBottom="20dp">
+
+                            <Button
+                                android:id="@+id/recommendedPet_toAdopt"
+                                android:layout_width="280dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/button1"
+                                app:backgroundTint="@null"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:text="ADOPT ME"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#FFFFFF"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.494"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.751" />
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/recommendedPet_notToAdopt"
+                                android:layout_width="match_parent"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:textStyle="bold"
+                                android:layout_height="50dp"
+                                android:background="@drawable/button2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginEnd="20dp"
+                                android:layout_gravity="center"
+                                android:padding="12dp"
+                                android:minHeight="50dp"
+                                android:text="NOT FOR ME"
+                                android:textColor="@color/black" />
+
+                        </GridLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -297,7 +297,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="Maintenance"
+                        android:text="@string/ease_of_care"
                         android:textColor="#371576"
                         android:textSize="11.5sp"
                         app:layout_constraintBottom_toBottomOf="parent"

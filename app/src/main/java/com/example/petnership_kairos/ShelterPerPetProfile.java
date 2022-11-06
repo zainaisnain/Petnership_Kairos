@@ -1,6 +1,5 @@
 package com.example.petnership_kairos;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,12 +36,12 @@ public class ShelterPerPetProfile extends AppCompatActivity {
         System.out.println("Entered ShelterPerPetProfile");
 
         petID = getIntent().getStringExtra("PetID");
-        ivPetImage = findViewById(R.id.per_pet_image);
+        ivPetImage = findViewById(R.id.indiv_pet_image);
         tvPetTitle = findViewById(R.id.per_pet_name_title);
         tvPetName = findViewById(R.id.per_pet_name);
-        tvPetBreed = findViewById(R.id.per_pet_breed);
-        tvPetAge = findViewById(R.id.per_pet_age);
-        tvPetSex = findViewById(R.id.per_pet_sex);
+        tvPetBreed = findViewById(R.id.pet_breed_value);
+        tvPetAge = findViewById(R.id.pet_age_value);
+        tvPetSex = findViewById(R.id.pet_sex_value);
         tvPetDescription = findViewById(R.id.per_pet_description);
         editDogInfoBtn = findViewById(R.id.edit_pet_info_btn);
 

@@ -88,7 +88,7 @@
                             android:layout_margin="10dp">
 
                             <TextView
-                                android:id="@+id/label_pet_name"
+                                android:id="@+id/pet_name_label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -97,7 +97,7 @@
                                 android:textSize="20sp"/>
 
                             <TextView
-                                android:id="@+id/per_cat_name"
+                                android:id="@+id/pet_name_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -155,7 +155,7 @@
                                 android:textSize="20sp" />
 
                             <TextView
-                                android:id="@+id/per_cat_description"
+                                android:id="@+id/pet_description_value"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"

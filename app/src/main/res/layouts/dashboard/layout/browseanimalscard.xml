@@ -44,7 +44,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_pet_name"
+                        android:id="@+id/pet_name_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -67,7 +67,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_pet_age"
+                        android:id="@+id/pet_age_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -90,7 +90,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_pet_sex"
+                        android:id="@+id/pet_sex_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
@@ -113,7 +113,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_pet_breed"
+                        android:id="@+id/pet_breed_label"
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
