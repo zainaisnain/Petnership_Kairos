@@ -46,7 +46,7 @@ public class ShelterHomeDashboard extends Fragment {
 
     private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount, numOfAproved, numOfPets;
     private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfApprovedAdopters, tvNumOfForReview;
-    private String shelterEmail, shelterUsername, shelterImageName;
+    private String shelterEmail, shelterImageName;
     private ImageView ivShelterImage;
 
     private FirebaseAuth authProfile;
@@ -167,15 +167,15 @@ public class ShelterHomeDashboard extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot ds : snapshot.getChildren()) {
-                    shelterUsername = ds.getKey();
+                    shelterID = ds.getKey();
                 }
 
                 //CHECK IF IMAGENAME EXISTS
-                sheltersDBRef.orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
+                sheltersDBRef.child(shelterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if(snapshot.exists()){
-                            sheltersDBRef.child(shelterUsername).child("imageName").
+                            sheltersDBRef.child(shelterID).child("imageName").
                                     addListenerForSingleValueEvent(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
