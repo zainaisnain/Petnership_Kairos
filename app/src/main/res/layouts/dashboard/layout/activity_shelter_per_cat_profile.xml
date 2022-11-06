@@ -127,7 +127,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="PERCY"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -152,7 +153,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="SIAMESE CAT"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -178,7 +180,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="8 WEEKS"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -204,7 +207,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="SEX"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
@@ -230,7 +234,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="Lorem ipsum dolor zzzzzzzzzzzzzzzzzzzz"
+                                android:text=""
+                                android:fontFamily="@font/montserrat_reg"
                                 android:textSize="20sp"
                                 android:textStyle="bold"/>
 
