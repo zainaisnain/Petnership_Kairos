@@ -91,7 +91,7 @@ public class ApplicationHistoryIndiv extends Fragment {
 
         petNameTV = view.findViewById(R.id.per_pet_name);
         petNameTV.setText(petName);
-        petAgeTV = view.findViewById(R.id.per_pet_age);
+        petAgeTV = view.findViewById(R.id.pet_age_value);
         petBreedTV = view.findViewById(R.id.per_cat_breed);
         applicationStatusTV = view.findViewById(R.id.adoptionForm_petStatus);
         applicationStatusTV.setText(applicationStatus);

@@ -76,7 +76,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/label_pet_name"
+                        android:id="@+id/pet_name_label"
                         android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"

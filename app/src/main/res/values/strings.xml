@@ -185,5 +185,14 @@
     <string name="heading_adopter_questionnaire">Pet Adopter Questionnaire</string>
     <string name="burger">burger</string>
     <string name="submit">SUBMIT</string>
+    <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="obedience">Obedience</string>
+    <string name="trainability">Trainability</string>
+    <string name="lorem">Lorem</string>
+    <string name="adaptability_to_humans">Adaptability to Humans</string>
+    <string name="nonshedding">Non-Shedding</string>
+    <string name="nondrooling">Non-Drooling</string>
+    <string name="adaptability_to_other_pets">Adaptability to Other Pets</string>
+    <string name="adaptability_to_environment">Adaptability to Environment</string>
 
 </resources>
