@@ -45,11 +45,9 @@ public class FragmentQuestionnaireWelcome extends Fragment {
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view1 -> {
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
-            AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
-            transaction.replace(R.id.nav_host_fragment, adopterHomeDashboard);
-            transaction.commit();
+
+            DialogQuestionnaireCancel checkCancelHome = new DialogQuestionnaireCancel();
+            checkCancelHome.show(getParentFragmentManager(), "Cancel Home");
         });
 
 
