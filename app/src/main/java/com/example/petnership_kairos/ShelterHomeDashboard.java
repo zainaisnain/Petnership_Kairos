@@ -40,10 +40,11 @@ public class ShelterHomeDashboard extends Fragment {
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
-    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount, numOfAproved;
+    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount, numOfAproved, numOfPets;
     private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfApprovedAdopters, tvNumOfForReview;
     private String shelterEmail, shelterUsername, shelterImageName;
     private ImageView ivShelterImage;
@@ -220,14 +221,47 @@ public class ShelterHomeDashboard extends Fragment {
     }
     private void getNumOfRegPets() {
 
-        //SUM OF ALL PETS
-        int sum = catsCount+dogsCount;
-        if (sum > 0){
-            String total = String.valueOf(sum);
-            tvNumOfPets.setText(total);
-        }else{
-            tvNumOfPets.setText("0");
-        }
+
+//        //SUM OF ALL PETS
+//        int sum = catsCount+dogsCount;
+//        if (sum > 0){
+//            String total = String.valueOf(sum);
+//            tvNumOfPets.setText(total);
+//        }else{
+//            tvNumOfPets.setText("0");
+//        }
+
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
+                }
+
+                allPetsDBRef.orderByChild("shelter").equalTo(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        numOfPets = (int) snapshot.getChildrenCount();
+                        if(numOfPets>0){
+                            String pets = String.valueOf(numOfPets);
+                            tvNumOfPets.setText(pets);
+                        }else{
+                            tvNumOfPets.setText("0");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -298,9 +332,10 @@ public class ShelterHomeDashboard extends Fragment {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     numOfAproved = (int) snapshot.getChildrenCount();
+                                    System.out.println("numOfAproved == " + numOfAproved);
                                     if(numOfAproved>0){
                                         String approved = String.valueOf(numOfAproved);
-                                        forReviewCount = numOfAproved;
+                                        System.out.println("approved == " + approved);
                                         tvNumOfApprovedAdopters.setText(approved);
                                     }else{
                                         tvNumOfApprovedAdopters.setText("0");
