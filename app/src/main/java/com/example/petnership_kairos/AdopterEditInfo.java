@@ -100,6 +100,7 @@ public class AdopterEditInfo extends AppCompatActivity {
             "Sorsogon", "South Cotabato", "Southern Leyte", "Sultan Kudarat", "Sulu", "Surigao del Norte", "Surigao del Sur", "Tarlac",
             "Tawi-Tawi", "Zambales", "Zamboanga del Norte", "Zamboanga del Sur", "Zamboanga Sibugay"};
 
+    ArrayAdapter<String> provinceAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +119,7 @@ public class AdopterEditInfo extends AppCompatActivity {
         etCity = findViewById(R.id.txt_city_adopter_edit);
         //PROVINCES
         ddProvince = findViewById(R.id.adopter_province_dd_edit);
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
+        provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -444,6 +445,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                                     String city = etCity.getText().toString();
                                     snapshot.child(adopterID).getRef().child("city").setValue(city);
 
+                                    snapshot.child(adopterID).getRef().child("province").setValue(adopterProvince);
+
                                     String country = etCountry.getText().toString();
                                     snapshot.child(adopterID).getRef().child("country").setValue(country);
 
@@ -497,6 +500,9 @@ public class AdopterEditInfo extends AppCompatActivity {
                         etCity.setText(String.valueOf(snapshot.child(adopterID).child("city").getValue()));
                         etCountry.setText(String.valueOf(snapshot.child(adopterID).child("country").getValue()));
                         etBirthday.setText(String.valueOf(snapshot.child(adopterID).child("birthday").getValue()));
+                        adopterProvince = String.valueOf(snapshot.child(adopterID).child("province").getValue());
+                        int provincePosition = provinceAdapter.getPosition(adopterProvince);
+                        ddProvince.setSelection(provincePosition);
 
                         adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
