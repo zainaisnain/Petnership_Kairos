@@ -157,7 +157,7 @@ public class UpdateEmail extends AppCompatActivity {
                     updateDB();
 //                    EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
 //                    emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
-                            Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
                 }else{
                     try{
                         throw task.getException();

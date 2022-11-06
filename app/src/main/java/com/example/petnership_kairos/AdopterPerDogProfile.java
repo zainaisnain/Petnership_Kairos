@@ -104,7 +104,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         tvDoglvl10 = findViewById(R.id.adopter_doglevel6);
         tvDoglvl11 = findViewById(R.id.adopter_doglevel7);
 
-        backBtnUp = findViewById(R.id.adopter_per_dog_back_btn_up);
+        backBtnUp = findViewById(R.id.btnBack);
         backBtnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

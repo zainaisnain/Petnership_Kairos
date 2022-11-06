@@ -85,6 +85,7 @@ public class ShelterHomeDashboard extends Fragment {
 
         card1 = view.findViewById(R.id.registeredPets);
         card1.setOnClickListener(v -> {
+            card1.setCardBackgroundColor(card1.getResources().getColor(R.color.mid_light_purple));
             FragmentManager fm = getParentFragmentManager();
 
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
