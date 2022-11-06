@@ -136,9 +136,7 @@ public class RecommendedPetIndiv extends Fragment {
 
         notForMeBtn = view.findViewById(R.id.recommendedPet_notToAdopt);
         notForMeBtn.setOnClickListener(v -> {
-            //TO-DO
-//                RecommendedPets recommendedPets = new RecommendedPets();
-//                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.recommendedPetIndivFrag, recommendedPets).commit();
+            getParentFragmentManager().popBackStack();
         });
         backBtn = view.findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
