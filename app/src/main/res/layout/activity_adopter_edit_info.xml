@@ -248,11 +248,12 @@
                     android:width="200dp"
                     android:height="40dp"
                     android:autofillHints=""
-                    android:background="@drawable/textfield"
+                    android:background="@drawable/edit_text_bg"
                     android:ems="10"
                     android:fontFamily="@font/montserrat_reg"
                     android:gravity="center"
                     android:hint=" Status"
+
                     android:inputType="textPersonName"
                     android:spinnerMode="dropdown"
                     android:textColorHint="#757575"
