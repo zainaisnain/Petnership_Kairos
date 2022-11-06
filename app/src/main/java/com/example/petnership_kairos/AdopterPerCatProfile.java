@@ -114,6 +114,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         }
         else {
             finishAfterTransition();
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right);
         }
 
     }
@@ -159,6 +160,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
 
                                             //Go to next screen
                                             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                                            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                                             transaction.replace(R.id.adopter_per_cat_profile_container, termsAndConditions);
                                             transaction.addToBackStack("Adopter Pet Cat");
                                             transaction.commit();

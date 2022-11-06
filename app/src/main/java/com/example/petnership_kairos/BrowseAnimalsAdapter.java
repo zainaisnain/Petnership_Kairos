@@ -1,5 +1,7 @@
 package com.example.petnership_kairos;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -22,12 +24,14 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
 
     RegisteredPetData[] PetsData;
     BrowseAnimals context;
+    Activity mActivity;
 
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
-    public BrowseAnimalsAdapter(RegisteredPetData[] PetsData, BrowseAnimals activity){
+    public BrowseAnimalsAdapter(RegisteredPetData[] PetsData, BrowseAnimals activity, Activity mActivity){
         this.PetsData = PetsData;
         this.context = activity;
+        this.mActivity = mActivity;
     }
 
     @NonNull
@@ -65,10 +69,12 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
                 Intent dogIntent = new Intent(view.getContext(), AdopterPerDogProfile.class);
                 dogIntent.putExtra("PetID", registeredPetDataList.getPetID());
                 view.getContext().startActivity(dogIntent);
+                mActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }else{
                 Intent catIntent = new Intent(view.getContext(), AdopterPerCatProfile.class);
                 catIntent.putExtra("PetID", registeredPetDataList.getPetID());
                 view.getContext().startActivity(catIntent);
+                mActivity.overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left);
             }
 
         });
