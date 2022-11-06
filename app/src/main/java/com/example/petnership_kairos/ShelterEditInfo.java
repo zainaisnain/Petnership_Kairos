@@ -47,6 +47,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class ShelterEditInfo extends AppCompatActivity {
@@ -84,6 +85,7 @@ public class ShelterEditInfo extends AppCompatActivity {
     //DROPDOWNS
     Spinner ddProvince;
     private String shelterProvince;
+    ArrayAdapter<String> provinceAdapter;
 
 
     String json_string;
@@ -120,7 +122,7 @@ public class ShelterEditInfo extends AppCompatActivity {
 
         //PROVINCES
         ddProvince = findViewById(R.id.dd_province_shelter_edit);
-        ArrayAdapter<String> provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
+        provinceAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ddProvincesValues);
         ddProvince.setAdapter(provinceAdapter);
         ddProvince.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -289,6 +291,7 @@ public class ShelterEditInfo extends AppCompatActivity {
                                     snapshot.child(shelterUsername).getRef().child("contact").setValue(contact);
                                     snapshot.child(shelterUsername).getRef().child("street").setValue(street);
                                     snapshot.child(shelterUsername).getRef().child("city").setValue(city);
+                                    snapshot.child(shelterUsername).getRef().child("province").setValue(shelterProvince);
                                     snapshot.child(shelterUsername).getRef().child("imageName").setValue(imageName);
                                     MySaveDialogShelter mySaveDialogShelter = new MySaveDialogShelter();
                                     mySaveDialogShelter.show(getSupportFragmentManager(), "My Fragment");
@@ -328,6 +331,10 @@ public class ShelterEditInfo extends AppCompatActivity {
                                 editTextStreet.setText(String.valueOf(snapshot.child(shelterUsername).child("street").getValue()));
                                 editTextCity.setText(String.valueOf(snapshot.child(shelterUsername).child("city").getValue()));
                                 editTextCountry.setText(String.valueOf(snapshot.child(shelterUsername).child("country").getValue()));
+                                shelterProvince = String.valueOf(snapshot.child(shelterUsername).child("province").getValue());
+
+                                int provincePosition = provinceAdapter.getPosition(shelterProvince);
+                                ddProvince.setSelection(provincePosition);
 
                                 imageName = String.valueOf(snapshot.child(shelterUsername).child("imageName").getValue());
                                 System.out.println("imageName AdopterEditInfo" + imageName);
