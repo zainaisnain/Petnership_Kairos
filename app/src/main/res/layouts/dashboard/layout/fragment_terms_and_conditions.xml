@@ -98,7 +98,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="3dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -123,7 +123,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="3dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -148,7 +148,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="3dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -173,7 +173,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="3dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -198,7 +198,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="0dp"
+                            android:layout_marginTop="3dp"
                             android:orientation="horizontal">
 
                             <TextView
@@ -470,11 +470,11 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="20dp">
                     <androidx.appcompat.widget.AppCompatRadioButton
-                        android:id="@+id/adoption_home_rentHome"
+                        android:id="@+id/adoption_home_ownHome"
                         android:layout_width="100dp"
                         android:layout_height="28dp"
                         android:button="@android:color/transparent"
-                        android:text="Rent"
+                        android:text="Own"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -482,11 +482,11 @@
                         android:textColor="@color/white"
                         android:fontFamily="@font/playfairdisplayblack"/>
                     <androidx.appcompat.widget.AppCompatRadioButton
-                        android:id="@+id/adoption_home_ownHome"
+                        android:id="@+id/adoption_home_rentHome"
                         android:layout_width="100dp"
                         android:layout_height="28dp"
                         android:button="@android:color/transparent"
-                        android:text="Own"
+                        android:text="Rent"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:layout_weight="1"
@@ -867,7 +867,7 @@
             </LinearLayout>
 
 
-<!-- PET HISTOR -->
+<!-- PET HISTORY -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -1015,6 +1015,364 @@
                     android:paddingLeft="10dp" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="94dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="Have you ever surrendered a pet you own to any animal shelter including a low-kill or no-kill shelter?"
+                    android:textColor="#8A6DC3"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="20dp">
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adoption_answer_yesSurrender"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:button="@android:color/transparent"
+                        android:text="Yes"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adoption_answer_noSurrender"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:button="@android:color/transparent"
+                        android:text="No"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="Vet's Name and Phone Number"
+                    android:textColor="#8A6DC3"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/adoption_pet_vet"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
+                    android:textSize="12dp"
+                    android:padding="5dp"
+                    android:width="200dp"
+                    android:height="60dp"
+                    android:hint="List your vet who can serve as character reference!"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:background="@drawable/edit_text_bg"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="94dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="Have you ever been convicted of an animal related crime, such as cruelty to animals, animal theft, or animal abandonment?"
+                    android:textColor="#8A6DC3"
+                    android:textSize="12sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="20dp">
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adoption_answer_yesConvicted"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:button="@android:color/transparent"
+                        android:text="Yes"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/adoption_answer_noConvicted"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
+                        android:button="@android:color/transparent"
+                        android:text="No"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_button_type"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/playfairdisplayblack"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="If you answered yes, please provide more details here"
+                    android:textColor="#8A6DC3"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/adoption_pet_ifyesconvicted"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
+                    android:textSize="12dp"
+                    android:padding="5dp"
+                    android:width="200dp"
+                    android:height="60dp"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:background="@drawable/edit_text_bg"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+<!-- LIFESTYLE AND PREFERENCES -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_purple"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/adoptionform_lifestyle_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="Lifestyle &amp; Preferences"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:textSize="25sp"
+                android:textColor="#371576"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="How many hours per day would the pet be alone?"
+                    android:textColor="#8A6DC3"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/adoption_lifestyle_hours"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
+                    android:textSize="12dp"
+                    android:padding="5dp"
+                    android:width="200dp"
+                    android:height="60dp"
+                    android:hint="Just a ballpark or estimate will do"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:background="@drawable/edit_text_bg"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="75dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="If you have to leave town, emergently or planned, where would your pet stay?"
+                    android:textColor="#8A6DC3"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/adoption_lifestyle_emergency"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
+                    android:textSize="12dp"
+                    android:padding="5dp"
+                    android:width="200dp"
+                    android:height="75dp"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:background="@drawable/edit_text_bg"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/card"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="190dp"
+                    android:layout_height="55dp"
+                    android:layout_weight="2"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
+                    android:text="Will you crate your pet? Why or why not?"
+                    android:textColor="#8A6DC3"
+                    android:textSize="13sp" />
+                <EditText
+                    android:id="@+id/adoption_lifestyle_crate"
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="2"
+                    android:textSize="12dp"
+                    android:padding="5dp"
+                    android:width="200dp"
+                    android:height="55dp"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:background="@drawable/edit_text_bg"
+                    android:paddingLeft="10dp" />
+
+            </LinearLayout>
+
+<!-- REFERENCE -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_purple"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/adoptionform_reference_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="Personal References"
+                android:fontFamily="@font/playfairdisplayblack"
+                android:textSize="25sp"
+                android:textColor="#371576"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/adoptionform_reference_explanation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingStart="25dp"
+                android:gravity="center_horizontal"
+                android:paddingEnd="25dp"
+                android:text="Please provide the names, emails, and contact numbers for at least 1 personal reference:"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="14sp"
+                android:textColor="#8A6DC3"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"/>
+            <EditText
+                android:id="@+id/adoption_references_answer"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="14dp"
+                android:padding="14dp"
+                android:width="200dp"
+                android:height="40dp"
+                android:fontFamily="@font/montserrat_reg"
+                android:background="@drawable/edit_text_bg"
+                android:paddingLeft="10dp" />
+
 <!-- REASON -->
             <View
                 android:layout_width="match_parent"
@@ -1072,8 +1430,8 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:background="@drawable/border"
