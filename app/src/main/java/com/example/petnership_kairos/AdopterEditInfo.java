@@ -113,7 +113,6 @@ public class AdopterEditInfo extends AppCompatActivity {
         // initializing our object class variables.
         etFname = findViewById(R.id.txt_fname_adopter_edit);
         etLname = findViewById(R.id.txt_lname_adopter_edit);
-        etUsername = findViewById(R.id.txt_username_adopter_edit);
         etContact = findViewById(R.id.txt_contact_adopter_edit);
         etStreet = findViewById(R.id.txt_street_adopter_edit);
         //PROVINCES
@@ -490,10 +489,6 @@ public class AdopterEditInfo extends AppCompatActivity {
                         System.out.println(lname);
                         etLname.setText(lname);
                         etLname.setEnabled(false);
-
-                        String username = String.valueOf(snapshot.child(adopterID).child("username").getValue());
-                        etUsername.setText(username);
-                        etUsername.setEnabled(false);
 
                         etContact.setText(String.valueOf(snapshot.child(adopterID).child("contact").getValue()));
                         etStreet.setText(String.valueOf(snapshot.child(adopterID).child("street").getValue()));
