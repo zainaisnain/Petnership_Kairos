@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,7 +45,7 @@ public class ShelterToReviewApplication extends Fragment {
 
     ArrayAdapter<String> statusAdapter;
     protected static String applicationStatus;
-
+    ImageButton backBtn;
     private EditText mEditTextTo, mEditTextSubject, mEditTextMessage;
     private TextView tvAdoptionFormDate, tvAdopterName, tvAdopterEmail,
     tvAdopterMobile, tvAdopterAddress, tvPetType, tvBreed,
@@ -165,6 +166,14 @@ public class ShelterToReviewApplication extends Fragment {
             }
         });
 
+        backBtn = view.findViewById(R.id.shelter_to_review_back);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
+                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
+            }
+        });
         cancelApplication = view.findViewById(R.id.btn_cancel_adoptionForm);
         cancelApplication.setOnClickListener(new View.OnClickListener() {
             @Override
