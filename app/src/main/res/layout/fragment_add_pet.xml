@@ -97,7 +97,6 @@
                         android:id="@+id/per_pet_name_title"
                         android:layout_width="188dp"
                         android:layout_height="48dp"
-
                         android:layout_marginLeft="30dp"
                         android:autofillHints=""
                         android:background="@drawable/edit_text_bg"
@@ -315,7 +314,7 @@
                             android:layout_width="133dp"
                             android:layout_height="40dp"
                             android:layout_marginLeft="10dp"
-                            android:background="@drawable/button1"
+                            android:background="@drawable/button"
                             android:fontFamily="@font/montserrat_reg"
                             android:text="Proceed"
                             android:textColor="#FFFFFF"
