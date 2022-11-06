@@ -28,6 +28,7 @@ public class MyCancelDialogAdopter extends DialogFragment {
                 AdopterHomeDashboard adopterHomeDashboard = new AdopterHomeDashboard();
                 transaction.replace(R.id.adoptionFormFrag, adopterHomeDashboard);
                 transaction.commit();
+                setCancelable(false);
             }
         });
         return view;
