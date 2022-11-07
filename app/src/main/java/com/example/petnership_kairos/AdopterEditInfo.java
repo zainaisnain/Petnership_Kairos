@@ -245,7 +245,8 @@ public class AdopterEditInfo extends AppCompatActivity {
                         showsaveDialog();
                     }else{
                         editAdopterInfo();
-
+                        MySaveDialogAdopter mySaveDialogAdopter = new MySaveDialogAdopter();
+                        mySaveDialogAdopter.show(getSupportFragmentManager(), "My Fragment");
                     }
                 }
             }

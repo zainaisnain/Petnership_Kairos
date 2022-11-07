@@ -83,34 +83,25 @@ public class FragmentRecommendedPets extends Fragment {
 
         if(mViewModel.getTopThree()[0].getImageName() != null) {
             storageReference.child("Pets/").child(topThree[0].getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            System.out.println("GETIMAGENAME1 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec1_image));
-                        }
+                    .addOnSuccessListener(uri -> {
+                        System.out.println("GETIMAGENAME1 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec1_image));
                     });
         }
 
         if(mViewModel.getTopThree()[1].getImageName() != null) {
             storageReference.child("Pets/").child(topThree[1].getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            System.out.println("GETIMAGENAME2 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec2_image));
-                        }
+                    .addOnSuccessListener(uri -> {
+                        System.out.println("GETIMAGENAME2 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec2_image));
                     });
         }
 
         if(mViewModel.getTopThree()[2].getImageName() != null) {
             storageReference.child("Pets/").child(topThree[2].getImageName()).getDownloadUrl()
-                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            System.out.println("GETIMAGENAME3 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
-                            Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec3_image));
-                        }
+                    .addOnSuccessListener(uri -> {
+                        System.out.println("GETIMAGENAME3 ONSUCCESS" + mViewModel.getTopThree()[0].getImageName());
+                        Glide.with(getActivity()).load(uri.toString()).into((ImageView) view.findViewById(R.id.rec3_image));
                     });
         }
 
@@ -133,6 +124,8 @@ public class FragmentRecommendedPets extends Fragment {
         recommendedPet2 = view.findViewById(R.id.rec2_card);
         recommendedPet3 = view.findViewById(R.id.rec3_card);
 
+
+
         // onClickListeners
         recommendedPet1.setOnClickListener (v -> {
             mViewModel.setCurrentResultView(0);
@@ -142,7 +135,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 
@@ -152,7 +145,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 
@@ -163,7 +156,7 @@ public class FragmentRecommendedPets extends Fragment {
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
             transaction.replace(R.id.recommendedPets,recommendedPetIndiv);
-            transaction.addToBackStack("recommendedPet1");
+            transaction.addToBackStack("recommended pet indiv");
             transaction.commit();
         });
 

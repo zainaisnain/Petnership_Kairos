@@ -63,7 +63,7 @@
     <string name="ease_of_care_medium">MEDIUM: Twice a month</string>
     <string name="ease_of_care_low">LOW: More than twice a month</string>
 
-    <string name="friendliness_high">HIGH: Generally friendly; generally does not bark if there is no provocative action</string>
+    <string name="friendliness_high">HIGH: Friendly; generally does not bark if there is no provocative action</string>
     <string name="friendliness_medium">MEDIUM: Might bark at unfamiliar subject</string>
     <string name="friendliness_low">LOW: Very reactive to unfamiliar subjects</string>
 
@@ -194,5 +194,16 @@
     <string name="nondrooling">Non-Drooling</string>
     <string name="adaptability_to_other_pets">Adaptability to Other Pets</string>
     <string name="adaptability_to_environment">Adaptability to Environment</string>
+
+    <string name="terms_and_conditions">By ticking this, you agree that pet ownership is a commitment, and getting a pet from a shelter is not an activity that should be done out of haste. Rather, it requires careful consideration of factors in your life such as your disposition, living space, availability schedule, interaction capabilities, family type, health conditions, and personal resources for each pet has its own different needs that ought to be met. Pet care entails utmost responsibility on your side as adopter.
+\n\n
+By applying, you understand that your application is still pending approval and currently under review by the shelter you have applied to get an adoption from, you will be contacted by the shelter\'s representatives and will be scheduled to be interviewed by them for further assessment, your application may be rejected or accepted depending on the shelter\'s own metrics, standards, and evaluation.
+\n\n
+Having matched with your pet from the registered shelters in PETNERSHIP, you are submitting an adoption form that legitimizes that you assume full responsibility over the pet such as providing it with love, adequate food, health care, and shelter and overseeing its overall well-being.
+\n\n
+Moreover, you are also aware and commit to strictly upholding and following the Republic Act 8485 or the AN ACT TO PROMOTE ANIMAL WELFARE IN THE PHILIPPINES, OTHERWISE KNOWN AS \'THE ANIMAL WELFARE ACT OF 1998\' - all the inclusions, clauses, and terms stated therein. You understand that there will be repercussions should your actions reflect failure to adhere to the law.
+\n\n
+Lastly, you hereby state that all information declared in this adoption form is true to the best of your ability. You understand that these information will be submitted to the involved shelter, and you agree to the processing, storage, and usage of these data for adoption purposes only.
+</string>
 
 </resources>

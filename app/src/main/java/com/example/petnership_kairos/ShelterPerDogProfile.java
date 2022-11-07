@@ -31,11 +31,13 @@ public class ShelterPerDogProfile extends AppCompatActivity {
 
     protected static String petID, petImageName, petName, petBreed, petAge, petSex, petDescription;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
-    private ImageView ivPetImage, editDogInfoBtn;
+    private ImageView ivPetImage, editDogInfoBtn, deleteDogBtn;
     private ImageButton backBtn;
     private String shelterEmail, shelterID;
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     private TextView tvDoglvl1, tvDoglvl2, tvDoglvl3, tvDoglvl4, tvDoglvl5,
@@ -106,6 +108,18 @@ public class ShelterPerDogProfile extends AppCompatActivity {
             }
         });
 
+        deleteDogBtn = findViewById(R.id.delete_dog_info_btn);
+        deleteDogBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //first show dialog if they want to delete pet
+                //if yes
+                //are you sure? (need pa ba)
+                //then delete
+                deletePet();
+            }
+        });
+
         editDogInfoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,6 +139,82 @@ public class ShelterPerDogProfile extends AppCompatActivity {
 
         setUpPetImage();
         setUpSummary();
+    }
+
+    private void deletePet() {
+        usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds : snapshot.getChildren()) {
+                    shelterID = ds.getKey();
+                }
+
+                System.out.println("shelterID == " + shelterID);
+
+
+                //check if it's in forReviewApplicants
+                sheltersDBRef.child(shelterID).orderByKey().equalTo("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            sheltersDBRef.child(shelterID).child("ForReviewApplicants").orderByChild("petID").equalTo(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.exists()){
+                                        System.out.println("PET IS UNDER APPLICANT REVIEW. CANT DELETE PET.");
+                                    }else{
+                                        //check if it's in ApprovedAdopters
+                                        sheltersDBRef.child(shelterID).orderByKey().equalTo("ApprovedAdopters").addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                if(snapshot.exists()){
+                                                    sheltersDBRef.child(shelterID).child("ApprovedAdopters").orderByChild("petID").equalTo(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                                        @Override
+                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                            if(snapshot.exists()){
+                                                                System.out.println("PET HAS approved adopter. CANT DELETE PET.");
+                                                            }else{
+                                                                //delete pet
+                                                                System.out.println("CAN NOW DELETE PET");
+//                                                                allPetsDBRef.child(petID).removeValue();
+//                                                                petsDogsDBRef.child(petID).removeValue();
+//                                                                sheltersDBRef.child(shelterID).child("Dogs").addListenerForSingleValueEvent(new ValueEventListener() {
+//                                                                    @Override
+//                                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                                                        snapshot.child(petID).getRef().removeValue();
+//                                                                    }
+//                                                                    @Override
+//                                                                    public void onCancelled(@NonNull DatabaseError error) {}});
+                                                            }
+                                                        }
+
+                                                        @Override
+                                                        public void onCancelled(@NonNull DatabaseError error) {}});
+
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {}});
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}});
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}});
     }
 
     private void setUpPetImage() {
@@ -167,6 +257,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
                 tvPetTitle.setText(petName + "'s Profile");
                 tvPetName.setText(petName);
                 tvPetBreed.setText(petBreed);
+                //TODO: Change to petBirthday (Add field to Firebase)
                 tvPetAge.setText(petAge);
                 tvPetSex.setText(petSex);
                 tvPetDescription.setText(petDescription);
@@ -193,6 +284,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
                 String q10 = (String) snapshot.child("q10").getValue();
                 int q11 = Math.toIntExact((Long) snapshot.child("q11").getValue());
 
+                // TODO
                 if(q1 == 1){
                     tvDoglvl1.setText("High");
                 }else if(q1 == 2){

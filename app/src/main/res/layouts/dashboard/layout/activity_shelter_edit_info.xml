@@ -7,11 +7,12 @@
     android:background="@color/background"
     android:id="@+id/sheltereditInfo"
     tools:context=".ShelterEditInfo">
+
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="70dp"
         android:layout_height="45dp"
-        android:background="#0000"
+        android:background="@drawable/back_button"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

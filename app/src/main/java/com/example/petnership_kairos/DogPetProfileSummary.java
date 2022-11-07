@@ -88,75 +88,75 @@ public class DogPetProfileSummary extends Fragment {
             int q11 = bundle.getInt("q11");
 
             if(q1 == 1){
-                tvDoglvl1.setText("high");
+                tvDoglvl1.setText("High");
             }else if(q1 == 2){
-                tvDoglvl1.setText("medium");
+                tvDoglvl1.setText("Medium");
             }else{
-                tvDoglvl1.setText("low");
+                tvDoglvl1.setText("Low");
             }
 
             if(q2 == 1){
-                tvDoglvl2.setText("high");
+                tvDoglvl2.setText("High");
             }else if(q2 == 2){
-                tvDoglvl2.setText("medium");
+                tvDoglvl2.setText("Medium");
             }else{
-                tvDoglvl2.setText("low");
+                tvDoglvl2.setText("Low");
             }
 
             if(q3 == 1){
-                tvDoglvl3.setText("high");
+                tvDoglvl3.setText("High");
             }else if(q3 == 2){
-                tvDoglvl3.setText("medium");
+                tvDoglvl3.setText("Medium");
             }else{
-                tvDoglvl3.setText("low");
+                tvDoglvl3.setText("Low");
             }
 
             if(q4 == 1){
-                tvDoglvl4.setText("high");
+                tvDoglvl4.setText("High");
             }else if(q4 == 2){
-                tvDoglvl4.setText("medium");
+                tvDoglvl4.setText("Medium");
             }else{
-                tvDoglvl4.setText("low");
+                tvDoglvl4.setText("Low");
             }
 
             if(q5 == 1){
-                tvDoglvl5.setText("high");
+                tvDoglvl5.setText("High");
             }else if(q5 == 2){
-                tvDoglvl5.setText("medium");
+                tvDoglvl5.setText("Medium");
             }else{
-                tvDoglvl5.setText("low");
+                tvDoglvl5.setText("Low");
             }
 
             if(q6 == 1){
-                tvDoglvl6.setText("high");
+                tvDoglvl6.setText("High");
             }else if(q6 == 2){
-                tvDoglvl6.setText("medium");
+                tvDoglvl6.setText("Medium");
             }else{
-                tvDoglvl6.setText("low");
+                tvDoglvl6.setText("Low");
             }
 
             if(q7 == 1){
-                tvDoglvl7.setText("high");
+                tvDoglvl7.setText("High");
             }else if(q7 == 2){
-                tvDoglvl7.setText("medium");
+                tvDoglvl7.setText("Medium");
             }else{
-                tvDoglvl7.setText("low");
+                tvDoglvl7.setText("Low");
             }
 
             if(q8 == 1){
-                tvDoglvl8.setText("high");
+                tvDoglvl8.setText("High");
             }else if(q8 == 2){
-                tvDoglvl8.setText("medium");
+                tvDoglvl8.setText("Medium");
             }else{
-                tvDoglvl8.setText("low");
+                tvDoglvl8.setText("Low");
             }
 
             if(q9 == 1){
-                tvDoglvl9.setText("high");
+                tvDoglvl9.setText("High");
             }else if(q9== 2){
-                tvDoglvl9.setText("medium");
+                tvDoglvl9.setText("Medium");
             }else{
-                tvDoglvl9.setText("low");
+                tvDoglvl9.setText("Low");
             }
 
             //Q10 BREED POPULARITY
@@ -178,11 +178,11 @@ public class DogPetProfileSummary extends Fragment {
             }
 
             if(q11 == 1){
-                tvDoglvl11.setText("high");
+                tvDoglvl11.setText("High");
             }else if(q11 == 2){
-                tvDoglvl11.setText("medium");
+                tvDoglvl11.setText("Medium");
             }else{
-                tvDoglvl11.setText("low");
+                tvDoglvl11.setText("Low");
             }
         }
 

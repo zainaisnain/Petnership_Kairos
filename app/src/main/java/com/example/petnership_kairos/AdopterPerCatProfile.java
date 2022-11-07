@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -31,7 +30,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
     private FirebaseUser firebaseUser;
 
     protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
-    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
+    private String adopterBirthday, adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage;
     private ImageButton backBtnUp;
@@ -44,7 +43,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     String appliedToAdopt;
-    boolean answeredQuestionnaire;
+    boolean answeredCatQuestionnaire;
 
     private TextView tvCatlvl1, tvCatlvl2, tvCatlvl3, tvCatlvl4, tvCatlvl5,
             tvCatlvl6, tvCatlvl7, tvCatlvl8, tvCatlvl9;
@@ -100,7 +99,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         backBtn = findViewById(R.id.adopter_per_cat_back_btn);
         backBtn.setOnClickListener(view -> onBackPressed());
 
-        checkIfAdopterAnsweredQuestionnaire();
+        checkIfAdopterAnsweredCatQuestionnaire();
         setUpPetImage();
         setUpSummary();
     }
@@ -119,7 +118,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
 
     }
 
-    private void checkIfAdopterAnsweredQuestionnaire(){
+    private void checkIfAdopterAnsweredCatQuestionnaire(){
         adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -128,11 +127,11 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                             for (DataSnapshot ds : snapshot.getChildren()) {
                                 adopterID = ds.getKey();
                             }
-                            adoptersDBRef.child(adopterID).child("answeredQuestionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
+                            adoptersDBRef.child(adopterID).child("answeredCatQuestionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    answeredQuestionnaire = (boolean) snapshot.getValue();
-                                    if(answeredQuestionnaire){
+                                    answeredCatQuestionnaire = (boolean) snapshot.getValue();
+                                    if(answeredCatQuestionnaire){
                                         adoptMeBtn.setEnabled(true);
                                         adoptMeBtn.setOnClickListener(view -> {
 
@@ -154,6 +153,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                             bundle.putString("adopterName", adopterName);
                                             bundle.putString("adopterContact", adopterContact);
                                             bundle.putString("adopterAddress", adopterAddress);
+                                            bundle.putString("adopterBirthday", adopterBirthday);
 
                                             TermsAndConditions termsAndConditions = new TermsAndConditions();
                                             termsAndConditions.setArguments(bundle);
@@ -275,6 +275,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                         tvPetTitle.setText(petName + "'s Profile");
                                         tvPetName.setText(petName);
                                         tvPetBreed.setText(petBreed);
+                                        //TODO: Change to petBirthday (Add field to Firebase)
                                         tvPetAge.setText(petAge);
                                         tvPetSex.setText(petSex);
                                         tvPetDescription.setText(petDescription);
