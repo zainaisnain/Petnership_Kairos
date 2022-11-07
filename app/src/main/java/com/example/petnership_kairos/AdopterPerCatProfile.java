@@ -31,7 +31,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
     private FirebaseUser firebaseUser;
 
     protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
-    private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
+    private String adopterBirthday, adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
     private ImageView ivPetImage;
     private ImageButton backBtnUp;
@@ -154,6 +154,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                             bundle.putString("adopterName", adopterName);
                                             bundle.putString("adopterContact", adopterContact);
                                             bundle.putString("adopterAddress", adopterAddress);
+                                            bundle.putString("adopterBirthday", adopterBirthday);
 
                                             TermsAndConditions termsAndConditions = new TermsAndConditions();
                                             termsAndConditions.setArguments(bundle);
