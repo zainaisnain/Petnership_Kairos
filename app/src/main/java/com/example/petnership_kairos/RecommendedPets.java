@@ -23,36 +23,27 @@ public class RecommendedPets extends AppCompatActivity {
         setContentView(R.layout.activity_recommended_pets);
 
         recommendedPet1 = findViewById(R.id.viewPet1);
-        recommendedPet1.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, recommendedPetIndiv);
-                transaction.commit();
-            }
+        recommendedPet1.setOnClickListener (v -> {
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, recommendedPetIndiv);
+            transaction.commit();
         });
 
         recommendedPet2 = findViewById(R.id.viewPet2);
-        recommendedPet2.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, recommendedPetIndiv);
-                transaction.commit();
-            }
+        recommendedPet2.setOnClickListener (v -> {
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, recommendedPetIndiv);
+            transaction.commit();
         });
 
         recommendedPet3 = findViewById(R.id.viewPet3);
-        recommendedPet3.setOnClickListener (new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, recommendedPetIndiv);
-                transaction.commit();
-            }
+        recommendedPet3.setOnClickListener (v -> {
+            RecommendedPetIndiv recommendedPetIndiv= new RecommendedPetIndiv();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, recommendedPetIndiv);
+            transaction.commit();
         });
 
     }

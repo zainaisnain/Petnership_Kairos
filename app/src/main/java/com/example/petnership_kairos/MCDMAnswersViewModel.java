@@ -20,6 +20,8 @@ public class MCDMAnswersViewModel extends ViewModel {
     private final int CAT_SUBCRITERIA_ANSWERS = 1;
     private final int CAT_INTENSITY_ANSWERS = 27;
 
+    private boolean finishedAnswering = false;
+
     private int currentResultView = 0;
 
     public static String[] dogCodes = {
@@ -186,6 +188,12 @@ public class MCDMAnswersViewModel extends ViewModel {
             case 16: temp = -9; break;
         }
         return temp;
+    }
+    public boolean getFinishedAnswering() {
+        return finishedAnswering;
+    }
+    public void setFinishedAnswering(boolean finishedAnswering) {
+        this.finishedAnswering = finishedAnswering;
     }
 
 }

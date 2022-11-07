@@ -193,6 +193,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
                 String q10 = (String) snapshot.child("q10").getValue();
                 int q11 = Math.toIntExact((Long) snapshot.child("q11").getValue());
 
+                // TODO
                 if(q1 == 1){
                     tvDoglvl1.setText("High");
                 }else if(q1 == 2){
