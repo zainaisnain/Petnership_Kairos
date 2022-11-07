@@ -2,14 +2,11 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -46,7 +43,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     String appliedToAdopt;
-    boolean answeredQuestionnaire;
+    boolean answeredDogQuestionnaire;
 
     private TextView tvDoglvl1, tvDoglvl2, tvDoglvl3, tvDoglvl4, tvDoglvl5,
             tvDoglvl6, tvDoglvl7, tvDoglvl8, tvDoglvl9, tvDoglvl10, tvDoglvl11;
@@ -115,7 +112,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         backBtn = findViewById(R.id.adopter_per_dog_back_btn);
         backBtn.setOnClickListener(view -> onBackPressed());
 
-        checkIfAdopterAnsweredQuestionnaire();
+        checkIfAdopterAnsweredDogQuestionnaire();
         setUpPetImage();
         setUpSummary();
     }
@@ -135,7 +132,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         }
 
     }
-    private void checkIfAdopterAnsweredQuestionnaire(){
+    private void checkIfAdopterAnsweredDogQuestionnaire(){
         adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -144,12 +141,12 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                             for (DataSnapshot ds : snapshot.getChildren()) {
                                 adopterID = ds.getKey();
                             }
-                            adoptersDBRef.child(adopterID).child("answeredQuestionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
+                            adoptersDBRef.child(adopterID).child("answeredDogQuestionnaire").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    answeredQuestionnaire = (boolean) snapshot.getValue();
-                                    System.out.println("answeredQuestionnaire ==== " + answeredQuestionnaire);
-                                    if(answeredQuestionnaire){
+                                    answeredDogQuestionnaire = (boolean) snapshot.getValue();
+                                    System.out.println("answeredDogQuestionnaire ==== " + answeredDogQuestionnaire);
+                                    if(answeredDogQuestionnaire){
                                         adoptMeBtn.setEnabled(true);
                                         adoptMeBtn.setOnClickListener(view -> {
 
