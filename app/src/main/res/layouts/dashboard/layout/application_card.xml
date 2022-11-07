@@ -31,7 +31,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center"
-                android:background="#DA8EE7"
+                android:background="#E5E4E2"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:src="@drawable/cat_dog" />
 

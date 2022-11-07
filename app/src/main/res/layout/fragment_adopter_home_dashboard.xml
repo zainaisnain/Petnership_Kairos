@@ -56,6 +56,7 @@
                     android:id="@+id/cvAdopterImage"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:background="#E5E4E2"
                     android:layout_centerVertical="true"
                     android:src="@drawable/profile" />
 

@@ -458,7 +458,7 @@ public class ShelterEditCat extends Fragment {
                                                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                                     @Override
                                                     public void onSuccess(Uri uri) {
-                                                        Glide.with(getActivity()).load(uri.toString()).into(ivPetInfo);
+                                                      Glide.with(getContext()).load(uri.toString()).into(ivPetInfo);
                                                     }
                                                 });
                                     }
