@@ -128,7 +128,6 @@ public class AdopterHomeDashboard extends Fragment {
     }
 
     private void createCopyOfAllPets() {
-
         //first check if AdopterAllPets exists
             //if yes:
                 //only append petID not in the list
@@ -226,7 +225,6 @@ public class AdopterHomeDashboard extends Fragment {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                     adopterImageName = String.valueOf(snapshot.getValue());
-                                                    System.out.println("adopterImageName == " + adopterImageName);
                                                     if(adopterImageName != null){
                                                         if(!adopterImageName.isEmpty()){
                                                             if(adopterImageName != ""){
