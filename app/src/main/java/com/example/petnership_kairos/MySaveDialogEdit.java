@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,15 +45,23 @@ public class MySaveDialogEdit extends DialogFragment {
             @Override
             public void onClick(View v) {
                 //FRAGMENT to ACTIVITY
-
+//                Fragment frg = null;
+//                frg = getParentFragmentManager().findFragmentById()
+//                Intent intent = new Intent (getActivity(), ShelterPerDogProfile.class);
+//                onDetach();
+//                startActivity(intent);
+//                dismiss();
+//                    onBackPressed();
 //                CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                transaction.commit();
+
                 Intent intent = new Intent(getActivity(),ShelterPerDogProfile.class);
                 startActivity(intent);
                 //getParentFragmentManager().popBackStack();
                 setCancelable(false);
                 dismiss();
+
 //                transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
 
 
@@ -64,6 +75,27 @@ public class MySaveDialogEdit extends DialogFragment {
         }); */
         return view;
     }
+
+//    public void onBackPressed() {
+//        FragmentManager fm = getParentFragmentManager();
+//        int backCount = fm.getBackStackEntryCount();
+//        System.out.println("Backstack entry count: " + fm.getBackStackEntryCount());
+//        for (int i = 0; i < fm.getBackStackEntryCount(); i++) {
+//            System.out.println("--- " + fm.getBackStackEntryAt(i).getName());
+//        }
+//
+//        int count = getParentFragmentManager().getBackStackEntryCount();
+//        if (count <= 1) {
+//            MyLogoutDialog logoutDialog = new MyLogoutDialog();
+//            logoutDialog.show(getParentFragmentManager(), "My Fragment");
+//
+//        }
+//        else {
+//            System.out.println("Popped");
+//            getParentFragmentManager().popBackStack();
+//        }
+//    }
+
 }
 
 
