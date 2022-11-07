@@ -716,7 +716,7 @@
 
                             <TextView
                                 android:layout_width="190dp"
-                                android:layout_height="60dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginEnd="10dp"
@@ -1173,7 +1173,7 @@
 
                             <TextView
                                 android:layout_width="190dp"
-                                android:layout_height="94dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginEnd="5dp"
@@ -1378,7 +1378,7 @@
 
                             <TextView
                                 android:layout_width="190dp"
-                                android:layout_height="75dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginEnd="10dp"
@@ -1475,8 +1475,8 @@
                             android:layout_gravity="center"/>
                         <TextView
                             android:id="@+id/adopter_references_shelter_to_review"
-                            android:layout_width="240dp"
-                            android:layout_height="40dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginEnd="20dp"
                             android:layout_weight="2"
@@ -1517,8 +1517,8 @@
 
                             <TextView
                                 android:id="@+id/adopter_intentions_shelter_to_review"
-                                android:layout_width="300dp"
-                                android:layout_height="150dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
