@@ -435,7 +435,7 @@ public class MCDM {
         // Start Algo
         calculateRecommendationResults();
         System.out.println("AFTER FINISHING MAIN ALGO: " + numberOfAlternatives);
-
+        saveToDatabase();
 
         // TODO: Clear ViewModel values
     }
@@ -1251,6 +1251,9 @@ public class MCDM {
 
             System.out.println(mViewModel.getTopThree()[i].getImageName());
         }
+    }
+    private void saveToDatabase() {
+
     }
 }
 
