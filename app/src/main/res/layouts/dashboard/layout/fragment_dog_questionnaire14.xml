@@ -70,7 +70,7 @@
 
                     <TextView
                         android:id="@+id/rating54"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"
@@ -84,7 +84,7 @@
 
                     <TextView
                         android:id="@+id/rating55"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"
@@ -98,7 +98,7 @@
 
                     <TextView
                         android:id="@+id/rating56"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"

@@ -63,7 +63,7 @@
     <string name="ease_of_care_medium">MEDIUM: Twice a month</string>
     <string name="ease_of_care_low">LOW: More than twice a month</string>
 
-    <string name="friendliness_high">HIGH: Generally friendly; generally does not bark if there is no provocative action</string>
+    <string name="friendliness_high">HIGH: Friendly; generally does not bark if there is no provocative action</string>
     <string name="friendliness_medium">MEDIUM: Might bark at unfamiliar subject</string>
     <string name="friendliness_low">LOW: Very reactive to unfamiliar subjects</string>
 

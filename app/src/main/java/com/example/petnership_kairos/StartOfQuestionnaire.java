@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +30,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+    MCDMAnswersViewModel mViewModel;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,6 +44,7 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_adopter);
 
+        mViewModel = new ViewModelProvider(this).get(MCDMAnswersViewModel.class);
 
 //        if(currUser == null)
 //        {
@@ -96,7 +100,11 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
                 DialogQuestionnaireCancel checkCancel = new DialogQuestionnaireCancel();
                 checkCancel.show(getSupportFragmentManager(), "Questionnaire Cancel");
 
-            } else {
+            } else if (getSupportFragmentManager().getBackStackEntryAt(count-1).getName().equalsIgnoreCase("recommendedPets")) {
+
+                DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                checkCancelAfter.show(getSupportFragmentManager(), "Cancel");
+            }else {
                 getSupportFragmentManager().popBackStack();
             }
         }
@@ -116,9 +124,17 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
 
             case R.id.nav_adoptHome:
 
+                if (mViewModel.getFinishedAnswering()) {
 
-                DialogQuestionnaireCancel checkCancelHome = new DialogQuestionnaireCancel();
-                checkCancelHome.show(getSupportFragmentManager(), "Cancel Home");
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel Home");
+                }
+                else {
+
+                    DialogQuestionnaireCancel checkCancelHome = new DialogQuestionnaireCancel();
+                    checkCancelHome.show(getSupportFragmentManager(), "Cancel Home");
+
+                }
                 /*transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
                 AdopterHomeDashboard adopterHome = new AdopterHomeDashboard();
                 transaction.replace(R.id.nav_host_fragment,adopterHome);
@@ -129,37 +145,76 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
 
             case R.id.nav_appHistory:
 
+                if (mViewModel.getFinishedAnswering()) {
 
-                DialogQuestionnaireCancel checkCancelHistory = new DialogQuestionnaireCancel();
-                checkCancelHistory.show(getSupportFragmentManager(), "Cancel History");
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel History");
+                }
+                else {
 
+                    DialogQuestionnaireCancel checkCancelHistory = new DialogQuestionnaireCancel();
+                    checkCancelHistory.show(getSupportFragmentManager(), "Cancel History");
+                }
                 break;
 
             case R.id.nav_adoptAPet:
       //          getSupportFragmentManager().popBackStackImmediate("x", );
+                Toast.makeText(this, "You're already in this screen!", Toast.LENGTH_SHORT).show();
+
                 break;
 
             case R.id.nav_browseAnimals:
-                DialogQuestionnaireCancel checkCancelBrowse = new DialogQuestionnaireCancel();
-                checkCancelBrowse.show(getSupportFragmentManager(), "Cancel Browse");
 
+                if (mViewModel.getFinishedAnswering()) {
+
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel Browse");
+                }
+                else {
+                    DialogQuestionnaireCancel checkCancelBrowse = new DialogQuestionnaireCancel();
+                    checkCancelBrowse.show(getSupportFragmentManager(), "Cancel Browse");
+                }
 
                 break;
 
 
             case R.id.nav_adopter_update_email:
-                DialogQuestionnaireCancel checkCancelUpdateEmail = new DialogQuestionnaireCancel();
-                checkCancelUpdateEmail.show(getSupportFragmentManager(), "Cancel Update Email");
+
+                if (mViewModel.getFinishedAnswering()) {
+
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel Update Email");
+                }
+                else {
+                    DialogQuestionnaireCancel checkCancelUpdateEmail = new DialogQuestionnaireCancel();
+                    checkCancelUpdateEmail.show(getSupportFragmentManager(), "Cancel Update Email");
+                }
                 break;
 
             case R.id.nav_adopter_change_password:
-                DialogQuestionnaireCancel checkCancelChangePassword = new DialogQuestionnaireCancel();
-                checkCancelChangePassword.show(getSupportFragmentManager(), "Cancel Change Password");
+
+                if (mViewModel.getFinishedAnswering()) {
+
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel Change Password");
+                }
+                else {
+                    DialogQuestionnaireCancel checkCancelChangePassword = new DialogQuestionnaireCancel();
+                    checkCancelChangePassword.show(getSupportFragmentManager(), "Cancel Change Password");
+                }
                 break;
 
             case R.id.nav_logout:
-                DialogQuestionnaireCancel checkCancelOut = new DialogQuestionnaireCancel();
-                checkCancelOut.show(getSupportFragmentManager(), "Cancel Out");
+
+                if (mViewModel.getFinishedAnswering()) {
+
+                    DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
+                    checkCancelAfter.show(getSupportFragmentManager(), "Cancel Out");
+                }
+                else {
+                    DialogQuestionnaireCancel checkCancelOut = new DialogQuestionnaireCancel();
+                    checkCancelOut.show(getSupportFragmentManager(), "Cancel Out");
+                }
 //                userLogout();
                 break;
 
