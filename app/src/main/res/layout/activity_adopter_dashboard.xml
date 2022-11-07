@@ -122,6 +122,8 @@
                     android:id="@+id/adopterIntProfilePic"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:background="#DA8EE7"
                     android:layout_centerVertical="true"
                     android:src="@drawable/profile" />
 

@@ -242,6 +242,7 @@ public class AdopterEditInfo extends AppCompatActivity {
                     if(filePath != null){
                         uploadImage();
                         editAdopterInfo();
+                        showsaveDialog();
                     }else{
                         editAdopterInfo();
                         MySaveDialogAdopter mySaveDialogAdopter = new MySaveDialogAdopter();
