@@ -130,6 +130,7 @@ public class FragmentCatQuestionnaire14 extends Fragment {
                 System.out.println("SEEKBAR #" + i + ": " + mViewModel.getAnswer(i));
             }
 
+            mViewModel.setFinishedAnswering(true);
             mainAlgo.beginMCDM();
 
             // change screen

@@ -28,11 +28,13 @@ public class MySaveDialogAdoptionForm extends DialogFragment {
 //                Intent intent = new Intent(getActivity(), AdopterDashboard.class);
 //                startActivity(intent);
 //                dismiss();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                getParentFragmentManager().popBackStackImmediate();
+                getParentFragmentManager().popBackStackImmediate();
+          /*      FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 BrowseAnimals browseAnimals = new BrowseAnimals();
                 transaction.replace(R.id.adoptionForm_TAndC, browseAnimals);
                 transaction.commit();
-                setCancelable(false);
+                setCancelable(false);*/
                 dismiss();
             }
         });
