@@ -182,6 +182,7 @@
                             android:textColor="#371576"
                             android:layout_marginTop="20dp"
                             android:layout_gravity="center"/>
+
                         <androidx.cardview.widget.CardView
                             android:id="@+id/adoption_card_view"
                             app:cardElevation="10dp"
@@ -189,12 +190,12 @@
                             android:layout_margin="5dp"
                             app:cardBackgroundColor="#FFFFFF"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="160dp">
 
                             <LinearLayout
                                 android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="140dp"
+                                android:layout_height="160dp"
                                 android:background="@drawable/card_dashboard">
                                 =
                                 <ImageView
@@ -217,7 +218,7 @@
                                     <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
+                                        android:layout_marginTop="1dp"
                                         android:orientation="horizontal">
 
                                         <TextView
@@ -230,13 +231,39 @@
                                             android:text="Name"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoption_pet_name_value"
+                                            android:id="@+id/adoptionForm_petName"
                                             android:layout_width="132dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
                                             android:fontFamily="@font/montserrat_reg"
                                             android:text="Pet's Name"
+                                            android:textSize="15sp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/adoption_pet_type_label"
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/dark_purple"
+                                            android:layout_alignParentBottom="true"
+                                            android:fontFamily="@font/montserrat_bold"
+                                            android:text="Type"
+                                            android:textStyle="bold"/>
+                                        <TextView
+                                            android:id="@+id/adoptionForm_petType"
+                                            android:layout_width="132dp"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/dark_purple"
+                                            android:layout_alignParentBottom="true"
+                                            android:fontFamily="@font/montserrat_reg"
+                                            android:text="Dog"
                                             android:textSize="15sp" />
                                     </LinearLayout>
                                     <LinearLayout
@@ -255,7 +282,7 @@
                                             android:text="Age"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoption_pet_age_value"
+                                            android:id="@+id/adoptionForm_petAge"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -305,7 +332,7 @@
                                             android:text="Breed"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoption_pet_breed_value"
+                                            android:id="@+id/adoptionForm_petBreed"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"

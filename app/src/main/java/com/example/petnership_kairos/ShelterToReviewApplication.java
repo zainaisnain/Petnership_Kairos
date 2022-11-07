@@ -115,16 +115,15 @@ public class ShelterToReviewApplication extends Fragment {
         mEditTextTo = view.findViewById(R.id.shelter_emailAddressOfAdopter);
         mEditTextSubject = view.findViewById(R.id.shelter_subjectEmailToAdopter);
         mEditTextMessage = view.findViewById(R.id.shelter_bodyEmailToAdopter);
-        tvAdoptionFormDate = view.findViewById(R.id.adoptionForm_petDate);
+        tvAdoptionFormDate = view.findViewById(R.id.adoptionForm_dateApplied);
         tvAdopterName = view.findViewById(R.id.adoptionForm_adopterName);
-        tvAdopterEmail = view.findViewById(R.id.adoptionForm_shelter);
-        tvAdopterMobile = view.findViewById(R.id.adoptionForm_shelter_reason);
+        tvAdopterEmail = view.findViewById(R.id.adoptionForm_email);
+        tvAdopterMobile = view.findViewById(R.id.adoptionForm_contact);
         tvAdopterAddress = view.findViewById(R.id.adoptionForm_address);
         tvPetType = view.findViewById(R.id.adoptionForm_petType);
         tvBreed = view.findViewById(R.id.adoptionForm_petBreed);
         tvPetName = view.findViewById(R.id.adoptionForm_petName);
         tvPetAge = view.findViewById(R.id.adoptionForm_petAge);
-        tvPetDesc = view.findViewById(R.id.adoptionForm_petDescription);
 
         applicationID = getArguments().getString("applicationID");
         adopterID = getArguments().getString("adopterID");
@@ -200,6 +199,7 @@ public class ShelterToReviewApplication extends Fragment {
                 String country = (String) snapshot.child("country").getValue();
                 adopterAddress = street + ", " +  city + ", " + province + ", " + country;
 
+                // comment out muna
                 tvAdopterEmail.setText(adopterEmail);
                 tvAdopterMobile.setText(adopterContact);
                 tvAdopterAddress.setText(adopterAddress);
@@ -292,7 +292,6 @@ public class ShelterToReviewApplication extends Fragment {
                                                 tvPetName.setText(petName);
                                                 tvBreed.setText(petBreed);
                                                 tvPetAge.setText(petAge);
-                                                tvPetDesc.setText(petDescription);
                                             }
 
                                             @Override
