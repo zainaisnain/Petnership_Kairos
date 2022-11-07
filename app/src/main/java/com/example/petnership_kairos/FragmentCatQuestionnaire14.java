@@ -43,9 +43,6 @@ public class FragmentCatQuestionnaire14 extends Fragment {
         mViewModel = new ViewModelProvider(requireActivity()).get(MCDMAnswersViewModel.class);
         System.out.println("Test: " + mViewModel.getAnswer(1));
 
-        // begin data fetch
-        mainAlgo = new MCDM();
-        mainAlgo.fetchAlternatives(getContext(),2);
 
         cseekBar54 = getView().findViewById(R.id.cseekBar54);
         cseekBar55= getView().findViewById(R.id.cseekBar55);
@@ -130,16 +127,10 @@ public class FragmentCatQuestionnaire14 extends Fragment {
                 System.out.println("SEEKBAR #" + i + ": " + mViewModel.getAnswer(i));
             }
 
-            mViewModel.setFinishedAnswering(true);
-            mainAlgo.beginMCDM();
+            DialogQuestionnaireSubmit checkSubmit = new DialogQuestionnaireSubmit();
+            checkSubmit.show(getParentFragmentManager(), "Submit?");
 
-            // change screen
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-            FragmentRecommendedPets recPets = new FragmentRecommendedPets();
-            transaction.replace(R.id.nav_host_fragment,recPets);
-            transaction.addToBackStack("recommendedPets");
-            transaction.commit();
+
         });
         ImageButton backBtn = getView().findViewById(R.id.btnBack);
         backBtn.setOnClickListener(view12 -> {
