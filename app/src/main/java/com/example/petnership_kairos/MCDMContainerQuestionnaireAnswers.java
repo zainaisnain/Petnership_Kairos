@@ -60,13 +60,13 @@ public class MCDMContainerQuestionnaireAnswers {
         int count = 0;
 
         if(animalType == 1) {
-            for (int i = 0; i <60; i++) {
+            for (int i = 0; i <59; i++) {
                 answers.add(0);
             }
         }
         else {
 
-            for (int i = 0; i <57; i++) {
+            for (int i = 0; i <56; i++) {
                 answers.add(0);
             }
         }

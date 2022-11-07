@@ -1303,6 +1303,15 @@ public class MCDM {
                             adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petIDHolder).updateChildren(matchPercentageMap);
                         }
 
+                        // save priorities
+                        MCDMContainerPriorities conPriority = new MCDMContainerPriorities();
+                        for (int t = 0; t < (animalType == 1 ? DOG_INTENSITY_MATRICES_COUNT : CAT_INTENSITY_MATRICES_COUNT);t++)
+                        {
+                            conPriority.setHigh(idealizedIntensityPriorityVector[t][0]);
+                            conPriority.setMedium(idealizedIntensityPriorityVector[t][1]);
+                            conPriority.setLow(idealizedIntensityPriorityVector[t][2]);
+                            adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).child("Priorities").child(Integer.toString(t+1)).setValue(conPriority);
+                        }
                     }
 
                     @Override
