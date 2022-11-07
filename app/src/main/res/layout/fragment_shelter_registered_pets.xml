@@ -25,7 +25,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:background="#DA8EE7"
+                android:background="#E5E4E2"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/cat_dog" />
