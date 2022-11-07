@@ -184,14 +184,14 @@ public class AddCat extends Fragment {
         etPetDescription = view.findViewById(R.id.pet_desc);
 
         //Set value for Dropdown Age
-        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                petAgeDD = adapterView.getItemAtPosition(i).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
+//        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                petAgeDD = adapterView.getItemAtPosition(i).toString();
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {}
+//        });
 
         //Set value for Dropdown Sex
         ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -239,8 +239,8 @@ public class AddCat extends Fragment {
             public void onClick(View v)
             {
                 petName = etPetName.getText().toString().trim();
-                petAgeNum = etPetAge.getText().toString().trim();
-                petAge = petAgeNum + petAgeDD;
+                petAgeNum = etPetBirthday.getText().toString().trim();
+//                petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
 
                 petID = databaseReference.child("Pets").push().getKey();
@@ -250,10 +250,16 @@ public class AddCat extends Fragment {
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
-                }else if(petAgeNum.isEmpty()){
-                    etPetAge.setError("Pet Age Required.");
-                    etPetAge.requestFocus();
-                    return;
+                }else if(rbYesBirthday.isActivated() && petAgeNum.isEmpty()) {
+                        etPetBirthday.setError("Pet Birthday is required.");
+                        etPetBirthday.requestFocus();
+                        return;
+                } else if(!rbYesBirthday.isActivated() && !petAgeNum.isEmpty()) {
+                    if (petAgeNum.isEmpty()) {
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
+                        return;
+                    }
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
