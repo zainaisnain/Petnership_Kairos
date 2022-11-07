@@ -1,5 +1,6 @@
 package com.example.petnership_kairos;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -18,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -39,12 +42,15 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.UUID;
 
 public class  AddDog extends Fragment {
 
-    private EditText etPetName, etPetAge, etPetDescription;
+    private EditText etPetName, etPetBirthday, etPetDescription;
     private Button proceedBtn, uploadBtn, backBtn;
+    private AppCompatRadioButton rbYesBirthday, rbNoBirthday;
+    String datePicked;
 
     private ImageButton backBtn2;
     protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
@@ -57,7 +63,7 @@ public class  AddDog extends Fragment {
 
     // Uri indicates, where the image will be picked from
     private Uri filePath;
-    private String imageName;
+    private String imageName, dogBirthday;
 
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
@@ -82,12 +88,17 @@ public class  AddDog extends Fragment {
     String[] ddStatusValues = {"Available", "Not Available"};
 
 
-    public AddDog() {}
+    public AddDog() {
+    }
 
-    public static AddDog newInstance() {return new AddDog();}
+    public static AddDog newInstance() {
+        return new AddDog();
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);}
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,11 +142,33 @@ public class  AddDog extends Fragment {
         //NAME
         etPetName = view.findViewById(R.id.per_pet_name_title);
 
-        //AGE
-        etPetAge = view.findViewById(R.id.pet_age_et);
-        ddAge = view.findViewById(R.id.pet_age_dd);
-        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
-        ddAge.setAdapter(ageAdapter);
+        //BIRTHDAY
+        rbYesBirthday = view.findViewById(R.id.shelter_yesBirthday);
+        rbNoBirthday = view.findViewById(R.id.shelter_noBirthday);
+//        ddAge = view.findViewById(R.id.pet_age_dd);
+//        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
+//        ddAge.setAdapter(ageAdapter);
+
+        etPetBirthday = view.findViewById(R.id.txt_birthday_pet_edit);
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+        etPetBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    DatePickerDialog datePickerDialog = new DatePickerDialog
+                            (getActivity(), new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                                    month = month + 1;
+                                    datePicked = month + "/" + day + "/" + year;
+                                    etPetBirthday.setText(datePicked);
+                                }
+                            }, year, month, day);
+                    datePickerDialog.show();
+            }
+        });
 
         //SEX
         ddSex = view.findViewById(R.id.pet_sex_dd);
@@ -151,14 +184,14 @@ public class  AddDog extends Fragment {
         etPetDescription = view.findViewById(R.id.pet_desc);
 
         //Set value for Dropdown Age
-        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                petAgeDD = adapterView.getItemAtPosition(i).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
-        });
+//        ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                petAgeDD = adapterView.getItemAtPosition(i).toString();
+//            }
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {}
+//        });
 
         //Set value for Dropdown Sex
         ddSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -203,8 +236,8 @@ public class  AddDog extends Fragment {
             {
 
                 petName = etPetName.getText().toString().trim();
-                petAgeNum = etPetAge.getText().toString().trim();
-                petAge = petAgeNum + petAgeDD;
+                petAgeNum = etPetBirthday.getText().toString().trim();
+//                petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
 
 
@@ -216,8 +249,8 @@ public class  AddDog extends Fragment {
                     etPetName.requestFocus();
                     return;
                 }else if(petAgeNum.isEmpty()){
-                    etPetAge.setError("Pet Age Required.");
-                    etPetAge.requestFocus();
+                    etPetBirthday.setError("Pet Birthday Required.");
+                    etPetBirthday.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");

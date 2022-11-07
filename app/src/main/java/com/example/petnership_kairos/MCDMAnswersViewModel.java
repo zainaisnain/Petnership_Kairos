@@ -20,6 +20,8 @@ public class MCDMAnswersViewModel extends ViewModel {
     private final int CAT_SUBCRITERIA_ANSWERS = 1;
     private final int CAT_INTENSITY_ANSWERS = 27;
 
+    private boolean finishedAnswering = false;
+
     private int currentResultView = 0;
 
     public static String[] dogCodes = {
@@ -70,6 +72,30 @@ public class MCDMAnswersViewModel extends ViewModel {
 
     private Hashtable<String, Integer> answersDict = new Hashtable<String, Integer>();
     //private Hashtable<String, Integer> catAnswersDict = new Hashtable<String, Integer>();
+
+    public int[] getMainAnswers() {
+        return mainAnswers;
+    }
+
+    public void setMainAnswers(int[] mainAnswers) {
+        this.mainAnswers = mainAnswers;
+    }
+
+    public int[] getSubcriteriaAnswers() {
+        return subcriteriaAnswers;
+    }
+
+    public void setSubcriteriaAnswers(int[] subcriteriaAnswers) {
+        this.subcriteriaAnswers = subcriteriaAnswers;
+    }
+
+    public int[] getIntensityAnswers() {
+        return intensityAnswers;
+    }
+
+    public void setIntensityAnswers(int[] intensityAnswers) {
+        this.intensityAnswers = intensityAnswers;
+    }
 
     private int[] mainAnswers;
     private int[] subcriteriaAnswers;
@@ -162,6 +188,12 @@ public class MCDMAnswersViewModel extends ViewModel {
             case 16: temp = -9; break;
         }
         return temp;
+    }
+    public boolean getFinishedAnswering() {
+        return finishedAnswering;
+    }
+    public void setFinishedAnswering(boolean finishedAnswering) {
+        this.finishedAnswering = finishedAnswering;
     }
 
 }

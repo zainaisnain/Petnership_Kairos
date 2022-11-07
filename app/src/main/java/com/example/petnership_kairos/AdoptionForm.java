@@ -173,7 +173,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
                         String applicationID = reference.push().getKey();
                         System.out.println("applicationID === " + applicationID);
-
+/*
                         ForReviewApplicantsInfo forReviewApplicantsInfo = new ForReviewApplicantsInfo
                                 (applicationID, dateApplied, timeApplied, adopterID, adopterName, adopterIntentions,
                                         petID, petType, petName, petBreed, petAge, petDescription, shelterID, applicationStatus);
@@ -181,6 +181,7 @@ public class AdoptionForm extends Fragment implements View.OnClickListener{
                         sheltersDBRef.child(shelterID).child("ForReviewApplicants").child(applicationID).setValue(forReviewApplicantsInfo);
                         //add to adopters application history
                         adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID).setValue(forReviewApplicantsInfo);
+                   */
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

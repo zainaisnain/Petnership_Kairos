@@ -62,12 +62,7 @@ public class ApplicantsReviewFragment extends Fragment {
 
         System.out.println("Entered ApplicantsReviewFragment");
         backBtn = view.findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getParentFragmentManager().popBackStack();
-            }
-        });
+        backBtn.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewApplicants);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

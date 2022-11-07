@@ -11,8 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +43,7 @@
                             android:id="@+id/per_dog_back_btn"
                             android:layout_width="57dp"
                             android:layout_height="45dp"
-                            android:background="#0000"
+                            android:background="@drawable/back_button"
                             android:src="@drawable/ic_back"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -60,8 +59,19 @@
                             android:layout_width="@dimen/_24sdp"
                             android:layout_height="@dimen/_24sdp"
                             android:layout_marginTop="16dp"
-                            android:layout_marginEnd="16dp"
+                            android:layout_marginEnd="28dp"
                             android:src="@drawable/ic_edit"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/black" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/delete_dog_info_btn"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="84dp"
+                            android:src="@drawable/delete_icon"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:tint="@color/black" />
@@ -174,7 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:text="Age: "
+                                android:text="Birthday: "
                                 android:textSize="20sp" />
 
                             <TextView

@@ -28,7 +28,7 @@
                     android:id="@+id/btnBack"
                     android:layout_width="70dp"
                     android:layout_height="45dp"
-                    android:background="#0000"
+                    android:background="@drawable/back_button"
                     android:src="@drawable/ic_back"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
                         android:id="@+id/cinstructionsBTN5"
                         android:layout_width="43dp"
                         android:layout_height="45dp"
-                        android:background="#0000"
+                        android:background="@drawable/back_button"
                         android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -290,7 +290,7 @@
 
                     <TextView
                         android:id="@+id/crating26"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"
@@ -304,7 +304,7 @@
 
                     <TextView
                         android:id="@+id/crating27"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"
@@ -318,7 +318,7 @@
 
                     <TextView
                         android:id="@+id/crating28"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"
@@ -348,7 +348,7 @@
 
                     <TextView
                         android:id="@+id/crating29"
-                        android:layout_width="180dp"
+                        android:layout_width="200dp"
                         android:layout_height="20dp"
                         android:fontFamily="@font/montserrat_black"
                         android:gravity="center"

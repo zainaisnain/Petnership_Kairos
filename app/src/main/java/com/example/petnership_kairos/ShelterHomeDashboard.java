@@ -118,16 +118,13 @@ public class ShelterHomeDashboard extends Fragment {
         });
 
         card4 = view.findViewById(R.id.approvedAdopters);
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction activeAdoptersTransaction = getParentFragmentManager().beginTransaction();
-                activeAdoptersTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-                ShelterApprovedAdopters shelterApprovedAdopters = new ShelterApprovedAdopters();
-                activeAdoptersTransaction.replace(R.id.nav_host_fragment, shelterApprovedAdopters);
-                activeAdoptersTransaction.addToBackStack("Shelter Approved Adopters");
-                activeAdoptersTransaction.commit();
-            }
+        card4.setOnClickListener(v -> {
+            FragmentTransaction activeAdoptersTransaction = getParentFragmentManager().beginTransaction();
+            activeAdoptersTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+            ShelterApprovedAdopters shelterApprovedAdopters = new ShelterApprovedAdopters();
+            activeAdoptersTransaction.replace(R.id.nav_host_fragment, shelterApprovedAdopters);
+            activeAdoptersTransaction.addToBackStack("Shelter Approved Adopters");
+            activeAdoptersTransaction.commit();
         });
 
         card5 = view.findViewById(R.id.toReview);

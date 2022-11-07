@@ -43,12 +43,11 @@
             android:text="Cat"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adoptChoiceQuestion"
-            app:layout_constraintVertical_bias="0.893" />
+            app:layout_constraintTop_toBottomOf="@+id/adoptChoiceCat"
+            app:layout_constraintVertical_bias="0.857" />
 
         <TextView
             android:id="@+id/textView11"
@@ -84,9 +83,9 @@
 
         <ImageButton
             android:id="@+id/adoptChoiceCat"
-            android:layout_width="200dp"
-            android:layout_height="180dp"
-            android:background="#0000"
+            android:layout_width="174dp"
+            android:layout_height="160dp"
+            android:background="@drawable/card_dashboard"
             android:contentDescription="shelter"
             android:scaleType="fitCenter"
             android:src="@drawable/cat"
@@ -102,7 +101,7 @@
             android:id="@+id/adoptChoiceDog"
             android:layout_width="174dp"
             android:layout_height="160dp"
-            android:background="#0000"
+            android:background="@drawable/card_dashboard"
             android:contentDescription="adopter"
             android:scaleType="fitCenter"
             android:src="@drawable/dog"
@@ -191,7 +190,7 @@
                     android:id="@+id/btnBack"
                     android:layout_width="70dp"
                     android:layout_height="45dp"
-                    android:background="#0000"
+                    android:background="@drawable/back_button"
                     android:src="@drawable/ic_back"
                     app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
                     app:layout_constraintEnd_toEndOf="parent"
