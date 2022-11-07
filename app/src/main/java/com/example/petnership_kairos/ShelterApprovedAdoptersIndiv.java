@@ -310,7 +310,7 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
                                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                                 if(snapshot.exists()){
                                                                     shelterReason = (String) snapshot.child("shelterReason").getValue();
-                                                                    etShelterReason.setText(shelterReason);
+//                                                                    etShelterReason.setText(shelterReason);
                                                                 }
                                                             }
 
