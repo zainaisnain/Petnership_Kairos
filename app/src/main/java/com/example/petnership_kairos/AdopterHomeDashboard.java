@@ -128,59 +128,6 @@ public class AdopterHomeDashboard extends Fragment {
     }
 
     private void createCopyOfAllPets() {
-        //only copy petIDs?
-
-        //first get adopterID
-        adoptersDBRef.orderByChild("email").equalTo(adopterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot adoptersDBsnapshot) {
-                if(adoptersDBsnapshot.exists()){
-                    for(DataSnapshot ds : adoptersDBsnapshot.getChildren()) {
-                        adopterID = ds.getKey();
-                    }
-                    //check if adopter already has AdopterAllPets Node
-                    if(adoptersDBsnapshot.child(adopterID).hasChild("AdopterAllPetsIDS")){
-                        for(DataSnapshot petID: adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").getChildren()){
-                            existingPetID = petID.getKey();
-                            existingPetIDs.add(existingPetID);
-                            if (!adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(existingPetID).hasChild("appliedToAdopt")){
-                                adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(existingPetID)
-                                        .child("appliedToAdopt").getRef().setValue("false");
-                            }
-                        }
-
-                        //ADD the updated pet
-                        allPetsDBRef.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                for(DataSnapshot ds : snapshot.getChildren()) {
-                                    allPetsID = ds.getKey();
-                                    allPetsIDs.add(allPetsID);
-                                }
-                                allPetsIDs.removeAll(existingPetIDs);
-
-                                for(String petID: allPetsIDs){
-                                    adoptersDBsnapshot.child(adopterID).child("AdopterAllPets").child(petID)
-                                            .getRef().setValue(snapshot.child(petID).getValue());
-                                }
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-
-                            }
-                        });
-                    }else{
-
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
         //first check if AdopterAllPets exists
             //if yes:
                 //only append petID not in the list
@@ -278,7 +225,6 @@ public class AdopterHomeDashboard extends Fragment {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                     adopterImageName = String.valueOf(snapshot.getValue());
-                                                    System.out.println("adopterImageName == " + adopterImageName);
                                                     if(adopterImageName != null){
                                                         if(!adopterImageName.isEmpty()){
                                                             if(adopterImageName != ""){
