@@ -54,7 +54,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <ImageView
-                        android:id="@+id/per_cat_image"
+                        android:id="@+id/per_adopter_image"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="@dimen/_80sdp"
@@ -75,9 +75,9 @@
                         android:textColor="@color/white"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="@+id/per_cat_image"
-                        app:layout_constraintStart_toStartOf="@+id/per_cat_image"
-                        app:layout_constraintTop_toBottomOf="@+id/per_cat_image" />
+                        app:layout_constraintEnd_toEndOf="@+id/per_adopter_image"
+                        app:layout_constraintStart_toStartOf="@+id/per_adopter_image"
+                        app:layout_constraintTop_toBottomOf="@+id/per_adopter_image" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -129,15 +129,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_marginBottom="15dp">
+                            android:layout_marginBottom="15dp"
+                            >
 
                             <Spinner
-                                android:id="@+id/shelter_adoption_application_status"
+                                android:id="@+id/app_status_dd_shelter_to_review"
                                 android:layout_width="230dp"
                                 android:layout_height="48dp"
+                                android:layout_gravity="center_horizontal"
                                 android:layout_marginLeft="65dp"
                                 android:layout_marginRight="65dp"
-                                android:layout_gravity="center_horizontal"
                                 android:autofillHints=""
                                 android:background="@drawable/textfield"
                                 android:ems="10"
@@ -199,7 +200,7 @@
                                 android:background="@drawable/card_dashboard">
                                 =
                                 <ImageView
-                                    android:id="@+id/adoption_image"
+                                    android:id="@+id/pet_image_shelter_to_review"
                                     android:layout_width="120dp"
                                     android:layout_height="120dp"
                                     android:layout_gravity="center"
@@ -231,7 +232,7 @@
                                             android:text="Name"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoptionForm_petName"
+                                            android:id="@+id/pet_name_shelter_to_review"
                                             android:layout_width="132dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -257,7 +258,7 @@
                                             android:text="Type"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoptionForm_petType"
+                                            android:id="@+id/pet_type_shelter_to_review"
                                             android:layout_width="132dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -282,7 +283,7 @@
                                             android:text="Age"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoptionForm_petAge"
+                                            android:id="@+id/pet_age_shelter_to_review"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -307,7 +308,7 @@
                                             android:text="Sex"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoption_pet_sex_value"
+                                            android:id="@+id/pet_sex_shelter_to_review"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -332,7 +333,7 @@
                                             android:text="Breed"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoptionForm_petBreed"
+                                            android:id="@+id/pet_breed_shelter_to_review"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -357,7 +358,7 @@
                                             android:text="Match"
                                             android:textStyle="bold"/>
                                         <TextView
-                                            android:id="@+id/adoption_pet_match_value"
+                                            android:id="@+id/pet_match_value_shelter_to_review"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
@@ -425,7 +426,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_dateApplied"
+                                android:id="@+id/date_applied_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -464,7 +465,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_adopterName"
+                                android:id="@+id/adopter_name_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -503,7 +504,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_birthday"
+                                android:id="@+id/adopter_birthday_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -542,7 +543,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_email"
+                                android:id="@+id/adopter_email_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -581,7 +582,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_contact"
+                                android:id="@+id/adopter_contact_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -620,7 +621,7 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                android:id="@+id/adoptionForm_address"
+                                android:id="@+id/adopter_address_shelter_to_review"
                                 android:layout_width="240dp"
                                 android:layout_height="40dp"
                                 android:layout_gravity="center"
@@ -649,6 +650,893 @@
                             android:layout_height="1dp"
                             android:background="@color/dark_purple"/>
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/adoptionform_home_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:text="Home Information"
+                            android:fontFamily="@font/playfairdisplayblack"
+                            android:textSize="25sp"
+                            android:textColor="#371576"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Do you own or rent your home?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_own_rent_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="If you're renting, what is your landlord's pet policy?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_rent_yes_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Do you have a yard?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_yard_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="If \'yes\', is your yard fenced? Please describe in detail"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_yard_yes_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Are there children in your home?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_children_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="If you answered yes above, please list their ages and provide other details"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_children_yes_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+
+                        <!-- WORK -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/adoptionform_work_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:text="Work Status"
+                            android:fontFamily="@font/playfairdisplayblack"
+                            android:textSize="25sp"
+                            android:textColor="#371576"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Do you currently have work?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_work_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Name of Company"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_work_company_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Position in Company"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_work_position_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+
+                        <!-- PET HISTORY -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/adoptionform_pethistory_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:text="Pet History"
+                            android:fontFamily="@font/playfairdisplayblack"
+                            android:textSize="25sp"
+                            android:textColor="#371576"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Do you own any pets?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_own_pets_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Name(s) of Pet(s)"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_pet_names_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Breed(s) of Pet(s)"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_pet_breeds_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="94dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Have you ever surrendered a pet you own to any animal shelter including a low-kill or no-kill shelter?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_surrender_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Vet's Name and Phone Number"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_vet_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="94dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="5dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Have you ever been convicted of an animal related crime, such as cruelty to animals, animal theft, or animal abandonment?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/adopter_convicted_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="If you answered yes, please provide more details here"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_convicted_yes_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <!-- LIFESTYLE AND PREFERENCES -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/adoptionform_lifestyle_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:text="Lifestyle &amp; Preferences"
+                            android:fontFamily="@font/playfairdisplayblack"
+                            android:textSize="25sp"
+                            android:textColor="#371576"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="60dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="How many hours per day would the pet be alone?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_alone_hours_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="75dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="If you have to leave town, emergency or planned, where would your pet stay?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_emergency_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/card"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="190dp"
+                                android:layout_height="55dp"
+                                android:layout_weight="2"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginEnd="10dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:gravity="center_vertical"
+                                android:text="Will you crate your pet? Why or why not?"
+                                android:textColor="#8A6DC3"
+                                android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/adopter_crate_shelter_to_review"
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center_vertical"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+
+                        <!-- REFERENCE -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                        <TextView
+                            android:id="@+id/adoptionform_reference_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:text="Personal References"
+                            android:fontFamily="@font/playfairdisplayblack"
+                            android:textSize="25sp"
+                            android:textColor="#371576"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:id="@+id/adoptionform_reference_explanation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:paddingStart="25dp"
+                            android:gravity="center_horizontal"
+                            android:paddingEnd="25dp"
+                            android:text="Please provide the names, emails, and contact numbers for at least 1 personal reference:"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textSize="14sp"
+                            android:textColor="#8A6DC3"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"/>
+                        <TextView
+                            android:id="@+id/adopter_references_shelter_to_review"
+                            android:layout_width="240dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:layout_weight="2"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center_vertical"
+                            android:text="@string/lorem_ipsum"
+                            android:textColor="#1D102C"
+                            android:textSize="15sp"
+                            android:textStyle="bold"/>
+
+                        <!-- REASON -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"
+                            android:layout_marginTop="20dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/adoptionform_reason_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="10dp"
+                                android:text="Reasons for Adopting"
+                                android:fontFamily="@font/playfairdisplayblack"
+                                android:textSize="25sp"
+                                android:textColor="#371576"
+                                android:layout_marginTop="20dp"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/adopter_intentions_shelter_to_review"
+                                android:layout_width="300dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="20dp"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/lorem_ipsum"
+                                android:textColor="#1D102C"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"/>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -670,7 +1558,7 @@
                                     android:layout_gravity="center"/>
 
                                 <EditText
-                                    android:id="@+id/reasonForStatus_shelter"
+                                    android:id="@+id/shelter_reason_for_status_shelter_to_review"
                                     android:layout_width="300dp"
                                     android:layout_height="150dp"
                                     android:layout_gravity="center"
@@ -823,7 +1711,7 @@
 <!--            </LinearLayout>-->
 
             <Button
-                android:id="@+id/btn_save_adoptionForm"
+                android:id="@+id/save_btn_shelter_to_review"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
@@ -834,7 +1722,7 @@
                 android:onClick="onClick"/>
 
             <Button
-                android:id="@+id/btn_cancel_adoptionForm"
+                android:id="@+id/cancel_btn_shelter_to_review"
                 android:layout_width="350dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
