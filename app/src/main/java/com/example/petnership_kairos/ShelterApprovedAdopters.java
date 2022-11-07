@@ -55,12 +55,7 @@ public class  ShelterApprovedAdopters extends Fragment {
         shelterEmail = firebaseUser.getEmail();
 
         backBtn = view.findViewById(R.id.btnBack);
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getParentFragmentManager().popBackStack();
-            }
-        });
+        backBtn.setOnClickListener(view1 -> getParentFragmentManager().popBackStack());
 
         System.out.println("Entered ShelterApprovedAdopters");
 
