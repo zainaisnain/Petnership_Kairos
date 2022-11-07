@@ -24,9 +24,20 @@ public class MySaveDialogEdit extends DialogFragment {
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.save_dialog, container, false);
-
-
         btnBack = view.findViewById(R.id.buttonOk);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),ShelterDashboard.class);
+                startActivity(intent);
+               // getParentFragmentManager().popBackStack();
+                //getActivity().recreate();
+                setCancelable(false);
+                dismiss();
+            }
+        });
+
+  /*
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +46,9 @@ public class MySaveDialogEdit extends DialogFragment {
 //                CatPetProfileSummary catPetProfileSummary = new CatPetProfileSummary();
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                transaction.commit();
-                getParentFragmentManager().popBackStack();
+                Intent intent = new Intent(getActivity(),ShelterPerDogProfile.class);
+                startActivity(intent);
+                //getParentFragmentManager().popBackStack();
                 setCancelable(false);
                 dismiss();
 //                transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
@@ -48,7 +61,7 @@ public class MySaveDialogEdit extends DialogFragment {
 //                Intent intent = new Intent(getActivity(), ShelterPerCatProfile.class);
 //                startActivity(intent);
             }
-        });
+        }); */
         return view;
     }
 }

@@ -276,6 +276,7 @@
                         android:layout_marginTop="20dp"
                         android:contentDescription="Upload picture."
                         android:src="@drawable/upload"
+                        android:background="#DA8EE7"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.497"
