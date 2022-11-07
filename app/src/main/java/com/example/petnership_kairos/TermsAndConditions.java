@@ -92,6 +92,7 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         petImageName = getArguments().getString("petImageName");
         petName = getArguments().getString("petName");
         petBreed = getArguments().getString("petBreed");
+        //TODO: Pet Birthday
         petAge = getArguments().getString("petAge");
         petSex = getArguments().getString("petSex");
         petDescription = getArguments().getString("petDescription");

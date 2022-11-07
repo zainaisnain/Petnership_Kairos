@@ -103,7 +103,7 @@
 
                             <TextView
                                 android:id="@+id/adoption_pet_name_label"
-                                android:layout_width="60dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"
@@ -128,12 +128,12 @@
 
                             <TextView
                                 android:id="@+id/adoption_pet_age_label"
-                                android:layout_width="60dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"
                                 android:fontFamily="@font/montserrat_bold"
-                                android:text="Age"
+                                android:text="Birthday"
                                 android:textStyle="bold"/>
                             <TextView
                                 android:id="@+id/adoption_pet_age_value"
@@ -142,7 +142,7 @@
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:text="Pet's Age"
+                                android:text="Pet's Birthday"
                                 android:textSize="15sp" />
                         </LinearLayout>
                         <LinearLayout
@@ -153,7 +153,7 @@
 
                             <TextView
                                 android:id="@+id/adoption_pet_sex_label"
-                                android:layout_width="60dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"
@@ -178,7 +178,7 @@
 
                             <TextView
                                 android:id="@+id/adoption_pet_breed_label"
-                                android:layout_width="60dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"
@@ -203,7 +203,7 @@
 
                             <TextView
                                 android:id="@+id/adoption_pet_match_label"
-                                android:layout_width="60dp"
+                                android:layout_width="80dp"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/dark_purple"
                                 android:layout_alignParentBottom="true"

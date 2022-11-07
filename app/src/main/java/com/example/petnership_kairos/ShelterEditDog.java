@@ -116,10 +116,10 @@ public class ShelterEditDog extends Fragment {
         etPetName = view.findViewById(R.id.per_pet_name_title);
 
         //AGE
-        etPetAge = view.findViewById(R.id.pet_age_et);
-        ddAge = view.findViewById(R.id.pet_age_dd);
-        ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
-        ddAge.setAdapter(ageAdapter);
+//        etPetAge = view.findViewById(R.id.pet_age_et);
+//        ddAge = view.findViewById(R.id.pet_age_dd);
+//        ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
+//        ddAge.setAdapter(ageAdapter);
 
         //SEX
         ddSex = view.findViewById(R.id.pet_sex_dd);
@@ -135,6 +135,7 @@ public class ShelterEditDog extends Fragment {
         etPetDescription = view.findViewById(R.id.pet_desc);
 
         //Set value for Dropdown Age
+        //TODO: CHANGE TO BIRHTDAY
         ddAge.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

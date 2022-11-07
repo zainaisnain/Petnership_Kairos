@@ -111,6 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
                         android:background="@drawable/card"
                         android:gravity="center"
                         android:orientation="horizontal"
@@ -118,41 +119,104 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
 
-                        <EditText
-                            android:id="@+id/pet_age_et"
-                            android:layout_width="70dp"
-                            android:layout_height="48dp"
-                            android:autofillHints=""
-                            android:background="@drawable/edit_text_bg"
-                            android:ems="10"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="5dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:hint="Age"
-                            android:inputType="number"
-                            android:padding="@dimen/_10sdp"
-                            android:textColorHint="#757575"
-                            android:textSize="18sp" />
+                            android:gravity="center_vertical"
+                            android:text="Do you know the birthday of this pet?"
+                            android:textSize="13sp" />
 
-                        <Spinner
-                            android:id="@+id/pet_age_dd"
-                            android:layout_width="187dp"
+                        <RadioGroup
+                            android:layout_width="wrap_content"
                             android:layout_height="48dp"
-                            android:layout_marginLeft="20dp"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="20dp"
+                            android:id="@+id/radio_home">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/shelter_yesBirthday"
+                                android:layout_width="94dp"
+                                android:layout_height="28dp"
+                                android:button="@android:color/transparent"
+                                android:text="Yes"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_button_type"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/playfairdisplayblack"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/shelter_noBirthday"
+                                android:layout_width="94dp"
+                                android:layout_height="28dp"
+                                android:button="@android:color/transparent"
+                                android:text="No"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_button_type"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/playfairdisplayblack"/>
+
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:text="If yes, enter\nbirthday"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/txt_birthday_pet_edit"
+                            android:layout_width="188dp"
+                            android:layout_height="48dp"
+                            android:layout_marginLeft="18dp"
                             android:autofillHints=""
                             android:background="@drawable/edit_text_bg"
                             android:ems="10"
                             android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:hint=" Status"
-                            android:inputType="textPersonName"
-                            android:padding="@dimen/_12sdp"
-                            android:spinnerMode="dropdown"
-                            android:textColorHint="#757575"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.376" />
+                            android:hint="MM/DD/YYYY"
+                            android:padding="10dp"
+                            android:inputType="date"
+                            android:textColorHint="#757575"/>
+<!--                        <Spinner-->
+<!--                            android:id="@+id/pet_age_dd"-->
+<!--                            android:layout_width="187dp"-->
+<!--                            android:layout_height="48dp"-->
+<!--                            android:layout_marginLeft="20dp"-->
+<!--                            android:autofillHints=""-->
+<!--                            android:background="@drawable/edit_text_bg"-->
+<!--                            android:ems="10"-->
+<!--                            android:fontFamily="@font/montserrat_reg"-->
+<!--                            android:gravity="center"-->
+<!--                            android:hint=" Status"-->
+<!--                            android:inputType="textPersonName"-->
+<!--                            android:padding="@dimen/_12sdp"-->
+<!--                            android:spinnerMode="dropdown"-->
+<!--                            android:textColorHint="#757575"-->
+<!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                            app:layout_constraintEnd_toEndOf="parent"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toTopOf="parent"-->
+<!--                            app:layout_constraintVertical_bias="0.376" />-->
                     </LinearLayout>
 
                     <LinearLayout
