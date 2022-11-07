@@ -430,9 +430,9 @@ public class ShelterEditCat extends Fragment {
 //                petAgeNum = (String) snapshot.child("petAgeNum").getValue();
                 etPetBirthday.setText(petAgeNum);
 
-//                petAgeDD = (String) snapshot.child("petAgeDD").getValue();
-//                int agePosition = ageAdapter.getPosition(petAgeDD);
-//                ddAge.setSelection(agePosition);
+   //             petAgeDD = (String) snapshot.child("petAgeDD").getValue();
+     //           int agePosition = ageAdapter.getPosition(petAgeDD);
+     //           ddAge.setSelection(agePosition);
 
                 petSex = (String) snapshot.child("petSex").getValue();
                 int sexPosition = sexAdapter.getPosition(petSex);
