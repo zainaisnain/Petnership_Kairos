@@ -36,6 +36,7 @@ public class MySaveDialogEdit extends DialogFragment {
 //                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                transaction.commit();
                 getParentFragmentManager().popBackStack();
+
                 setCancelable(false);
                 dismiss();
 //                transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
