@@ -18,7 +18,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="160dp"
             android:background="@drawable/card_dashboard">
 =
             <ImageView
@@ -26,7 +26,7 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:background="#DA8EE7"
+                android:background="#E5E4E2"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/cat_dog"
@@ -59,7 +59,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Pet's Name"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Pet's Age"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,7 +105,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Pet's Sex"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -128,7 +128,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Pet's Breed"
-                    android:textSize="15sp" />
+                    android:textSize="13sp" />
                 </LinearLayout>
             </LinearLayout>
 
