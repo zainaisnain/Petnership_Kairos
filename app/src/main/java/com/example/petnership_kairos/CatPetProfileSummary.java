@@ -82,67 +82,67 @@ public class CatPetProfileSummary extends Fragment {
             System.out.println("CatPetProfileSummary q9 == " + q9);
 
             if(q1 == 1){
-                tvCatlvl1.setText("high");
+                tvCatlvl1.setText("High");
             }else if(q1 == 2){
-                tvCatlvl1.setText("medium");
+                tvCatlvl1.setText("Medium");
             }else{
-                tvCatlvl1.setText("low");
+                tvCatlvl1.setText("Low");
             }
 
             if(q2 == 1){
-                tvCatlvl2.setText("high");
+                tvCatlvl2.setText("High");
             }else if(q2 == 2){
-                tvCatlvl2.setText("medium");
+                tvCatlvl2.setText("Medium");
             }else{
-                tvCatlvl2.setText("low");
+                tvCatlvl2.setText("Low");
             }
 
             if(q3 == 1){
-                tvCatlvl3.setText("high");
+                tvCatlvl3.setText("High");
             }else if(q3 == 2){
-                tvCatlvl3.setText("medium");
+                tvCatlvl3.setText("Medium");
             }else{
-                tvCatlvl3.setText("low");
+                tvCatlvl3.setText("Low");
             }
 
             if(q4 == 1){
-                tvCatlvl4.setText("high");
+                tvCatlvl4.setText("High");
             }else if(q4 == 2){
-                tvCatlvl4.setText("medium");
+                tvCatlvl4.setText("Medium");
             }else{
-                tvCatlvl4.setText("low");
+                tvCatlvl4.setText("Low");
             }
 
             if(q5 == 1){
-                tvCatlvl5.setText("high");
+                tvCatlvl5.setText("High");
             }else if(q5 == 2){
-                tvCatlvl5.setText("medium");
+                tvCatlvl5.setText("Medium");
             }else{
-                tvCatlvl5.setText("low");
+                tvCatlvl5.setText("Low");
             }
 
             if(q6 == 1){
-                tvCatlvl6.setText("high");
+                tvCatlvl6.setText("High");
             }else if(q6 == 2){
-                tvCatlvl6.setText("medium");
+                tvCatlvl6.setText("Medium");
             }else{
-                tvCatlvl6.setText("low");
+                tvCatlvl6.setText("Low");
             }
 
             if(q7 == 1){
-                tvCatlvl7.setText("high");
+                tvCatlvl7.setText("High");
             }else if(q7 == 2){
-                tvCatlvl7.setText("medium");
+                tvCatlvl7.setText("Medium");
             }else{
-                tvCatlvl7.setText("low");
+                tvCatlvl7.setText("Low");
             }
 
             if(q8 == 1){
-                tvCatlvl8.setText("high");
+                tvCatlvl8.setText("High");
             }else if(q8 == 2){
-                tvCatlvl8.setText("medium");
+                tvCatlvl8.setText("Medium");
             }else{
-                tvCatlvl8.setText("low");
+                tvCatlvl8.setText("Low");
             }
 
             //Q9 BREED POPULARITY

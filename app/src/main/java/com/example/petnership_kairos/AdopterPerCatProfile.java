@@ -275,6 +275,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                         tvPetTitle.setText(petName + "'s Profile");
                                         tvPetName.setText(petName);
                                         tvPetBreed.setText(petBreed);
+                                        //TODO: Change to petBirthday (Add field to Firebase)
                                         tvPetAge.setText(petAge);
                                         tvPetSex.setText(petSex);
                                         tvPetDescription.setText(petDescription);
