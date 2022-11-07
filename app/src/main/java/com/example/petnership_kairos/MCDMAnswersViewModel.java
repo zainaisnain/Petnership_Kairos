@@ -71,6 +71,30 @@ public class MCDMAnswersViewModel extends ViewModel {
     private Hashtable<String, Integer> answersDict = new Hashtable<String, Integer>();
     //private Hashtable<String, Integer> catAnswersDict = new Hashtable<String, Integer>();
 
+    public int[] getMainAnswers() {
+        return mainAnswers;
+    }
+
+    public void setMainAnswers(int[] mainAnswers) {
+        this.mainAnswers = mainAnswers;
+    }
+
+    public int[] getSubcriteriaAnswers() {
+        return subcriteriaAnswers;
+    }
+
+    public void setSubcriteriaAnswers(int[] subcriteriaAnswers) {
+        this.subcriteriaAnswers = subcriteriaAnswers;
+    }
+
+    public int[] getIntensityAnswers() {
+        return intensityAnswers;
+    }
+
+    public void setIntensityAnswers(int[] intensityAnswers) {
+        this.intensityAnswers = intensityAnswers;
+    }
+
     private int[] mainAnswers;
     private int[] subcriteriaAnswers;
     private int[] intensityAnswers;

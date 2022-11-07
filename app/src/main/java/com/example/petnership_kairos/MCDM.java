@@ -18,17 +18,24 @@ import com.google.firebase.storage.StorageReference;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MCDM {
 
     private MCDMAnswersViewModel mViewModel;
     private List<MCDMAlternative> alternatives;
     private List<MCDMCriteriaValue> criteriaValues;
+
+    String adopterEmail, adopterID, dateAnswered, timeAnswered;
+    boolean finished;
 
     // final values
     private final double DEFAULT_COMPARISON_VAL = 1.0;
@@ -78,6 +85,10 @@ public class MCDM {
     private String animalBreed;
 
     //database references
+
+    DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
+    DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
+
     DatabaseReference petsCatsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
     DatabaseReference petsDogsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
@@ -1253,6 +1264,54 @@ public class MCDM {
         }
     }
     private void saveToDatabase() {
+
+        authProfile = FirebaseAuth.getInstance();
+        firebaseUser = authProfile.getCurrentUser();
+        adopterEmail = firebaseUser.getEmail();
+        adoptersDBRef.orderByChild("email").equalTo(adopterEmail)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()) {
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                adopterID = ds.getKey();
+                            }
+                        }
+
+                        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+                        String applicationID = reference.push().getKey();
+                        // get date and time
+                        dateAnswered = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
+                        timeAnswered = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                        System.out.println("applicationID === " + applicationID);
+                        finished = true;
+
+                        // instantiate classes
+                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), petID, petShelter, finished, dateAnswered, timeAnswered);
+                       // MCDMContainerOtherAnswers conOthers = new MCDMContainerOtherAnswers();
+
+                        // save to adopter
+                        adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).child(applicationID).setValue(conQuestion);
+
+                        // save to adopters all pet history
+                        Double calcHolder;
+                        String petIDHolder;
+                        for (MCDMAlternative e : alternatives) {
+                            calcHolder = e.getCalculatedPerformanceScore();
+                            petIDHolder = e.getId();
+                            Map<String, Object> matchPercentageMap = new HashMap<>();
+                            matchPercentageMap.put("MatchPercentage", calcHolder);
+                            adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petIDHolder).updateChildren(matchPercentageMap);
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
 
     }
 }
