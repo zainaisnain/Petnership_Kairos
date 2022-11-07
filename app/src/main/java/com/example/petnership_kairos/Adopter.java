@@ -3,9 +3,10 @@ public class Adopter {
     public String adopterID, fname, lname, email,
             contact, street, city, province, country, gender, birthday, imageName;
 
-    boolean answeredQuestionnaire;
+    boolean answeredCatQuestionnaire, answeredDogQuestionnaire;
 
-    public Adopter(String adopterID, String fname, String lname, String email, String contact, String street, String city, String province, String country, String gender, String birthday, String imageName, boolean answeredQuestionnaire) {
+    public Adopter(String adopterID, String fname, String lname, String email, String contact, String street, String city, String province, String country, String gender,
+                   String birthday, String imageName, boolean answeredCatQuestionnaire, boolean answeredDogQuestionnaire) {
         this.adopterID = adopterID;
         this.fname = fname;
         this.lname = lname;
@@ -18,7 +19,16 @@ public class Adopter {
         this.gender = gender;
         this.birthday = birthday;
         this.imageName = imageName;
-        this.answeredQuestionnaire = answeredQuestionnaire;
+        this.answeredCatQuestionnaire = answeredCatQuestionnaire;
+        this.answeredDogQuestionnaire = answeredDogQuestionnaire;
+    }
+
+    public String getAdopterID() {
+        return adopterID;
+    }
+
+    public void setAdopterID(String adopterID) {
+        this.adopterID = adopterID;
     }
 
     public String getFname() {
@@ -109,12 +119,20 @@ public class Adopter {
         this.imageName = imageName;
     }
 
-    public boolean isAnsweredQuestionnaire() {
-        return answeredQuestionnaire;
+    public boolean isAnsweredCatQuestionnaire() {
+        return answeredCatQuestionnaire;
     }
 
-    public void setAnsweredQuestionnaire(boolean answeredQuestionnaire) {
-        this.answeredQuestionnaire = answeredQuestionnaire;
+    public void setAnsweredCatQuestionnaire(boolean answeredCatQuestionnaire) {
+        this.answeredCatQuestionnaire = answeredCatQuestionnaire;
+    }
+
+    public boolean isAnsweredDogQuestionnaire() {
+        return answeredDogQuestionnaire;
+    }
+
+    public void setAnsweredDogQuestionnaire(boolean answeredDogQuestionnaire) {
+        this.answeredDogQuestionnaire = answeredDogQuestionnaire;
     }
 }
 

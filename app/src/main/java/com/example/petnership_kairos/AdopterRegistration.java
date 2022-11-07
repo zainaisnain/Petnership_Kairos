@@ -360,9 +360,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-                                            boolean answeredQuestionnaire = false;
+                                            boolean answeredCatQuestionnaire = false;
+                                            boolean answeredDogQuestionnaire = false;
                                             Adopter adopter = new Adopter(adopterID, fname, lname, email,
-                                                    contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredQuestionnaire);
+                                                    contact, street, city, adopterProvince, country, sex, birthday, imageName, answeredCatQuestionnaire, answeredDogQuestionnaire);
 
                                             databaseReference.child("Adopters").child(adopterID).setValue(adopter);
 
