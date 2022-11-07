@@ -467,7 +467,7 @@
                             <TextView
                                 android:id="@+id/adopter_name_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -506,7 +506,7 @@
                             <TextView
                                 android:id="@+id/adopter_birthday_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -623,7 +623,7 @@
                             <TextView
                                 android:id="@+id/adopter_address_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -725,21 +725,22 @@
                                 android:text="If you're renting, what is your landlord's pet policy?"
                                 android:textColor="#8A6DC3"
                                 android:textSize="13sp" />
+
                             <TextView
                                 android:id="@+id/adopter_rent_yes_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="5dp"
                                 android:fontFamily="@font/montserrat_reg"
                                 android:gravity="center_vertical"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
                                 android:text="@string/lorem_ipsum"
                                 android:textColor="#1D102C"
                                 android:textSize="15sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
 
                         </LinearLayout>
                         <LinearLayout
@@ -803,7 +804,7 @@
                             <TextView
                                 android:id="@+id/adopter_yard_yes_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -878,7 +879,7 @@
                             <TextView
                                 android:id="@+id/adopter_children_yes_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -978,7 +979,7 @@
                             <TextView
                                 android:id="@+id/adopter_work_company_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -1015,7 +1016,7 @@
                             <TextView
                                 android:id="@+id/adopter_work_position_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -1110,7 +1111,7 @@
                             <TextView
                                 android:id="@+id/adopter_pet_names_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -1147,7 +1148,7 @@
                             <TextView
                                 android:id="@+id/adopter_pet_breeds_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -1221,7 +1222,7 @@
                             <TextView
                                 android:id="@+id/adopter_vet_shelter_to_review"
                                 android:layout_width="240dp"
-                                android:layout_height="40dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginEnd="20dp"
                                 android:layout_weight="2"
@@ -1247,7 +1248,7 @@
 
                             <TextView
                                 android:layout_width="190dp"
-                                android:layout_height="94dp"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:layout_marginStart="20dp"
                                 android:layout_marginEnd="5dp"
