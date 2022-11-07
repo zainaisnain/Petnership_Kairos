@@ -78,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
                         android:fontFamily="@font/montserrat_reg"
-                        android:text="Age:"
+                        android:text="Birthday:"
                         android:textSize="15sp" />
 
                     <TextView

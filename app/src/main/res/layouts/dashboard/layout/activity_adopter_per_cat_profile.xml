@@ -44,7 +44,7 @@
                             android:id="@+id/adopter_per_cat_back_btn_up"
                             android:layout_width="57dp"
                             android:layout_height="45dp"
-                            android:background="#0000"
+                            android:background="@drawable/back_button"
                             android:src="@drawable/ic_back"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

@@ -43,7 +43,7 @@
                             android:id="@+id/per_dog_back_btn"
                             android:layout_width="57dp"
                             android:layout_height="45dp"
-                            android:background="#0000"
+                            android:background="@drawable/back_button"
                             android:src="@drawable/ic_back"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
