@@ -1242,7 +1242,6 @@ public class MCDM {
 
         });
     }
-
     private void saveResultsToModel() {
         for (int i = 0; i < numberOfAlternatives; i++) {
             System.out.println(alternatives.get(i).getName() + ": " + alternatives.get(i).getCalculatedPerformanceScore());
@@ -1287,11 +1286,11 @@ public class MCDM {
                         finished = true;
 
                         // instantiate classes
-                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), petID, petShelter, finished, dateAnswered, timeAnswered);
+                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), finished, dateAnswered, timeAnswered);
                        // MCDMContainerOtherAnswers conOthers = new MCDMContainerOtherAnswers();
 
                         // save to adopter
-                        adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).child(applicationID).setValue(conQuestion);
+                        adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).setValue(conQuestion);
 
                         // save to adopters all pet history
                         Double calcHolder;

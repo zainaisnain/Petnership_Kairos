@@ -18,26 +18,10 @@ public class MCDMContainerQuestionnaireAnswers {
 
     public List<Integer> answers = new ArrayList<>();
 
-    public String petID;
-    public String petShelter;
     public boolean finished;
-    public String dateApplied;
+    public String dateAnswered;
+    public String timeAnswered;
 
-    public String getPetID() {
-        return petID;
-    }
-
-    public void setPetID(String petID) {
-        this.petID = petID;
-    }
-
-    public String getPetShelter() {
-        return petShelter;
-    }
-
-    public void setPetShelter(String petShelter) {
-        this.petShelter = petShelter;
-    }
 
     public boolean getFinished() {
         return finished;
@@ -47,34 +31,31 @@ public class MCDMContainerQuestionnaireAnswers {
         this.finished = finished;
     }
 
-    public String getDateApplied() {
-        return dateApplied;
+    public String getDateAnswered() {
+        return dateAnswered;
     }
 
-    public void setDateApplied(String dateApplied) {
-        this.dateApplied = dateApplied;
+    public void setDateAnswered(String datAnswered) {
+        this.dateAnswered = dateAnswered;
     }
 
-    public String getTimeApplied() {
-        return timeApplied;
+    public String getTimeAnswered() {
+        return timeAnswered;
     }
 
-    public void setTimeApplied(String timeApplied) {
-        this.timeApplied = timeApplied;
+    public void setTimeAnswered(String timeAnswered) {
+        this.timeAnswered = timeAnswered;
     }
 
-    public String timeApplied;
 
     public MCDMContainerQuestionnaireAnswers() {
 
     }
-    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, String petID, String petShelter, boolean finished, String dateApplied, String timeApplied) {
+    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, boolean finished, String dateAnswered, String timeAnswered) {
 
-        this.petID = petID;
-        this.petShelter = petShelter;
         this.finished = finished;
-        this.dateApplied = dateApplied;
-        this.timeApplied = timeApplied;
+        this.dateAnswered = dateAnswered;
+        this.timeAnswered = timeAnswered;
 
         int count = 0;
 
