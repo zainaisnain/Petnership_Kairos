@@ -268,8 +268,9 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                         System.out.println("Match: " + matchPercentage);
 
 
-                                        if (matchPercentage <= 0 ) {
+                                        if (matchPercentage == null) {
                                             tvMatch.setText("N/A");
+                                            matchPercentage = 0.0;
                                         }
                                         else {
                                             tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100));

@@ -253,24 +253,23 @@ public class AddCat extends Fragment {
                     etPetName.requestFocus();
                     return;
                 }else if(rbYesBirthday.isActivated() && petAgeNum.isEmpty()) {
+                    System.out.println("BDAY? == " + petID);
                         etPetBirthday.setError("Pet Birthday is required.");
                         etPetBirthday.requestFocus();
                         return;
-                } else if(!rbYesBirthday.isActivated() && !petAgeNum.isEmpty()) {
-                    if (petAgeNum.isEmpty()) {
-                        etPetBirthday.setError(null);
-                        etPetBirthday.clearFocus();
-                        return;
-                    }
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
                     return;
                 }else{
                     if(filePath != null){
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         uploadImage();
                         addPet();
                     }else{
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         addPet();
                     }
 

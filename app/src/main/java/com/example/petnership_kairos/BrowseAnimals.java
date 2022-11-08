@@ -39,6 +39,7 @@ public class BrowseAnimals extends Fragment {
     DatabaseReference dogsPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     private String adopterEmail, adopterID;
+    private Double petMatch;
     private String petID, petImageName, petName, petAge, petSex, petBreed, petStatus;
     RegisteredPetData[] registeredPetData;
     private ArrayList<String> petIDs = new ArrayList<>();
@@ -107,6 +108,11 @@ public class BrowseAnimals extends Fragment {
                                         System.out.println("snapshot: " + snapshot.getValue());
                                         String valAppliedToAdopt = String.valueOf(snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("appliedToAdopt").getValue());
 
+                                        petMatch = (Double) snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("MatchPercentage").getValue();
+                                        if(petMatch == null) {
+                                            petMatch = 0.0;
+                                        }
+
                                         System.out.println("-applied: " + valAppliedToAdopt);
                                         if (valAppliedToAdopt.equalsIgnoreCase("not yet") || valAppliedToAdopt.equalsIgnoreCase("false")) {
                                             String status = String.valueOf(ds2.child("petStatus").getValue());
@@ -130,7 +136,7 @@ public class BrowseAnimals extends Fragment {
                                                 }
                                                 System.out.println("-petBreed: " + petBreed);
 
-                                                ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
+                                                ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed, petMatch));
                                             }
 
 

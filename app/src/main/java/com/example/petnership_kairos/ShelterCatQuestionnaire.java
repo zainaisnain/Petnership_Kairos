@@ -95,8 +95,6 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
         AddCat addCatInfo = new AddCat();
         petName = addCatInfo.petName;
         petAgeNum = addCatInfo.petAgeNum;
-        petAgeDD = addCatInfo.petAgeDD;
-        petAge = addCatInfo.petAge;
         petSex = addCatInfo.petSex;
         petStatus = addCatInfo.petStatus;
         petDesc = addCatInfo.petDesc;
@@ -462,7 +460,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                         System.out.println("shelterUsername --- " + shelterID);
 
                         String petType = "cat";
-                        CatAnswers catAnswers = new CatAnswers(shelterID,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
+                        CatAnswers catAnswers = new CatAnswers(shelterID,petName, petAgeNum, petSex, petStatus, petDesc, imageName,petID, q1,q2,q3,q4,q5,
                                 q6,q7,q8,q9, petType);
                         petsCatsDBRef.child(petID).setValue(catAnswers);
                         allPetsDBRef.child(petID).setValue(catAnswers);
@@ -471,7 +469,7 @@ public class ShelterCatQuestionnaire extends Fragment implements View.OnClickLis
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.hasChild(shelterID)){
-                                    Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
+                                    Pet pet = new Pet(petName, petAgeNum, petSex, petStatus, petDesc, imageName, petID);
                                     snapshot.child(shelterID).child("Cats").child(petID).getRef().setValue(pet);
                                 }else{
                                     System.out.println("no child in SHELTER.... ");

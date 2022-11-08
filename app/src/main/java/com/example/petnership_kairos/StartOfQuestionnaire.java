@@ -104,7 +104,12 @@ public class StartOfQuestionnaire extends AppCompatActivity implements Navigatio
 
                 DialogQuestionnaireCancelAfterRecommendations checkCancelAfter = new DialogQuestionnaireCancelAfterRecommendations();
                 checkCancelAfter.show(getSupportFragmentManager(), "Cancel");
-            }else {
+            }else if (getSupportFragmentManager().getBackStackEntryAt(count-1).getName().equalsIgnoreCase("recommendation to adoption")) {
+
+                MyCancelDialogGoToDogProfile myCancelDialogGoToDogProfile = new MyCancelDialogGoToDogProfile();
+                myCancelDialogGoToDogProfile.show(getSupportFragmentManager(), "My Fragment");
+            }
+            else {
                 getSupportFragmentManager().popBackStack();
             }
         }

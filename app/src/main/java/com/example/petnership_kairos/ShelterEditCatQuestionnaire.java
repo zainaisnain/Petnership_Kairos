@@ -563,7 +563,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                         }
 
                         String petType = "cat";
-                        CatAnswers catAnswers = new CatAnswers(shelterID, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus,
+                        CatAnswers catAnswers = new CatAnswers(shelterID, petName, petAgeNum, petSex, petStatus,
                                 petDesc, imageName,petID, q1,q2,q3,q4,q5,
                                 q6,q7,q8,q9, petType);
                         petsCatsDBRef.child(petID).setValue(catAnswers);
@@ -571,7 +571,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                         sheltersDBRef.child(shelterID).child("Cats").child(petID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID);
+                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petStatus, petDesc, imageName, petID);
                                 snapshot.getRef().setValue(pet);
                             }
 
