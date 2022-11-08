@@ -2,6 +2,7 @@ package com.example.petnership_kairos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.DatePickerDialog;
@@ -71,7 +72,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     // Uri indicates, where the image will be picked from
     private Uri filePath;
-    private String imageName="";
+    private String imageName = "";
 
     // request code
     private final int PICK_IMAGE_REQUEST = 22;
@@ -134,7 +135,6 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         });
 
 
-
         editTextCountry = findViewById(R.id.txt_country_adopter);
         editTextCountry.setEnabled(false);
 
@@ -147,8 +147,10 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 sex = adapterView.getItemAtPosition(i).toString();
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {}
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
         });
 
         //BIRTHDAY
@@ -169,7 +171,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                 datePicked = month + "/" + day + "/" + year;
                                 editTextBirthday.setText(datePicked);
                             }
-                        }, year,month, day);
+                        }, year, month, day);
                 datePickerDialog.show();
             }
         });
@@ -196,8 +198,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdopterRegistration.this,ActivityUserType.class);
-                startActivity(intent);
+                showcancelDialog();
 
             }
         });
@@ -212,9 +213,8 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void selectUserType()
-    {
-        Intent intent = new Intent(this,ActivityUserType.class);
+    private void selectUserType() {
+        Intent intent = new Intent(this, ActivityUserType.class);
         startActivity(intent);
         finish();
 
@@ -222,7 +222,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btn_submit_adopter:
                 registerAdopter();
                 break;
@@ -230,7 +230,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
     }
 
     private void showcancelDialog() {
-        final Dialog cancelDialog  = new Dialog(this);
+        final Dialog cancelDialog = new Dialog(this);
         cancelDialog.setContentView(R.layout.activity_cancel_dialog);
         cancelDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         cancelDialog.show();
@@ -238,7 +238,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         yesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                startActivity(new Intent(AdopterRegistration.this, LoginActivity.class));
+                startActivity(new Intent(AdopterRegistration.this, ActivityUserType.class));
                 cancelDialog.dismiss();
             }
         });
@@ -250,6 +250,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             }
         });
     }
+
     private void registerAdopter() {
         String fname = WordUtils.capitalizeFully(editTextFname.getText().toString().trim());
         String lname = WordUtils.capitalizeFully(editTextLname.getText().toString().trim());
@@ -269,83 +270,83 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         System.out.println(city);
 
         int contactNumCount = 0;
-        for(int i = 0; i < contact.length(); i++){
-            if(contact.charAt(i) != ' ')
+        for (int i = 0; i < contact.length(); i++) {
+            if (contact.charAt(i) != ' ')
                 contactNumCount++;
         }
 
 
-        if(fname.isEmpty()){
+        if (fname.isEmpty()) {
             editTextFname.setError("First Name Required.");
             editTextFname.requestFocus();
             return;
         }
 
-        if(lname.isEmpty()){
+        if (lname.isEmpty()) {
             editTextLname.setError("Last Name Required.");
             editTextLname.requestFocus();
             return;
         }
 
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             editTextEmail.setError("Email Required.");
             editTextEmail.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Please provide valid email.");
             editTextEmail.requestFocus();
             return;
         }
 
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             editTextPassword.setError("Password is Required.");
             editTextPassword.requestFocus();
             return;
         }
 
-        if (password.length() < 6){
+        if (password.length() < 6) {
             editTextPassword.setError("Password should be at least 6 characters.");
             editTextPassword.requestFocus();
             return;
         }
 
-        if(confirmPassword.isEmpty()){
+        if (confirmPassword.isEmpty()) {
             editTextConfirmPassword.setError("Please confirm password.");
             editTextConfirmPassword.requestFocus();
             return;
         }
 
-        if (!password.equals(confirmPassword)){
+        if (!password.equals(confirmPassword)) {
             editTextConfirmPassword.setError("Password do not match.");
             editTextConfirmPassword.requestFocus();
             return;
         }
 
-        if(contact.isEmpty()){
+        if (contact.isEmpty()) {
             editTextContact.setError("Contact Number Required.");
             editTextContact.requestFocus();
             return;
-        }else if (contactNumCount < 11 || contactNumCount > 11) {
+        } else if (contactNumCount < 11 || contactNumCount > 11) {
             editTextContact.setError("Contact number must be 11 digits.");
             editTextContact.requestFocus();
             return;
         }
 
-        if(street.isEmpty()){
+        if (street.isEmpty()) {
             editTextStreet.setError("Street Address Required.");
             editTextStreet.requestFocus();
             return;
         }
 
-        if(city.isEmpty()){
+        if (city.isEmpty()) {
             editTextCity.setError("City Required.");
             editTextCity.requestFocus();
             return;
         }
 
-        if(country.isEmpty()){
+        if (country.isEmpty()) {
             editTextCountry.setError("Country Required.");
             editTextCountry.requestFocus();
             return;
@@ -354,12 +355,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
         adopterID = databaseReference.child("Adopters").push().getKey();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         mAuth.getCurrentUser().sendEmailVerification()
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
+                                        if (task.isSuccessful()) {
                                             boolean answeredCatQuestionnaire = false;
                                             boolean answeredDogQuestionnaire = false;
                                             Adopter adopter = new Adopter(adopterID, fname, lname, email,
@@ -377,11 +378,16 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
 
                                     }
                                 });
-                    }else {
+                    } else {
                         System.out.println(task.getException().getMessage());
                         Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }
                 });
+
+    }
+    @Override
+    public void onBackPressed () {
+        showcancelDialog();
 
     }
 }

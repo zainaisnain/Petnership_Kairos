@@ -120,8 +120,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShelterRegistration.this,ActivityUserType.class);
-                startActivity(intent);
+                showcancelDialog();
 
             }
         });
@@ -167,7 +166,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         yesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                startActivity(new Intent(ShelterRegistration.this, LoginActivity.class));
+                startActivity(new Intent(ShelterRegistration.this, ActivityUserType.class));
                 cancelDialog.dismiss();
             }
         });
@@ -311,6 +310,11 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                         Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+    @Override
+    public void onBackPressed () {
+        showcancelDialog();
+
     }
 
 }
