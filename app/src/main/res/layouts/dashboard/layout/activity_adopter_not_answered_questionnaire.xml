@@ -57,7 +57,7 @@
                         android:layout_width="279dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/playfairdisplayblack"
-                        android:text="Please answer questionnaire first in order to proceed with adoption."
+                        android:text="Please answer our questionnaire first in order to proceed with adoption."
                         android:gravity="center"
                         android:textColor="#371576"
                         android:textSize="20sp"

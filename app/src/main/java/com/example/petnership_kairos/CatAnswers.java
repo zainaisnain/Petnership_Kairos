@@ -2,19 +2,18 @@ package com.example.petnership_kairos;
 
 public class CatAnswers {
     public int q1,q2,q3,q4,q5,q6,q7, q8;
-    public String shelter,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, imageName, petID, q9, petType;
-
+    public String shelter,petName, petAgeNum, petSex, petStatus, petDesc, imageName, petID, q9, petType;
+    public boolean petExact;
 
     public CatAnswers(){}
 
-    public CatAnswers(String shelter, String petName, String petAgeNum, String petAgeDD, String petAge, String petSex, String petStatus, String petDesc, String imageName, String petID,
+    public CatAnswers(String shelter, String petName, String petAgeNum, boolean petExact, String petSex, String petStatus, String petDesc, String imageName, String petID,
                       int q1, int q2, int q3, int q4, int q5, int q6, int q7, int q8, String q9, String petType){
         this.shelter=shelter;
         this.petName = petName;
         this.petAgeNum=petAgeNum;
-        this.petAgeDD=petAgeDD;
-        this.petAge = petAge;
         this.petSex = petSex;
+        this.petExact = petExact;
         this.petStatus = petStatus;
         this.petDesc = petDesc;
         this.imageName = imageName;

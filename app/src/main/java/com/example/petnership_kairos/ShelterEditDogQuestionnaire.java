@@ -55,7 +55,8 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
-    private String shelterID, petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+    private String shelterID, petName, petAgeNum, petSex, petStatus, petDesc, petID, petImage;
+    private boolean petExact;
 
     //JANNEL
     String[] dogBreed =
@@ -96,8 +97,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
         ShelterEditDog editDogInfo = new ShelterEditDog();
         petName = editDogInfo.petName;
         petAgeNum = editDogInfo.petAgeNum;
-        petAgeDD = editDogInfo.petAgeDD;
-        petAge = editDogInfo.petAge;
+        petExact = editDogInfo.petExact;
         petSex = editDogInfo.petSex;
         petStatus = editDogInfo.petStatus;
         petDesc = editDogInfo.petDesc;
@@ -249,7 +249,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
 //                    transaction.replace(R.id.nav_host_fragment, dogPetProfileSummary);
 //                    transaction.commit();
                     MySaveDialogEdit mySaveDialogEdit = new MySaveDialogEdit();
-                    mySaveDialogEdit.show(getParentFragmentManager(), "My Fragment");
+                    mySaveDialogEdit.show(getParentFragmentManager(), "Dog");
 //                    startActivity(new Intent(getActivity(), SuccessfullyEditedPet.class));
                 }
             }
@@ -656,7 +656,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                         }
 
                         String petType = "dog";
-                        DogAnswers dogAnswers = new DogAnswers(shelterID,petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
+                        DogAnswers dogAnswers = new DogAnswers(shelterID,petName, petAgeNum, petExact, petSex, petStatus, petDesc,petImage,petID, q1,q2,q3,q4,q5,
                                 q6,q7,q8,q9,q10,q11,petType);
                         petsDogsDBRef.child(petID).setValue(dogAnswers);
                         allPetsDBRef.child(petID).setValue(dogAnswers);
@@ -665,7 +665,7 @@ public class ShelterEditDogQuestionnaire extends Fragment implements View.OnClic
                         sheltersDBRef.child(shelterID).child("Dogs").child(petID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petImage, petID);
+                                Pet pet = new Pet(petName, petAgeNum, petExact, petSex, petStatus, petDesc, petImage, petID);
                                 snapshot.getRef().setValue(pet);
                             }
 

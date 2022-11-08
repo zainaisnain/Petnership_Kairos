@@ -35,6 +35,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Locale;
+
 public class ShelterToReviewApplication extends Fragment {
 
     String[] applicationStatusValues = {"Pending", "In progress", "Rejected", "Approved"};
@@ -235,6 +237,19 @@ public class ShelterToReviewApplication extends Fragment {
                 String country = (String) snapshot.child("country").getValue();
                 adopterAddress = street + ", " +  city + ", " + province + ", " + country;
                 tvAdopterAddress.setText(adopterAddress);
+
+                adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        double match = (double) snapshot.child("MatchPercentage").getValue();
+                        tvPetMatch.setText(String.format(Locale.getDefault(), "%.2f%%", match*100));
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 //check if there's image
                 adoptersDBRef.child(adopterID).orderByKey().equalTo("imageName").addListenerForSingleValueEvent(new ValueEventListener() {

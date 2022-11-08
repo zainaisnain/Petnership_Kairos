@@ -12,6 +12,7 @@
         android:id="@+id/btnBack"
         android:layout_width="70dp"
         android:layout_height="45dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/back_button"        android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,10 +25,12 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="400dp"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/scrollview_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -69,14 +72,14 @@
                 android:layout_margin="5dp"
                 app:cardBackgroundColor="#FFFFFF"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="180dp">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="180dp"
                     android:background="@drawable/card_dashboard">
-                    =
+
                     <ImageView
                         android:id="@+id/adoption_image"
                         android:layout_width="120dp"
@@ -89,9 +92,10 @@
                         />
                     <LinearLayout
                         android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingTop="@dimen/_10sdp">
                         <LinearLayout
@@ -198,7 +202,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/_10sdp">
 
                             <TextView
                                 android:id="@+id/adoption_pet_match_label"
@@ -258,7 +263,7 @@
                     android:layout_weight="4"
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center_vertical"
-                    android:text="Name of Adopter"
+                    android:text="Name"
                     android:textColor="#8A6DC3"
                     android:textSize="15sp" />
 
@@ -691,7 +696,7 @@
 
                 <TextView
                     android:layout_width="190dp"
-                    android:layout_height="70dp"
+                    android:layout_height="85dp"
                     android:layout_weight="2"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
@@ -1026,7 +1031,7 @@
 
                 <TextView
                     android:layout_width="190dp"
-                    android:layout_height="94dp"
+                    android:layout_height="105dp"
                     android:layout_weight="2"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="5dp"
@@ -1034,7 +1039,7 @@
                     android:gravity="center_vertical"
                     android:text="Have you ever surrendered a pet you own to any animal shelter including a low-kill or no-kill shelter?"
                     android:textColor="#8A6DC3"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -1119,7 +1124,7 @@
 
                 <TextView
                     android:layout_width="190dp"
-                    android:layout_height="94dp"
+                    android:layout_height="105dp"
                     android:layout_weight="2"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="5dp"
@@ -1127,7 +1132,7 @@
                     android:gravity="center_vertical"
                     android:text="Have you ever been convicted of an animal related crime, such as cruelty to animals, animal theft, or animal abandonment?"
                     android:textColor="#8A6DC3"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
@@ -1266,7 +1271,7 @@
 
                 <TextView
                     android:layout_width="190dp"
-                    android:layout_height="75dp"
+                    android:layout_height="85dp"
                     android:layout_weight="2"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="10dp"
@@ -1274,7 +1279,7 @@
                     android:gravity="center_vertical"
                     android:text="If you have to leave town, emergency or planned, where would your pet stay?"
                     android:textColor="#8A6DC3"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
                 <EditText
                     android:id="@+id/adoption_lifestyle_emergency"
                     android:layout_width="240dp"

@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MySaveDialogEdit extends DialogFragment {
 
     Button btnBack, btnCancel;
+    String petID;
 
     FirebaseAuth auth = FirebaseAuth.getInstance();
 
@@ -31,11 +32,24 @@ public class MySaveDialogEdit extends DialogFragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),ShelterDashboard.class);
-                startActivity(intent);
-               // getParentFragmentManager().popBackStack();
-                //getActivity().recreate();
-                setCancelable(false);
+                getActivity().finish();
+
+                Intent intent;
+                if (getTag().equalsIgnoreCase("Cat")) {
+
+                    ShelterEditCat editCatInfo = new ShelterEditCat();
+                    petID = editCatInfo.petID;
+                     intent = new Intent(view.getContext(), ShelterPerCatProfile.class);
+                }
+                else {
+
+                    ShelterEditDog editDogInfo = new ShelterEditDog();
+                    petID = editDogInfo.petID;
+                     intent = new Intent(view.getContext(), ShelterPerDogProfile.class);
+                }
+                intent.putExtra("petID", petID);
+                view.getContext().startActivity(intent);
+
                 dismiss();
             }
         });

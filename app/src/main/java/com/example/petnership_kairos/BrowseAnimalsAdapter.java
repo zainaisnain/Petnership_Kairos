@@ -1,24 +1,23 @@
 package com.example.petnership_kairos;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.Locale;
 
 public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdapter.ViewHolder>{
 
@@ -62,6 +61,13 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetSex.setText(registeredPetDataList.getPetSex());
         holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
         String petType = registeredPetDataList.getPetType();
+        if (registeredPetDataList.getPetMatch() == 0.0) {
+            holder.tvMatch.setText("N/A");
+
+        }
+        else {
+            holder.tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", registeredPetDataList.getPetMatch()*100));
+        }
 
         holder.cvAnimal.setOnClickListener(view -> {
 
@@ -89,16 +95,17 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivPetImage;
-        TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed;
+        TextView tvPetName, tvPetAge, tvPetSex, tvPetBreed, tvMatch;
         CardView cvAnimal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivPetImage = itemView.findViewById(R.id.pet_image);
             tvPetName = itemView.findViewById(R.id.per_pet_name_title);
-            tvPetAge = itemView.findViewById(R.id.pet_age);
+            tvPetAge = itemView.findViewById(R.id.pet_birthday);
             tvPetSex = itemView.findViewById(R.id.pet_sex);
             tvPetBreed = itemView.findViewById(R.id.pet_breed);
+            tvMatch = itemView.findViewById(R.id.pet_compatibility);
             cvAnimal = itemView.findViewById(R.id.cvAnimal);
 
         }

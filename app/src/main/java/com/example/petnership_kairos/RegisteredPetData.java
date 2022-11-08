@@ -3,6 +3,8 @@ package com.example.petnership_kairos;
 public class RegisteredPetData {
     String petID, petType, imageName, petName, petAge, petSex, petBreed;
 
+    Double petMatch;
+
     public RegisteredPetData(String petID, String petType, String imageName, String petName, String petAge, String petSex, String petBreed) {
         this.petID = petID;
         this.petType = petType;
@@ -11,6 +13,24 @@ public class RegisteredPetData {
         this.petAge = petAge;
         this.petSex = petSex;
         this.petBreed = petBreed;
+    }
+    public RegisteredPetData(String petID, String petType, String imageName, String petName, String petAge, String petSex, String petBreed, Double petMatch) {
+        this.petID = petID;
+        this.petType = petType;
+        this.imageName = imageName;
+        this.petName = petName;
+        this.petAge = petAge;
+        this.petSex = petSex;
+        this.petBreed = petBreed;
+        this.petMatch = petMatch;
+    }
+
+    public Double getPetMatch() {
+        return petMatch;
+    }
+
+    public void setPetMatch(Double petMatch) {
+        this.petMatch = petMatch;
     }
 
     public String getPetID() {
