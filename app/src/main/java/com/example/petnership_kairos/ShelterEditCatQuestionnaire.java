@@ -55,7 +55,8 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
 
     private String shelterID;
 
-    private String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, imageName;
+    private String petName, petAgeNum, petSex, petStatus, petDesc, petID, imageName;
+    private boolean petExact;
 
     //JANNEL
     String[] catBreed =
@@ -95,8 +96,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
         ShelterEditCat editCatInfo = new ShelterEditCat();
         petName = editCatInfo.petName;
         petAgeNum = editCatInfo.petAgeNum;
-        petAgeDD = editCatInfo.petAgeDD;
-        petAge = editCatInfo.petAge;
+        petExact = editCatInfo.petExact;
         petSex = editCatInfo.petSex;
         petStatus = editCatInfo.petStatus;
         petDesc = editCatInfo.petDesc;
@@ -229,7 +229,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                     updateDB();
 
                     MySaveDialogEdit mySaveDialogEdit = new MySaveDialogEdit();
-                    mySaveDialogEdit.show(getParentFragmentManager(), "My Fragment");
+                    mySaveDialogEdit.show(getParentFragmentManager(), "Cat");
 //                    FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 //                    transaction.replace(R.id.shelter_edit_cat_frag, catPetProfileSummary);
 //                    transaction.commit();
@@ -563,7 +563,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                         }
 
                         String petType = "cat";
-                        CatAnswers catAnswers = new CatAnswers(shelterID, petName, petAgeNum, petSex, petStatus,
+                        CatAnswers catAnswers = new CatAnswers(shelterID, petName, petAgeNum, petExact, petSex, petStatus,
                                 petDesc, imageName,petID, q1,q2,q3,q4,q5,
                                 q6,q7,q8,q9, petType);
                         petsCatsDBRef.child(petID).setValue(catAnswers);
@@ -571,7 +571,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
                         sheltersDBRef.child(shelterID).child("Cats").child(petID).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Pet pet = new Pet(petName, petAgeNum, petAgeDD, petStatus, petDesc, imageName, petID);
+                                Pet pet = new Pet(petName, petAgeNum, petExact, petSex, petStatus, petDesc, imageName, petID);
                                 snapshot.getRef().setValue(pet);
                             }
 

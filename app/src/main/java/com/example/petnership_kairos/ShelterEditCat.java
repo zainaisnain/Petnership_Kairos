@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -52,9 +54,11 @@ public class ShelterEditCat extends Fragment {
     String datePicked;
 
     private Button proceedBtn, uploadBtn, back;
+    private AppCompatRadioButton rbYesBirthday, rbNoBirthday;
     private ImageButton backBtn;
 
-    protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+    protected static String petName, petAgeNum, petAge, petSex, petStatus, petDesc, petID, petImage;
+    protected static boolean petExact;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -125,6 +129,25 @@ public class ShelterEditCat extends Fragment {
 //        ddAge = view.findViewById(R.id.pet_age_dd);
 //        ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
 //        ddAge.setAdapter(ageAdapter);
+
+        rbYesBirthday = view.findViewById(R.id.shelter_yesBirthday);
+        rbNoBirthday = view.findViewById(R.id.shelter_noBirthday);
+
+        rbYesBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbNoBirthday.setBackgroundColor(Color.GRAY);
+                rbYesBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
+
+        rbNoBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbYesBirthday.setBackgroundColor(Color.GRAY);
+                rbNoBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
 
         //SEX
         ddSex = view.findViewById(R.id.pet_sex_dd);
@@ -256,12 +279,21 @@ public class ShelterEditCat extends Fragment {
 //                petImage = imageName;
                 System.out.println("PET ID == " + petID);
 
+
+                if (rbYesBirthday.isChecked()) {
+                    petExact = true;
+                }
+                else {
+                    petExact = false;
+
+                }
+
                 if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
                 }else if(petAgeNum.isEmpty()){
-                    etPetBirthday.setError("Pet Age Required.");
+                    etPetBirthday.setError("Pet Birthday is required. You may estimate if the exact date is unknown.");
                     etPetBirthday.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
@@ -270,9 +302,13 @@ public class ShelterEditCat extends Fragment {
                     return;
                 }else{
                     if(filePath != null){
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         uploadImage();
                         editPetInfo();
                     }else{
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         editPetInfo();
                     }
                 }
@@ -428,9 +464,22 @@ public class ShelterEditCat extends Fragment {
                 System.out.println("petName (ShelterEditCat getData)" + petName);
                 etPetName.setText(petName);
 
-                petAge = String.valueOf(snapshot.child("petAge").getValue());
+                petAgeNum = String.valueOf(snapshot.child("petAgeNum").getValue());
 //                petAgeNum = (String) snapshot.child("petAgeNum").getValue();
                 etPetBirthday.setText(petAgeNum);
+
+                petExact = (boolean) snapshot.child("petExact").getValue();
+                if (petExact) {
+                    rbYesBirthday.setChecked(true);
+                    rbNoBirthday.setChecked(false);
+                    rbNoBirthday.setBackgroundColor(Color.GRAY);
+                }
+                else {
+                    rbYesBirthday.setChecked(false);
+                    rbNoBirthday.setChecked(true);
+                    rbYesBirthday.setBackgroundColor(Color.GRAY);
+
+                }
 
    //             petAgeDD = (String) snapshot.child("petAgeDD").getValue();
      //           int agePosition = ageAdapter.getPosition(petAgeDD);
@@ -490,6 +539,7 @@ public class ShelterEditCat extends Fragment {
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         ShelterEditCatQuestionnaire shelterEditCatQuestionnaire = new ShelterEditCatQuestionnaire();
         transaction.replace(R.id.add_pet_frag, shelterEditCatQuestionnaire);
+
         transaction.commit();
     }
 

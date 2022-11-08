@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="347dp"
-        android:layout_height="623dp"
+        android:layout_height="600dp"
         android:background="@drawable/card"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,18 +22,19 @@
         <TextView
             android:id="@+id/success_added_congrats"
             android:layout_width="wrap_content"
+            android:padding="10dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/playfairdisplayblack"
             android:gravity="center"
             android:text="Please check your email to verify your account!"
             android:textColor="#371576"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.048" />
+            app:layout_constraintVertical_bias="0.098" />
 
         <TextView
             android:id="@+id/success_added_msg"
@@ -62,8 +63,25 @@
             app:layout_constraintHorizontal_bias="0.531"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.335"
+            app:layout_constraintVertical_bias="0.365"
             tools:ignore="ImageContrastCheck" />
+
+
+        <Button
+            android:id="@+id/user_verify_dialog_home_btn"
+            android:layout_width="279dp"
+            android:layout_height="43dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/montserrat_reg"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.82" />
 
         <Button
             android:id="@+id/user_resend_verify_btn"
@@ -77,24 +95,6 @@
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.549"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.82" />
-
-        <Button
-            android:id="@+id/user_verify_dialog_home_btn"
-            android:layout_width="279dp"
-            android:layout_height="63dp"
-            android:background="@drawable/button"
-            android:fontFamily="@font/montserrat_reg"
-            android:text="Home"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            app:backgroundTint="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.97" />

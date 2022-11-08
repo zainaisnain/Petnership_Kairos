@@ -101,7 +101,7 @@ public class ShelterListOfCatsFragment extends Fragment {
 
                                     petImageName = String.valueOf(snapshot.child(petID).child("imageName").getValue());
                                     petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-                                    petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                                    petAge = String.valueOf(snapshot.child(petID).child("petAgeNum").getValue());
                                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
                                     petBreed = String.valueOf(snapshot.child(petID).child("q9").getValue());
                                     ALregisteredCatData.add( new RegisteredCatData(petID,petImageName, petName, petAge, petSex, petBreed));

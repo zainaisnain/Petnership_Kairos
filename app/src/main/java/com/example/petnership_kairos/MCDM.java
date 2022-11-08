@@ -269,7 +269,7 @@ public class MCDM {
 
                     criteriaValues = new ArrayList<MCDMCriteriaValue>();
                     petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-                    petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                    petAge = String.valueOf(snapshot.child(petID).child("petAgeNum").getValue());
                     petDesc = String.valueOf(snapshot.child(petID).child("petDesc").getValue());
                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
                     petStatus = String.valueOf(snapshot.child(petID).child("petStatus").getValue());
@@ -341,7 +341,7 @@ public class MCDM {
                     petIDs.add(petID);
 
                     petName = String.valueOf(snapshot.child(petID).child("petName").getValue());
-                    petAge = String.valueOf(snapshot.child(petID).child("petAge").getValue());
+                    petAge = String.valueOf(snapshot.child(petID).child("petAgeNum").getValue());
                     petDesc = String.valueOf(snapshot.child(petID).child("petDesc").getValue());
                     petSex = String.valueOf(snapshot.child(petID).child("petSex").getValue());
                     petStatus = String.valueOf(snapshot.child(petID).child("petStatus").getValue());
