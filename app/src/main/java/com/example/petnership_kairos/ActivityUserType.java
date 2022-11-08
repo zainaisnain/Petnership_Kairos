@@ -46,7 +46,7 @@ public class ActivityUserType extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+               onBackPressed();
 
             }
         });
@@ -74,6 +74,12 @@ public class ActivityUserType extends AppCompatActivity {
         Intent intent = new Intent(this,ShelterRegistration.class);
         startActivity(intent);
         finish();
+    }
+    @Override
+    public void onBackPressed () {
+        Intent intent = new Intent(ActivityUserType. this, LoginActivity. class);
+        startActivity(intent);
+
     }
 
 }

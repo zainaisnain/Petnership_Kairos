@@ -298,7 +298,7 @@
                     android:layout_height="48dp"
                     android:layout_marginLeft="30dp"
                     android:autofillHints=""
-                    android:background="@drawable/textfield"
+                    android:background="@drawable/edit_text_bg"
                     android:ems="10"
                     android:fontFamily="@font/montserrat_reg"
                     android:gravity="center"
