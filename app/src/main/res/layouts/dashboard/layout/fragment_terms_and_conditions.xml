@@ -24,10 +24,12 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="400dp"
+        android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/scrollview_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -69,14 +71,14 @@
                 android:layout_margin="5dp"
                 app:cardBackgroundColor="#FFFFFF"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="180dp">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="140dp"
+                    android:layout_height="180dp"
                     android:background="@drawable/card_dashboard">
-                    =
+
                     <ImageView
                         android:id="@+id/adoption_image"
                         android:layout_width="120dp"
@@ -89,9 +91,10 @@
                         />
                     <LinearLayout
                         android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/_10sdp"
                         android:paddingTop="@dimen/_10sdp">
                         <LinearLayout
@@ -198,7 +201,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:paddingBottom="@dimen/_10sdp">
 
                             <TextView
                                 android:id="@+id/adoption_pet_match_label"
@@ -258,7 +262,7 @@
                     android:layout_weight="4"
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center_vertical"
-                    android:text="Name of Adopter"
+                    android:text="Name"
                     android:textColor="#8A6DC3"
                     android:textSize="15sp" />
 
