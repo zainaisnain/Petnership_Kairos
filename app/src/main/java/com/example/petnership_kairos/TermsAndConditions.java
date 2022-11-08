@@ -195,7 +195,12 @@ public class TermsAndConditions extends Fragment implements View.OnClickListener
         tvAdopterContact.setText(adopterContact);
         tvAdopterAddress.setText(adopterAddress);
 
-        tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100)); // TODO: FIX MATCH
+        if (matchPercentage == 0.0) {
+            tvMatch.setText("N/A");
+        }
+        else {
+            tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100)); // TODO: FIX MATCH
+        }
 
 
 

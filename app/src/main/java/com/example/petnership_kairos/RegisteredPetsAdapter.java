@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -129,7 +128,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
             super(itemView);
             ivPetImage = itemView.findViewById(R.id.pet_image);
             tvPetName = itemView.findViewById(R.id.per_pet_name_title);
-            tvPetAge = itemView.findViewById(R.id.pet_age);
+            tvPetAge = itemView.findViewById(R.id.pet_birthday);
             tvPetSex = itemView.findViewById(R.id.pet_sex);
             tvPetBreed = itemView.findViewById(R.id.pet_breed);
             cvPet = itemView.findViewById(R.id.cvPet);

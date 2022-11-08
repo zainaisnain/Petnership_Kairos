@@ -25,18 +25,21 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_gravity="center"
-                android:background="#E5E4E2"
+                android:background="#DA8EE7"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/cat_dog" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:layout_gravity="center_vertical"
                 android:orientation="vertical"
-                android:paddingLeft="@dimen/_5sdp"
-                android:paddingTop="@dimen/_10sdp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="3dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -48,18 +51,20 @@
                     <TextView
                         android:id="@+id/pet_name_label"
                         android:layout_width="70dp"
-                        android:textStyle="bold"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Name:"
-                        android:textSize="15sp" />
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Name"
+                        android:textColor="@color/dark_purple"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/per_pet_name_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
+                        android:textColor="#1D102C"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Pet's Name"
                         android:textSize="13sp" />
@@ -74,18 +79,20 @@
                     <TextView
                         android:id="@+id/pet_label_age"
                         android:layout_width="70dp"
-                        android:textStyle="bold"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Birthday:"
-                        android:textSize="15sp" />
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Birthday"
+                        android:textColor="@color/dark_purple"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
 
                     <TextView
-                        android:id="@+id/pet_age"
+                        android:id="@+id/pet_birthday"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
+                        android:textColor="#1D102C"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Pet's Age"
                         android:textSize="13sp" />
@@ -99,17 +106,19 @@
                     <TextView
                         android:id="@+id/pet_label_sex"
                         android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Sex:"
-                        android:textSize="15sp" />
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Sex"
+                        android:textColor="@color/dark_purple"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
                 <TextView
                     android:id="@+id/pet_sex"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
+                    android:textColor="#1D102C"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="Breed's Sex"
                     android:textSize="13sp" />
@@ -123,17 +132,19 @@
                     <TextView
                         android:id="@+id/pet_label_breed"
                         android:layout_width="70dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_alignParentBottom="true"
-                        android:textStyle="bold"
-                        android:fontFamily="@font/montserrat_reg"
-                        android:text="Breed:"
-                        android:textSize="15sp" />
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Breed"
+                        android:textColor="@color/dark_purple"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
                 <TextView
                     android:id="@+id/pet_breed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
+                    android:textColor="#1D102C"
                     android:fontFamily="@font/montserrat_reg"
                     android:text="American Curl"
                     android:textSize="13sp" />
