@@ -27,6 +27,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.apache.commons.text.WordUtils;
+
 import java.util.Arrays;
 
 public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClickListener {
@@ -204,7 +206,7 @@ public class ShelterEditCatQuestionnaire extends Fragment implements View.OnClic
             @Override
             public void onClick(View view) {
                 if(q9.equals("Other")){
-                    q9 = etOtherBreed.getText().toString().trim().toLowerCase();
+                    q9 = WordUtils.capitalize(etOtherBreed.getText().toString().trim());
                 }
                 if(q9.isEmpty()){
                     etOtherBreed.requestFocus();
