@@ -386,7 +386,7 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
                                 });
                     } else {
                         System.out.println(task.getException().getMessage());
-                        Toast.makeText(AdopterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AdopterRegistration.this, "Email already exists.", Toast.LENGTH_LONG).show();
                     }
                 });
 
