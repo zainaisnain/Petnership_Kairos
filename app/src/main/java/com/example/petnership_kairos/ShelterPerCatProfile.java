@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,6 +56,8 @@ public class ShelterPerCatProfile extends AppCompatActivity {
     private String[] popularityMedium = {"Snowshoe", "Abyssinian", "Norwegian Forest", "Burmese", "Turkish Angora",
             "Ragamuffin", "Sphynx", "Nebelung", "Russian Blue", "Burmilla", "Chartreux", "American Shorthair",
             "Himalayan", "Turkish Van", "Tonkinese"};
+
+    boolean userIsSure = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +104,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
                 //if yes
                 //are you sure? (need pa ba)
                 //then delete
-                deletePet();
+                checkIfCanDeletePet();
             }
         });
 
@@ -122,7 +128,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
         setUpSummary();
     }
 
-    private void deletePet() {
+    private void checkIfCanDeletePet() {
         usersDBRef.orderByChild("email").equalTo(shelterEmail).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -142,6 +148,8 @@ public class ShelterPerCatProfile extends AppCompatActivity {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.exists()){
+                                        //SHOW DIALOG THAT PET HAS APPLICANT UNDER REVIEW
+                                        showHasApplicantsDialog();
                                         System.out.println("PET IS UNDER APPLICANT REVIEW. CANT DELETE PET.");
                                     }else{
                                         //check if it's in ApprovedAdopters
@@ -153,19 +161,13 @@ public class ShelterPerCatProfile extends AppCompatActivity {
                                                         @Override
                                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                                             if(snapshot.exists()){
+                                                                //SHOW DIALOG THAT PET HAS APPROVED ADOPTER
+                                                                showHasApprovedDialog();
                                                                 System.out.println("PET HAS approved adopter. CANT DELETE PET.");
                                                             }else{
                                                                 //delete pet
-                                                                System.out.println("CAN NOW DELETE PET");
-//                                                                allPetsDBRef.child(petID).removeValue();
-//                                                                petsCatsDBRef.child(petID).removeValue();
-//                                                                sheltersDBRef.child(shelterID).child("Cats").addListenerForSingleValueEvent(new ValueEventListener() {
-//                                                                    @Override
-//                                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                                                        snapshot.child(petID).getRef().removeValue();
-//                                                                    }
-//                                                                    @Override
-//                                                                    public void onCancelled(@NonNull DatabaseError error) {}});
+//                                                                showAreYouSureDialog();
+                                                                showDeletePetDialog();
                                                             }
                                                         }
 
@@ -198,6 +200,77 @@ public class ShelterPerCatProfile extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {}});
 
 
+    }
+
+    private void showHasApplicantsDialog() {
+        final Dialog showHasApplicantsDialog  = new Dialog(this);
+        showHasApplicantsDialog.setContentView(R.layout.activity_dialog_has_active_applicants);
+        showHasApplicantsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        showHasApplicantsDialog.show();
+        Button okBTN = (Button) showHasApplicantsDialog.findViewById(R.id.buttonOk);
+        okBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                showHasApplicantsDialog.dismiss();
+
+            }
+        });
+    }
+    private void showHasApprovedDialog() {
+        final Dialog showHasApprovedDialog  = new Dialog(this);
+        showHasApprovedDialog.setContentView(R.layout.activity_dialog_has_approved_adopter);
+        showHasApprovedDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        showHasApprovedDialog.show();
+        Button okBTN = (Button) showHasApprovedDialog.findViewById(R.id.buttonOk);
+        okBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                showHasApprovedDialog.dismiss();
+
+            }
+        });
+    }
+    private void showDeletePetDialog() {
+        final Dialog showDeletePetDialog  = new Dialog(this);
+        showDeletePetDialog.setContentView(R.layout.activity_dialog_delete_pet);
+        showDeletePetDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        showDeletePetDialog.show();
+        Button cancelBtn = (Button) showDeletePetDialog.findViewById(R.id.cancel_btn);
+        Button deleteBtn = (Button) showDeletePetDialog.findViewById(R.id.delete_pet_btn);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                showDeletePetDialog.dismiss();
+
+            }
+        });
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                deletePet();
+                //go back to list of cats
+                ShelterListOfCatsFragment shelterListOfCatsFragment = new ShelterListOfCatsFragment();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.per_cat_profile_container, shelterListOfCatsFragment);
+                transaction.commit();
+                showDeletePetDialog.dismiss();
+
+            }
+        });
+
+    }
+
+    private void deletePet(){
+        System.out.println("===== DELETING PET ==== ");
+        allPetsDBRef.child(petID).removeValue();
+        petsCatsDBRef.child(petID).removeValue();
+        sheltersDBRef.child(shelterID).child("Cats").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                snapshot.child(petID).getRef().removeValue();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}});
     }
 
     private void setUpPetImage() {

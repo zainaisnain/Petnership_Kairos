@@ -1474,10 +1474,11 @@
                             android:layout_gravity="center"/>
                         <TextView
                             android:id="@+id/adopter_references_shelter_approved"
-                            android:layout_width="wrap_content"
+                            android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginEnd="20dp"
+                            android:paddingLeft="20dp"
                             android:layout_weight="2"
                             android:paddingTop="5dp"
                             android:paddingBottom="5dp"
@@ -1486,7 +1487,7 @@
                             android:text="@string/lorem_ipsum"
                             android:textColor="#1D102C"
                             android:textSize="15sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <!-- REASON -->
                         <View
@@ -1540,10 +1541,11 @@
 
                         <TextView
                             android:id="@+id/adopter_intentions_shelter_approved"
-                            android:layout_width="wrap_content"
+                            android:layout_width="300dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginEnd="20dp"
+                            android:paddingLeft="20dp"
                             android:layout_weight="2"
                             android:fontFamily="@font/montserrat_reg"
                             android:gravity="center_vertical"

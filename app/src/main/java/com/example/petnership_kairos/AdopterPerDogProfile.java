@@ -238,7 +238,71 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                 }
 
 
+                                allPetsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot2) {
 
+                                        petImageName = (String) snapshot2.child("imageName").getValue();
+
+                                        if(petImageName != null){
+                                            if(!petImageName.isEmpty()){
+                                                if(petImageName != ""){
+                                                    //DISPLAY IMAGE TO IMAGE VIEW
+                                                    storageReference.child("Pets/").child(petImageName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                                        @Override
+                                                        public void onSuccess(Uri uri) {
+                                                            Glide.with(AdopterPerDogProfile.this).load(uri.toString()).into(ivPetImage);
+                                                        }
+                                                    });
+                                                }
+                                            }
+                                        }
+
+                                        petName = String.valueOf(snapshot2.child("petName").getValue());
+                                        petAge = String.valueOf(snapshot2.child("petAge").getValue());
+                                        petSex = String.valueOf(snapshot2.child("petSex").getValue());
+                                        petDescription = String.valueOf(snapshot2.child("petDesc").getValue());
+                                        shelterID = (String) snapshot2.child("shelter").getValue();
+                                        petType = (String) snapshot2.child("petType").getValue();
+                                        System.out.println("-petImageName: " + petImageName);
+                                        System.out.println("-petName " + petName);
+                                        System.out.println("-petAge: " + petAge);
+                                        System.out.println("-petSex: " + petSex);
+                                        if(petType.equals("dog")){
+                                            petBreed = (String) snapshot2.child("q10").getValue();
+                                        }
+
+                                        tvPetTitle.setText(petName + "'s Profile");
+                                        tvPetName.setText(petName);
+                                        tvPetBreed.setText(petBreed);
+                                        //TODO: Change to petBirthday (Add field to Firebase)
+                                        tvPetAge.setText(petAge);
+                                        tvPetSex.setText(petSex);
+                                        tvPetDescription.setText(petDescription);
+
+                                        sheltersDBRef.child(shelterID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                shelterEmail = (String) snapshot.child("email").getValue();
+                                                petShelter = (String) snapshot.child("bizName").getValue();
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
+/*
                                 adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID)
                                         .addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
@@ -312,6 +376,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             public void onCancelled(@NonNull DatabaseError error) {
                                             }
                                         });
+                                */
                             }
 
                             @Override

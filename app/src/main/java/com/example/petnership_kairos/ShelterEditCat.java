@@ -40,6 +40,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import org.apache.commons.text.WordUtils;
+
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.UUID;
@@ -104,7 +106,7 @@ public class ShelterEditCat extends Fragment {
         return view;
 
     }
-    @Override
+    @Override 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Edit Cat Information");
@@ -247,7 +249,7 @@ public class ShelterEditCat extends Fragment {
             @Override
             public void onClick(View v)
             {
-                petName = etPetName.getText().toString().trim();
+                petName = WordUtils.capitalize(etPetName.getText().toString().trim());
                 petAgeNum = etPetBirthday.getText().toString().trim();
 //                petAge = petAgeNum + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
@@ -259,8 +261,8 @@ public class ShelterEditCat extends Fragment {
                     etPetName.requestFocus();
                     return;
                 }else if(petAgeNum.isEmpty()){
-                    etPetAge.setError("Pet Age Required.");
-                    etPetAge.requestFocus();
+                    etPetBirthday.setError("Pet Age Required.");
+                    etPetBirthday.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");

@@ -120,8 +120,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShelterRegistration.this,ActivityUserType.class);
-                startActivity(intent);
+                showcancelDialog();
 
             }
         });
@@ -167,7 +166,7 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
         yesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                startActivity(new Intent(ShelterRegistration.this, LoginActivity.class));
+                startActivity(new Intent(ShelterRegistration.this, ActivityUserType.class));
                 cancelDialog.dismiss();
             }
         });
@@ -292,13 +291,12 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-
                                             Shelter shelter = new Shelter(shelterID, bizName, owner, email,
                                                     website, contact, street, city, shelterProvince, country);
 
                                             databaseReference.child("Shelters").child(shelterID).setValue(shelter);
 
-                                            User user = new User(shelterID, email, "shelter", false);
+                                            User user = new User(shelterID, email, "shelter", false, false);
 
                                             databaseReference.child("Users").child(shelterID).setValue(user);
 
@@ -311,6 +309,11 @@ public class ShelterRegistration extends AppCompatActivity implements View.OnCli
                         Toast.makeText(ShelterRegistration.this, "Failed to register. Try Again!", Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+    @Override
+    public void onBackPressed () {
+        showcancelDialog();
+
     }
 
 }
