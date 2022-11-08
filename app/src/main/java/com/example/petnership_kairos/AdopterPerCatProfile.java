@@ -24,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Locale;
+
 public class AdopterPerCatProfile extends AppCompatActivity {
 
     private FirebaseAuth authProfile;
@@ -31,7 +33,8 @@ public class AdopterPerCatProfile extends AppCompatActivity {
 
     protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
     private String adopterBirthday, adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress;
-    private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
+    private Double matchPercentage;
+    private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription, tvMatch;
     private ImageView ivPetImage;
     private ImageButton backBtnUp;
     private Button adoptMeBtn, backBtn;
@@ -71,6 +74,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
         tvPetAge = findViewById(R.id.adopter_per_cat_age);
         tvPetSex = findViewById(R.id.adopter_per_cat_sex);
         tvPetDescription = findViewById(R.id.adopter_per_cat_description);
+        tvMatch = findViewById(R.id.adopter_per_cat_compatibility);
 
         tvCatlvl1 = findViewById(R.id.adopter_catlevel1);
         tvCatlvl2 = findViewById(R.id.adopter_catlevel2);
@@ -154,6 +158,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                             bundle.putString("adopterContact", adopterContact);
                                             bundle.putString("adopterAddress", adopterAddress);
                                             bundle.putString("adopterBirthday", adopterBirthday);
+                                            bundle.putDouble("match", matchPercentage);
 
                                             TermsAndConditions termsAndConditions = new TermsAndConditions();
                                             termsAndConditions.setArguments(bundle);
@@ -253,8 +258,29 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                 System.out.println("-petImageName: " + petImageName);
                                 System.out.println("-petName " + petName);
                                 System.out.println("-petAge: " + petAge);
-                            System.out.println("-petSex: " + petSex);
+                                System.out.println("-petSex: " + petSex);
                                 petBreed = (String) snapshot2.child("q9").getValue();
+                                adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                                        System.out.println("Snapshot: " + snapshot2.getKey());
+                                        matchPercentage = (Double) snapshot2.child("MatchPercentage").getValue();
+                                        System.out.println("Match: " + matchPercentage);
+
+
+                                        if (matchPercentage <= 0 ) {
+                                            tvMatch.setText("N/A");
+                                        }
+                                        else {
+                                            tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100));
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
 
                                 tvPetTitle.setText(petName + "'s Profile");
                                 tvPetName.setText(petName);
