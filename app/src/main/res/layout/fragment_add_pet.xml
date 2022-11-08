@@ -73,7 +73,7 @@
                         app:layout_constraintVertical_bias="0.056" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="320dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
@@ -85,17 +85,19 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:layout_gravity="center_vertical"
+                        android:paddingStart="5dp"
                         android:fontFamily="@font/montserrat_reg"
+                        android:textColor="@color/dark_purple"
                         android:text="Name"
                         android:textSize="20sp" />
 
 
                     <EditText
                         android:id="@+id/per_pet_name_title"
-                        android:layout_width="188dp"
+                        android:layout_width="190dp"
                         android:layout_height="48dp"
                         android:layout_marginLeft="30dp"
                         android:autofillHints=""
@@ -108,65 +110,7 @@
                 </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/card"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginEnd="5dp"
-                            android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center_vertical"
-                            android:text="Do you know the birthday of this pet?"
-                            android:textSize="13sp" />
-
-                        <RadioGroup
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:orientation="horizontal"
-                            android:layout_gravity="center"
-                            android:layout_marginEnd="20dp"
-                            android:id="@+id/radio_home">
-                            <androidx.appcompat.widget.AppCompatRadioButton
-                                android:id="@+id/shelter_yesBirthday"
-                                android:layout_width="94dp"
-                                android:layout_height="28dp"
-                                android:button="@android:color/transparent"
-                                android:text="Yes"
-                                android:gravity="center"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:background="@drawable/radio_button_type"
-                                android:textColor="@color/white"
-                                android:fontFamily="@font/playfairdisplayblack"/>
-                            <androidx.appcompat.widget.AppCompatRadioButton
-                                android:id="@+id/shelter_noBirthday"
-                                android:layout_width="94dp"
-                                android:layout_height="28dp"
-                                android:button="@android:color/transparent"
-                                android:text="No"
-                                android:gravity="center"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:background="@drawable/radio_button_type"
-                                android:textColor="@color/white"
-                                android:fontFamily="@font/playfairdisplayblack"/>
-
-                        </RadioGroup>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/card"
@@ -177,18 +121,20 @@
                         app:layout_constraintStart_toStartOf="parent">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_gravity="center_vertical"
+                            android:paddingStart="5dp"
+                            android:textColor="@color/dark_purple"
                             android:fontFamily="@font/montserrat_reg"
-                            android:text="If yes, enter\nbirthday"
-                            android:textSize="13sp" />
+                            android:text="Birthday"
+                            android:textSize="20sp" />
 
                         <EditText
                             android:id="@+id/txt_birthday_pet_edit"
-                            android:layout_width="188dp"
+                            android:layout_width="190dp"
                             android:layout_height="48dp"
-                            android:layout_marginLeft="18dp"
+                            android:layout_marginLeft="30dp"
                             android:autofillHints=""
                             android:background="@drawable/edit_text_bg"
                             android:ems="10"
@@ -219,8 +165,67 @@
 <!--                            app:layout_constraintVertical_bias="0.376" />-->
                     </LinearLayout>
 
+
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="320dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/card"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/pet_desc"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_gravity="center_vertical"
+                            android:paddingStart="5dp"
+                            android:textColor="@color/dark_purple"
+                            android:fontFamily="@font/montserrat_reg"
+                            android:gravity="center_vertical"
+                            android:text="Is the birthday above exact?"
+                            android:textSize="18sp" />
+
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:id="@+id/radio_home">
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/shelter_yesBirthday"
+                                android:layout_width="90dp"
+                                android:layout_height="28dp"
+                                android:button="@android:color/transparent"
+                                android:layout_marginEnd="10dp"
+                                android:text="Exact"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_button_type"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/playfairdisplayblack"/>
+                            <androidx.appcompat.widget.AppCompatRadioButton
+                                android:id="@+id/shelter_noBirthday"
+                                android:layout_width="90dp"
+                                android:layout_height="28dp"
+                                android:button="@android:color/transparent"
+                                android:text="Estimated"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:background="@drawable/radio_button_type"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/playfairdisplayblack"/>
+
+                        </RadioGroup>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/card"
@@ -231,17 +236,18 @@
                         app:layout_constraintStart_toStartOf="parent">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
                             android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:text=" Sex"
+                            android:layout_gravity="center_vertical"
+                            android:paddingStart="5dp"
+                            android:textColor="@color/dark_purple"
+                            android:text="Sex"
                             android:textSize="20sp" />
 
                         <Spinner
                             android:id="@+id/pet_sex_dd"
-                            android:layout_width="188dp"
+                            android:layout_width="190dp"
                             android:layout_height="48dp"
                             android:layout_marginLeft="30dp"
                             android:autofillHints=""
@@ -262,7 +268,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="320dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/card"
@@ -273,11 +279,13 @@
                         app:layout_constraintStart_toStartOf="parent">
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_reg"
-                            android:gravity="center"
-                            android:text=" Status"
+                            android:layout_gravity="center_vertical"
+                            android:paddingStart="5dp"
+                            android:textColor="@color/dark_purple"
+                            android:text="Status"
                             android:textSize="20sp"
 
                             />
@@ -286,7 +294,7 @@
                             android:id="@+id/shelter_adoption_application_status"
                             android:layout_width="188dp"
                             android:layout_height="48dp"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="30dp"
                             android:autofillHints=""
                             android:background="@drawable/edit_text_bg"
                             android:ems="10"
@@ -311,6 +319,7 @@
                         android:layout_marginBottom="5dp"
                         android:fontFamily="@font/montserrat_reg"
                         android:text="Description"
+                        android:textColor="@color/dark_purple"
                         android:textSize="20sp"/>
 
                     <EditText

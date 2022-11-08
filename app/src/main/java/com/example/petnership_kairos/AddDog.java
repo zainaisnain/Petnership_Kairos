@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -25,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,10 +54,12 @@ public class  AddDog extends Fragment {
     private EditText etPetName, etPetBirthday, etPetDescription;
     private Button proceedBtn, uploadBtn, backBtn;
     private AppCompatRadioButton rbYesBirthday, rbNoBirthday;
+    private TextView tvTitle;
     String datePicked;
 
     private ImageButton backBtn2;
     protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+    protected static boolean petExact;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -150,7 +154,8 @@ public class  AddDog extends Fragment {
 //        ddAge = view.findViewById(R.id.pet_age_dd);
 //        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
 //        ddAge.setAdapter(ageAdapter);
-
+        tvTitle = view.findViewById(R.id.petinfo_title);
+        tvTitle.setText("Pet Information (Dog)");
         etPetBirthday = view.findViewById(R.id.txt_birthday_pet_edit);
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
@@ -204,7 +209,21 @@ public class  AddDog extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
+        rbYesBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbNoBirthday.setBackgroundColor(Color.GRAY);
+                rbYesBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
 
+        rbNoBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbYesBirthday.setBackgroundColor(Color.GRAY);
+                rbNoBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
         //Set value for Dropdown Status
         ddStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -251,7 +270,7 @@ public class  AddDog extends Fragment {
                     etPetName.requestFocus();
                     return;
                 }else if(petAgeNum.isEmpty()){
-                    etPetBirthday.setError("Pet Birthday Required.");
+                    etPetBirthday.setError("Pet Birthday is required. You may estimate if the exact date is unknown.");
                     etPetBirthday.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
@@ -262,9 +281,13 @@ public class  AddDog extends Fragment {
 //                    Toast.makeText(getActivity(), "Please select pet's picture", Toast.LENGTH_LONG).show();
                 }else{
                     if(filePath != null){
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         uploadImage();
                         addPet();
                     }else{
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         addPet();
                     }
                 }
@@ -412,6 +435,9 @@ public class  AddDog extends Fragment {
                     Toast.makeText(getActivity(), "Pet already exists. Please pick a new username.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
+
+                    if (rbYesBirthday.isChecked()) petExact = true;
+                    else petExact = false;
 
                     FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                     ShelterDogQuestionnaire ShelterDogQuestionnaire = new ShelterDogQuestionnaire();

@@ -81,7 +81,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
         firebaseUser = authProfile.getCurrentUser();
         shelterEmail = firebaseUser.getEmail();
 
-        petID = getIntent().getStringExtra("dogPetID");
+        petID = getIntent().getStringExtra("petID");
         ivPetImage = findViewById(R.id.per_dog_image);
         tvPetTitle = findViewById(R.id.per_dog_name_title);
         tvPetName = findViewById(R.id.per_dog_name);
@@ -316,7 +316,7 @@ public class ShelterPerDogProfile extends AppCompatActivity {
 
                 petName = (String) snapshot.child("petName").getValue();
                 petBreed = (String) snapshot.child("q10").getValue();
-                petAge = (String) snapshot.child("petAge").getValue();
+                petAge = (String) snapshot.child("petAgeNum").getValue();
                 petSex = (String) snapshot.child("petSex").getValue();
                 petDescription = (String) snapshot.child("petDesc").getValue();
 

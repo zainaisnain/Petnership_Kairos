@@ -80,7 +80,7 @@ public class ShelterPerPetProfile extends AppCompatActivity {
                 }
                 petName = (String) snapshot.child("petName").getValue();
                 petBreed = (String) snapshot.child("q10").getValue();
-                petAge = (String) snapshot.child("petAge").getValue();
+                petAge = (String) snapshot.child("petAgeNum").getValue();
                 petSex = (String) snapshot.child("petSex").getValue();
                 petDescription = (String) snapshot.child("petDesc").getValue();
 

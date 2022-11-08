@@ -4,11 +4,13 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -52,10 +54,12 @@ public class ShelterEditDog extends Fragment {
     private EditText etPetName, etPetAge, etPetSex, etPetDescription, etPetBirthday;
 
     private Button proceedBtn, uploadBtn, back;
+    private AppCompatRadioButton rbYesBirthday, rbNoBirthday;
     private ImageButton backBtn;
     String datePicked;
 
-    protected static String petName, petAgeNum, petAgeDD, petAge, petSex, petStatus, petDesc, petID, petImage;
+    protected static String petName, petAgeNum, petSex, petStatus, petDesc, petID, petImage;
+    protected static boolean petExact;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -132,6 +136,24 @@ public class ShelterEditDog extends Fragment {
         sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
         ddSex.setAdapter(sexAdapter);
 
+        rbYesBirthday = view.findViewById(R.id.shelter_yesBirthday);
+        rbNoBirthday = view.findViewById(R.id.shelter_noBirthday);
+
+        rbYesBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbNoBirthday.setBackgroundColor(Color.GRAY);
+                rbYesBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
+
+        rbNoBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbYesBirthday.setBackgroundColor(Color.GRAY);
+                rbNoBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
         //STATUS
         ddStatus = view.findViewById(R.id.shelter_adoption_application_status);
         statusAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddStatusValues);
@@ -265,28 +287,42 @@ public class ShelterEditDog extends Fragment {
             public void onClick(View v)
             {
                 petName = WordUtils.capitalize(etPetName.getText().toString().trim());
+                petAgeNum = etPetBirthday.getText().toString().trim();
 //                petAgeNum = epetAgeNumtPetAge.getText().toString().trim();
 //                petAge =  + petAgeDD;
                 petDesc = etPetDescription.getText().toString().trim();
 
-                if(petName.isEmpty()) {
+
+                if (rbYesBirthday.isChecked()) {
+                    petExact = true;
+                }
+                else {
+                    petExact = false;
+
+                }
+
+
+                if(petName.isEmpty()){
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
-
-//                }else if(petAgeNum.isEmpty()){
-//                    etPetAge.setError("Pet Age Required.");
-//                    etPetAge.requestFocus();
-//                    return;
+                }else if(petAgeNum.isEmpty()){
+                    etPetBirthday.setError("Pet Birthday is required. You may estimate if the exact date is unknown.");
+                    etPetBirthday.requestFocus();
+                    return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
                     return;
                 }else{
                     if(filePath != null){
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         uploadImage();
                         editPetInfo();
                     }else{
+                        etPetBirthday.setError(null);
+                        etPetBirthday.clearFocus();
                         editPetInfo();
                     }
                 }
@@ -439,7 +475,21 @@ public class ShelterEditDog extends Fragment {
                 System.out.println("petName (ShelterEditDog getData)" + petName);
                 etPetName.setText(petName);
 
-                petAge = String.valueOf(snapshot.child("petAge").getValue());
+                petAgeNum = String.valueOf(snapshot.child("petAgeNum").getValue());
+                etPetBirthday.setText(petAgeNum);
+
+                petExact = (boolean) snapshot.child("petExact").getValue();
+                if (petExact) {
+                    rbYesBirthday.setChecked(true);
+                    rbNoBirthday.setChecked(false);
+                    rbNoBirthday.setBackgroundColor(Color.GRAY);
+                }
+                else {
+                    rbYesBirthday.setChecked(false);
+                    rbNoBirthday.setChecked(true);
+                    rbYesBirthday.setBackgroundColor(Color.GRAY);
+
+                }
 
 //                petAgeNum = (String) snapshot.child("petAgeNum").getValue();
 //                etPetAge.setText(petAgeNum);

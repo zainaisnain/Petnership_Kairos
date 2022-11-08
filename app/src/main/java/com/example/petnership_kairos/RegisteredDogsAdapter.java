@@ -83,7 +83,7 @@ public class RegisteredDogsAdapter extends RecyclerView.Adapter<RegisteredDogsAd
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), ShelterPerDogProfile.class);
-                intent.putExtra("dogPetID", registeredDogDataList.getPetID());
+                intent.putExtra("petID", registeredDogDataList.getPetID());
                 view.getContext().startActivity(intent);
             }
         });

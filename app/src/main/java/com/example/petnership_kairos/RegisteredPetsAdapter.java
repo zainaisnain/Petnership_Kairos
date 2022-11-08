@@ -87,7 +87,7 @@ public class RegisteredPetsAdapter extends RecyclerView.Adapter<RegisteredPetsAd
                 String petType = registeredPetDataList.getPetType();
                 if(petType.equals("dog")){
                     Intent dogIntent = new Intent(view.getContext(), ShelterPerDogProfile.class);
-                    dogIntent.putExtra("dogPetID", registeredPetDataList.getPetID());
+                    dogIntent.putExtra("petID", registeredPetDataList.getPetID());
                     view.getContext().startActivity(dogIntent);
                 }else{
                     Intent catIntent = new Intent(view.getContext(), ShelterPerCatProfile.class);

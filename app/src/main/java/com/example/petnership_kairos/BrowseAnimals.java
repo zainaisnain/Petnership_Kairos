@@ -120,7 +120,7 @@ public class BrowseAnimals extends Fragment {
                                             if (status.equalsIgnoreCase("Available")){
                                                 petImageName = String.valueOf(ds2.child("imageName").getValue());
                                                 petName = String.valueOf(ds2.child("petName").getValue());
-                                                petAge = String.valueOf(ds2.child("petAge").getValue());
+                                                petAge = String.valueOf(ds2.child("petAgeNum").getValue());
                                                 petSex = String.valueOf(ds2.child("petSex").getValue());
                                                 System.out.println("-petImageName: " + petImageName);
                                                 System.out.println("-petName " + petName);

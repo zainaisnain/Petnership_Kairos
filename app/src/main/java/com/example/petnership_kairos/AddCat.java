@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -55,10 +57,12 @@ public class AddCat extends Fragment {
     private EditText etPetName, etPetAge, etPetDescription, etPetBirthday;
     private Button proceedBtn, uploadBtn, backBtn;
     private AppCompatRadioButton rbYesBirthday, rbNoBirthday;
+    private TextView tvTitle;
     String datePicked;
 
     private ImageButton backBtn2;
     protected static String petName, petAge, petAgeNum, petAgeDD, petSex, petStatus, petDesc, petID, petImage;
+    protected static boolean petExact;
 
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
@@ -147,6 +151,8 @@ public class AddCat extends Fragment {
         //BIRTHDAY
         rbYesBirthday = view.findViewById(R.id.shelter_yesBirthday);
         rbNoBirthday = view.findViewById(R.id.shelter_noBirthday);
+        tvTitle = view.findViewById(R.id.petinfo_title);
+        tvTitle.setText("Pet Information (Dog)");
 //        ddAge = view.findViewById(R.id.pet_age_dd);
 //        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
 //        ddAge.setAdapter(ageAdapter);
@@ -172,6 +178,21 @@ public class AddCat extends Fragment {
             }
         });
 
+        rbYesBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbNoBirthday.setBackgroundColor(Color.GRAY);
+                rbYesBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
+
+        rbNoBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rbYesBirthday.setBackgroundColor(Color.GRAY);
+                rbNoBirthday.setBackgroundColor(R.drawable.round_lightpurple);
+            }
+        });
         //SEX
         ddSex = view.findViewById(R.id.pet_sex_dd);
         ArrayAdapter<String> sexAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddSexValues);
@@ -252,11 +273,10 @@ public class AddCat extends Fragment {
                     etPetName.setError("Pet Name is Required.");
                     etPetName.requestFocus();
                     return;
-                }else if(rbYesBirthday.isActivated() && petAgeNum.isEmpty()) {
-                    System.out.println("BDAY? == " + petID);
-                        etPetBirthday.setError("Pet Birthday is required.");
-                        etPetBirthday.requestFocus();
-                        return;
+            }else if(petAgeNum.isEmpty()) {
+                    etPetBirthday.setError("Pet Birthday is required. You may estimate if the exact date is unknown.");
+                    etPetBirthday.requestFocus();
+                    return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");
                     etPetDescription.requestFocus();
@@ -415,6 +435,8 @@ public class AddCat extends Fragment {
                     } else {
                         Toast.makeText(getActivity(), "Proceed now to questionnaire!", Toast.LENGTH_LONG).show();
 
+                        if (rbYesBirthday.isChecked()) petExact = true;
+                        else petExact = false;
                         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                         ShelterCatQuestionnaire ShelterCatQuestionnaire = new ShelterCatQuestionnaire();
                         transaction.replace(R.id.nav_host_fragment, ShelterCatQuestionnaire);

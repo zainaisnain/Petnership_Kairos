@@ -33,6 +33,7 @@ List of pets -> per cat card view profile
 public class ShelterPerCatProfile extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
+    static boolean fromEditInfo = false;
 
     protected static String petID, petImageName, petName, petBreed, petAge, petSex, petDescription;
     private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
@@ -63,6 +64,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_per_cat_profile);
+
 
         authProfile = FirebaseAuth.getInstance();
         firebaseUser = authProfile.getCurrentUser();
@@ -96,6 +98,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
             }
         });
 
+
         deleteCatBtn = findViewById(R.id.delete_cat_info_btn);
         deleteCatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +124,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
                 fragment.setArguments(bundle);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.per_cat_profile_container, fragment).addToBackStack(null).commit();
+                transaction.replace(R.id.per_cat_profile_container, fragment).addToBackStack("edit cat").commit();
             }
         });
         setUpPetImage();
@@ -306,7 +309,7 @@ public class ShelterPerCatProfile extends AppCompatActivity {
 
                 petName = (String) snapshot.child("petName").getValue();
                 petBreed = (String) snapshot.child("q9").getValue();
-                petAge = (String) snapshot.child("petAge").getValue();
+                petAge = (String) snapshot.child("petAgeNum").getValue();
                 petSex = (String) snapshot.child("petSex").getValue();
                 petDescription = (String) snapshot.child("petDesc").getValue();
 

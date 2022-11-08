@@ -250,7 +250,7 @@ public class AdopterPerCatProfile extends AppCompatActivity {
                                 }
 
                                 petName = String.valueOf(snapshot2.child("petName").getValue());
-                                petAge = String.valueOf(snapshot2.child("petAge").getValue());
+                                petAge = String.valueOf(snapshot2.child("petAgeNum").getValue());
                                 petSex = String.valueOf(snapshot2.child("petSex").getValue());
                                 petDescription = String.valueOf(snapshot2.child("petDesc").getValue());
                                 shelterID = (String) snapshot2.child("shelter").getValue();
