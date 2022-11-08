@@ -262,7 +262,7 @@ public class RecommendedPetIndiv extends Fragment {
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
             transaction.replace(R.id.recommendedPets, termsAndConditions);
-            transaction.addToBackStack("Adopter");
+            transaction.addToBackStack("recommendation to adoption");
             transaction.commit();
 
         });
