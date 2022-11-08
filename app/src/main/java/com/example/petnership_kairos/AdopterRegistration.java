@@ -352,6 +352,12 @@ public class AdopterRegistration extends AppCompatActivity implements View.OnCli
             return;
         }
 
+        if (birthday.isEmpty()){
+            editTextBirthday.setError("Please select your birthday.");
+            editTextBirthday.requestFocus();
+            return;
+        }
+
         adopterID = databaseReference.child("Adopters").push().getKey();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
