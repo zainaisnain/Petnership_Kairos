@@ -173,6 +173,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                             bundle.putString("adopterContact", adopterContact);
                                             bundle.putString("adopterAddress", adopterAddress);
                                             bundle.putString("adopterBirthday", adopterBirthday);
+                                            bundle.putDouble("match", matchPercentage);
 
                                             TermsAndConditions termsAndConditions = new TermsAndConditions();
                                             termsAndConditions.setArguments(bundle);
