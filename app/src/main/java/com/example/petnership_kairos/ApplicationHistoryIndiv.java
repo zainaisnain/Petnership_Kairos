@@ -41,11 +41,11 @@ public class ApplicationHistoryIndiv extends Fragment {
 
     String shelterEmail;
     String applicationID, dateApplied, adopterID, adopterName,
-            petID, petName, petBreed, petAge, petDescription, shelterID,
+            petID, petName, petBreed, petBirthday, petDescription, shelterID,
             shelterReason, shelterBizName, applicationStatus;
     String adopterEmail, adopterContact, adopterAddress;
 
-    private TextView petNameTV, petAgeTV, petBreedTV,
+    private TextView petNameTV, petAgeTV, petBreedTV, petDescTV,
             applicationStatusTV, dateAppliedTV, shelterBizNameTV, shelterReasonTV;
 
     public static ApplicationHistoryIndiv newInstance() {
@@ -86,19 +86,29 @@ public class ApplicationHistoryIndiv extends Fragment {
         applicationID = getArguments().getString("applicationID");
         petID = getArguments().getString("petID");
         petName = getArguments().getString("petName");
+        petBirthday = getArguments().getString("petBirthday");
+        petBreed = getArguments().getString("petBreed");
+        petDescription = getArguments().getString("petDesc");
         applicationStatus = getArguments().getString("applicationStatus");
         dateApplied = getArguments().getString("applicantDateApplied");
 
         petNameTV = view.findViewById(R.id.per_pet_name);
         petNameTV.setText(petName);
         petAgeTV = view.findViewById(R.id.pet_age_value);
+        petAgeTV.setText(petBirthday);
+        petDescTV = view.findViewById(R.id.per_cat_desc);
+        petDescTV.setText(petDescription);
         petBreedTV = view.findViewById(R.id.per_cat_breed);
+        petBreedTV.setText(petBreed);
         applicationStatusTV = view.findViewById(R.id.adoptionForm_petStatus);
         applicationStatusTV.setText(applicationStatus);
         dateAppliedTV = view.findViewById(R.id.adoptionForm_petDate);
         dateAppliedTV.setText(dateApplied);
         shelterBizNameTV = view.findViewById(R.id.adoptionForm_shelter);
         shelterReasonTV = view.findViewById(R.id.adoptionForm_shelter_reason);
+        if(applicationStatus.equalsIgnoreCase("pending")) {
+            view.findViewById(R.id.adoptionForm_shelter_reason).setVisibility(View.GONE);
+        }
 
         populateTextViews();
     }

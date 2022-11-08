@@ -1,14 +1,50 @@
 package com.example.petnership_kairos;
 
 public class ApplicationHistoryData {
-    private String applicationID, shelterID, petID, PetName,
-            applicationStatus , applicantDateApplied;
+    private String applicationID;
+    private String shelterID;
+    private String petID;
+    private String PetName;
+    private String applicationStatus;
+    private String applicantDateApplied;
+    private String breed;
 
-    public ApplicationHistoryData(String applicationID, String shelterID, String petID, String petName, String applicationStatus, String applicantDateApplied) {
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    private String desc;
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    private String birthday;
+
+    public ApplicationHistoryData(String applicationID, String shelterID, String petID, String petName, String breed, String birthday, String desc, String applicationStatus, String applicantDateApplied) {
         this.applicationID = applicationID;
         this.shelterID = shelterID;
         this.petID = petID;
         PetName = petName;
+        this.breed = breed;
+        this.birthday = birthday;
+        this.desc = desc;
         this.applicationStatus = applicationStatus;
         this.applicantDateApplied = applicantDateApplied;
     }

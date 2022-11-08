@@ -34,8 +34,9 @@ public class ApplicationHistoryFragment extends Fragment {
 
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
+    DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference("Pets").child("AllPets");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
-    String shelterID, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied, applicationStatus;
+    String shelterID, petType, shelterEmail, adopterID, adopterEmail, adopterName, petID, petName, applicationID, dateApplied, applicationStatus, petBirthday, petBreed, petDesc;
 
     ApplicationHistoryData[] applicationHistoryData;
     private ArrayList<ApplicationHistoryData> ALApplicationHistoryData = new ArrayList<>();
@@ -135,24 +136,49 @@ public class ApplicationHistoryFragment extends Fragment {
                     }
 
                     if(adopterSnapshot.child(adopterID).hasChild("ApplicationHistory")){
-                        adoptersDBRef.child(adopterID).child("ApplicationHistory").addListenerForSingleValueEvent(new ValueEventListener() {
+                        allPetsDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            public void onDataChange(@NonNull DataSnapshot snapshotPets) {
 
-                                for(DataSnapshot ds : snapshot.getChildren()) {
-                                    applicationID = ds.getKey();
 
-                                    shelterID = (String) snapshot.child(applicationID).child("shelterID").getValue();
-                                    petID = (String) snapshot.child(applicationID).child("petID").getValue();
-                                    petName = (String) snapshot.child(applicationID).child("petName").getValue();
-                                    applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
-                                    dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
+                                adoptersDBRef.child(adopterID).child("ApplicationHistory").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshotAdopters) {
 
-                                    ALApplicationHistoryData.add(new ApplicationHistoryData(applicationID, shelterID, petID, petName, applicationStatus, dateApplied));
-                                }
-                                applicationHistoryData = ALApplicationHistoryData.toArray(new ApplicationHistoryData[ALApplicationHistoryData.size()]);
-                                ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData, ApplicationHistoryFragment.this);
-                                recyclerView.setAdapter(applicationHistoryAdapter);
+                                        for(DataSnapshot ds : snapshotAdopters.getChildren()) {
+                                            applicationID = ds.getKey();
+                                            petID = (String) ds.child("petID").getValue();
+                                            shelterID = (String) ds.child("shelterID").getValue();
+                                            applicationStatus = (String) ds.child("applicationStatus").getValue();
+                                            dateApplied = (String) ds.child("dateApplied").getValue();
+
+
+                                            petType = (String) snapshotPets.child(petID).child("petType").getValue();
+                                            petName = (String) snapshotPets.child(petID).child("petName").getValue();
+                                            petBirthday = (String) snapshotPets.child(petID).child("petAgeNum").getValue();
+                                            petBreed = (String) snapshotPets.child(petID).child("petBreed").getValue();
+                                            petDesc = (String) snapshotPets.child(petID).child("petDesc").getValue();
+
+                                            if(petType.equalsIgnoreCase("cat")) {
+                                                petBreed = (String) snapshotPets.child(petID).child("q9").getValue();
+                                            }
+                                            else {
+
+                                                petBreed = (String) snapshotPets.child(petID).child("q10").getValue();
+                                            }
+
+                                            ALApplicationHistoryData.add(new ApplicationHistoryData(applicationID, shelterID, petID, petName,  petBreed, petBirthday, petDesc, applicationStatus, dateApplied));
+                                        }
+                                        applicationHistoryData = ALApplicationHistoryData.toArray(new ApplicationHistoryData[ALApplicationHistoryData.size()]);
+                                        ApplicationHistoryAdapter applicationHistoryAdapter = new ApplicationHistoryAdapter(applicationHistoryData, ApplicationHistoryFragment.this);
+                                        recyclerView.setAdapter(applicationHistoryAdapter);
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                             }
 
                             @Override
@@ -160,6 +186,8 @@ public class ApplicationHistoryFragment extends Fragment {
 
                             }
                         });
+
+
                     }
                 }
             }

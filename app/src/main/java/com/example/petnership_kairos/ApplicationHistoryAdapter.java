@@ -101,6 +101,9 @@ public class ApplicationHistoryAdapter extends RecyclerView.Adapter<ApplicationH
                 bundle.putString("shelterID", ApplicationHistoryDataList.getShelterID());
                 bundle.putString("petID", ApplicationHistoryDataList.getPetID());
                 bundle.putString("petName", ApplicationHistoryDataList.getPetName());
+                bundle.putString("petBreed", ApplicationHistoryDataList.getBreed());
+                bundle.putString("petBirthday", ApplicationHistoryDataList.getBirthday());
+                bundle.putString("petDesc", ApplicationHistoryDataList.getDesc());
                 bundle.putString("applicationStatus", ApplicationHistoryDataList.getApplicationStatus());
                 bundle.putString("applicantDateApplied",ApplicationHistoryDataList.getApplicantDateApplied());
                 applicationHistoryIndiv.setArguments(bundle);
