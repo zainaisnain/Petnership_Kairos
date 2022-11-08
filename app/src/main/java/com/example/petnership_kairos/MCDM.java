@@ -1291,6 +1291,8 @@ public class MCDM {
 
                         // save to adopter
                         adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).setValue(conQuestion);
+                        adoptersDBRef.child(adopterID).child((animalType == 1 ? "answeredDogQuestionnaire" : "answeredCatQuestionnaire")).setValue(true);
+
 
                         // save to adopters all pet history
                         Double calcHolder;
