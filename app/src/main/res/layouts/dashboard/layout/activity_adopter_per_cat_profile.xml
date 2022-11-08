@@ -100,52 +100,61 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_marginTop="15dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="5dp"
+                            >
 
                             <TextView
                                 android:id="@+id/pet_name_label"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat_reg"
-                                android:text="Name: "
-                                android:textSize="20sp" />
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Name"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_name"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:layout_weight="1"
+                                android:layout_weight="7"
                                 android:text=""
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="5dp"
+                            >
 
                             <TextView
                                 android:id="@+id/label_cat_breed"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Breed: "
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Breed"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_breed"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:layout_weight="1"
+                                android:layout_weight="7"
                                 android:text=""
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
 
                         </LinearLayout>
 
@@ -153,26 +162,30 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="5dp"
+                            >
 
                             <TextView
                                 android:id="@+id/label_cat_age"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Age: "
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Age"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_age"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:layout_weight="1"
+                                android:layout_weight="7"
                                 android:text=""
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
 
                         </LinearLayout>
 
@@ -180,26 +193,30 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="5dp"
+                            >
 
                             <TextView
                                 android:id="@+id/label_cat_sex"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Sex: "
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Sex"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_sex"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:layout_weight="1"
+                                android:layout_weight="7"
                                 android:text=""
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
 
                         </LinearLayout>
 
@@ -207,28 +224,64 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:layout_margin="10dp">
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/label_pet_compatibility"
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Compatibility"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
+
+                            <TextView
+                                android:id="@+id/adopter_per_cat_compatibility"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_reg"
+                                android:layout_weight="7"
+                                android:text=""
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            >
 
                             <TextView
                                 android:id="@+id/label_pet_description"
                                 android:layout_width="20dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="Description: "
-                                android:fontFamily="@font/montserrat_reg"
-                                android:textSize="20sp"/>
+                                android:layout_weight="6"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:text="Description"
+                                android:textSize="17sp"
+                                android:textColor="#8A6DC3"/>
 
                             <TextView
                                 android:id="@+id/adopter_per_cat_description"
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/montserrat_reg"
-                                android:layout_weight="1"
+                                android:layout_weight="7"
                                 android:text=""
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
+                                android:textSize="17sp"
+                                android:textColor="#1D102C"/>
 
                         </LinearLayout>
+
+
 
                     </LinearLayout>
 

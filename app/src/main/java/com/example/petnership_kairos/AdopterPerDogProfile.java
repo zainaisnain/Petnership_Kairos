@@ -24,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.Locale;
+
 public class AdopterPerDogProfile extends AppCompatActivity {
 
     private FirebaseAuth authProfile;
@@ -31,7 +33,8 @@ public class AdopterPerDogProfile extends AppCompatActivity {
 
     protected static String petID, petImageName, petName, petType, petBreed, petAge, petSex, petDescription, petShelter, shelterID;
     private String adopterEmail, adopterID , shelterEmail, adopterName, adopterContact, adopterAddress, adopterBirthday;
-    private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription;
+    private TextView tvPetTitle, tvPetName, tvPetBreed, tvPetAge, tvPetSex, tvPetDescription, tvMatch;
+    private Double matchPercentage;
     private ImageView ivPetImage;
     private ImageButton backBtnUp;
     private Button adoptMeBtn, backBtn;
@@ -90,6 +93,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
         tvPetAge = findViewById(R.id.adopter_per_dog_age);
         tvPetSex = findViewById(R.id.adopter_per_dog_sex);
         tvPetDescription = findViewById(R.id.adopter_per_dog_description);
+        tvMatch = findViewById(R.id.adopter_per_dog_compatibility);
 
         tvDoglvl1 = findViewById(R.id.adopter_doglevel4a2);
         tvDoglvl2 = findViewById(R.id.adopter_doglevel4b2);
@@ -271,6 +275,28 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                         if(petType.equals("dog")){
                                             petBreed = (String) snapshot2.child("q10").getValue();
                                         }
+
+                                        adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                                                System.out.println("Snapshot: " + snapshot2.getKey());
+                                                matchPercentage = (Double) snapshot2.child("MatchPercentage").getValue();
+                                                System.out.println("Match: " + matchPercentage);
+
+
+                                                if (matchPercentage <= 0 ) {
+                                                    tvMatch.setText("N/A");
+                                                }
+                                                else {
+                                                    tvMatch.setText(String.format(Locale.getDefault(), "%.2f%% Match", matchPercentage*100));
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
 
                                         tvPetTitle.setText(petName + "'s Profile");
                                         tvPetName.setText(petName);
