@@ -270,8 +270,6 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                         System.out.println("-petSex: " + petSex);
                                         if(petType.equals("dog")){
                                             petBreed = (String) snapshot2.child("q10").getValue();
-                                        }else if(petType.equals("cat")){
-                                            petBreed = (String) snapshot2.child("q9").getValue();
                                         }
 
                                         tvPetTitle.setText(petName + "'s Profile");
