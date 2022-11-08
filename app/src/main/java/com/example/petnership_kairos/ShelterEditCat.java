@@ -261,8 +261,8 @@ public class ShelterEditCat extends Fragment {
                     etPetName.requestFocus();
                     return;
                 }else if(petAgeNum.isEmpty()){
-                    etPetAge.setError("Pet Age Required.");
-                    etPetAge.requestFocus();
+                    etPetBirthday.setError("Pet Age Required.");
+                    etPetBirthday.requestFocus();
                     return;
                 }else if(petDesc.isEmpty()){
                     etPetDescription.setError("Pet Description Required.");

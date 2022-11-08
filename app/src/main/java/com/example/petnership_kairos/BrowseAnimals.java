@@ -34,6 +34,9 @@ public class BrowseAnimals extends Fragment {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
+    DatabaseReference catsPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Cats");
+    DatabaseReference dogsPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("Dogs");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     private String adopterEmail, adopterID;
     private String petID, petImageName, petName, petAge, petSex, petBreed, petStatus;
@@ -92,61 +95,65 @@ public class BrowseAnimals extends Fragment {
                                 adopterID = ds.getKey();
                             }
 
-                            //NOT WORKING: REFERENCES SHELTER'S PETS DB BUT NOT SHOWING IN RECYCLER VIEW
-//                            adoptersDBRef.child(adopterID).child("AdopterAllPets").addListenerForSingleValueEvent(new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                    for(DataSnapshot ds : snapshot.getChildren()) {
-//                                        petID = ds.getKey();
-//                                        petIDs.add(petID);
-//                                        String valAppliedToAdopt = (String) snapshot.child(petID).child("appliedToAdopt").getValue();
-//                                        if(valAppliedToAdopt.equals("not yet") || valAppliedToAdopt.equals("false") ){
-//
-//                                            allPetsDBRef.child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
-//                                                @Override
-//                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                                    String status = String.valueOf(snapshot.child("petStatus").getValue());
-//                                                    if (status.equals("Available")){
-//                                                        petImageName = String.valueOf(snapshot.child("imageName").getValue());
-//                                                        petName = String.valueOf(snapshot.child("petName").getValue());
-//                                                        petAge = String.valueOf(snapshot.child("petAge").getValue());
-//                                                        petSex = String.valueOf(snapshot.child("petSex").getValue());
-//
-//                                                        String petType = String.valueOf(snapshot.child("petType").getValue());
-//                                                        if(petType.equals("dog")){
-//                                                            petBreed = String.valueOf(snapshot.child("q10").getValue());
-//                                                        }else if(petType.equals("cat")){
-//                                                            petBreed = String.valueOf(snapshot.child("q9").getValue());
-//                                                        }
-//
-//                                                        ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
-//                                                    }
-//                                                }
-//
-//                                                @Override
-//                                                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                                }
-//                                            });
-//                                            for(RegisteredPetData data: ALregisteredPetData){
-//                                                System.out.println("data == " + data);
-//                                            }
-//                                            System.out.println(ALregisteredPetData);
-//                                        }
-//                                    }
-//                                    registeredPetData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
-//                                    BrowseAnimalsAdapter browseAnimalsAdapter = new BrowseAnimalsAdapter(registeredPetData, BrowseAnimals.this, getActivity());
-//                                    recyclerView.setAdapter(browseAnimalsAdapter);
-//                                }
-//
-//                                @Override
-//                                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                }
-//                            });
 
 
+                            allPetsDBRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                                    for (DataSnapshot ds2 : snapshot2.getChildren()) {
+                                        petID = ds2.getKey();
+                                        petIDs.add(petID);
+                                        System.out.println("petID: " + petID);
+                                        System.out.println("snapshot: " + snapshot.getValue());
+                                        String valAppliedToAdopt = String.valueOf(snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("appliedToAdopt").getValue());
 
+                                        System.out.println("-applied: " + valAppliedToAdopt);
+                                        if (valAppliedToAdopt.equalsIgnoreCase("not yet") || valAppliedToAdopt.equalsIgnoreCase("false")) {
+                                            String status = String.valueOf(ds2.child("petStatus").getValue());
+                                            System.out.println("-status: " + status);
+                                            if (status.equalsIgnoreCase("Available")){
+                                                petImageName = String.valueOf(ds2.child("imageName").getValue());
+                                                petName = String.valueOf(ds2.child("petName").getValue());
+                                                petAge = String.valueOf(ds2.child("petAge").getValue());
+                                                petSex = String.valueOf(ds2.child("petSex").getValue());
+                                                System.out.println("-petImageName: " + petImageName);
+                                                System.out.println("-petName " + petName);
+                                                System.out.println("-petAge: " + petAge);
+                                                System.out.println("-petSex: " + petSex);
+
+                                                String petType = String.valueOf(ds2.child("petType").getValue());
+                                                System.out.println("-petType: " + petType);
+                                                if(petType.equals("dog")){
+                                                    petBreed = String.valueOf(ds2.child("q10").getValue());
+                                                }else if(petType.equals("cat")){
+                                                    petBreed = String.valueOf(ds2.child("q9").getValue());
+                                                }
+                                                System.out.println("-petBreed: " + petBreed);
+
+                                                ALregisteredPetData.add(new RegisteredPetData(petID, petType, petImageName, petName, petAge, petSex, petBreed));
+                                            }
+
+
+                                            for(RegisteredPetData data: ALregisteredPetData){
+                                                System.out.println("data == " + data);
+                                            }
+                                            System.out.println(ALregisteredPetData);
+                                        }
+
+                                    }
+
+                                    registeredPetData = ALregisteredPetData.toArray(new RegisteredPetData[ALregisteredPetData.size()]);
+                                    BrowseAnimalsAdapter browseAnimalsAdapter = new BrowseAnimalsAdapter(registeredPetData, BrowseAnimals.this, getActivity());
+                                    recyclerView.setAdapter(browseAnimalsAdapter);
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+/*
                             //WORKING
                             adoptersDBRef.child(adopterID).child("AdopterAllPets")
                                     .orderByChild("petStatus").equalTo("Available")
@@ -188,6 +195,9 @@ public class BrowseAnimals extends Fragment {
 
                                         }
                                     });
+
+
+ */
                         }
                     }
 
