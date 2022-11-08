@@ -223,7 +223,7 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_name_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
@@ -249,7 +249,7 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_type_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
@@ -274,12 +274,12 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_age_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
                                             android:fontFamily="@font/montserrat_bold"
-                                            android:text="Age"
+                                            android:text="Birthday"
                                             android:textStyle="bold"/>
                                         <TextView
                                             android:id="@+id/pet_age_shelter_approved"
@@ -299,7 +299,7 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_sex_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
@@ -324,7 +324,7 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_breed_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
@@ -349,7 +349,7 @@
 
                                         <TextView
                                             android:id="@+id/adoption_pet_match_label"
-                                            android:layout_width="60dp"
+                                            android:layout_width="70dp"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/dark_purple"
                                             android:layout_alignParentBottom="true"
@@ -1545,6 +1545,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
                             android:paddingLeft="20dp"
                             android:layout_weight="2"
                             android:fontFamily="@font/montserrat_reg"
@@ -1556,6 +1557,10 @@
                             android:textSize="15sp"
                             android:textStyle="bold" />
 
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/dark_purple"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -1574,11 +1579,13 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Reason "
-                                    android:fontFamily="@font/marmelad_regular"
-                                    android:textSize="20sp"
+                                    android:paddingBottom="10dp"
+                                    android:text="Leave a message for the adopter"
+                                    android:fontFamily="@font/playfairdisplayblack"
+                                    android:textSize="25sp"
                                     android:textColor="#371576"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:gravity="center_horizontal"
                                     android:layout_gravity="center"/>
 
                                 <EditText

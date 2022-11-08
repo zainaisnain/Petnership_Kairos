@@ -193,8 +193,6 @@ public class ShelterToReviewApplication extends Fragment {
 
                 MySaveDialogShelterToReview mySaveDialogShelterToReview = new MySaveDialogShelterToReview();
                 mySaveDialogShelterToReview.show(getParentFragmentManager(), "My Fragment");
-                MyCustomDialog submitDialog = new MyCustomDialog();
-                submitDialog.show(getParentFragmentManager(), "My Fragment");
             }
         });
 
@@ -307,7 +305,7 @@ public class ShelterToReviewApplication extends Fragment {
                                             tvPetName.setText((String) snapshot.child("petName").getValue());
                                             petType = (String) snapshot.child("petType").getValue();
                                             tvPetType.setText(petType);
-                                            tvPetAge.setText((String) snapshot.child("petAge").getValue());
+                                            tvPetAge.setText((String) snapshot.child("petAgeNum").getValue());
                                             tvPetSex.setText((String) snapshot.child("petSex").getValue());
                                             if(petType.equals("cat") || petType.equals("Cat")){
                                                 tvPetBreed.setText((String) snapshot.child("q9").getValue());
