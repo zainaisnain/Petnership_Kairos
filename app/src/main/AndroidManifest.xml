@@ -14,7 +14,28 @@
         android:theme="@style/splashScreenTheme"
         tools:targetApi="31">
         <activity
-            android:name="AdopterNotAnsweredQuestionnaire"
+            android:name=".DialogDeletePet"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DialogHasApprovedAdopter"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DialogHasActiveApplicants"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AdopterNotAnsweredQuestionnaire"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -97,11 +118,10 @@
             android:parentActivityName=".AdopterDashboard">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-
         </activity>
         <activity
             android:name=".ShelterPerDogProfile"
@@ -155,8 +175,7 @@
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true" >
-
+            android:exported="true">
 
             <!-- TODO: REMOVE THIS AFTER -->
             <intent-filter>
@@ -176,8 +195,7 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ActivityUserType"
             android:exported="true" />
