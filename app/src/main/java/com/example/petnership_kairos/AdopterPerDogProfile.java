@@ -285,7 +285,7 @@ public class AdopterPerDogProfile extends AppCompatActivity {
                                                 System.out.println("Match: " + matchPercentage);
 
 
-                                                if (matchPercentage <= 0 ) {
+                                                if (matchPercentage == null ) {
                                                     tvMatch.setText("N/A");
                                                 }
                                                 else {
