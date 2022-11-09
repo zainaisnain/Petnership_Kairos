@@ -190,6 +190,8 @@ public class DogPetProfileSummary extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                getParentFragmentManager().popBackStack();
+//                getActivity().onBackPressed();
                 ShelterDogQuestionnaire shelterDogQuestionnaire = new ShelterDogQuestionnaire();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.nav_host_fragment, shelterDogQuestionnaire);
