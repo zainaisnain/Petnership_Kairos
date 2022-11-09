@@ -126,7 +126,7 @@
 
                             <TextView
                                 android:id="@+id/pet_name_label"
-                                android:layout_width="20dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_bold"
@@ -159,12 +159,12 @@
 
                             <TextView
                                 android:id="@+id/pet_birthday_label"
-                                android:layout_width="20dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_bold"
                                 android:gravity="center_vertical"
-                                android:text="Age"
+                                android:text="Birthday"
                                 android:textColor="#8A6DC3"
                                 android:textSize="20sp"/>
 
@@ -192,7 +192,7 @@
 
                             <TextView
                                 android:id="@+id/pet_breed_label"
-                                android:layout_width="20dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_bold"
@@ -225,7 +225,7 @@
 
                             <TextView
                                 android:id="@+id/pet_sex_label"
-                                android:layout_width="20dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_bold"
@@ -259,7 +259,7 @@
 
                             <TextView
                                 android:id="@+id/pet_match_label"
-                                android:layout_width="20dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/montserrat_bold"
