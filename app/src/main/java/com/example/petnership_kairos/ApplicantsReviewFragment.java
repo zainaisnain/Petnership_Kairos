@@ -100,6 +100,9 @@ public class ApplicantsReviewFragment extends Fragment {
                                     petBirthday = (String) snapshot.child(applicationID).child("petAge").getValue();
                                     applicationStatus = (String) snapshot.child(applicationID).child("applicationStatus").getValue();
                                     dateApplied = (String) snapshot.child(applicationID).child("dateApplied").getValue();
+                                    if (applicationStatus.equalsIgnoreCase("Rejected")) {
+                                        continue;
+                                    }
 
                                     ALApplicantsReviewData.add( new ApplicantsReviewData(applicationID, adopterID, adopterName, petID, petName, applicationStatus, dateApplied));
                                 }

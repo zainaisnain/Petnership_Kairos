@@ -44,7 +44,7 @@ public class ShelterHomeDashboard extends Fragment {
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
 
-    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview, forReviewCount, numOfAproved, numOfPets;
+    private int numOfCats, numOfDogs, catsCount, dogsCount, numOfAdopters, adoptersCount, numOfForReview = 0, forReviewCount, numOfAproved, numOfPets;
     private TextView tvNumOfPets, tvNumOfDogs, tvNumOfCats, tvNumOfApprovedAdopters, tvNumOfForReview;
     private String shelterEmail, shelterImageName;
     private ImageView ivShelterImage;
@@ -376,7 +376,13 @@ public class ShelterHomeDashboard extends Fragment {
                             sheltersDBRef.child(shelterID).child("ForReviewApplicants").addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    numOfForReview = (int) snapshot.getChildrenCount();
+                                    for (DataSnapshot ds2 : snapshot.getChildren()) {
+                                        if(((String)ds2.child("applicationStatus").getValue()).equalsIgnoreCase("In Progress") |
+                                                ((String)ds2.child("applicationStatus").getValue()).equalsIgnoreCase("Pending")) {
+
+                                            numOfForReview++;
+                                        }
+                                    }
                                     if(numOfForReview>0){
                                         String forReview = String.valueOf(numOfForReview);
                                         forReviewCount = numOfForReview;

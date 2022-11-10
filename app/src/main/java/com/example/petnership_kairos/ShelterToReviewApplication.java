@@ -507,6 +507,9 @@ public class ShelterToReviewApplication extends Fragment {
                 }
 
                 String sID = (String) snapshot.child("shelterID").getValue();
+                System.out.println("shelterID: " + shelterID);
+                System.out.println("sid: " + sID);
+                System.out.println("applicationID: " + applicationID);
                 sheltersDBRef.child(sID).child("ForReviewApplicants").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
