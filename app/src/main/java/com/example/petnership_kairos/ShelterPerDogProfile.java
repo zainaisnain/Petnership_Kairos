@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -260,10 +261,12 @@ public class ShelterPerDogProfile extends AppCompatActivity {
             public void onClick(View arg0) {
                 deletePet();
                 //go back to list of dogs
-                ShelterListOfDogsFragment shelterListOfDogsFragment = new ShelterListOfDogsFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.per_dog_profile_container, shelterListOfDogsFragment);
-                transaction.commit();
+                Intent intent = new Intent(ShelterPerDogProfile.this, ShelterDashboard.class);
+                startActivity(intent);
+//                ShelterListOfDogsFragment shelterListOfDogsFragment = new ShelterListOfDogsFragment();
+//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.replace(R.id.per_dog_profile_container, shelterListOfDogsFragment);
+//                transaction.commit();
                 showDeletePetDialog.dismiss();
 
             }

@@ -200,16 +200,16 @@ public class ShelterToReviewApplication extends Fragment {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
-                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
+                CancelDialogShelterPopBackStack cancelDialogShelterPopBackStack = new CancelDialogShelterPopBackStack();
+                cancelDialogShelterPopBackStack.show(getParentFragmentManager(), "My Fragment");
             }
         });
         cancelApplication = view.findViewById(R.id.cancel_btn_shelter_to_review);
         cancelApplication.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCancelDialogShelter myCancelDialogShelter = new MyCancelDialogShelter();
-                myCancelDialogShelter.show(getParentFragmentManager(), "My Fragment");
+                CancelDialogShelterPopBackStack cancelDialogShelterPopBackStack = new CancelDialogShelterPopBackStack();
+                cancelDialogShelterPopBackStack.show(getParentFragmentManager(), "My Fragment");
             }
         });
 

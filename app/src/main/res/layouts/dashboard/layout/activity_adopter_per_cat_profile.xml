@@ -173,7 +173,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="6"
                                 android:fontFamily="@font/montserrat_bold"
-                                android:text="Age"
+                                android:text="Birthday"
                                 android:textSize="17sp"
                                 android:textColor="#8A6DC3"/>
 

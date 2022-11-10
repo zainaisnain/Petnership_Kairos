@@ -152,7 +152,7 @@ public class AddCat extends Fragment {
         rbYesBirthday = view.findViewById(R.id.shelter_yesBirthday);
         rbNoBirthday = view.findViewById(R.id.shelter_noBirthday);
         tvTitle = view.findViewById(R.id.petinfo_title);
-        tvTitle.setText("Pet Information (Dog)");
+        tvTitle.setText("Pet Information (Cat)");
 //        ddAge = view.findViewById(R.id.pet_age_dd);
 //        ArrayAdapter<String> ageAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, ddAgeValues);
 //        ddAge.setAdapter(ageAdapter);

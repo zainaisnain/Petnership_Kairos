@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -29,7 +30,7 @@ public class UpdateEmail extends AppCompatActivity {
     private FirebaseAuth authProfile;
     private FirebaseUser firebaseUser;
     private ProgressBar progressBar;
-    private String userOldEmail, userNewEmail, userPwd;
+    private String userOldEmail, userNewEmail, userPwd, userType;
     private Button updateEmailBtn;
     private EditText newEmailET, pwdET;
     private TextView authenticateInfoTV;
@@ -53,14 +54,7 @@ public class UpdateEmail extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
-//                MyCancelDialogEmail shelterHomeDashboard = new MyCancelDialogEmail();
-//                transaction.replace(R.id.user_change_email,shelterHomeDashboard);
-//                transaction.addToBackStack("Adopter Home");
-//                transaction.commit();
-                MyCancelDialogEmail myCancelDialogEmail = new MyCancelDialogEmail();
-                myCancelDialogEmail.show(getSupportFragmentManager(), "My Fragment");
+                onBackPressed();
             }
         });
 
@@ -155,8 +149,8 @@ public class UpdateEmail extends AppCompatActivity {
                     //Verify email
                     firebaseUser.sendEmailVerification();
                     updateDB();
-//                    EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
-//                    emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
+                    EmailChangeSavedDialog emailChangeSavedDialog = new EmailChangeSavedDialog();
+                    emailChangeSavedDialog.show(getSupportFragmentManager(), "My Fragment");
                     Toast.makeText(UpdateEmail.this, "Email has been updated.",Toast.LENGTH_SHORT).show();
                 }else{
                     try{
