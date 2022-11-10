@@ -63,6 +63,7 @@ public class ShelterToReviewApplication extends Fragment {
     String adopterEmail, adopterContact, adopterAddress;
     //DB REFs
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
@@ -239,8 +240,14 @@ public class ShelterToReviewApplication extends Fragment {
                 adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        double match = (double) snapshot.child("MatchPercentage").getValue();
-                        tvPetMatch.setText(String.format(Locale.getDefault(), "%.2f%%", match*100));
+                        if (snapshot.child("MatchPercentage").getValue() != null) {
+                            double match = (double) snapshot.child("MatchPercentage").getValue();
+                            tvPetMatch.setText(String.format(Locale.getDefault(), "%.2f%%", match*100));
+
+                        }
+                        else {
+                            tvPetMatch.setText("N/A");
+                        }
                     }
 
                     @Override
@@ -433,6 +440,15 @@ public class ShelterToReviewApplication extends Fragment {
                                                     //Update applicationStatus in adoptersDB
                                                     adoptersDBRef.child(adopterID).child("ApplicationHistory").child(applicationID)
                                                             .child("applicationStatus").setValue(applicationStatus);
+                                                    //update in pets
+                                                    allPetsDBRef.child(petID).child("petStatus").setValue("Not Available");
+                                                    if(petType.equalsIgnoreCase("cat")) {
+                                                        petsDBRef.child("Cats").child(petID).child("petStatus").setValue("Not Available");
+                                                    }
+                                                    else {
+
+                                                        petsDBRef.child("Dogs").child(petID).child("petStatus").setValue("Not Available");
+                                                    }
 
                                                 }
 
@@ -476,6 +492,19 @@ public class ShelterToReviewApplication extends Fragment {
                 snapshot.child("applicationStatus").getRef().setValue(applicationStatus);
                 //insert reason
                 snapshot.child("shelterReason").getRef().setValue(shelterReason);
+
+                //update in pets
+                if(!applicationStatus.equals("Approved")) {
+
+                    allPetsDBRef.child(petID).child("petStatus").setValue("Available");
+                    if(petType.equalsIgnoreCase("cat")) {
+                        petsDBRef.child("Cats").child(petID).child("petStatus").setValue("Available");
+                    }
+                    else {
+
+                        petsDBRef.child("Dogs").child(petID).child("petStatus").setValue("Available");
+                    }
+                }
 
                 String sID = (String) snapshot.child("shelterID").getValue();
                 sheltersDBRef.child(sID).child("ForReviewApplicants").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {

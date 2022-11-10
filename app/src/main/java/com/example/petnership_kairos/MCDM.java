@@ -850,7 +850,19 @@ public class MCDM {
                 }
                 System.out.println();
             }*/
+            System.out.println("POWER METHOD MATRIX:  ");
+            for (int i = 0; i < matrixDimension; i++) {
+                for (int j = 0; j<matrixDimension; j++) {
+                    System.out.print(mainPriorityMatrix[i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println("POWER METHOD VECTOR PRIORITY:  ");
+            for (int i = 0; i < matrixDimension; i++) {
+                System.out.print(mainPriorityVector[i]);
+            }
 
+            System.out.println();
             // normalize priorities
             for (int i = 0; i < matrixDimension; i++) {
                 mainPriorityVector[i] /= allPrioritySum;
@@ -858,6 +870,14 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(mainPriorityVector[i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+
+            System.out.println("NORMALIZED PRIORITIES: ");
+            for (int i = 0; i < matrixDimension; i++) {
+                System.out.print(mainPriorityVector[i]);
+            }
+            System.out.println(": ");
+
+
             /*System.out.println("Printing VECTOR while doing priority values " + derivationCount);
             for (int i = 0; i < matrixDimension; i++) {
                 System.out.print(mainPriorityVector[i]);
@@ -935,6 +955,18 @@ public class MCDM {
             }*/
 
 
+            System.out.println("POWER METHOD SUBMATRIX:  ");
+            for (int i = 0; i < matrixDimension; i++) {
+                for (int j = 0; j<matrixDimension; j++) {
+                    System.out.print(subcriteriaPriorityMatrix[matrixIndex][i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println("POWER METHOD SUBCRITERIA VECTOR PRIORITY:  ");
+            for (int i = 0; i < matrixDimension; i++) {
+                System.out.print(subcriteriaPriorityVector[matrixIndex][i]);
+            }
+
             // normalize priorities
             for (int i = 0; i < matrixDimension; i++) {
                 subcriteriaPriorityVector[matrixIndex][i] /= allPrioritySum;
@@ -942,6 +974,12 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(subcriteriaPriorityVector[matrixIndex][i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+            System.out.println("NORMALIZED PRIORITIES: ");
+            for (int i = 0; i < matrixDimension; i++) {
+                System.out.print(subcriteriaPriorityVector[matrixIndex][i]);
+            }
+            System.out.println(": ");
+
             /*
             System.out.println("Printing SUBCRITERIA VECTOR while doing priority values " + derivationCount);
             for (int i = 0; i < matrixDimension; i++) {
@@ -1022,6 +1060,18 @@ public class MCDM {
 
              */
 
+            System.out.println(" INTENSITY MATRIX " + matrixIndex + ":  ");
+            for (int i = 0; i < INTENSITY_COUNT; i++) {
+                for (int j = 0; j<INTENSITY_COUNT; j++) {
+                    System.out.print(intensityPriorityMatrix[matrixIndex][i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println("POWER METHOD INTENSITY PRIORITIES " + matrixIndex + ":  ");
+            for (int i = 0; i < INTENSITY_COUNT; i++) {
+                System.out.print(intensityPriorityVector[matrixIndex][i]);
+            }
+
 
             // normalize priorities
             for (int i = 0; i < INTENSITY_COUNT; i++) {
@@ -1030,6 +1080,11 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(intensityPriorityVector[matrixIndex][i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+            System.out.println("POWER METHOD INTENSITY PRIORITIES " + matrixIndex + ":  ");
+            for (int i = 0; i < INTENSITY_COUNT; i++) {
+                System.out.print(intensityPriorityVector[matrixIndex][i]);
+            }
+
             /*
             System.out.println("Printing INTENSITY VECTOR while doing priority values " + derivationCount);
             for (int i = 0; i < INTENSITY_COUNT; i++) {
@@ -1301,7 +1356,7 @@ public class MCDM {
                             calcHolder = e.getCalculatedPerformanceScore();
                             petIDHolder = e.getId();
                             Map<String, Object> matchPercentageMap = new HashMap<>();
-                            matchPercentageMap.put("MatchPercentage", calcHolder);
+                            matchPercentageMap.put("MatchPercentage", (Double)calcHolder);
                             adoptersDBRef.child(adopterID).child("AdopterAllPets").child(petIDHolder).updateChildren(matchPercentageMap);
                         }
 
