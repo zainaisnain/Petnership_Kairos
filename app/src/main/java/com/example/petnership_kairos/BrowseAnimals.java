@@ -102,16 +102,25 @@ public class BrowseAnimals extends Fragment {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot2) {
                                     for (DataSnapshot ds2 : snapshot2.getChildren()) {
+                                        if (ds2.child("petStatus").equals("Not Available")) {
+                                            continue;
+                                        }
                                         petID = ds2.getKey();
                                         petIDs.add(petID);
                                         System.out.println("petID: " + petID);
                                         System.out.println("snapshot: " + snapshot.getValue());
                                         String valAppliedToAdopt = String.valueOf(snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("appliedToAdopt").getValue());
 
-                                        petMatch = (Double) snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("MatchPercentage").getValue();
-                                        if(petMatch == null) {
+                                        if (snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("MatchPercentage").getValue() != null) {
+                                            petMatch = ((Number)snapshot.child(adopterID).child("AdopterAllPets").child(petID).child("MatchPercentage").getValue()).doubleValue();
+
+                                        }
+                                        else {
                                             petMatch = 0.0;
                                         }
+
+                                        // don't show if alreadyu adopted
+
 
                                         System.out.println("-applied: " + valAppliedToAdopt);
                                         if (valAppliedToAdopt.equalsIgnoreCase("not yet") || valAppliedToAdopt.equalsIgnoreCase("false")) {

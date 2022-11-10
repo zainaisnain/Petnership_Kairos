@@ -63,6 +63,7 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
     String adopterEmail, adopterContact, adopterAddress;
     //DB REFs
     DatabaseReference allPetsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets").child("AllPets");
+    DatabaseReference petsDBRef = FirebaseDatabase.getInstance().getReference().child("Pets");
     DatabaseReference adoptersDBRef = FirebaseDatabase.getInstance().getReference("Adopters");
     DatabaseReference sheltersDBRef = FirebaseDatabase.getInstance().getReference("Shelters");
     DatabaseReference usersDBRef = FirebaseDatabase.getInstance().getReference("Users");
@@ -398,6 +399,16 @@ public class ShelterApprovedAdoptersIndiv extends Fragment {
                 String sID = (String) dataSnapshot.child("shelterID").getValue();
                 System.out.println("sID == " + sID);
                 System.out.println("applicationID == " + applicationID);
+
+
+                allPetsDBRef.child(petID).child("petStatus").setValue("Available");
+                if(petType.equalsIgnoreCase("cat")) {
+                    petsDBRef.child("Cats").child(petID).child("petStatus").setValue("Available");
+                }
+                else {
+
+                    petsDBRef.child("Dogs").child(petID).child("petStatus").setValue("Available");
+                }
 
                 sheltersDBRef.child(sID).child("ApprovedAdopters").child(applicationID).addListenerForSingleValueEvent(new ValueEventListener() {
                     // Now "DataSnapshot" holds the key and the value at the "fromPath".

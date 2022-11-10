@@ -1474,20 +1474,20 @@
                             android:layout_gravity="center"/>
                         <TextView
                             android:id="@+id/adopter_references_shelter_to_review"
-                            android:layout_width="300dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
-                            android:paddingLeft="20dp"
                             android:layout_weight="2"
                             android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
+                            android:paddingBottom="15dp"
                             android:fontFamily="@font/montserrat_reg"
                             android:gravity="center_vertical"
                             android:text="@string/lorem_ipsum"
                             android:textColor="#1D102C"
                             android:textSize="15sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
 
                         <!-- REASON -->
                         <View
@@ -1510,20 +1510,20 @@
 
                             <TextView
                                 android:id="@+id/adopter_intentions_shelter_to_review"
-                                android:layout_width="300dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:layout_marginStart="20dp"
                                 android:layout_marginEnd="20dp"
-                                android:paddingLeft="20dp"
                                 android:layout_weight="2"
                                 android:paddingTop="5dp"
-                                android:paddingBottom="5dp"
+                                android:paddingBottom="15dp"
                                 android:fontFamily="@font/montserrat_reg"
                                 android:gravity="center_vertical"
                                 android:text="@string/lorem_ipsum"
                                 android:textColor="#1D102C"
                                 android:textSize="15sp"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
@@ -1543,11 +1543,13 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Reason "
-                                    android:fontFamily="@font/marmelad_regular"
-                                    android:textSize="20sp"
+                                    android:paddingBottom="10dp"
+                                    android:text="Leave a message for the adopter"
+                                    android:fontFamily="@font/playfairdisplayblack"
+                                    android:textSize="25sp"
                                     android:textColor="#371576"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:gravity="center_horizontal"
                                     android:layout_gravity="center"/>
 
                                 <EditText
@@ -1585,11 +1587,13 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:paddingBottom="10dp"
                                     android:text="Email Adopter"
-                                    android:fontFamily="@font/marmelad_regular"
-                                    android:textSize="20sp"
+                                    android:fontFamily="@font/playfairdisplayblack"
+                                    android:textSize="25sp"
                                     android:textColor="#371576"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:gravity="center_horizontal"
                                     android:layout_gravity="center"/>
 
                                 <TextView

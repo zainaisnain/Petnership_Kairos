@@ -61,7 +61,7 @@ public class BrowseAnimalsAdapter extends RecyclerView.Adapter<BrowseAnimalsAdap
         holder.tvPetSex.setText(registeredPetDataList.getPetSex());
         holder.tvPetBreed.setText(registeredPetDataList.getPetBreed());
         String petType = registeredPetDataList.getPetType();
-        if (registeredPetDataList.getPetMatch() == 0.0) {
+        if (registeredPetDataList.getPetMatch() == 0.0 || registeredPetDataList.getPetMatch() == null) {
             holder.tvMatch.setText("N/A");
 
         }
