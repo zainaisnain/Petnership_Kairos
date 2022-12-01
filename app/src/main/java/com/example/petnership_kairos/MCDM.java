@@ -36,6 +36,9 @@ public class MCDM {
 
     String adopterEmail, adopterID, dateAnswered, timeAnswered;
     boolean finished;
+    public double consistencyRatio = -1;
+    public List<Double> consistencies = new ArrayList<>();
+
 
     // final values
     private final double DEFAULT_COMPARISON_VAL = 1.0;
@@ -457,9 +460,9 @@ public class MCDM {
         constructIntensityMatrix();
         populateGlobalPrioritiesVector();
         populatePopulationScoreMatrix();
+        checkConsistencyRatio();
         sortAlternativesByPerformanceScore();
         saveResultsToModel();
-        //checkConsistencyRatio();
         //sensitivityAnalysis()
 
 
@@ -474,6 +477,110 @@ public class MCDM {
 
 
         return alternatives; // Sorted result from the ideal solution to the worse one.*/
+    }
+    private void checkConsistencyRatio() {
+        // if 1:
+        // 1 [main, 7 (21)], 2 [sub1, 2 (1)], 3 [sub2, 2 (1)], 4 [sub3, 3 (3)]
+        // 5-15 [intensity, 3*11 (3*11)] = 15 matrices, 59 comparisons
+        // else if 2:
+        // 1 [main, 8 (28)], 2 [sub1, 2 (1)]
+        // 3-11 [intensity, 3*9 (3*9)] = 11 matrices, 56 comparisons
+
+        final double randomIndex[] = {-1, 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41};
+
+        double tempSum;
+        double principalEigenvalue;
+        double consistencyIndex;
+        double tempConsistencyRatio;
+        // mainMatrix * mainPriorityVector
+        int mainMatrixSize = (animalType == 1 ? DOG_MAIN_MATRICES_SIZE : CAT_MAIN_MATRICES_SIZE);
+        principalEigenvalue = 0;
+        for (int i = 0; i < mainMatrixSize; i++) {
+            tempSum = 0;
+            for (int j = 0; j < mainMatrixSize; j++) {
+                System.out.print("mainMatrix[i][j]*mainPriorityVector[j]: ");
+                System.out.println(mainMatrix[i][j]*mainPriorityVector[j]);
+                tempSum += (mainMatrix[i][j]*mainPriorityVector[j]);
+                System.out.println("tempSum: " + tempSum);
+            }
+            principalEigenvalue += (tempSum / mainPriorityVector[i]);
+            System.out.println("principalEigenvalue before average: " + principalEigenvalue);
+        }
+        principalEigenvalue /= mainMatrixSize;
+
+        System.out.println("principalEigenvalue AFTER average: " + principalEigenvalue);
+        consistencyIndex = (principalEigenvalue - mainMatrixSize) / (mainMatrixSize-1);
+        System.out.println("consistencyIndex: " + consistencyIndex);
+        tempConsistencyRatio = consistencyIndex / randomIndex[mainMatrixSize];
+        consistencies.add(tempConsistencyRatio);
+
+
+        // subcriteriaMatrix * subcriteriaPriorityVector
+        int subMatricesSize[] = (animalType == 1 ? DOG_SUBCRITERIA_MATRICES_COUNT : CAT_SUBCRITERIA_MATRICES_COUNT);
+
+        for (int g = 0; g < subMatricesSize[0]; g++) {
+            principalEigenvalue = 0;
+            if (subMatricesSize[g+1] == 2) continue;
+            for (int i = 0; i < subMatricesSize[g+1]; i++) {
+                tempSum = 0;
+                for (int j = 0; j < subMatricesSize[g+1]; j++) {
+                    System.out.print("subcriteriaMatrix[g][i][j]*subcriteriaPriorityVector[g][j]: ");
+                    System.out.println(subcriteriaMatrix[g][i][j]*subcriteriaPriorityVector[g][j]);
+                    tempSum += (subcriteriaMatrix[g][i][j]*subcriteriaPriorityVector[g][j]);
+                    System.out.println("tempSum: " + tempSum);
+                }
+                principalEigenvalue += (tempSum / subcriteriaPriorityVector[g][i]);
+                System.out.println("principalEigenvalue before average: " + principalEigenvalue);
+            }
+            principalEigenvalue /= subMatricesSize[g+1];
+
+            System.out.println("principalEigenvalue AFTER average: " + principalEigenvalue);
+            consistencyIndex = (principalEigenvalue - subMatricesSize[g+1]) / (subMatricesSize[g+1]-1);
+            System.out.println("consistencyIndex: " + consistencyIndex);
+            tempConsistencyRatio = consistencyIndex / randomIndex[subMatricesSize[g+1]];
+            consistencies.add(tempConsistencyRatio);
+
+        }
+
+
+        // intensityMatrix * intensityPriorityVector
+        int intensityMatricesSize = (animalType == 1 ? DOG_INTENSITY_MATRICES_COUNT : CAT_INTENSITY_MATRICES_COUNT);
+
+        for (int g = 0; g < intensityMatricesSize; g++) {
+            principalEigenvalue = 0;
+            for (int i = 0; i < INTENSITY_COUNT; i++) {
+                tempSum = 0;
+                for (int j = 0; j < INTENSITY_COUNT; j++) {
+                    System.out.print("intensityMatrix[g][i][j]*intensityPriorityVector[g][j]: ");
+                    System.out.println(intensityMatrix[g][i][j]*intensityPriorityVector[g][j]);
+                    tempSum += (intensityMatrix[g][i][j]*intensityPriorityVector[g][j]);
+                    System.out.println("tempSum: " + tempSum);
+                }
+                principalEigenvalue += (tempSum / intensityPriorityVector[g][i]);
+                System.out.println("principalEigenvalue before average: " + principalEigenvalue);
+            }
+            principalEigenvalue /= INTENSITY_COUNT;
+
+            System.out.println("principalEigenvalue AFTER average: " + principalEigenvalue);
+            consistencyIndex = (principalEigenvalue - INTENSITY_COUNT) / (INTENSITY_COUNT-1);
+            System.out.println("consistencyIndex: " + consistencyIndex);
+            tempConsistencyRatio = consistencyIndex / randomIndex[INTENSITY_COUNT];
+            consistencies.add(tempConsistencyRatio);
+
+        }
+
+
+        double tempConSum = 0.0;
+        for (double d : consistencies) {
+            System.out.println("d: " + d);
+            tempConSum += d;
+        }
+
+        System.out.println("tempConSum: " + tempConSum);
+        System.out.println("consistencies.size: " + consistencies.size());
+        consistencyRatio = tempConSum/consistencies.size();
+        System.out.println("\n\n CONSISTENCY RATIO: " + consistencyRatio + "\n\n");
+
     }
     private void determineWhichHasSubcriteria() {
         if (animalType == 1) {
@@ -1177,7 +1284,7 @@ public class MCDM {
                     }
                 }
                 else {
-                   // System.out.println("Added main priority!");
+                    // System.out.println("Added main priority!");
                     globalPrioritiesVector[t] = mainPriorityVector[i];
                     t++;
                 }
@@ -1310,6 +1417,7 @@ public class MCDM {
             topThree[i] = alternatives.get(i);
         }
         mViewModel.setTopThree(topThree);
+        mViewModel.setConsistencyRatio(consistencyRatio);
         System.out.println("ADDED TOP " + resultsSize + ":");
         for (int i = 0; i < resultsSize; i++) {
             // TODO: Implement checker if less than 3
@@ -1340,9 +1448,10 @@ public class MCDM {
                         System.out.println("applicationID === " + applicationID);
                         finished = true;
 
+
                         // instantiate classes
-                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), finished, dateAnswered, timeAnswered);
-                       // MCDMContainerOtherAnswers conOthers = new MCDMContainerOtherAnswers();
+                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), finished, dateAnswered, timeAnswered, consistencyRatio, consistencies);
+                        // MCDMContainerOtherAnswers conOthers = new MCDMContainerOtherAnswers();
 
                         // save to adopter
                         adoptersDBRef.child(adopterID).child("MCDM").child((animalType == 1 ? "Dog" : "Cat")).setValue(conQuestion);

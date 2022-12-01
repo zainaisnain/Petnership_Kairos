@@ -21,6 +21,7 @@ public class MCDMAnswersViewModel extends ViewModel {
     private final int CAT_INTENSITY_ANSWERS = 27;
 
     private boolean finishedAnswering = false;
+    private double consistencyRatio = -1;
 
     private int currentResultView = 0;
 
@@ -155,6 +156,12 @@ public class MCDMAnswersViewModel extends ViewModel {
         return topThree[getCurrentResultView()];
     }
 
+    public void setConsistencyRatio(double consistencyRatio) {
+        this.consistencyRatio = consistencyRatio;
+    }
+    public double getConsistencyRatio() {
+        return consistencyRatio;
+    }
 
     public int getMainAnswer(int val) {
         return this.mainAnswers[val];
