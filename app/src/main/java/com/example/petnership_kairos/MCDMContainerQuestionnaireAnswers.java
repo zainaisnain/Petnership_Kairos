@@ -18,6 +18,18 @@ public class MCDMContainerQuestionnaireAnswers {
 
     public List<Integer> answers = new ArrayList<>();
 
+
+    public List<Double> getConsistencies() {
+        return consistencies;
+    }
+
+    public void setConsistencies(List<Double> consistencies) {
+        this.consistencies = consistencies;
+    }
+
+    public List<Double> consistencies = new ArrayList<>();
+
+
     public boolean finished;
     public String dateAnswered;
     public String timeAnswered;
@@ -59,12 +71,14 @@ public class MCDMContainerQuestionnaireAnswers {
     public MCDMContainerQuestionnaireAnswers() {
 
     }
-    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, boolean finished, String dateAnswered, String timeAnswered, double consistencyRatio) {
+    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, boolean finished, String dateAnswered, String timeAnswered, double consistencyRatio, List<Double> consistencies) {
 
         this.finished = finished;
         this.dateAnswered = dateAnswered;
         this.timeAnswered = timeAnswered;
         this.consistencyRatio = consistencyRatio;
+        this.consistencies = consistencies;
+
 
         int count = 0;
 
