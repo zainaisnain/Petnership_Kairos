@@ -21,6 +21,7 @@ public class MCDMContainerQuestionnaireAnswers {
     public boolean finished;
     public String dateAnswered;
     public String timeAnswered;
+    public double consistencyRatio;
 
 
     public boolean getFinished() {
@@ -29,6 +30,13 @@ public class MCDMContainerQuestionnaireAnswers {
 
     public void setFinished(boolean finished) {
         this.finished = finished;
+    }
+    public double getConsistencyRatio() {
+        return consistencyRatio;
+    }
+
+    public void setConsistencyRatio(double consistencyRatio) {
+        this.consistencyRatio = consistencyRatio;
     }
 
     public String getDateAnswered() {
@@ -51,11 +59,12 @@ public class MCDMContainerQuestionnaireAnswers {
     public MCDMContainerQuestionnaireAnswers() {
 
     }
-    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, boolean finished, String dateAnswered, String timeAnswered) {
+    public MCDMContainerQuestionnaireAnswers(int animalType, int[] answers1, int[] answers2, int[] answers3, boolean finished, String dateAnswered, String timeAnswered, double consistencyRatio) {
 
         this.finished = finished;
         this.dateAnswered = dateAnswered;
         this.timeAnswered = timeAnswered;
+        this.consistencyRatio = consistencyRatio;
 
         int count = 0;
 

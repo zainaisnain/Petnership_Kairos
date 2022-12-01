@@ -414,7 +414,60 @@
                     app:layout_constraintStart_toStartOf="@+id/constraintLayout"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.813" />
+
+                <TextView
+                    android:id="@+id/consistencyLabel"
+                    android:layout_width="161dp"
+                    android:layout_height="32dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center|right"
+                    android:text="Consistency Ratio: "
+                    android:paddingEnd="15dp"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.696"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="0.545" />
+
+                <TextView
+                    android:id="@+id/consistencyValue"
+                    android:layout_width="56dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center|right"
+                    android:text="@string/lorem"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/consistencyLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="0.542" />
+
+                <TextView
+                    android:id="@+id/WhatIsThis"
+                    android:layout_width="91dp"
+                    android:layout_height="25dp"
+                    android:fontFamily="@font/montserrat_reg"
+                    android:gravity="center|right"
+                    android:text="What is this?"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    app:layout_constraintVertical_bias="1.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 

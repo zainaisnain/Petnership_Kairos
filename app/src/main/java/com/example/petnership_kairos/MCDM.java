@@ -36,6 +36,7 @@ public class MCDM {
 
     String adopterEmail, adopterID, dateAnswered, timeAnswered;
     boolean finished;
+    double consistencyRatio;
 
     // final values
     private final double DEFAULT_COMPARISON_VAL = 1.0;
@@ -458,8 +459,8 @@ public class MCDM {
         populateGlobalPrioritiesVector();
         populatePopulationScoreMatrix();
         sortAlternativesByPerformanceScore();
+        checkConsistencyRatio();
         saveResultsToModel();
-        //checkConsistencyRatio();
         //sensitivityAnalysis()
 
 
@@ -474,6 +475,32 @@ public class MCDM {
 
 
         return alternatives; // Sorted result from the ideal solution to the worse one.*/
+    }
+    private void checkConsistencyRatio() {
+        // if 1:
+        // 1 [main, 7 (21)], 2 [sub1, 2 (1)], 3 [sub2, 2 (1)], 4 [sub3, 3 (3)]
+        // 5-15 [intensity, 3*11 (3*11)] = 15 matrices, 59 comparisons
+        // else if 2:
+        // 1 [main, 8 (28)], 2 [sub1, 2 (1)]
+        // 3-11 [intensity, 3*9 (3*9)] = 11 matrices, 56 comparisons
+
+        final double randomIndex[] = {-1, 0, 0, 0.58, 0.9, 1.12, 1.24, 1.32, 1.41};
+        // mainMatrix * mainPriorityVector
+        int mainMatrixSize = (animalType == 1 ? DOG_MAIN_MATRICES_SIZE : CAT_MAIN_MATRICES_SIZE);
+        double tempSum;
+        double tempTotalSum = 0;
+        for (int i = 0; i < mainMatrixSize; i++) {
+            tempSum = 0;
+            tempTotalSum = 0;
+            for (int j = 0; j < mainMatrixSize; j++) {
+                tempSum += (mainMatrix[i][j]*mainPriorityVector[j]);
+            }
+            tempTotalSum += (tempSum / mainPriorityVector[i]);
+        }
+        tempTotalSum /= mainMatrixSize;
+        consistencyRatio = tempTotalSum;
+        System.out.println("\n\n--- CONSISTENCY RATIO: " + consistencyRatio + "\n\n");
+
     }
     private void determineWhichHasSubcriteria() {
         if (animalType == 1) {
@@ -603,6 +630,7 @@ public class MCDM {
 
             // TODO: REMOVE LATER
             //check matrix
+            /*
             for (int i = 0; i < DOG_SUBCRITERIA_MATRICES_COUNT[0]; i++) {
 
                 System.out.println("SUBCRITERIA MATRIX #" + (i+1));
@@ -616,7 +644,7 @@ public class MCDM {
                 System.out.println();
                 deriveSubcriteriaPriorities(DOG_SUBCRITERIA_MATRICES_COUNT[i+1], i);
             }
-
+*/
 
 
         }
@@ -664,6 +692,7 @@ public class MCDM {
 
             // TODO: REMOVE LATER
             //check matrix
+            /*
             for (int i = 0; i < CAT_SUBCRITERIA_MATRICES_COUNT[0]; i++) {
 
                 System.out.println("SUBCRITERIA MATRIX #" + (i+1));
@@ -677,6 +706,8 @@ public class MCDM {
                 System.out.println();
                 deriveSubcriteriaPriorities(CAT_SUBCRITERIA_MATRICES_COUNT[i+1], i);
             }
+
+             */
         }
     }
     private void constructIntensityMatrix() {
@@ -715,7 +746,7 @@ public class MCDM {
                     }
                 }
                 intensityMatrix[h] = tempMatrix;
-
+/*
                 System.out.println("Intensity matrix added at index " + h);
                 for (double[] x : tempMatrix) {
                     for (double y : x) {
@@ -723,11 +754,12 @@ public class MCDM {
                     }
                     System.out.println();
                 }
-
+*/
             }
 
             // TODO: REMOVE LATER
             //check matrix
+            /*
             for (int i = 0; i < DOG_INTENSITY_MATRICES_COUNT; i++) {
 
                 System.out.println("INTENSITY MATRIX #" + (i+1));
@@ -741,6 +773,8 @@ public class MCDM {
                 System.out.println();
                 deriveIntensityPriorities(i);
             }
+
+             */
 
 
 
@@ -781,7 +815,7 @@ public class MCDM {
                     }
                 }
                 intensityMatrix[h] = tempMatrix;
-
+/*
                 System.out.println("Intensity matrix added at index " + h);
                 for (double[] x : tempMatrix) {
                     for (double y : x) {
@@ -790,10 +824,13 @@ public class MCDM {
                     System.out.println();
                 }
 
+ */
+
             }
 
             // TODO: REMOVE LATER
             //check matrix
+            /*
             for (int i = 0; i < CAT_INTENSITY_MATRICES_COUNT; i++) {
 
                 System.out.println("INTENSITY MATRIX #" + (i+1));
@@ -807,6 +844,8 @@ public class MCDM {
                 System.out.println();
                 deriveIntensityPriorities(i);
             }
+
+             */
 
         }
     }
@@ -850,6 +889,7 @@ public class MCDM {
                 }
                 System.out.println();
             }*/
+            /*
             System.out.println("POWER METHOD MATRIX:  ");
             for (int i = 0; i < matrixDimension; i++) {
                 for (int j = 0; j<matrixDimension; j++) {
@@ -862,7 +902,10 @@ public class MCDM {
                 System.out.print(mainPriorityVector[i]);
             }
 
+
             System.out.println();
+
+             */
             // normalize priorities
             for (int i = 0; i < matrixDimension; i++) {
                 mainPriorityVector[i] /= allPrioritySum;
@@ -870,6 +913,7 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(mainPriorityVector[i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+            /*
 
             System.out.println("NORMALIZED PRIORITIES: ");
             for (int i = 0; i < matrixDimension; i++) {
@@ -878,7 +922,7 @@ public class MCDM {
             System.out.println(": ");
 
 
-            /*System.out.println("Printing VECTOR while doing priority values " + derivationCount);
+            System.out.println("Printing VECTOR while doing priority values " + derivationCount);
             for (int i = 0; i < matrixDimension; i++) {
                 System.out.print(mainPriorityVector[i]);
             }
@@ -954,6 +998,7 @@ public class MCDM {
                 System.out.println();
             }*/
 
+            /*
 
             System.out.println("POWER METHOD SUBMATRIX:  ");
             for (int i = 0; i < matrixDimension; i++) {
@@ -967,6 +1012,8 @@ public class MCDM {
                 System.out.print(subcriteriaPriorityVector[matrixIndex][i]);
             }
 
+             */
+
             // normalize priorities
             for (int i = 0; i < matrixDimension; i++) {
                 subcriteriaPriorityVector[matrixIndex][i] /= allPrioritySum;
@@ -974,6 +1021,7 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(subcriteriaPriorityVector[matrixIndex][i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+            /*
             System.out.println("NORMALIZED PRIORITIES: ");
             for (int i = 0; i < matrixDimension; i++) {
                 System.out.print(subcriteriaPriorityVector[matrixIndex][i]);
@@ -1059,6 +1107,7 @@ public class MCDM {
             }
 
              */
+            /*
 
             System.out.println(" INTENSITY MATRIX " + matrixIndex + ":  ");
             for (int i = 0; i < INTENSITY_COUNT; i++) {
@@ -1072,6 +1121,8 @@ public class MCDM {
                 System.out.print(intensityPriorityVector[matrixIndex][i]);
             }
 
+             */
+
 
             // normalize priorities
             for (int i = 0; i < INTENSITY_COUNT; i++) {
@@ -1080,6 +1131,7 @@ public class MCDM {
                     lessThanStopCriterion = Math.abs(intensityPriorityVector[matrixIndex][i] - temporaryPriorityVector[i]) < stopCriterion;
                 }
             }
+            /*
             System.out.println("POWER METHOD INTENSITY PRIORITIES " + matrixIndex + ":  ");
             for (int i = 0; i < INTENSITY_COUNT; i++) {
                 System.out.print(intensityPriorityVector[matrixIndex][i]);
@@ -1184,10 +1236,13 @@ public class MCDM {
             }
         }
         //TODO: REMOVE LATER
+        /*
         System.out.println("PRINTING GLOBAL PRIORITIES");
         for (double e : globalPrioritiesVector) {
             System.out.println(e + " ");
         }
+
+         */
     }
     private void populatePopulationScoreMatrix() {
         if(animalType == 1) {
@@ -1341,7 +1396,7 @@ public class MCDM {
                         finished = true;
 
                         // instantiate classes
-                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), finished, dateAnswered, timeAnswered);
+                        MCDMContainerQuestionnaireAnswers conQuestion = new MCDMContainerQuestionnaireAnswers(animalType, mViewModel.getMainAnswers(), mViewModel.getSubcriteriaAnswers(), mViewModel.getIntensityAnswers(), finished, dateAnswered, timeAnswered, consistencyRatio);
                        // MCDMContainerOtherAnswers conOthers = new MCDMContainerOtherAnswers();
 
                         // save to adopter
