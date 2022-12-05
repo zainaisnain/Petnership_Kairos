@@ -121,13 +121,13 @@ public class FragmentRecommendedPets extends Fragment {
         tvName3.setText(topThree[2].getName());
         tvAge3.setText(topThree[2].getAge());
         tvSex3.setText(topThree[2].getSex());
-        String cons =  mViewModel.getConsistencyRatio() <= 0.1 ? "Acceptable Consistency" : mViewModel.getConsistencyRatio() <= 0.5 ? "Mildly Inconsistent Choices" : "Very Inconsistent Choices";
+        String cons =  mViewModel.getConsistencyRatio() <= 0.1 ? "Acceptable Consistency" : "High Inconsistency";
         //tvConsistency.setText(String.format(Locale.getDefault(), "%.2f", (mViewModel.getConsistencyRatio()*100)));
         tvConsistency.setText(cons);
         if (cons.equals("Acceptable Consistency")) {
             tvConsistency.setTextColor(Color.GREEN);
         }
-        else if (cons.equals("Mildly Inconsistent")) {
+        else if (mViewModel.getConsistencyRatio() <= 0.5) {
             tvConsistency.setTextColor(Color.MAGENTA);
         }
         else {
