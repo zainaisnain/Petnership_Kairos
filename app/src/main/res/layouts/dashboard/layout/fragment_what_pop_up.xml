@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="440dp"
+    android:background="@drawable/minicard">
+
+
+    <Button
+        android:id="@+id/popup2dismiss"
+        android:layout_width="197dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/montserrat_reg"
+        android:text="Dismiss"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popup2part2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/popup3head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="CONSISTENCY RATIO"
+        android:textColor="@color/dark_purple"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <TextView
+        android:id="@+id/popup2part1"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/marmelad_regular"
+        android:gravity="center"
+        android:text="Consistency ratio refers to how consistent your choices were when answering the questionnaire."
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popup3head"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/popup2part2"
+        android:layout_width="300dp"
+        android:layout_height="240dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/marmelad_regular"
+        android:gravity="center"
+        android:text="For example, suppose you like Option A two times more than Option B, and you like Option B three times more than Option C. Logically, it follows that you will like Option A six times more than Option C. If what you chose doesn't match this, then there is an inconsistency in your choices.\n\nMathematically, a consistency of 0.10 or 10% or less is considered acceptable. However, highly inconsistent choices indicate a high unreliability, thus it is recommended that you answer the questionnaire again until this is acceptably consistent."
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popup2part1"
+        app:layout_constraintVertical_bias="0.07" />
+    <!--
+        <ImageButton
+            android:id="@+id/closeBTN"
+            android:layout_width="45dp"
+            android:layout_height="41dp"
+            android:background="#0000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" /> -->
+</androidx.constraintlayout.widget.ConstraintLayout>

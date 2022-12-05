@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class FragmentRecommendedPets extends Fragment {
     ConstraintLayout recommendedPet1, recommendedPet2, recommendedPet3;
     TextView tvPercentage1, tvName1, tvAge1, tvBreed1, tvSex1;
     TextView tvPercentage2, tvName2, tvAge2, tvBreed2, tvSex2;
-    TextView tvPercentage3, tvName3, tvAge3, tvBreed3, tvSex3, tvConsistency;
+    TextView tvPercentage3, tvName3, tvAge3, tvBreed3, tvSex3, tvConsistency, tvHelp;
     ImageView ivImage1, ivImage2, ivImage3;
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
@@ -78,6 +79,7 @@ public class FragmentRecommendedPets extends Fragment {
         tvName3 = view.findViewById(R.id.rec3_name);
         tvAge3 = view.findViewById(R.id.rec3_age);
         tvSex3 = view.findViewById(R.id.rec3_sex);
+        tvHelp = view.findViewById(R.id.WhatIsThis);
         tvConsistency = view.findViewById(R.id.consistencyValue);
 
         // load images of all three pets
@@ -119,7 +121,20 @@ public class FragmentRecommendedPets extends Fragment {
         tvName3.setText(topThree[2].getName());
         tvAge3.setText(topThree[2].getAge());
         tvSex3.setText(topThree[2].getSex());
-        tvConsistency.setText(String.format(Locale.getDefault(), "%.7f", mViewModel.getConsistencyRatio()));
+        String cons =  mViewModel.getConsistencyRatio() <= 0.1 ? "Acceptable Consistency" : mViewModel.getConsistencyRatio() <= 0.5 ? "Mildly Inconsistent Choices" : "Very Inconsistent Choices";
+        //tvConsistency.setText(String.format(Locale.getDefault(), "%.2f", (mViewModel.getConsistencyRatio()*100)));
+        tvConsistency.setText(cons);
+        if (cons.equals("Acceptable Consistency")) {
+            tvConsistency.setTextColor(Color.GREEN);
+        }
+        else if (cons.equals("Mildly Inconsistent")) {
+            tvConsistency.setTextColor(Color.MAGENTA);
+        }
+        else {
+            tvConsistency.setTextColor(Color.RED);
+        }
+        tvHelp.setOnClickListener(view1 -> whatIsThis());
+
 
         // load card
         recommendedPet1 = view.findViewById(R.id.rec1_card);
@@ -164,5 +179,11 @@ public class FragmentRecommendedPets extends Fragment {
 
     }
 
+    private void whatIsThis() {
+        WhatPopUp whatDialog = new WhatPopUp();
+        whatDialog.show(getParentFragmentManager(), "What Popup");
+
+
+    }
 
 }
